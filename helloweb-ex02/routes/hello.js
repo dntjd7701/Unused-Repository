@@ -1,11 +1,19 @@
+const { render } = require("ejs");
 const express = require("express");
 
-const helloRouter = express.Router();
-helloRouter.route("/01").get(function (req, res) {
-  res.writeHead(200, {
-    "Content-Type": "text/html",
-  });
-  res.end("<h1>Hello 02</h1>");
+const router = express.Router();
+router.route("/01").get(function (req, res) {
+  res.render("hello/01");
 });
 
-module.exports = helloRouter;
+router.route("/02").get(function (req, res) {
+  console.log(req.query.no);
+  console.log(req.query.email);
+
+  res.render("hello/02", {
+    no: req.query.no || "",
+    email: req.query.email || "",
+  });
+});
+
+module.exports = router;

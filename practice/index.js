@@ -1,35 +1,25 @@
-const express = require("express");
 const http = require("http");
+const express = require("express");
 const path = require("path");
 
-// Routers
-const mainRouter = require("./routes/main");
-const helloRouter = require("./routes/hello");
-const userRouter = require("./routes/user");
-
+const mainRouter = require("./routers/main");
+const userRouter = require("./routers/user");
 const port = 8080;
 
-// Application Setup *******************
 const application = express()
-  //1. static serve(static 파일 읽어들이기)
   .use(express.static(path.join(__dirname, "public")))
-  // 2. request body parser
-  .use(express.urlencoded({ extended: true })) // application/x-www-form-rulencoded
-  .use(express.json()) // application/json
-  // 3. view engine setup
+  .use(express.urlencoded({ extended: true }))
+  .use(express.json())
   .set("views", path.join(__dirname, "views"))
   .set("view engine", "ejs")
-  // 4. request router
-  .all("*", function (req, res, next) {
-    res.locals.req = req;
-    res.locals.res = res;
+  .all("*", function (request, response, next) {
+    response.locals.request = request;
+    response.locals.response = response;
     next();
   })
   .use("/", mainRouter)
-  .use("/hello", helloRouter)
   .use("/user", userRouter);
 
-// Server setup ************************
 http
   .createServer(application)
   .on("listening", function () {
@@ -40,12 +30,13 @@ http
       throw error;
     }
     switch (error.code) {
-      case "EACCES":
+      case "EACCESS":
         console.log(`Port : ${port} requires privileges`);
         process.exit(1);
         break;
+
       case "EADDRINUSE":
-        console.log(`Port : ${port} is already in charge`);
+        console.log(`Port : ${port} is alread in charge`);
         process.exit(1);
         break;
       default:
