@@ -59,8 +59,11 @@ mkdir models
 
   - model based mysql
 
+- guestbook01
+
 - emaillist02 : ORM
   - model based Sequelize
+---
 
 > 순서 (emaillist01)
 
@@ -88,3 +91,36 @@ mkdir models
 [emaillist01] mkdir routes(routers)  
 [emaillist01] mkdir controllers  
 [emaillist01] mkdir models
+
+---
+> 순서 (guestbook01)
+
+[guestbook01]
+
+[guestbook01] npm init -y  
+[guestbook01] npm i express  
+[guestbook01] npm i ejs  
+[guestbook01] npm i -D nodemon  
+[guestbook01] npm i mysql (mac의 경우 mysql2)
+
+- package.json 스크립트 수정
+
+```javascript
+"scripts": {
+"start": "node index.js",
+"debug":"nodemon index.js",
+}
+```
+
+[guestbook01] npm start(운용시...)  
+[guestbook01] npm run debug(개발시...Live Update)
+
+[guestbook01] mkdir views  
+[guestbook01] mkdir routes(routers)  
+[guestbook01] mkdir controllers  
+[guestbook01] mkdir models   
+[guestbook01] mkdir public
+
+index.js 작성 
+
+---
