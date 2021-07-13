@@ -19,8 +19,8 @@ module.exports = {
   form: function (req, res) {
     res.render("form");
   },
-  add: function (req, res) {
-    console.log(req.body); // post형식의 들어오는 데이터 확인
+  add: async function (req, res) {
+    const results = await model.insert(req.body);
     res.redirect("/"); // DB에 넣을 때 redirect를 해야된다. 맞지맞지
   },
 };

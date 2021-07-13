@@ -8,18 +8,31 @@ module.exports = {
     const conn = dbconn();
     const query = util.promisify(conn.query).bind(conn);
     try {
-      const results = await query(
+      return await query(
         "select first_name as firstName, last_name as lastName, email from emaillist01 order by no desc",
         []
       );
-      return results;
     } catch (e) {
       console.error(e);
     } finally {
       conn.end();
     }
   },
-  insert: function () {},
+  insert: async function (emaillist) {
+    const conn = dbconn();
+    const query = util.promisify(conn.query).bind(conn);
+    try {
+      return await query(
+      "insert into emaillist01 values(null, ?, ?, ?)", 
+      Object.values(emaillist)
+      // [emaillist.fn, emaillist.ln, emaillist.email,]
+    );
+    } catch (e) {
+      console.error(e);
+    } finally {
+      conn.end();
+    }
+  },
 };
 
 /** 
