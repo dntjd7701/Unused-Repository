@@ -55,25 +55,25 @@ mkdir models
 
 ==========================================================================
 
-- emaillist01 : 기본 sql 기반
+- emaillist : 기본 sql 기반
 
   - model based mysql
 
-- guestbook01
+- guestbook
 
 - emaillist02 : ORM
   - model based Sequelize
 ---
 
-> 순서 (emaillist01)
+> 순서 (emaillist)
 
-[emaillist01]
+[emaillist]
 
-[emaillist01] npm init -y  
-[emaillist01] npm i express  
-[emaillist01] npm i ejs  
-[emaillist01] npm i -D nodemon  
-[emaillist01] npm i mysql
+[emaillist] npm init -y  
+[emaillist] npm i express  
+[emaillist] npm i ejs  
+[emaillist] npm i -D nodemon  
+[emaillist] npm i mysql
 
 - package.json 스크립트 수정
 
@@ -84,24 +84,24 @@ mkdir models
 }
 ```
 
-[emaillist01] npm start(운용시...)  
-[emaillist01] npm run debug(개발시...Live Update)
+[emaillist] npm start(운용시...)  
+[emaillist] npm run debug(개발시...Live Update)
 
-[emaillist01] mkdir views  
-[emaillist01] mkdir routes(routers)  
-[emaillist01] mkdir controllers  
-[emaillist01] mkdir models
+[emaillist] mkdir views  
+[emaillist] mkdir routes(routers)  
+[emaillist] mkdir controllers  
+[emaillist] mkdir models
 
 ---
-> 순서 (guestbook01)
+> 순서 (guestbook)
 
-[guestbook01]
+[guestbook]
 
-[guestbook01] npm init -y  
-[guestbook01] npm i express  
-[guestbook01] npm i ejs  
-[guestbook01] npm i -D nodemon  
-[guestbook01] npm i mysql (mac의 경우 mysql2)
+[guestbook] npm init -y  
+[guestbook] npm i express  
+[guestbook] npm i ejs  
+[guestbook] npm i -D nodemon  
+[guestbook] npm i mysql (mac의 경우 mysql2)
 
 - package.json 스크립트 수정
 
@@ -112,15 +112,24 @@ mkdir models
 }
 ```
 
-[guestbook01] npm start(운용시...)  
-[guestbook01] npm run debug(개발시...Live Update)
+[guestbook] npm start(운용시...)  
+[guestbook] npm run debug(개발시...Live Update)
 
-[guestbook01] mkdir views  
-[guestbook01] mkdir routes(routers)  
-[guestbook01] mkdir controllers  
-[guestbook01] mkdir models   
-[guestbook01] mkdir public
+[guestbook] mkdir views  
+[guestbook] mkdir routes(routers)  
+[guestbook] mkdir controllers  
+[guestbook] mkdir models   
+[guestbook] mkdir public
 
 index.js 작성 
 
 ---
+- mysite (models based on Sequelize) <strong>ORM</strong>
+
+
+1. orm(Sequelize) -> JS test
+2. user(session, 인증, 접근제어), API(jQuery(ajax) + Node API == full stack)
+3. views -> include(ejs)
+4. dotenv(configuration: DB Connection Info, port, static directory)
+5. log(winston)
+6. fileupload(multer)
