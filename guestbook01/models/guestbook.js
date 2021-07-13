@@ -40,8 +40,8 @@ module.exports = {
         const query = util.promisify(conn.query).bind(conn);
         try {
             await query(
-                "delete from guestbook where no=?"
-                ,[data.no]
+                "delete from guestbook where no=? and password=?" 
+                ,[data.no, data.password]
                 )
         } catch (error) {
             console.log(`delete error : ${error}`);

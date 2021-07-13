@@ -13,12 +13,12 @@ module.exports = {
     },
     deleteform: async function(req, res){
         res.render("deleteform", {
-            no: req.query.no,
-            password: req.query.password
+            no: req.query.no || "",
+            password: req.query.password || ""
         });
     },
     delete: async function(req, res){
-        if(req.query.password_true === req.query.password){
+        if(req.query.password_true == req.query.password){
             await model.delete(req.body);
             res.redirect("/");
             return;
