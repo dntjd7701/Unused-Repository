@@ -47,7 +47,7 @@ $ npm i mysql2
 
 
 ---
-> index.js -> routes -> Controllers -> models -> DB
+> index.js -> routes -> Controllers -> models(Sequelize) -> DB(mysql)
 <pre>
 1. main
     : "/"   
@@ -56,6 +56,12 @@ $ npm i mysql2
 
 2. user 
     : "/user/*" 
-        -> "/login(get), /login(post), /update, /logout, /join"
-            -> /joinform, /join
+        -> "/login(get),
+            /login(post),
+            /update, 
+            /logout, 
+            /join"
+
+                -> /joinform, 
+                   /join
 </pre>

@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const models = require('../models'); // directory를 지정하면 index.js가 실행된다. 
 
 module.exports = {
     joinsuccess: function(req,res){
@@ -8,10 +8,12 @@ module.exports = {
         res.render('user/joinform');
     },
     join: async function(req, res){
-        const result = await User.create({ 
-            firstName: "Jane", 
-            lastName: "Doe" });
-        console.log("Jane's auto-generated ID:", jane.id);
+        await User.create({ firstName: "Jane", lastName: "Doe" });
+        // const result = await User.create({
+        //     firstName: "Jane",
+        //     lastName: "Doe"
+        // });
+
         res.redirect('/user/joinsuccess');
     },
     login: function(req,res){
