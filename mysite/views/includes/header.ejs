@@ -1,14 +1,20 @@
 <div id="header">
     <h1>MySite</h1>
     <ul>
-        <li><a href="/user/login">로그인</a>
-        <li>
-        <li><a href="/user/join">회원가입</a>
-        <li>
-        <li><a href="/user/update">회원정보수정</a>
-        <li>
-        <li><a href="/user/logout">로그아웃</a>
-        <li>
-        <li>님 안녕하세요 ^^;</li>
+        <% if(req.session.authUser==null){ %>
+            <li><a href="/user/login">로그인</a>
+            <li>
+            <li><a href="/user/join">회원가입</a>
+            <li>
+                <% } else { %>
+            <li><a href="/user/update">회원정보수정</a>
+            <li>
+            <li><a href="/user/logout">로그아웃</a>
+            <li>
+            <li>
+                <%=req.session.authUser.name %>님 안녕하세요 ^^;
+            </li>
+            <% } %>
+
     </ul>
 </div>

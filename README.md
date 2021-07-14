@@ -126,7 +126,6 @@ index.js 작성
 ---
 - mysite (models based on Sequelize) <strong>ORM</strong>
 
-
 1. orm(Sequelize) -> JS test
 2. user(session, 인증, 접근제어), API(jQuery(ajax) + Node API == full stack)
 3. views -> include(ejs)

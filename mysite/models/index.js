@@ -26,9 +26,11 @@
 const {Sequelize, DataTypes} = require('sequelize');
 // DB정보를 받아 객체 생성 
 const sequelize = new Sequelize(
-    'webdb', 'webdb', 'webdb', {
-    host: "127.0.0.1",
-    port: 3306,
+    process.env.DB_NAME, 
+    process.env.DB_USER, 
+    process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'mysql'
     }
 );
@@ -38,8 +40,8 @@ const User = require('./User')(sequelize);
 
 User.sync({
     // table이 없을때 만들어 !
-    force :false, // drop시키고 만들기 
-    alter: false // 데이터가 변경되면 alter table link가 날라가게 한다.  // table의 변경 (true)
+    force: process.env.TABLE_CREATE_ALWAYS === 'true', // drop시키고 만들기  // 항상 DB를 새롭게 만드는 것. 
+    alter: process.env.TABLE_ALTER_SYNC === 'true' // 데이터가 변경되면 alter table link가 날라가게 한다.  // table의 변경 (true) //개발 중엔 보통 true
 })
 
 // Guestbook.sync({

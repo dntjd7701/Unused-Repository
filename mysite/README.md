@@ -3,7 +3,8 @@
 ## 설치 패키지 
 ```bash
 $ npm init -y
-$ npm i express   
+$ npm i express
+$ npm i express-session
 $ npm i ejs
 $ npm i dotenv
 $ npm i sequelize   
@@ -65,3 +66,11 @@ $ npm i mysql2
                 -> /joinform, 
                    /join
 </pre>
+
+
+## Stacks
+
+> Sequelize   
+> mysql   
+> ejs   
+> Node   
