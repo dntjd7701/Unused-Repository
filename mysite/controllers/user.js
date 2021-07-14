@@ -23,7 +23,7 @@ module.exports = {
     },
     _login: async function(req,res){
         const user = await models.User.findOne({
-            attributes: ['no','name','role'], // 받아올 컬럼 
+            attributes: ['no','name','role','gender'], // 받아올 컬럼 
             where: { // where 절 
                 email: req.body.email,
                 password: req.body.password
@@ -47,6 +47,25 @@ module.exports = {
         res.redirect("/");
     },
     update: function(req,res){
-        res.send('update form');
+        res.render('user/update');
+    },
+    _update: async function(req, res){
+        console.log(req.body);
+         const result = await models.User.update({
+                name: req.body.name || req.session.authUser.name,
+                email: req.body.email || req.session.authUser.email,
+                password: req.body.password || req.session.authUser.password,
+                gender: req.body.gender || req.session.authUser.gender
+        },{
+            where: {
+                no: req.session.authUser.no
+            }
+         });
+         console.log(result == 1);
+
+         console.log(req.session.authUser);
+        // udpate된 유저 session에 넣기 
+        req.session.destroy();
+        res.redirect("/user/login");
     }
 }

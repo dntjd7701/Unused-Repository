@@ -25,7 +25,7 @@ const application = express()
   // 2. session environment
   .use(session({
     secret: 'mysite-session', // 쿠키 변조를 위한 값, session cookie 암호화, 솔트 적용->아무렇게 넣어도 괜찮아  
-    resave: false,            // 요청 처리에서 세션의 변경사항이 없어도 항상 저장한다.(true, 성능이 안좋아 사용 안함)(false: 처리, req.session.adffas(authUser) = user, req 안에서 session이 변경됌 )
+    resave: false,            // 요청 처리에서 세션의 변경사항이 없어도 항상 저장한다.(true, 성능이 안좋아 사용 안함)(false: 처리, req.session.adffas(authUser) = user 이런식으로 직접 처리 , req 안에서 session이 변경됌 )
     saveUninitialized: false  // 새로 session을 생성할 때 "uninitialized" 상태로 둔다. (true) 따라서 로그인 세션에서는 false로 하는 것이 좋다.(초기화 시켜라)
   }))
   // 3. request body parser
