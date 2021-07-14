@@ -1,10 +1,12 @@
 # MySite on Node(Express)
 
 ## 설치 패키지 
-```
+```bash
 $ npm init -y
 $ npm i express   
-$ npm i ejs   
+$ npm i ejs
+$ npm i dotenv
+$ npm i sequelize   
 $ npm i -D nodemon   
 $ npm i mysql2   
 ```
@@ -41,4 +43,19 @@ $ npm i mysql2
             |--- /board
             |--- /gallery
             |--- /admin
+</pre>
+
+
+---
+> index.js -> routes -> Controllers -> models -> DB
+<pre>
+1. main
+    : "/"   
+        -> "" 
+            -> main:index(Controller)   
+
+2. user 
+    : "/user/*" 
+        -> "/login(get), /login(post), /update, /logout, /join"
+            -> /joinform, /join
 </pre>
