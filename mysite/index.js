@@ -14,6 +14,7 @@ dotenv.config({path: path.join(__dirname, 'config/db.env')});
 // Routers
 const mainRouter = require("./routes/main");
 const userRouter = require('./routes/user');
+const guestbookRouter = require('./routes/guestbook');
 
 
 /**
@@ -42,6 +43,7 @@ const application = express()
   })
   .use("/", mainRouter)
   .use("/user", userRouter)
+  .use("/guestbook", guestbookRouter)
   .use((req,res) => res.render('error/404')) //url을 주지 않고 들어온것 (404처리) -> default servlet과 같은 ! 없는 것들의 처리)
 
 

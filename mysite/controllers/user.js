@@ -23,7 +23,7 @@ module.exports = {
     },
     _login: async function(req,res){
         const user = await models.User.findOne({
-            attributes: ['no','name','role','gender'], // 받아올 컬럼 
+            attributes: ['no','name','role','gender','email', 'password'], // 받아올 컬럼 
             where: { // where 절 
                 email: req.body.email,
                 password: req.body.password
@@ -52,10 +52,10 @@ module.exports = {
     _update: async function(req, res){
         console.log(req.body);
          const result = await models.User.update({
-                name: req.body.name || req.session.authUser.name,
-                email: req.body.email || req.session.authUser.email,
+                name: req.body.name,
+                email: req.body.email,
                 password: req.body.password || req.session.authUser.password,
-                gender: req.body.gender || req.session.authUser.gender
+                gender: req.body.gender
         },{
             where: {
                 no: req.session.authUser.no

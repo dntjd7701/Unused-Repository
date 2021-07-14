@@ -36,7 +36,7 @@ const sequelize = new Sequelize(
 );
 // User 받아오기 
 const User = require('./User')(sequelize);
-// const Guestbook = require('./Guestbook')(sequelize);
+const Guestbook = require('./Guestbook')(sequelize);
 
 User.sync({
     // table이 없을때 만들어 !
@@ -44,8 +44,8 @@ User.sync({
     alter: process.env.TABLE_ALTER_SYNC === 'true' // 데이터가 변경되면 alter table link가 날라가게 한다.  // table의 변경 (true) //개발 중엔 보통 true
 })
 
-// Guestbook.sync({
-//     force :false,
-//     alter: true 
-// })
-module.exports = { User } 
+Guestbook.sync({
+    force: process.env.TABLE_CREATE_ALWAYS === 'true',
+    alter: process.env.TABLE_ALTER_SYNC === 'true' 
+})
+module.exports = { User, Guestbook } 
