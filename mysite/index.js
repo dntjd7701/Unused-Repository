@@ -27,6 +27,7 @@ const logger = require('./logging');
  */
 const application = express()
   //1. static serve(static 파일 읽어들이기)
+  // __dirname -> mysite, process.env -> public 으로 설정함.
   .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
   // 2. session environment
   .use(session({

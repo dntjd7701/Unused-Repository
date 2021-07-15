@@ -10,9 +10,9 @@ module.exports = {
         }
         });
         res.send({
-            result : "success",
-                data: user !== null, 
-                message: null
+             result : "success",
+             data: user !== null, 
+             message: null
             });
         }catch (error) {
             next(error);            
