@@ -17,6 +17,10 @@ const userRouter = require('./routes/user');
 const guestbookRouter = require('./routes/guestbook');
 
 
+// Logging
+const logger = require('./logging');
+
+
 /**
  *  Application setup
  */
@@ -54,7 +58,7 @@ const application = express()
 http
 .createServer(application)
 .on("listening", function () {
-  console.info(`Http Server running on port ${process.env.PORT}`);
+  logger.info(`Http Server running on port ${process.env.PORT}`);
 })
 .on("error", function (error) {
   if (error.syscall !== "listen") {
@@ -62,11 +66,11 @@ http
   }
   switch (error.code) {
     case "EACCES":
-      console.log(`Port : ${process.env.PORT} requires privileges`);
+      logger.error(`Port : ${process.env.PORT} requires privileges`);
       process.exit(1);
       break;
     case "EADDRINUSE":
-      console.log(`Port : ${process.env.PORT} is already in charge`);
+      logger.error(`Port : ${process.env.PORT} is already in charge`);
       process.exit(1);
       break;
     default:
