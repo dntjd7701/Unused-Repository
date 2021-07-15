@@ -14,6 +14,7 @@ dotenv.config({path: path.join(__dirname, 'config/db.env')});
 // Routers
 const mainRouter = require("./routes/main");
 const userRouter = require('./routes/user');
+const userApiRouter = require('./routes/user-api');
 const guestbookRouter = require('./routes/guestbook');
 const errorRouter = require('./routes/error');
 
@@ -47,6 +48,7 @@ const application = express()
   })
   .use("/", mainRouter)
   .use("/user", userRouter)
+  .use("/api/user", userApiRouter)
   .use("/guestbook", guestbookRouter)
   .use(errorRouter.error404)
   .use(errorRouter.error500);

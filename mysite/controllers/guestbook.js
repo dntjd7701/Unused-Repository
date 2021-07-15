@@ -3,6 +3,7 @@ const models = require("../models");
 
 module.exports = {
     index: async function(req, res){
+        try {
         const list = await models.Guestbook.findAll({
             attributes: [
                 'no', 
@@ -14,8 +15,11 @@ module.exports = {
             order: [['no', 'DESC']]
         })
         res.render("guestbook/index", {
-            list: list || []
-        });
+            guestbooks: list || []
+        });     
+        } catch (error) {
+            next(error);
+        }
     },
     _add: async function(req, res){
         console.log(req.body);
@@ -24,42 +28,24 @@ module.exports = {
             res.redirect('/guestbook');
             return;
         } 
-        // date 처리는 어떻게.. ?
-        await models.Guestbook.create({
-           name: req.body.name,
-           password: req.body.password,
-           message: req.body.message,
-     })
+        await models.Guestbook.create(req.body)
         res.redirect("/guestbook");
     },
     // req 엔진에 의해 공유된다.
     delete: async function(req, res){
-        res.render("guestbook/delete", {
-            no: req.params.no
-        })
+        // res.render("guestbook/delete", {
+        //     no: req.params.no
+        // })
+        res.render("guestbook/delete");
     },
-    _delete: async function(req, res){
-        const pw = await models.Guestbook.findOne({
-            attributes: [
-                'password',
-            ],
-            where: {
-                no: req.body.no
-            }
-        })
-        console.log(pw.password == req.body.password);
-        if(pw.password == req.body.password){
-             await models.Guestbook.destroy({
-                 where: {
-                    no: req.body.no
-                 }
-             })
-            res.redirect("/guestbook");
-            return;
-        } else {
-        res.redirect("/guestbook");
+    _delete: async function(req, res, next){
+      try {
+          await models.Guestbook.destroy({
+              where: req.body
+          })
+          res.redirect('/guestbook');
+      } catch (error) {
+          next(error);
+      }
     }
- }
-
-
 }
