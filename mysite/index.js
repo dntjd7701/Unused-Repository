@@ -48,8 +48,21 @@ const application = express()
   .use("/", mainRouter)
   .use("/user", userRouter)
   .use("/guestbook", guestbookRouter)
-  .use((req,res) => res.render('error/404')) //url을 주지 않고 들어온것 (404처리) -> default servlet과 같은 ! 없는 것들의 처리)
+  //url을 주지 않고 들어온것 (404처리) -> default servlet과 같은 ! 없는 것들의 처리)
+  .use((req,res) => res.status(404).render('error/404')) 
+  // 500 error
+  .use(function(err,req,res,next){
+    // 1. logging 처리 
+    // err.name, err.message, err.stack
+    logger.error(err.stack);
+    // 2. 사과하기 ( 좋은 사과 페이지 보여주자 )
+    // 브라우저한테 500 error라고 알리고, 준비한 500 body가 있으면 rendering해준다.
+    // 개발 중 에러를 보기위해 잠시 막아두자. 
 
+    // res.status(500).render('error/500');
+    res.status(500).send(`<pre>${err.stack}</pre>`); // 개발용 
+
+  });
 
 /**
  *  Server setup
