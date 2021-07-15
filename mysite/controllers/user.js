@@ -7,8 +7,9 @@ module.exports = {
     join: function(req, res){
         res.render('user/join');
     },
-    _join: async function(req, res){
+    _join: async function(req, res, error){
         // 물리명이 아닌, 객체 속성명으로 입력해야한다. 
+        try {
         const result = await models.User.create({
             name: req.body.name,
             email: req.body.email,
@@ -16,13 +17,21 @@ module.exports = {
             gender: req.body.gender,
         });
         res.redirect('/user/joinsuccess');
+        } catch (error) {
+            next(error);       
+       }
     },
-    login: function(req,res){
-        res.render('user/login');
+    login: function(req,res, next){
+        try {
+            res.render('user/login');
+        } catch (error) {
+            next(error);
+        }
     },
-    _login: async function(req,res){
+    _login: async function(req,res, next){
+        try {
         const user = await models.User.findOne({
-            attributes: ['no','name','role','gender','email', 'password'], // 받아올 컬럼 
+            attributes: ['no','name','role'], // 받아올 컬럼 
             where: { // where 절 
                 email: req.body.email,
                 password: req.body.password
@@ -39,11 +48,18 @@ module.exports = {
         // login 처리 
         req.session.authUser = user; // browser끄면 사라짐. 
         res.redirect('/');
+        } catch (error) {
+                next(error);
+        }
     },
-    logout: async function(req, res){
+    logout: async function(req, res, next){
+        try {
         const result = await req.session.destroy();
         console.log(result); //check 용 
         res.redirect("/");
+        } catch (error) {
+            next(error);
+        }
     },
     update: async function(req,res, next){
         try {
