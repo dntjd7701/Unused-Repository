@@ -1,10 +1,15 @@
 # node-practices
 
->
+## 설치 패키지
+$ npm i express
+$ npm i express-session
+$ npm i ejs
+$ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.format('YYYY-MM-DD'))
+$ npm i -D nodemon
+$ npm i mysql2
+$ npm i winston //log
+$ npm i winston-daily-rotate-file
 
-    nodeJS
-    mysql
-    ejs
 
 ---
 
@@ -131,4 +136,19 @@ index.js 작성
 3. views -> include(ejs)
 4. dotenv(configuration: DB Connection Info, port, static directory)
 5. log(winston)
-6. fileupload(multer)
+6. fileupload(multer)   
+7. moment -> 날짜 format 라이브러리   
+
+
+---
+
+url/no
+
+req.params
+/delete/:no
+
+
+url?no=no
+req.query
+/delete
+get

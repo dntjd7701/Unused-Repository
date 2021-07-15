@@ -32,9 +32,10 @@ module.exports = {
      })
         res.redirect("/guestbook");
     },
+    // req 엔진에 의해 공유된다.
     delete: async function(req, res){
         res.render("guestbook/delete", {
-            no: req.query.no
+            no: req.params.no
         })
     },
     _delete: async function(req, res){
