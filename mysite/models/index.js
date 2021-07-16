@@ -38,6 +38,7 @@ const sequelize = new Sequelize(
 // User 받아오기 
 const User = require('./User')(sequelize);
 const Guestbook = require('./Guestbook')(sequelize);
+const Gallery = require('./Gallery')(sequelize);
 
 User.sync({
     // table이 없을때 만들어 !
@@ -49,4 +50,9 @@ Guestbook.sync({
     force: process.env.TABLE_CREATE_ALWAYS === 'true',
     alter: process.env.TABLE_ALTER_SYNC === 'true' 
 })
-module.exports = { User, Guestbook } 
+
+Gallery.sync({
+    force: process.env.TABLE_CREATE_ALWAYS === 'true',
+    alter: process.env.TABLE_ALTER_SYNC === 'true' 
+})
+module.exports = { User, Guestbook, Gallery } 
