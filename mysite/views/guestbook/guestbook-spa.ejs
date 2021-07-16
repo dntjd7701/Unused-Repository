@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>mysite</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/assets/css/guestbook-spa.css" rel="stylesheet" type="text/css">
+	<!-- alert를 이쁘게 꾸미기 위한 dialog 받기 -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script type="text/javascript" src="/assets/js/jquery/jquery-3.6.0.js"></script>
+	<!-- alert를 이쁘게 꾸미기 위한 dialog 받기 -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- Template(rendering) EJS -->
+	<script type="text/javascript" src="/ejs/ejs.js"></script>
+	<script>
+
+		var no = 0;
+		/* EJS */
+		var isEnd = false; // End flag
+		var isFetching = false; // 중복 방지 
+
+		/* Template Mapping EJS 객체 생성 */
+		var listEJS = new EJS({
+			url: "/ejs/list-template.ejs",
+		});
+		var listItemEJS = new EJS({
+			url: "/ejs/listitem-template.ejs",
+		});
+
+		/*  message dialog  */
+		// alert는 구리니까, 이쁜 dialog쓰자. jQuery ui 쓰면 돼 
+		var messageDialog = function (message) {
+			$("#dialog-message").dialog({
+				modal: true,
+				buttons: {
+					"확인": function () {
+						$(this).dialog("close");
+					}
+				}
+			});
+			$("#dialog-message p").text(message);
+		}
+
+		/* List */
+		var fetch = function () {
+			if (isEnd) {
+				return;
+			}
+			if (isFetching) {
+				return;
+			}
+			isFetching = true;
+
+			$.ajax({
+				url: "/api/guestbook?no=" + no,
+				async: true,
+				dataType: "json",
+				type: "get",
+				success: function (response) {
+					if (response.result != "success") {
+						response.error(response.message);
+						return;
+					};
+					if (response.data.length === 0) {
+						isEnd = !isEnd;
+						$("#btn-fetch").prop("disabled", true);
+						return;
+					}
+
+					var html = listEJS.render(response);
+					$("#list-guestbook").append(html);
+					no = $("#list-guestbook li:last-child").data('no');
+					isFetching = false;
+				}
+			});
+		};
+		/* List */
+
+
+		/* main */
+		$(function () {
+			/* Add */
+			$("#add-form").submit(function (event) {
+				event.preventDefault(); // event 막기 (submit 막기)
+				const vo = {}; // add-form 의 데이터 받기용
+				vo.name = $("#input-name").val(); //form의 input데이터 받아서 담기.
+				vo.password = $("#input-password").val();
+				vo.message = $("#tx-content").val();
+
+				/* Validations */
+				if (vo.name == "") {
+					messageDialog("이름을 입력해주세요.");
+					return;
+				}
+				if (vo.password == "") {
+					messageDialog("비밀번호를 입력해주세요.");
+					return;
+				}
+				if (vo.message == "") {
+					messageDialog("내용을 입력해주세요.");
+					return;
+				}
+
+				// ajax
+				$.ajax({
+					url: "/api/guestbook",
+					dataType: "json",
+					type: "post",
+					contentType: "application/json",
+					data: JSON.stringify(vo),
+					success: function (response) { // callback
+						if (response.result != "success") {
+							response.error(response.message);
+							return;
+						};
+						/* EJS내부 함수 render 사용, Mapping한 템플릿으로 적용 */
+						var html = listItemEJS.render(response.data);
+						$("#list-guestbook").prepend(html);
+
+						// form reset
+						$("#add-form")[0].reset();
+					},
+					error: function (xhr, status, e) {
+						console.error(status + ":" + e);
+					}
+				});
+			});
+
+			// 삭제 다이얼로그 만들기 
+			const deleteDialog = $("#dialog-delete-form").dialog({
+				autoOpen: false,
+				width: 400,
+				height: 250,
+				modal: true,
+				buttons: {
+					"삭제": function () {
+						const delNo = $("#hidden-no").val();
+						const password = $("#password-delete").val();
+						// ajax
+						$.ajax({
+							url: "/api/guestbook/" + delNo,
+							dataType: "json",
+							type: "delete",
+							data: "password=" + password,
+							success: function (response) { // callback
+								if (response.result != "success") {
+									$(".validateTips.error").show();
+									$("#password-delete").val("");
+									return;
+								}
+								if (response.data != -1 && response.data.password === password) {
+									$("#list-guestbook li[data-no=" + response.data + "]").remove();
+									deleteDialog.dialog('close');
+									return;
+								}
+								// 비밀번호가 틀린경우
+								$("#dialog-delete-form p.validateTips.error").show();
+								$("#password-delete").val("");
+							}
+						})
+					},
+					"취소": function () {
+						/* 비밀번호 초기화 작업이 필요. */
+						$(this).dialog("close");
+						$("#password-delete").val("");
+					}
+				},
+				close: function () {
+					// 1. password 비우기
+					// 2. no 비우기
+					// 3. error message 숨기기 
+					$("#password-delete").val("");
+					$("#hidden-no").val("");
+					$(".validateTips.error").hide();
+
+				}
+			});
+			/* delete */
+			// live event: 존재하지 않는 element의 이벤트 핸들러를 미리 등록
+			// delegation(위임 -> document)
+			$(document).on("click", "#list-guestbook li a", function (event) {
+				event.preventDefault();
+
+				let no = $(this).data("no");
+				$("#hidden-no").val(no);
+
+				deleteDialog.dialog("open");
+			});
+
+			// 창 스크롤 이벤트
+			$(window).scroll(function () {
+				var $window = $(this);
+				var windowHeight = $window.height();
+				var scrollTop = $window.scrollTop();
+				var documentHeight = $(document).height();
+				if (scrollTop + windowHeight + 10 > documentHeight) {
+					fetch();
+				}
+			});
+			// 다음 가져오기 
+			$("#btn-fetch").click(function () {
+				no = $("#list-guestbook li:last-child").attr("data-no");
+				// no = $("#list-guestbook").children.length;
+				fetch();
+			});
+
+			fetch();
+		});
+	</script>
+</head>
+
+<body>
+	<div id="container">
+
+		<%- include("../includes/header")%>
+
+			<div id="content">
+				<div id="guestbook">
+					<h1>방명록</h1>
+
+					<!-- write(add) -->
+					<form id="add-form" action="" method="post">
+						<input type="text" id="input-name" placeholder="이름">
+						<input type="password" id="input-password" placeholder="비밀번호">
+						<textarea id="tx-content" placeholder="내용을 입력해 주세요."></textarea>
+						<input type="submit" value="보내기" />
+					</form>
+
+					<!-- list -->
+					<ul id="list-guestbook"></ul>
+
+					<!-- next list button  -->
+					<div style="margin:20px 0 auto 0">
+						<button id="btn-fetch">다음 가져오기</button>
+					</div>
+				</div>
+
+				<!-- delete dialog -->
+
+				<div id="dialog-delete-form" title="메세지 삭제" style="display:none">
+					<p class="validateTips normal">작성시 입력했던 비밀번호를 입력하세요.</p>
+					<p class="validateTips error" style="display:none">비밀번호가 틀립니다.</p>
+					<form>
+						<input type="password" id="password-delete" value=""
+							class="text ui-widget-content ui-corner-all">
+						<input type="hidden" id="hidden-no" value="">
+						<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+					</form>
+				</div>
+
+				<!-- message dialog -->
+				<div id="dialog-message" title="ERROR" style="display:none">
+					<p></p>
+				</div>
+
+			</div>
+
+			<%- include('../includes/navigation') %>
+				<%- include('../includes/footer') %>
+	</div>
+</body>
+
+</html>

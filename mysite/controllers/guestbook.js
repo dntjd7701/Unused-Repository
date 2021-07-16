@@ -47,5 +47,8 @@ module.exports = {
       } catch (error) {
           next(error);
       }
+    },
+    spa: function(req, res, next){
+        res.render('guestbook/guestbook-spa');
     }
 }

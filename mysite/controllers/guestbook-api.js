@@ -1,45 +1,47 @@
+const models = require('../models');
+const {Sequelize, Op} = require('sequelize');
+
 module.exports = {
-    create: async function(req, res, next) {
-        console.log(req.body);
-        // sql insert
-        res.status(200).send({
-            result: 'success',
-            data: Object.assign(req.body, {
-                no: 10,
-                password: '',
-                regDate: new Date()
-            }),
-            message: null
-        });
-    },
     read: async function(req, res, next) {
-        const startNo = req.query.sno || 0;
-        console.log(startNo);
-        // sql: select.... limit
-        res.status(200).send({
-            result: 'success',
-            data:[{
-                no: 9,
-                name: '둘리',
-                message: '호이~',
-                regDate: new Date()
-            }, {
-                no: 8,
-                name: '마이콜',
-                message: '구공탄~',
-                regDate: new Date()
-            }, {
-                no: 7,
-                name: '도우너',
-                message: '둘리야~',
-                regDate: new Date()
-            }],
-            message: null
-        });
+        try {
+            const startNo = req.query.no || 0;
+            const results = await models.Guestbook.findAll({
+                attributes: ['no', 'name','password', 'message'],
+                where: (startNo > 0) ? {no : {[Op.lt]: startNo}} : {},
+                order: [['no', 'DESC']],
+                limit: 3
+            })
+            res.status(200).send({
+                result: "success",
+                data: results,
+                message: null
+            })
+        } catch (error) {
+            next(error);
+        }
     },
-    delete: function(req, res, next) {
-        console.log(req.params.no + ":" + req.body.password);
+    create: async function(req, res, next) {
+        try {
+            const results = await models.Guestbook.create(req.body)
+            res.status(200).send({
+                result: 'success',
+                data: Object.assign(req.body, {
+                    password: '',
+                }),
+                message: null
+            });
+        } catch (error) {
+                next(error);
+        }
+    },
+    delete: async function(req, res, next) {
         // sql delete
+        await models.Guestbook.destroy({
+            where: {
+                no: req.params.no,
+                password: req.body.password
+            }
+        });
         res.status(200).send({
             result: 'success',
             data: req.params.no,
