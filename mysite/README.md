@@ -9,7 +9,8 @@ $ npm i ejs
 $ npm i dotenv
 $ npm i sequelize   
 $ npm i -D nodemon   
-$ npm i mysql2   
+$ npm i mysql2
+$ npm i multer  // multipartresolver --> fileupload 
 $ npm i winston // log   
 $ npm i winston-daily-rotate-file   
 $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.format('YYYY-MM-DD'))   
@@ -38,7 +39,10 @@ $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.
     |--- /config
     |--- /loggin
     |--- /logs
+    |--- /multer-temporary-store
     |--- /public (assets...)
+            |--- /assets
+                    |--- /gallery
     |--- /routes
     |--- /controllers
     |--- /models

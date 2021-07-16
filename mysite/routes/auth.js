@@ -7,9 +7,10 @@ module.exports = function(req,res,next){
         return;
     }
     if(req.accepts('html')){
-        res.redirect("/user/login");
+       res.redirect("/user/login");
         return;
     }
+
     // JSON 요청임 
     res.send({
         result: "fail",
