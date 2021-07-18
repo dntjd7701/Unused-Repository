@@ -9,12 +9,17 @@ module.exports = {
         // undefined면 새로 지정을 안한거니까 update 에서 제외하자 
         const form_data = (url == undefined) ? req.body : Object.assign(req.body, { profile: url });
         try {
-                await models.Site.update(Object.assign(form_data)
+            const results =  await models.Site.update(Object.assign(form_data)
                  ,{
                     where: {
                         no:1
                     }
                 })
+
+            if(results){
+                global.title = req.body.title;
+                console.log(title);
+            }
         } catch (error) {
             next(error);
         }
