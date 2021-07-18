@@ -3,6 +3,7 @@
 module.exports = function(role){
     return function(req,res,next){
         // Logic -> ADMIN check 
+        // ADMIN 계정이라면 무조권 들어가야돼.
         if(req.session.authUser && (role !== 'ADMIN' || req.session.authUser.role === 'ADMIN')){
             next();
             return;

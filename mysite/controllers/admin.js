@@ -2,6 +2,7 @@ const models = require('../models');
 const fileUpload = require('./fileupload');
 
 module.exports = {
+    // main
     _update: async function(req, res, next){
         console.log(req.file == undefined);
         const url = (req.file == undefined) ? undefined : fileUpload.upload(req.file);
@@ -29,5 +30,15 @@ module.exports = {
         }catch (error) {
             next(error);       
         }
+    },
+    // user
+    // 차후에 사용자 정보 등록하고 삭제까지 할 수 있게 하자
+
+    user_index: function(req, res, next){
+        res.render("admin/user");
+    },
+
+    guestbook_index: function(req, res, next){
+        res.render('admin/guestbook');
     }
 }
