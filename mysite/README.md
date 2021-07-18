@@ -83,3 +83,13 @@ $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.
 > mysql   
 > ejs   
 > Node   
+
+
+
+## 수정사항
+
+
+1. admin main(index,update) fin -> 전체 title 바꾸기    
+2. admin 나머지 부분 완성하기   
+
+
