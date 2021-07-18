@@ -5,7 +5,6 @@ const multer = require('multer');
 const path = require("path");
 const dotenv = require('dotenv');
 
-
 // Environment Variables
 // 처음만 받아오면 process는 전역이므로 process.env로 사용가능 
 dotenv.config({path: path.join(__dirname, 'config/app.env')});
