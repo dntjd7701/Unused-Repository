@@ -17,6 +17,7 @@ const mainRouter = require("./routes/main");
 const userRouter = require('./routes/user');
 const guestbookRouter = require('./routes/guestbook');
 const galleryRouter = require('./routes/gallery')
+const adminRouter = require('./routes/admin');
 
 const userApiRouter = require('./routes/user-api');
 const guestbookApiRouter = require('./routes/guestbook-api');
@@ -58,6 +59,7 @@ const logger = require('./logging');
   .use("/user", userRouter)
   .use("/guestbook", guestbookRouter)
   .use("/gallery", galleryRouter)
+  .use('/admin', adminRouter)
   
   .use("/api/user", userApiRouter)
   .use("/api/guestbook", guestbookApiRouter)

@@ -1,8 +1,6 @@
-const path = require('path');
-const fs = require('fs');
 const {Sequelize} = require('sequelize');
 const models = require('../models');
-
+const fileUpload = require('./fileupload');
 
 module.exports = {
     index: async function(req, res, next){
@@ -20,16 +18,8 @@ module.exports = {
     },
     upload: async function(req,res, next){
         try {
-            const file = req.file;
-            const storeDirectory = path.join(path.dirname(require.main.filename), process.env.STATIC_RESOURCES_DIRECTORY, process.env.GALLERY_STORE_LOCATION);
-            const url = path.join(process.env.GALLERY_STORE_LOCATION, file.filename) + path.extname(file.originalname);
-            // url = url.replace(/\\/gi, '/');
-            const storePath = path.join(storeDirectory, file.filename) + path.extname(file.originalname);
-
-            fs.existsSync(storeDirectory) || fs.mkdirSync(storeDirectory);
-            const content = fs.readFileSync(file.path);
-            fs.writeFileSync(storePath, content, {flag:'w+'});
-
+            const url = fileUpload.upload(req.file);
+            console.log(url);
             await models.Gallery.create({
                 url: url,
                 comment: req.body.comment || ''
