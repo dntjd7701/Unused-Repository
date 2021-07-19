@@ -10,18 +10,20 @@
 <body>
 	<div id="container">
 		<%- include("./include/header")%>
-
 			<div id="wrapper">
 				<div id="content">
 					<div id="site-form">
 
-						<h2>방명록 관리 페이지</h2>
+						<h2>게시판 관리 페이지</h2>
 
 					</div>
 				</div>
 			</div>
-			<%- include("./include/navigation", { keyword : 'guestbook' })%>
+			<%- include("./include/navigation", { keyword : 'board' })%>
 	</div>
+	<!-- <c:import url="/WEB-INF/views/admin/include/navigation.jsp">
+			<c:param name="menu" value="board" />
+		</c:import> -->
 </body>
 
 </html>

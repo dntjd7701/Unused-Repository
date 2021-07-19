@@ -13,7 +13,10 @@ $ npm i mysql2
 $ npm i multer  // multipartresolver --> fileupload 
 $ npm i winston // log   
 $ npm i winston-daily-rotate-file   
-$ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.format('YYYY-MM-DD'))   
+$ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.format('YYYY-MM-DD')) 
+
+$ npm i -D mocha
+$ npm i -D chai
 ```
 
 ## Scripts in package.json
@@ -22,7 +25,8 @@ $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.
 .
 "scripts": {
     "start": "npm index.js",
-    "debug": "nodemon index.js"
+    "debug": "nodemon index.js",
+    "test": "npx mocha"
   },
 .
 .
@@ -35,10 +39,13 @@ $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.
     |--- package.json
     |--- package-lock.json
     |---/node-modules
+    |--- /test (mocha, chai)
   -------------------------- Application -------
+    |--- [multer-temporary-store]
     |--- /config
-    |--- /loggin
+    |--- /loggin (winston)
     |--- /logs
+            |--- [error]
     |--- /multer-temporary-store
     |--- /public (assets...)
             |--- /assets
@@ -53,6 +60,7 @@ $ npm i moment -> 날짜 포맷을 위한 라이브러리(moment.객체.regDate.
             |--- /board
             |--- /gallery
             |--- /admin
+                    |--- /includes
 </pre>
 
 

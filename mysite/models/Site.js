@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 module.exports = function(sequelize){
-    return sequelize.define('Site', {
+    const module = sequelize.define('Site', {
         no : {
             filed: "no",
             type: DataTypes.INTEGER(11),
@@ -35,5 +35,8 @@ module.exports = function(sequelize){
         updatedAt: false,
         tableName: 'site'
 
-    })
+    });
+    module.removeAttribute('id');
+    return module;
+    
 }

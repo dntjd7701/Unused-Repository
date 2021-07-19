@@ -12,4 +12,7 @@ router.route('/user').get(authorized("ADMIN"), controller.user_index);
 
 // guestbook
 router.route('/guestbook').get(controller.guestbook_index);
+
+// board
+router.route('/board').get(controller.board_index);
 module.exports = router;

@@ -33,12 +33,18 @@ module.exports = {
     },
     // user
     // 차후에 사용자 정보 등록하고 삭제까지 할 수 있게 하자
-
     user_index: function(req, res, next){
         res.render("admin/user");
     },
-
+    // guestbook
     guestbook_index: function(req, res, next){
         res.render('admin/guestbook');
+    },
+    // board
+    board_index: function(req, res, next){
+        res.render('admin/board');
     }
+
+
+
 }
