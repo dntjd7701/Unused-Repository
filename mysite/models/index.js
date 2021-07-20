@@ -35,11 +35,28 @@ const sequelize = new Sequelize(
         dialect: 'mysql'
     }
 );
+
+
+
 // User 받아오기 
 const User = require('./User')(sequelize);
 const Guestbook = require('./Guestbook')(sequelize);
 const Gallery = require('./Gallery')(sequelize);
 const Site = require('./Site')(sequelize);
+const Board = require('./Board')(sequelize);
+
+// 관계 맵핑 
+User.hasMany(Board,{
+    foreignKey: {
+        name: "userNo", // user_no 로 자체적으로 수정해준다. 
+        
+        allowNull: false,
+        constraints: true,
+        onDelete: 'CASCADE'
+    }
+});
+Board.belongsTo(User);
+
 
 User.sync({
     // table이 없을때 만들어 !
@@ -61,4 +78,9 @@ Site.sync({
     force: process.env.TABLE_CREATE_ALWAYS === 'true',
     alter: process.env.TABLE_ALTER_SYNC === 'true' 
 })
-module.exports = { User, Guestbook, Gallery, Site } 
+
+Board.sync({
+    force: process.env.TABLE_CREATE_ALWAYS === 'true',
+    alter: process.env.TABLE_ALTER_SYNC === 'true' 
+})
+module.exports = { User, Guestbook, Gallery, Site, Board } 

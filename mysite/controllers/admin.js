@@ -18,6 +18,8 @@ module.exports = {
         } catch (error) {
             next(error);
         }
+         // title 전역 등록 
+         global.title = site.title;
         res.redirect('/admin');
     },
 

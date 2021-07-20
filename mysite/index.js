@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require("path");
 const dotenv = require('dotenv');
 
+
 // Environment Variables
 // 처음만 받아오면 process는 전역이므로 process.env로 사용가능 
 dotenv.config({path: path.join(__dirname, 'config/app.env')});
@@ -15,7 +16,8 @@ dotenv.config({path: path.join(__dirname, 'config/db.env')});
 const mainRouter = require("./routes/main");
 const userRouter = require('./routes/user');
 const guestbookRouter = require('./routes/guestbook');
-const galleryRouter = require('./routes/gallery')
+const galleryRouter = require('./routes/gallery');
+const boardRouter = require('./routes/board')
 const adminRouter = require('./routes/admin');
 
 const userApiRouter = require('./routes/user-api');
@@ -27,6 +29,7 @@ const logger = require('./logging');
 /**
  *  Application setup
  */
+
 
  const application = express()
  // 1. session environment
@@ -58,6 +61,7 @@ const logger = require('./logging');
   .use("/user", userRouter)
   .use("/guestbook", guestbookRouter)
   .use("/gallery", galleryRouter)
+  .use("/board", boardRouter)
   .use('/admin', adminRouter)
   
   .use("/api/user", userApiRouter)
