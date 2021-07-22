@@ -23,7 +23,8 @@ use webdb;
 desc board;
 select * from board;
 truncate table board;
-insert into board values(null, 'test2', 'test2', now(), 0, null, null, null, 9);
+select max(group_no) from board;
+insert into board values(null, 'test3', 'test3', now(), 0, null, null, null, 8);
 
 -- gallery
 desc gallery;

@@ -1,5 +1,6 @@
 const { Sequelize } = require('sequelize');
 const models = require('../models');
+const moment = require('moment');
 //const page = require('./page');
 
 
@@ -29,7 +30,12 @@ module.exports = {
             // 일단은 1로 설정 
            // page.currentPage(1);
 
-            res.render('board/list', { boardList : results });
+            res.render('board/list', 
+            {
+              authUserNo: req.session.authUser == undefined ? 0 : req.session.authUser.no,
+              boardList : results, 
+              moment 
+            });
         } catch (error) {
             next(error);
         }
@@ -118,24 +124,37 @@ module.exports = {
         }
     },
     reply: function(req,res){
-        res.render('board/reply', { no: req.params.no });
+        res.render('board/reply', 
+        { no: req.params.no});
     },
     _reply: async function(req, res, next){
         try {
-
-            await models.Board.update({
-                groupNo:"",
-                
-            }, {
+            const result = await models.Board.findOne({
                 where : {
+                    no : req.params.no
+                }
+            });
+            await models.Board.create(Object.assign(req.body, {
+                groupNo: result.groupNo,
+                orderNo: parseInt(result.orderNo) + 1,
+                depth: parseInt(result.depth) + 1,
+                hit: 0,
+                userNo: req.session.authUser.no        
+            }));
+            res.redirect('/board');
+        } catch (error) {
+            next(error);
+        }
+    },
+    delete : async function(req,res,next){
+        try {
+            await models.Board.destroy({
+                where: {
                     no: req.params.no
                 }
-            }
-            )
-            console.log(req.body + ":" + req.params.no);
-            await models.Board.create(Object.assign(req.body,{
-            
-            }));
+            });
+
+            res.redirect('/board');
         } catch (error) {
             next(error);
         }

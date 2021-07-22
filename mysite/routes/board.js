@@ -12,5 +12,6 @@ router.route("/write").get(authorized(), controller.write);
 router.route("/write").post(authorized(), controller._write);
 router.route("/reply/:no").get(authorized(), controller.reply);
 router.route("/reply/:no").post(authorized(), controller._reply);
+router.route("/delete/:no").get(authorized(), controller.delete);
 
 module.exports = router;

@@ -31,9 +31,18 @@
 								<td>
 									<%=count-index%>
 								</td>
-								<td><a href="/board/view/<%=board.no %>">
-										<%=board.title %>
-									</a></td>
+
+
+								<td class="left" style="text-align:left; padding-left:<%=20*board.depth %>px">
+									<% if( board.depth !=0) { %>
+										<img src="/assets/images/reply.png">
+										<% } %>
+											<a href="/board/view/<%=board.no %>">
+												<%=board.title %>
+											</a>
+								</td>
+
+
 								<td>
 									<%=board.User.name %>
 								</td>
@@ -41,16 +50,23 @@
 									<%=board.hit %>
 								</td>
 								<td>
-									<%=board.regDate %>
+									<%- moment(board.regDate).format('YYYY-MM-DD HH:mm:ss') %>
 								</td>
-								<td><a href="/board/delete" class="del">삭제</a></td>
+								<td>
+									<% if(authUserNo !=0 && authUserNo==board.User.no) { %>
+										<a href="/board/delete/<%=board.no%>" class="del"
+											style='background-image:url("/assets/images/recycle.png")'>삭제</a>
+										<% } %>
+								</td>
 							</tr>
 							<% }) %>
 
 					</table>
-					<div class="bottom">
-						<a href="/board/write" id="new-book">글쓰기</a>
-					</div>
+					<% if(authUserNo !=0) { %>
+						<div class="bottom">
+							<a href="/board/write" id="new-book">글쓰기</a>
+						</div>
+						<% } %>
 				</div>
 			</div>
 			<%- include('../includes/navigation') %>
