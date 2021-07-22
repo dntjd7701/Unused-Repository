@@ -54,7 +54,7 @@
 								</td>
 								<td>
 									<% if(authUserNo !=0 && authUserNo==board.User.no) { %>
-										<a href="/board/delete/<%=board.no%>" class="del"
+										<a href="/board/delete/<%= board.no%>" class="del"
 											style='background-image:url("/assets/images/recycle.png")'>삭제</a>
 										<% } %>
 								</td>

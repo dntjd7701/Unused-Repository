@@ -1,3 +1,5 @@
+(function(){
+
 const express = require("express");
 const session = require("express-session");
 const http = require("http");
@@ -12,24 +14,13 @@ dotenv.config({path: path.join(__dirname, 'config/app.env')});
 dotenv.config({path: path.join(__dirname, 'config/db.env')});
 
 
-// Routers
-const mainRouter = require("./routes/main");
-const userRouter = require('./routes/user');
-const guestbookRouter = require('./routes/guestbook');
-const galleryRouter = require('./routes/gallery');
-const boardRouter = require('./routes/board')
-const adminRouter = require('./routes/admin');
-
-const userApiRouter = require('./routes/user-api');
-const guestbookApiRouter = require('./routes/guestbook-api');
-const errorRouter = require('./routes/error');
-// Logging
 const logger = require('./logging');
 
 /**
- *  Application setup
+ *  Application router
  */
 
+const { applicationRouter } = require('./routes');
 
  const application = express()
  // 1. session environment
@@ -50,25 +41,12 @@ const logger = require('./logging');
   .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
   // 5. view engine setup
   .set("views", path.join(__dirname, "views"))
-  .set("view engine", "ejs")
-  // 6. request router
-  .all("*", function (req, res, next) {
-    res.locals.req = req; //locals는 꼬옥 잇어 
-    res.locals.res = res;
-    next();
-  })
-  .use("/", mainRouter)
-  .use("/user", userRouter)
-  .use("/guestbook", guestbookRouter)
-  .use("/gallery", galleryRouter)
-  .use("/board", boardRouter)
-  .use('/admin', adminRouter)
-  
-  .use("/api/user", userApiRouter)
-  .use("/api/guestbook", guestbookApiRouter)
-  .use(errorRouter.error404)
-  .use(errorRouter.error500);
-  
+  .set("view engine", "ejs");
+
+
+  // application setup
+  applicationRouter.setup(application);
+
   /**
    *  Server setup
    */
@@ -96,3 +74,5 @@ http
   }
 })
 .listen(process.env.PORT);
+
+})();
