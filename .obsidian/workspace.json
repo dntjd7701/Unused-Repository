@@ -4,18 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "74cb858909a81c27",
+        "id": "8cd4a78e79b6ede9",
         "type": "tabs",
         "children": [
           {
-            "id": "adf04880b3938595",
+            "id": "80770f2e0bb33410",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "REACT/React.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1c1856443f2eb2c2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Web/DOM(Document Object Model).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7b29d8369c4cbe08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Web/DOM(Document Object Model).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d6405a4b587d547e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Web/DOM(Document Object Model).md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -81,6 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Web/DOM(Document Object Model).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Web/DOM(Document Object Model).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +161,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Web/DOM(Document Object Model).md"
+              }
             }
           }
         ]
@@ -128,15 +173,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "adf04880b3938595",
+  "active": "d6405a4b587d547e",
   "lastOpenFiles": [
-    "REACT/Key 이해하기.md",
-    "[Error] Maven blocker.md",
-    "REACT/이벤트 핸들러 바인딩.md",
+    "Web/웹 페이지가 만들어지는 방식.md",
     "REACT/React.md",
-    "Recording....md",
-    "dd.md",
-    "2022-12-02.md",
-    "Daily/2022-12-02.md"
+    "Web/Web(World Wide Web).md",
+    "Web/DOM(Document Object Model).md",
+    "Untitled.md",
+    "==**웹 페이지가 만들어지는 방식** ==.md",
+    "Web/DOM.md",
+    "REACT/Key 이해하기.md",
+    "REACT/이벤트 핸들러 바인딩.md",
+    "[Error] Maven blocker.md"
   ]
 }
