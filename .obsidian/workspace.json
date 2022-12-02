@@ -1,0 +1,142 @@
+{
+  "main": {
+    "id": "ebd98ca174aab921",
+    "type": "split",
+    "children": [
+      {
+        "id": "74cb858909a81c27",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "adf04880b3938595",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5a691263ca540a33",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b74d8835c58eae5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7852406a1674ff0",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3ef67002d4470426",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "9253db2e8fb81f73",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "dc1c3b702dfdaeb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a5e758ab2374586",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ddac35d78567855f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ddb33034014766bb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c2a608e5e6c1a8b8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "215a930a9c103558",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "adf04880b3938595",
+  "lastOpenFiles": [
+    "REACT/Key 이해하기.md",
+    "[Error] Maven blocker.md",
+    "REACT/이벤트 핸들러 바인딩.md",
+    "REACT/React.md",
+    "Recording....md",
+    "dd.md",
+    "2022-12-02.md",
+    "Daily/2022-12-02.md"
+  ]
+}
