@@ -57,7 +57,7 @@ window.visualViewport.addEventListener('resize', viewportHandler)
 ### 키보드 오픈 시 
 
 - 사용자가 모바일 디바이스에서 키보드를 열 때, visual viewport는 축소되지만, layout viewport는 변경되지 않습니다. 
-> IOS의 경우에는 동작이 다릅니다. [[IOS 브라우저의 구조 ?]] 
+> Android에서는 키보드가 열리면 window.visualViewport.height와 window.innerHeight가 같이 줄어들지만, iOS에서는 visualViewport값이 독립적으로 변한다.
 
 
 ### meta Tag의 viewport 사용 예시 
@@ -93,3 +93,8 @@ html 스니펫을 통해 입력하는 경우에도 위의 코드가 자동으로
 
 > https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
 > https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
+> https://sungchuni.tistory.com/20
+
+---
+### Related
+>[[Web(World Wide Web)]]

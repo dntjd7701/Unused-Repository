@@ -20,8 +20,5 @@
 
 
 ### Short tips 
-
-- [[이벤트 핸들러 바인딩]]
-- [[Key 이해하기]]
 - [[Web(World Wide Web)]]
 ---

@@ -1,5 +1,5 @@
 
-#### Android와 IOS의 키보드 작동에 따른 화면 구조 
+### Android와 IOS의 키보드 작동에 따른 화면 구조 
 
 - Android OS : 키보드를 열 때, ==screen에서 키보드를 제외한 영역 만큼의 높이를 viewport로 조절합니다.==, 그렇기에 키보드를 열어도 document가 표시되는 영역이 screen에서 키보드 높이를 제외한 영역에 정상적으로 표시해줍니다. 
 - IOS : 키보드를 열더라도 기존의 viewport를 조절해주지 않습니다. ==기존의 document를 키보드 높이 만큼 밀어 올립니다.==
@@ -17,7 +17,9 @@
 
 ### 해결 예제 코드 
 
-
+- 방법 3의 예제 코드 
+	개발 환경에 따라 코드의 수정이 필요합니다. stackoverflow에서의 다양한 서칭이 필요합니다.
+	React Native의 경우, KeyboardAvoidingView Component를 사용할 수 있습니다. 
 ```js
 let prevVisualViewport = 0
 
@@ -45,8 +47,8 @@ window.visualViewport.onresize = handleVisualViewportResize
 
 > https://channel.io/ko/blog/cross_browsing_ios15
 
-### Conn
-
+---
+### ### Related
 > [[Web(World Wide Web)]]
    [[Viewport]]
 
