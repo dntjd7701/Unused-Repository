@@ -46,9 +46,3 @@ window.visualViewport.onresize = handleVisualViewportResize
 ### 참고 
 
 > https://channel.io/ko/blog/cross_browsing_ios15
-
----
-### ### Related
-> [[Web(World Wide Web)]]
-   [[Viewport]]
-

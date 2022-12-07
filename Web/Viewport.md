@@ -1,6 +1,8 @@
 
 ### 정의
 
+^f934b7
+
 - **Viewport** : 현재 화면에서 보여지고 있는 다각형의 영역입니다. 웹 브라우저에서는 현재 창에서 문서를 볼 수 있는 부분(전체화면에서는 화면 전체)을 말합니다. viewport 바깥의 contents 영역은 스크롤 하기 전엔 보이지 않습니다.
 
 > **visual viewport** : viewport 중에서 현재 보여지는 부분으로, layout  viewport보다 작아질 수 있습니다.
@@ -94,7 +96,3 @@ html 스니펫을 통해 입력하는 경우에도 위의 코드가 자동으로
 > https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
 > https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API
 > https://sungchuni.tistory.com/20
-
----
-### Related
->[[Web(World Wide Web)]]

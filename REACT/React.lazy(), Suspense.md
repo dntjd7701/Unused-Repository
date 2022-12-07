@@ -1,0 +1,1 @@
+https://web.dev/i18n/ko/code-splitting-suspense/

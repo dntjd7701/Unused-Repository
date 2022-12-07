@@ -1,0 +1,1 @@
+https://velog.io/@gomiseki/footer-%ED%95%98%EB%8B%A8-%EA%B3%A0%EC%A0%95
