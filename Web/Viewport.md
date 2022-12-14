@@ -88,9 +88,6 @@ html 스니펫을 통해 입력하는 경우에도 위의 코드가 자동으로
     
 -   **user-scalable** : 사용자의 확대/축소 기능을 설정, 기본값은 yes.  크롬에서 화면을 확대, 축소할 수 있는 이유입니다.
 
-
-![[images_ken1204_post_ce781e46-757c-4ec7-af99-f32ef9801fd8_image.png]]
-
 ### 참고 
 
 > https://developer.mozilla.org/en-US/docs/Web/API/Visual_Viewport_API

@@ -23,4 +23,5 @@
 [[Key 이해하기]]
 [[React.lazy(), Suspense]]
 [[이벤트 핸들러 바인딩]]
+[[JavaScript]]
 
