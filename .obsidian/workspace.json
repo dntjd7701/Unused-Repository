@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "f91eaa0e2011688a",
+        "id": "6d812d1aee30d50b",
         "type": "tabs",
         "children": [
           {
-            "id": "195f543362a932bc",
+            "id": "b211b99a80c39cfe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Iteration Protocol.md",
+                "file": "Web/IOS 브라우저의 구조 ?.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d85e564e58c0c51f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "함수 표현식 vs 함수 선언문.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +82,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -85,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/Iteration Protocol.md",
+                "file": "함수 표현식 vs 함수 선언문.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/Iteration Protocol.md",
+                "file": "함수 표현식 vs 함수 선언문.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/Iteration Protocol.md"
+                "file": "함수 표현식 vs 함수 선언문.md"
               }
             }
           }
@@ -136,17 +150,27 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "195f543362a932bc",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
+    "Web/IOS 브라우저의 구조 ?.md",
+    "Next/Next.js.md",
     "JavaScript/Iteration Protocol.md",
-    "JavaScript/JavaScript.md",
-    "Linux/crontab을 이용한 스케쥴링.md",
-    "Web/Viewport.md",
-    "images_ken1204_post_ce781e46-757c-4ec7-af99-f32ef9801fd8_image.png.md",
-    "footer 하단 고정.md",
-    "[Error] Maven blocker.md",
-    "REACT/React.md",
-    "REACT/Key 이해하기.md",
-    "Web/Web(World Wide Web).md"
+    "React/React.md",
+    "React/이벤트 핸들러 바인딩.md",
+    "React/React.lazy(), Suspense.md",
+    "React/dangerouslySetInnerHTML.md",
+    "React/Pasted image 20221227133716.png",
+    "React/Pasted image 20221227133814.png",
+    "React/Key 이해하기.md"
   ]
 }
