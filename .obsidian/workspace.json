@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "6d812d1aee30d50b",
+        "id": "0c27caf2c5cc7331",
         "type": "tabs",
         "children": [
           {
-            "id": "b211b99a80c39cfe",
+            "id": "8cd2d801511b2c9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web/IOS 브라우저의 구조 ?.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d85e564e58c0c51f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "함수 표현식 vs 함수 선언문.md",
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "함수 표현식 vs 함수 선언문.md",
+                "file": "Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "함수 표현식 vs 함수 선언문.md",
+                "file": "Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "함수 표현식 vs 함수 선언문.md"
+                "file": "Untitled.md"
               }
             }
           }
@@ -160,17 +146,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c7852406a1674ff0",
+  "active": "8cd2d801511b2c9b",
   "lastOpenFiles": [
-    "Web/IOS 브라우저의 구조 ?.md",
+    "Untitled.canvas",
+    "Untitled.md",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
     "Next/Next.js.md",
-    "JavaScript/Iteration Protocol.md",
-    "React/React.md",
-    "React/이벤트 핸들러 바인딩.md",
-    "React/React.lazy(), Suspense.md",
+    "Tools/Webpack/Untitled.md",
+    "Web/웹 페이지가 만들어지는 방식.md",
+    "Next/From JavaScript to React.md",
     "React/dangerouslySetInnerHTML.md",
-    "React/Pasted image 20221227133716.png",
-    "React/Pasted image 20221227133814.png",
     "React/Key 이해하기.md"
   ]
 }
