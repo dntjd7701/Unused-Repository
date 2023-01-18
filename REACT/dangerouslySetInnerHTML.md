@@ -46,4 +46,4 @@ export default App;
 ---
 ### 결론
 
-> 결론적으로, `dangerouslySetInnerHTML`는 React에서 를 대체하는 것일 뿐 `innerHTML` 이므로 주의해서 사용해야 합니다. 이름은 사용상의 위험을 암시하지만 잘 개발된 sanitizer를 사용하여 필요한 조치를 취하면 코드가 깨끗하고 React 노드 내에서 렌더링될 때 예기치 않은 스크립트를 실행하지 않습니다.
+> 결론적으로, `dangerouslySetInnerHTML`는 React에서 `innserHTML` 를 대체하는 것일 뿐 `innerHTML` 이므로 주의해서 사용해야 합니다. 이름은 사용상의 위험을 암시하지만 잘 개발된 sanitizer를 사용하여 필요한 조치를 취하면 코드가 깨끗하고 React 노드 내에서 렌더링될 때 예기치 않은 스크립트를 실행하지 않습니다.

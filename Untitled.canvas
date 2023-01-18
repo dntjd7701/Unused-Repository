@@ -1,7 +1,7 @@
 {
 	"nodes":[
 		{"id":"9183ae4dc6d52130","x":-650,"y":-430,"width":400,"height":400,"type":"file","file":"Next/Next.js.md"},
-		{"id":"5595145adfe5a433","x":-250,"y":-430,"width":400,"height":400,"type":"file","file":"Next/From JavaScript to React.md"}
+		{"id":"5595145adfe5a433","x":-250,"y":-430,"width":400,"height":400,"type":"file","file":"Next/How Next.js Works.md"}
 	],
 	"edges":[]
 }

@@ -1,7 +1,7 @@
 
 > 번역 https://nextjs.org/learn/foundations/about-nextjs
-> 본 글은 Next on Vercel의 글은 번역 및 해석 정리한 글입니다. 
-> 
+> 본 글은 Next on Vercel의 글을 번역 및 해석 정리한 글입니다. 
+
 
 ### Introduction
 
@@ -27,12 +27,12 @@ React와 Next.js가 어떻게 도움을 줄 수 있는지 알아봅시다.
 - Routing - 어떻게 유저가 어플리케이션의 다른 두 화면을 탐색할지 
 - Data Fetching - 데이터가 저장된 위치와, 어떻게 그 데이터를 가져올지 
 - Rendering - 언제 그리고 어디에 static 또는 dynamic한 콘텐츠를 rendering할지 
-
  	**Rendering**
 	-   **SSR:** Server-Side Rendering - rendering a client-side or universal app to HTML on the server.
 	-   **CSR:** Client-Side Rendering - rendering an app in a browser, generally using the DOM.
 	-   **Rehydration:** “booting up” JavaScript views on the client such that they reuse the server-rendered HTML’s DOM tree and data.
 	-   **Prerendering:** running a client-side application at build time to capture its initial state as static HTML.
+	
 - Integrations(통합) - 어떤 써드파티 서비스를 사용할지(CMS, auth, payments, etc..) 그리고 어떻게 연결할지
 - Infrastructure - 어플리케이션 코드를 어디에 배포하고 저장하고 실행할지(Serverless, CDN, Edge, etc)
 - Performance(수행능력) - 최종 사용자를 위해 어플리케이션을 어떻게 최적화할지
@@ -66,5 +66,3 @@ Next.js는 빠른 웹 어플리케이션을 개발하기 위한 빌딩 블록을
 당신은 React를 사용해 UI를 구축하고, 점진적으로 Next.js를 적용해나갈 수 있습니다. 최종 사용자 경험과 개발자 경험을 향상시키기면서  일반적인 어플리케이션이 요구하는 기능들, routing, data fetching, integrations 에 대한 기능들을 제공합니다. 
 
 개인 개발자이든 대규모 팀의 일원이든 React와 Next.js를 활용하여 완전한 대화형, 매우 동적이고 성능이 뛰어난 웹 애플리케이션을 구축할 수 있습니다.
-
-[[From JavaScript to React]]
