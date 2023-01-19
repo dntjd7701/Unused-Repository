@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"f39d9c6bcef26a89","x":-649,"y":-411,"width":86,"height":50,"color":"3","type":"text","text":"Work "},
+		{"id":"843cd42b623313ae","x":-563,"y":-327,"width":328,"height":266,"type":"text","text":"-   개인설정 font bold -> publishing 수정 예정, 검토 필요\n- 시리얼발행 다이얼로그 폰트 설정 -> publishing 수정 예정 , 검토 필요"},
+		{"id":"81ef1ff658ec3b34","x":-427,"y":46,"width":164,"height":50,"color":"4","type":"text","text":"알고리즘 공부"},
+		{"id":"a66553e86aaac51f","x":-945,"y":-327,"width":173,"height":53,"type":"text","text":"배포 프로그램 수정"},
+		{"id":"7fe44719cd77f349","x":-1158,"y":-219,"width":176,"height":50,"color":"5","type":"text","text":"Study Group"},
+		{"id":"a67a8543382fce2c","x":-1489,"y":-61,"width":840,"height":568,"type":"text","text":"[프로젝트 설정]\n- <span style='color:red'>Typescript</span>\n- Storybook (front계의 swagger)_Component에 대한 문서화  -> luna-orbit, 프론트 개발자의 개발 편의성 중대화, 협업 중대화 \n- Eslint\n- prettier\n\n[Next]\n- 문서 리딩 \n- https://nextjs.org/learn/foundations/how-nextjs-works/development-and-production\n\n[Module Federation]\n- 개념 적용 리딩 \n- Next to Next MF 적용해보기 \n- 추가적으로 webpack5 config 확인 \n\n[TypeScript]\n- Utility Type ( TypeScript )\n"},
+		{"id":"4388be6ab50370fb","x":-1489,"y":-588,"width":366,"height":202,"color":"6","type":"text","text":"#### DONE\n\n-  <span style='text-decoration: line-through; color: red;'>Template</span>\n-  <span style='text-decoration: line-through; color: red;'>스마트제조공정 조회기준 명칭 수정 </span>\n- \n\n\n\n"}
+	],
+	"edges":[
+		{"id":"1dc6b4b48bc13b05","fromNode":"f39d9c6bcef26a89","fromSide":"right","toNode":"843cd42b623313ae","toSide":"top"},
+		{"id":"fe744bdc4beb0032","fromNode":"7fe44719cd77f349","fromSide":"bottom","toNode":"a67a8543382fce2c","toSide":"top"},
+		{"id":"fd8f2cfeaf5e4bdc","fromNode":"f39d9c6bcef26a89","fromSide":"left","toNode":"a66553e86aaac51f","toSide":"top"}
+	]
+}
