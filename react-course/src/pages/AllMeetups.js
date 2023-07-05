@@ -34,7 +34,7 @@ const AllMeetups = () => {
   } else {
     return (
       <section>
-        <h1>All Mettups</h1>
+        <h1>All Meetups</h1>
         <MeetupList meetup={meetupData} />
       </section>
     );
