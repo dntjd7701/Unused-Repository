@@ -13,8 +13,8 @@ sizes.addEventListener('change', handleSize);
 shareBtn.addEventListener('click', handleShare);
 
 const defaultUrl = 'https://youtube.com/@AsmrProg';
-let colorLight = '#fff',
-  colorDark = '#000',
+let colorLight = '#000',
+  colorDark = '#fff',
   text = defaultUrl,
   size = 300;
 
