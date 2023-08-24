@@ -4,26 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "27a6eb51040b1889",
+        "id": "ac16d86d243bf287",
         "type": "tabs",
         "children": [
           {
-            "id": "7e94d8cdbd9e2966",
+            "id": "c5109674d1762b30",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
                 "file": "Todo.canvas",
                 "viewState": {
-                  "x": -862,
-                  "y": -288.7720454443315,
-                  "zoom": -0.48163065243701814,
-                  "snapToGrid": false
+                  "x": -740.5,
+                  "y": -89.71815000000001,
+                  "zoom": -1.2975300641260092
                 }
               }
             }
+          },
+          {
+            "id": "b8b6500349485b6e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제 파일 1.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -68,6 +81,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "c1b2894f2aa1a7f0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -89,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Todo.canvas",
+                "file": "무제 파일 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Todo.canvas",
+                "file": "무제 파일 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Todo.canvas"
+                "file": "무제 파일 1.md"
               }
             }
           }
@@ -142,25 +163,37 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:퀵 스위처 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 데일리 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "7e94d8cdbd9e2966",
+  "active": "b8b6500349485b6e",
   "lastOpenFiles": [
-    "README.md",
+    "Template/OKRs.md",
+    "무제 파일 1.md",
+    "React/Pasted image 20230824092124.png",
     "Todo.canvas",
-    "Web/Web(World Wide Web).md",
+    "무제 파일.md",
+    "무제 파일 1.canvas",
+    "무제 파일 2.canvas",
+    "무제 파일.canvas",
     "Web/DOM(Document Object Model).md",
-    "Web/웹 페이지가 만들어지는 방식.md",
-    "Web/IOS 브라우저의 구조 ?.md",
-    "Web/SSR, CSR 차이.md",
-    "Untitled 1.md",
     "Untitled.md",
-    "Untitled.canvas"
+    "README.md",
+    "Next/How Next.js Works.md",
+    "Err/[Error] Maven blocker.md",
+    "Docs/footer 하단 고정.md",
+    "Docs/MicroFrontend.md",
+    "Docs/Github.io.md",
+    "Next/번역_Next.js.md",
+    "Untitled 1.md",
+    "Next/번역_Pre-rendering and Data Fetching.md",
+    "React/React.md",
+    "React/React.lazy(), Suspense.md",
+    "Web/Web(World Wide Web).md"
   ]
 }
