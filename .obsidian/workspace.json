@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b00004394781290a",
+        "id": "5d265455b8731ba7",
         "type": "tabs",
         "children": [
           {
-            "id": "b6575c3a2a65d9a7",
+            "id": "89a59090ff182c05",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web/Viewport.md",
+                "file": "JavaScript/js/무제 파일.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Web/Viewport.md",
+                "file": "JavaScript/js/무제 파일.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Web/Viewport.md",
+                "file": "JavaScript/js/무제 파일.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Web/Viewport.md"
+                "file": "JavaScript/js/무제 파일.md"
               }
             }
           },
@@ -164,9 +164,11 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "c7852406a1674ff0",
+  "active": "89a59090ff182c05",
   "lastOpenFiles": [
-    "JavaScript/무제 폴더",
+    "JavaScript/js/무제 파일.md",
+    "Web/Viewport.md",
+    "JavaScript/js",
     "Front/무제 폴더",
     "Web/웹 페이지가 만들어지는 방식.md",
     "Web/SSR, CSR 차이.md",
@@ -198,7 +200,6 @@
     "JavaScript/JavaScript.md",
     "Tools/VSCODE",
     "Front",
-    "Docs/MSA.md",
     "Tools",
     "Vim",
     "기타",
