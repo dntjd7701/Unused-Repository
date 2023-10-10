@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/js/무제 파일.md",
+                "file": "Err/[Error] Maven blocker.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/js/무제 파일.md",
+                "file": "Err/[Error] Maven blocker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/js/무제 파일.md",
+                "file": "Err/[Error] Maven blocker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/js/무제 파일.md"
+                "file": "Err/[Error] Maven blocker.md"
               }
             }
           },
@@ -166,38 +166,37 @@
   },
   "active": "89a59090ff182c05",
   "lastOpenFiles": [
+    "회사/시리얼발행.md",
+    "회사/회사 배포 프로그램 개발.md",
+    "README.md",
+    "Web/웹 페이지가 만들어지는 방식.md",
+    "Web/SSR, CSR 차이.md",
+    "Web/IOS 브라우저의 구조 ?.md",
+    "Tools/VSCODE/Extension.md",
+    "Tools/VSCODE/Shortcuts.md",
+    "Tools/옵시디언 플러그인.png",
+    "Tools/Vim.md",
+    "Linux/crontab을 이용한 스케쥴링.md",
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "JavaScript/Iteration Protocol.md",
+    "JavaScript/JSDoc.md",
+    "JavaScript/JavaScript.md",
     "JavaScript/js/무제 파일.md",
     "Web/Viewport.md",
     "JavaScript/js",
     "Front/무제 폴더",
-    "Web/웹 페이지가 만들어지는 방식.md",
-    "Web/SSR, CSR 차이.md",
-    "Web/IOS 브라우저의 구조 ?.md",
     "Front/React/이벤트 핸들러 바인딩.md",
     "Front/React/React.lazy(), Suspense.md",
     "Front/React/Key 이해하기.md",
     "Front/React/dangerouslySetInnerHTML.md",
-    "README.md",
     "Todo.canvas",
-    "회사/시리얼발행.md",
-    "Tools/VSCODE/Shortcuts.md",
-    "Tools/VSCODE/Extension.md",
-    "Tools/Vim.md",
     "Front/Next/번역_Pre-rendering and Data Fetching.md",
     "Front/Next/How Next.js Works.md",
     "Front/Next/번역_Next.js.md",
     "Err/[Error] Maven blocker.md",
-    "Tools/옵시디언 플러그인.png",
-    "Linux/crontab을 이용한 스케쥴링.md",
-    "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "JavaScript/JSDoc.md",
-    "JavaScript/Iteration Protocol.md",
     "Site/강좌.md",
     "Site",
     "무제 파일.canvas",
-    "회사/회사 배포 프로그램 개발.md",
-    "무제 파일.md",
-    "JavaScript/JavaScript.md",
     "Tools/VSCODE",
     "Front",
     "Tools",
