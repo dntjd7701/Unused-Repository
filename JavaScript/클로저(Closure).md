@@ -29,9 +29,10 @@ function outerFunc() {
 outerFunc(); // 10
 ```
 
-위의 쿼리에서 outerFunc > innerFunc로 선언되었기에, innerFunc는 outerFunc의 변수 x에 접근이 가능하다. 
+함수 innerFunc가 함수 outerFunc의 내부에 선언된 내부함수이므로 함수 innerFunc는 자신이 속한 렉시컬 스코프(전역, 함수 outerFunc, 자신의 스코프)를 참조할 수 있다. 
 
-> 스코프는 함수의 호출이 아닌 선언에 따라 결정된다. [[스코프]]
-
-
+> 스코프는 함수의 호출이 아닌 선언에 따라 결정된다. [[스코프(Scope)]]
+#### 스코프 체인 관점에서의 동작 
+1. innerFunc 함수 스코프(함수 자신의 스코프를 가리키는 활성 객체) 내에서 변수 x를 검색한다. -> 검색 실패 
+2. 
 
