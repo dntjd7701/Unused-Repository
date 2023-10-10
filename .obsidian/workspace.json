@@ -13,8 +13,27 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/zmffhwj.md",
+                "file": "JavaScript/클로저.md",
                 "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "a989ae75a090c968",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c0de8ef37be1f8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/클로저.md",
+                "mode": "preview",
                 "backlinks": true,
                 "source": false
               }
@@ -94,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/zmffhwj.md",
+                "file": "JavaScript/클로저.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/zmffhwj.md",
+                "file": "JavaScript/클로저.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/zmffhwj.md"
+                "file": "JavaScript/클로저.md"
               }
             }
           },
@@ -167,7 +186,7 @@
   "active": "89a59090ff182c05",
   "lastOpenFiles": [
     "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "JavaScript/zmffhwj.md",
+    "JavaScript/클로저.md",
     "JavaScript/Iteration Protocol.md",
     "Err/[Error] Maven blocker.md",
     "회사/시리얼발행.md",
