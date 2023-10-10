@@ -55,16 +55,16 @@ inner(); // 10
 > 3. 정보 은닉 
 
 
-#### 1-1 상태유지 
+#### 1. 상태유지 
 
 ```html 
 <!DOCTYPE html> 
 <html>
-<body> 
-   <button class="toggle">toggle</button> 
-   <div class="box" style="width: 100px;    height: 100px; background: red;">
-   </div> 
-<script> 
+ <body> 
+ <button class="toggle">toggle</button> 
+ <div class="box" style="width: 100px;    height: 100px; background: red;">
+ </div> 
+ <script> 
 var box = document.querySelector('.box'); 
 var toggleBtn = document.querySelector('.toggle'); 
 var toggle = (function () { 
@@ -75,8 +75,62 @@ var toggle = (function () {
       isShow = !isShow; }; })(); 
       // ② 이벤트 프로퍼티에 클로저를 할당
       toggleBtn.onclick = toggle; 
-</script> 
-</body> 
+ </script> 
+ </body> 
 </html>
 ```
 
+
+#### 2. 전역 변수의 사용 억제 
+
+```html
+<!DOCTYPE html> 
+<html> 
+ <body> 
+ <p>클로저를 사용한 Counting</p> 
+ <button id="inclease">+</button> 
+ <p id="count">0</p> 
+ <script> 
+ var incleaseBtn = document.getElementById('inclease'); 
+ var count = document.getElementById('count');  var increase = (function () { 
+ // 카운트 상태를 유지하기 위한 자유 변수 
+ var counter = 0; 
+ // 클로저를 반환 
+ return function () { return ++counter; }; 
+ }()); 
+ incleaseBtn.onclick = function () {   
+ count.innerHTML = increase(); 
+ }; 
+ </script> 
+ </body> 
+</html>
+```
+
+변수의 값은 누군가에 의해 언제든지 변경될 수 있어 오류 발생의 근본적 원인이 될 수 있다. 상태 변경이나 가변(mutable) 데이터를 피하고 **불변성(Immutability)을 지향**하는 함수형 프로그래밍에서 **부수 효과(Side effect)를 최대한 억제**하여 오류를 피하고 프로그램의 안정성을 높이기 위해 클로저는 적극적으로 사용된다.
+
+
+```js 
+// 함수를 인자로 전달받고 함수를 반환하는 고차 함수 
+// 이 함수가 반환하는 함수는 클로저로서 카운트 상태를 유지하기 위한 자유 변수 counter을 기억한다. 
+function makeCounter(predicate) { 
+ // 카운트 상태를 유지하기 위한 자유 변수 
+ var counter = 0; 
+ // 클로저를 반환 
+ return function () { 
+ counter = predicate(counter); 
+ return counter; 
+ }; 
+} 
+// 보조 함수 
+function increase(n) { return ++n; } 
+// 보조 함수 
+function decrease(n) { return --n; } 
+// 함수로 함수를 생성한다. 
+// makeCounter 함수는 보조 함수를 인자로 전달받아 함수를 반환한다 
+const increaser = makeCounter(increase); console.log(increaser()); // 1 console.log(increaser()); // 2 
+// increaser 함수와는 별개의 독립된 렉시컬 환경을 갖기 때문에 카운터 상태가 연동하지 않는다. const decreaser = makeCounter(decrease); console.log(decreaser()); // -1 console.log(decreaser()); // -2
+
+```
+
+
+#### 3. 정보 은닉 
