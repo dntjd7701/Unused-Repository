@@ -108,6 +108,7 @@ var toggle = (function () {
 
 변수의 값은 누군가에 의해 언제든지 변경될 수 있어 오류 발생의 근본적 원인이 될 수 있다. 상태 변경이나 가변(mutable) 데이터를 피하고 **불변성(Immutability)을 지향**하는 함수형 프로그래밍에서 **부수 효과(Side effect)를 최대한 억제**하여 오류를 피하고 프로그램의 안정성을 높이기 위해 클로저는 적극적으로 사용된다.
 
+- 함수형 프로그래밍 예시 
 
 ```js 
 // 함수를 인자로 전달받고 함수를 반환하는 고차 함수 
@@ -128,9 +129,32 @@ function decrease(n) { return --n; }
 // 함수로 함수를 생성한다. 
 // makeCounter 함수는 보조 함수를 인자로 전달받아 함수를 반환한다 
 const increaser = makeCounter(increase); console.log(increaser()); // 1 console.log(increaser()); // 2 
-// increaser 함수와는 별개의 독립된 렉시컬 환경을 갖기 때문에 카운터 상태가 연동하지 않는다. const decreaser = makeCounter(decrease); console.log(decreaser()); // -1 console.log(decreaser()); // -2
+// increaser 함수와는 별개의 독립된 렉시컬 환경을 갖기 때문에 카운터 상태가 연동하지 않는다. 
+const decreaser = makeCounter(decrease); console.log(decreaser()); // -1 
+console.log(decreaser()); // -2
 
 ```
 
 
 #### 3. 정보 은닉 
+
+```js 
+//생성자 함수 
+function Counter() { 
+ // 카운트를 유지하기 위한 자유 변수 
+ var counter = 0; 
+ // 클로저 
+ this.increase = function () { return 
+ ++counter; }; 
+ // 클로저 
+ this.decrease = function () { return -- 
+ counter; }; 
+} 
+ 
+const counter = new Counter(); console.log(counter.increase()); // 1 
+console.log(counter.decrease()); // 0
+```
+
+생성자 함수 Counter는 increase, decrease 메소드를 갖는 인스턴스를 생성한다. 이 메소드들은 모두 자신이 생성됐을 때의 렉시컬 환경인 생성자 함수 Counter의 스코프에 속한 변수 counter를 기억하는 클로저이며 렉시컬 환경을 공유한다. 생성자 함수가 함수가 생성한 객체의 메소드는 객체의 프로퍼티에만 접근할 수 있는 것이 아니며 자신이 기억하는 렉시컬 환경의 변수에도 접근할 수 있다.
+
+이때 생성자 함수 Counter의 변수 counter는 this에 바인딩된 프로퍼티가 아니라 변수다. counter가 this에 바인딩된 프로퍼티라면 생성자 함수 Counter가 생성한 인스턴스를 통해 외부에서 접근이 가능한 `public` 프로퍼티가 되지만 생성자 함수 Counter 내에서 선언된 변수 counter는 생성자 함수 Counter 외부에서 접근할 수 없다. 하지만 생성자 함수 Counter가 생성한 인스턴스의 메소드인 increase, decrease는 클로저이기 때문에 자신이 생성됐을 때의 렉시컬 환경인 생성자 함수 Counter의 변수 counter에 접근할 수 있다. 이러한 클로저의 특징을 사용해 클래스 기반 언어의 `private` 키워드를 흉내낼 수 있다.

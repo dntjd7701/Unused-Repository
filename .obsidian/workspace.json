@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "04a9ced1f9b887ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/스코프(Scope).md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "f9a443fc7a42504e",
@@ -113,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/클로저(Closure).md",
+                "file": "JavaScript/스코프(Scope).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/클로저(Closure).md",
+                "file": "JavaScript/스코프(Scope).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/클로저(Closure).md"
+                "file": "JavaScript/스코프(Scope).md"
               }
             }
           },
@@ -183,10 +197,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "ccbb1fd542c0c503",
+  "active": "04a9ced1f9b887ba",
   "lastOpenFiles": [
-    "JavaScript/스코프(Scope).md",
     "JavaScript/클로저(Closure).md",
+    "JavaScript/스코프(Scope).md",
     "JavaScript/Iteration Protocol.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
     "Err/[Error] Maven blocker.md",
