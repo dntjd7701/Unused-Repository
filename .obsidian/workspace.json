@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Site/강좌.md",
+                "file": "Tools/VSCODE/Shortcuts.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Site/강좌.md",
+                "file": "Tools/VSCODE/Shortcuts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Site/강좌.md",
+                "file": "Tools/VSCODE/Shortcuts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Site/강좌.md"
+                "file": "Tools/VSCODE/Shortcuts.md"
               }
             }
           },
@@ -166,24 +166,29 @@
   },
   "active": "659b82b5857d9496",
   "lastOpenFiles": [
+    "Tools/VSCODE/Extension.md",
+    "Tools/Vim.md",
+    "Front/Next/번역_Pre-rendering and Data Fetching.md",
+    "Front/Next/How Next.js Works.md",
+    "Front/Next/번역_Next.js.md",
+    "Front/React/dangerouslySetInnerHTML.md",
+    "Err/[Error] Maven blocker.md",
+    "Tools/옵시디언 플러그인.png",
     "Linux/crontab을 이용한 스케쥴링.md",
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "JavaScript/JSDoc.md",
+    "JavaScript/Iteration Protocol.md",
     "Site/강좌.md",
     "Site",
     "README.md",
     "Todo.canvas",
     "무제 파일.canvas",
     "Tools/VSCODE/Shortcuts.md",
-    "Tools/Vim.md",
     "회사/시리얼발행.md",
     "회사/회사 배포 프로그램 개발.md",
     "무제 파일.md",
-    "JavaScript/Iteration Protocol.md",
-    "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "JavaScript/JSDoc.md",
     "JavaScript/JavaScript.md",
-    "Tools/VSCODE/Extension.md",
     "Tools/VSCODE",
-    "Tools/옵시디언 플러그인.png",
     "Front",
     "Docs/MSA.md",
     "Docs/MicroFrontend.md",
@@ -193,20 +198,15 @@
     "Tools",
     "Vim",
     "기타",
-    "Front/Next/번역_Next.js.md",
-    "Front/Next/번역_Pre-rendering and Data Fetching.md",
-    "Front/Next/How Next.js Works.md",
     "Front/React/이벤트 핸들러 바인딩.md",
     "Front/React/React.lazy(), Suspense.md",
     "Front/React/Key 이해하기.md",
-    "Front/React/dangerouslySetInnerHTML.md",
     "imgs/Pasted image 20230918152716.png",
     "imgs/Pasted image 20230918152702.png",
     "imgs/Pasted image 20230918152652.png",
     "imgs/Pasted image 20230918152629.png",
     "imgs/Pasted image 20230918152618.png",
     "imgs/Pasted image 20230918152534.png",
-    "Web/웹 페이지가 만들어지는 방식.md",
     "imgs/Pasted image 20230918152045.png",
     "imgs/Pasted image 20230105091317.png",
     "imgs/next-app.png",
