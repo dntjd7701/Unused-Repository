@@ -185,8 +185,9 @@
   },
   "active": "89a59090ff182c05",
   "lastOpenFiles": [
-    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "JavaScript/스코프.md",
     "JavaScript/클로저.md",
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
     "JavaScript/Iteration Protocol.md",
     "Err/[Error] Maven blocker.md",
     "회사/시리얼발행.md",
@@ -214,7 +215,6 @@
     "Front/Next/번역_Pre-rendering and Data Fetching.md",
     "Front/Next/How Next.js Works.md",
     "Front/Next/번역_Next.js.md",
-    "Site/강좌.md",
     "Site",
     "무제 파일.canvas",
     "Tools/VSCODE",
