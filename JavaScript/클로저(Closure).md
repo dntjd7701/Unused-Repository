@@ -2,7 +2,6 @@
 --- 
 ### 참조 
 [poiemaweb](https://poiemaweb.com/js-closure)
-[[스코프(Scope)]]
 
 --- 
 ### 서론 
