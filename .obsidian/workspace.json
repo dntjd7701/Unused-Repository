@@ -21,6 +21,25 @@
             }
           }
         ]
+      },
+      {
+        "id": "f9a443fc7a42504e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ccbb1fd542c0c503",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/클로저(Closure).md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -164,7 +183,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "6c0de8ef37be1f8c",
+  "active": "ccbb1fd542c0c503",
   "lastOpenFiles": [
     "JavaScript/스코프(Scope).md",
     "JavaScript/클로저(Closure).md",
