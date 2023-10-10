@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Err/[Error] Maven blocker.md",
+                "file": "JavaScript/zmffhwj.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Err/[Error] Maven blocker.md",
+                "file": "JavaScript/zmffhwj.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Err/[Error] Maven blocker.md",
+                "file": "JavaScript/zmffhwj.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Err/[Error] Maven blocker.md"
+                "file": "JavaScript/zmffhwj.md"
               }
             }
           },
@@ -166,6 +166,10 @@
   },
   "active": "89a59090ff182c05",
   "lastOpenFiles": [
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "JavaScript/zmffhwj.md",
+    "JavaScript/Iteration Protocol.md",
+    "Err/[Error] Maven blocker.md",
     "회사/시리얼발행.md",
     "회사/회사 배포 프로그램 개발.md",
     "README.md",
@@ -177,8 +181,6 @@
     "Tools/옵시디언 플러그인.png",
     "Tools/Vim.md",
     "Linux/crontab을 이용한 스케쥴링.md",
-    "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "JavaScript/Iteration Protocol.md",
     "JavaScript/JSDoc.md",
     "JavaScript/JavaScript.md",
     "JavaScript/js/무제 파일.md",
@@ -193,7 +195,6 @@
     "Front/Next/번역_Pre-rendering and Data Fetching.md",
     "Front/Next/How Next.js Works.md",
     "Front/Next/번역_Next.js.md",
-    "Err/[Error] Maven blocker.md",
     "Site/강좌.md",
     "Site",
     "무제 파일.canvas",
