@@ -37,9 +37,17 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3792f4fde694b3b2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -113,7 +121,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "백준, 프로그래머스 Github 자동으로 커밋하기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +137,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "백준, 프로그래머스 Github 자동으로 커밋하기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,9 +158,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "백준, 프로그래머스 Github 자동으로 커밋하기.md"
-              }
+              "state": {}
             }
           },
           {
@@ -183,9 +187,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "121b8e82ee9e6201",
+  "active": "3792f4fde694b3b2",
   "lastOpenFiles": [
     "백준, 프로그래머스 Github 자동으로 커밋하기.md",
+    "무제 파일.md",
     "JavaScript/클로저(Closure).md",
     "JavaScript/스코프(Scope).md",
     "JavaScript/Iteration Protocol.md",
@@ -214,7 +219,6 @@
     "Front/React/dangerouslySetInnerHTML.md",
     "Todo.canvas",
     "Front/Next/번역_Pre-rendering and Data Fetching.md",
-    "Front/Next/How Next.js Works.md",
     "Site",
     "무제 파일.canvas",
     "Tools/VSCODE",
