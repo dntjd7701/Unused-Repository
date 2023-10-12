@@ -19,22 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "50cabf4205b886d4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "무제 파일.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "무제 파일.md",
+                "file": "유클리드 호제법(최대공약수).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "무제 파일.md",
+                "file": "유클리드 호제법(최대공약수).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "무제 파일.md"
+                "file": "유클리드 호제법(최대공약수).md"
               }
             }
           },
@@ -178,7 +164,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "50cabf4205b886d4",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
     "유클리드 호제법(최대공약수).md",
     "무제 파일.md",
