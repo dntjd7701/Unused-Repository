@@ -19,19 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "97fafc692b988924",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.4.16"
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -175,7 +164,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "97fafc692b988924",
+  "active": "f73107627586a32b",
   "lastOpenFiles": [
     "Algorithm/알고리즘 자동 푸쉬.md",
     "Algorithm/백준, 프로그래머스 Github 자동으로 커밋하기.md",
