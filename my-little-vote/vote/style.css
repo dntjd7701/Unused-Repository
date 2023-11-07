@@ -166,7 +166,8 @@ body{
 }
 
 .task label p.checked{
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
+    color: blue;
 }
 
 .task-box .settings{

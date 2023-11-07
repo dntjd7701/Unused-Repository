@@ -1,39 +1,11 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyDee-At0KacI_lZma2OJA1K-tt6z-ocVz8",
-    authDomain: "joinlist-92bd9.firebaseapp.com",
-    databaseURL: "https://joinlist-92bd9-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "joinlist-92bd9",
-    storageBucket: "joinlist-92bd9.appspot.com",
-    messagingSenderId: "533233413421",
-    appId: "1:533233413421:web:7d65d07bc872da3c5c77a4"
-};
-
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-const usersRef = database.ref('/');
-let todos = [];
 const taskInput = document.querySelector(".task-input input"),
     filters = document.querySelectorAll(".filters span"),
     clearAll = document.querySelector(".clear-btn"),
     taskBox = document.querySelector(".task-box");
+
 let editId,
-    isEditTask = false;
-
-
-function getData(filterName = 'all') {
-    // 한 번만 데이터를 가져오려면
-    usersRef.once('value').then(function(snapshot) {
-    const data = snapshot.val();
-    todos = [...data]
-    showTodo(filterName);
-    });
-};
-
-function setData() {
-    usersRef.set(todos);
-}
-getData();
-
+    isEditTask = false,
+    todos = JSON.parse(localStorage.getItem("todo-list"));
 
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -44,7 +16,7 @@ filters.forEach(btn => {
 });
 
 function showTodo(filter) {
-    let liTag = ""
+    let liTag = "";
     if (todos) {
         todos.forEach((todo, id) => {
             let completed = todo.status == "completed" ? "checked" : "";
@@ -65,11 +37,14 @@ function showTodo(filter) {
             }
         });
     }
-    taskBox.innerHTML = liTag || `<span>참가자 명단이 없습니다. 추가 ㄱㄱ</span>`;
+
+    taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
     let checkTask = taskBox.querySelectorAll(".task");
     !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
     taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
+
 }
+showTodo("all");
 
 //i have added a task before tutorial so that shows here for test
 // if you don't have any tasks no problem it isn't bug
@@ -93,8 +68,7 @@ function updateStatus(selectedTask) {
         taskName.classList.remove("checked");
         todos[selectedTask.id].status = "pending";
     }
-    setData();
-    // localStorage.setItem("todo-list", JSON.stringify(todos))
+    localStorage.setItem("todo-list", JSON.stringify(todos))
 }
 
 function editTask(taskId, textName) {
@@ -108,20 +82,15 @@ function editTask(taskId, textName) {
 function deleteTask(deleteId, filter) {
     isEditTask = false;
     todos.splice(deleteId, 1);
-    setData();
-    getData(filter);
-    // localStorage.setItem("todo-list", JSON.stringify(todos));
-    // showTodo(filter);
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+    showTodo(filter);
 }
 
 clearAll.addEventListener("click", () => {
     isEditTask = false;
-    todos = [];
-    setData();
-    getData();
-    // todos.splice(0, todos.length);
-    // console.debug(JSON.stringify(todos.map((v) => ({...v, status: 'pending'}))))
-    // localStorage.setItem("todo-list", JSON.stringify(todos));
+    todos.splice(0, todos.length);
+    localStorage.setItem("todo-list", JSON.stringify(todos));
+    showTodo();
 });
 
 taskInput.addEventListener("keyup", e => {
@@ -136,10 +105,7 @@ taskInput.addEventListener("keyup", e => {
             todos[editId].name = userTask;
         }
         taskInput.value = "";
-        setData();
-        getData(document.querySelector("span.active").id);
-        
-        // localStorage.setItem("todo-list", JSON.stringify(todos));
-        // showTodo(document.querySelector("span.active").id);
+        localStorage.setItem("todo-list", JSON.stringify(todos));
+        showTodo(document.querySelector("span.active").id);
     }
 });
