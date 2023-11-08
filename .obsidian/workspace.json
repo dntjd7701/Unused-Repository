@@ -11,32 +11,16 @@
             "id": "f73107627586a32b",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Todo.canvas",
-                "viewState": {
-                  "x": -740.5,
-                  "y": 112.5,
-                  "zoom": -1.9979697822671014
-                }
-              }
-            }
-          },
-          {
-            "id": "220cc0cbf03de2cd",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "mono-repo.md",
+                "file": "Algorithm/유클리드 호제법(최대공약수).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mono-repo.md",
+                "file": "Algorithm/유클리드 호제법(최대공약수).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mono-repo.md",
+                "file": "Algorithm/유클리드 호제법(최대공약수).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mono-repo.md"
+                "file": "Algorithm/유클리드 호제법(최대공약수).md"
               }
             }
           },
@@ -180,31 +164,30 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "220cc0cbf03de2cd",
+  "active": "f73107627586a32b",
   "lastOpenFiles": [
-    "Todo.canvas",
     "mono-repo.md",
-    "Architecture",
-    "README.md",
-    "회사/시리얼발행.md",
-    "Tools/옵시디언 플러그인.png",
     "Algorithm/알고리즘 자동 푸쉬.md",
+    "Algorithm/백준, 프로그래머스 Github 자동으로 커밋하기.md",
     "Algorithm/유클리드 호제법(최대공약수).md",
     "Algorithm/무제 파일.md",
-    "Algorithm/백준, 프로그래머스 Github 자동으로 커밋하기.md",
     "글",
+    "Todo.canvas",
     "Algorithm",
     "JavaScript/클로저(Closure).md",
     "JavaScript/스코프(Scope).md",
     "JavaScript/Iteration Protocol.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
     "Err/[Error] Maven blocker.md",
+    "회사/시리얼발행.md",
     "회사/회사 배포 프로그램 개발.md",
+    "README.md",
     "Web/웹 페이지가 만들어지는 방식.md",
     "Web/SSR, CSR 차이.md",
     "Web/IOS 브라우저의 구조 ?.md",
     "Tools/VSCODE/Extension.md",
     "Tools/VSCODE/Shortcuts.md",
+    "Tools/옵시디언 플러그인.png",
     "Tools/Vim.md",
     "Linux/crontab을 이용한 스케쥴링.md",
     "JavaScript/JSDoc.md",
@@ -214,12 +197,14 @@
     "JavaScript/js",
     "Front/무제 폴더",
     "Front/React/이벤트 핸들러 바인딩.md",
+    "Front/React/React.lazy(), Suspense.md",
     "Site",
     "무제 파일.canvas",
     "Tools/VSCODE",
     "Front",
     "Tools",
     "Vim",
+    "기타",
     "imgs/Pasted image 20230918152716.png",
     "imgs/Pasted image 20230918152702.png",
     "imgs/Pasted image 20230918152652.png",
