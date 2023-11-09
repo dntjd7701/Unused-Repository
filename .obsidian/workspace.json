@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md",
+                "file": "mono-repo.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md",
+                "file": "mono-repo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md",
+                "file": "mono-repo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md"
+                "file": "mono-repo.md"
               }
             }
           },
@@ -166,10 +166,10 @@
   },
   "active": "f73107627586a32b",
   "lastOpenFiles": [
+    "Algorithm/유클리드 호제법(최대공약수).md",
     "mono-repo.md",
     "Algorithm/알고리즘 자동 푸쉬.md",
     "Algorithm/백준, 프로그래머스 Github 자동으로 커밋하기.md",
-    "Algorithm/유클리드 호제법(최대공약수).md",
     "Algorithm/무제 파일.md",
     "글",
     "Todo.canvas",
