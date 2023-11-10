@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/BATCH BOM 등록.md",
+                "file": "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/BATCH BOM 등록.md",
+                "file": "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/BATCH BOM 등록.md",
+                "file": "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/BATCH BOM 등록.md"
+                "file": "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md"
               }
             }
           },
@@ -164,7 +164,7 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "f73107627586a32b",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
     "JavaScript/Iteration Protocol.md",
     "회사/화면 리스트.md",
@@ -185,8 +185,8 @@
     "회사/img/Pasted image 20231018090342.png",
     "회사/img",
     "회사/BOM재고수급현황.md",
-    "회사/BOM 역전개.md",
-    "회사/BATCH BOM 등록.md",
+    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "회사/Amaranth10/ERP/생산/E-BOM관리.md",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
