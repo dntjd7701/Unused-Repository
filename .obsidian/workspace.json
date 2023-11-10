@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mono-repo.md",
+                "file": "회사/시리얼발행.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "mono-repo.md",
+                "file": "회사/시리얼발행.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "mono-repo.md",
+                "file": "회사/시리얼발행.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "mono-repo.md"
+                "file": "회사/시리얼발행.md"
               }
             }
           },
@@ -166,20 +166,20 @@
   },
   "active": "c7852406a1674ff0",
   "lastOpenFiles": [
-    "회사/화면 리스트.md",
-    "회사/회사 배포 프로그램 개발.md",
-    "mono-repo.md",
     "회사/자료들.md",
+    "회사/화면 리스트.md",
+    "회사/순환 참조 쿼리 참고.md",
+    "회사/Skills & Tools.md",
+    "mono-repo.md",
+    "회사/회사 배포 프로그램 개발.md",
     "회사/시리얼발행.md",
     "회사/바코드.md",
     "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "JavaScript/Iteration Protocol.md",
-    "회사/순환 참조 쿼리 참고.md",
     "회사/무제 파일.md",
     "회사/고찰",
     "회사/WIKI/전자 결재 정리.md",
     "회사/WIKI",
-    "회사/Skills & Tools.md",
     "회사/img/Pasted image 20231110114013.png",
     "회사/img/Pasted image 20231110113935.png",
     "회사/img/Pasted image 20231109135731.png",
