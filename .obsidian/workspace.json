@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "60163bf25b565467",
+        "id": "89e0cc33ace9aa8b",
         "type": "tabs",
         "children": [
           {
-            "id": "f73107627586a32b",
+            "id": "9ad6f5234281db1f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Front/React/이벤트 핸들러 바인딩.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Front/React/이벤트 핸들러 바인딩.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Front/React/이벤트 핸들러 바인딩.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Front/React/이벤트 핸들러 바인딩.md"
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md"
               }
             }
           },
@@ -164,27 +164,29 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "f73107627586a32b",
+  "active": "9ad6f5234281db1f",
   "lastOpenFiles": [
+    "회사/WIKI/전자 결재 정리.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
+    "회사/Amaranth10/바코드.md",
+    "회사/Amaranth10/Skills & Tools.md",
+    "회사/무제 파일.md",
+    "회사/Amaranth10/순환 참조 쿼리 참고.md",
+    "회사/Amaranth10/자료들.md",
+    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+    "Front/React/이벤트 핸들러 바인딩.md",
     "Front/React/React.lazy(), Suspense.md",
     "Front/React/Key 이해하기.md",
     "Front/React/dangerouslySetInnerHTML.md",
     "Front/Next/번역_Pre-rendering and Data Fetching.md",
     "Front/Next/번역_Next.js.md",
     "Front/Next/How Next.js Works.md",
-    "회사/시리얼발행.md",
-    "회사/자료들.md",
-    "회사/화면 리스트.md",
-    "회사/순환 참조 쿼리 참고.md",
-    "회사/Skills & Tools.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
+    "회사/Amaranth10/화면 리스트.md",
     "mono-repo.md",
-    "회사/회사 배포 프로그램 개발.md",
-    "회사/바코드.md",
     "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "JavaScript/Iteration Protocol.md",
-    "회사/무제 파일.md",
     "회사/고찰",
-    "회사/WIKI/전자 결재 정리.md",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
     "회사/img/Pasted image 20231110113935.png",
@@ -207,9 +209,7 @@
     "회사/Amaranth10/공통 작업 업무",
     "JavaScript/클로저(Closure).md",
     "Tools/VSCODE/Extension.md",
-    "Tools/Vim.md",
     "Tools/옵시디언 플러그인.png",
-    "Web/웹 페이지가 만들어지는 방식.md",
     "Todo.canvas",
     "무제 파일.canvas",
     "imgs/Pasted image 20230918152716.png",
