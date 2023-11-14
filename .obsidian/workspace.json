@@ -11,8 +11,13 @@
             "id": "baac857b31d66081",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Daily/2023-11-14.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Daily/2023-11-14.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Daily/2023-11-14.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Daily/2023-11-14.md"
+              }
             }
           },
           {
@@ -175,14 +184,14 @@
   },
   "active": "baac857b31d66081",
   "lastOpenFiles": [
-    "Daily/2023-11-14.md",
-    "Daily/2023-11-13.md",
-    "회사/무제 파일.md",
-    "Daily",
     "회사/스케줄 이력.md",
+    "Daily/2023-11-14.md",
+    "무제 파일.canvas",
+    "회사/무제 파일.md",
+    "Daily/2023-11-13.md",
+    "Daily",
     "회사/스케줄.md",
     "무제 파일.md",
-    "무제 파일.canvas",
     "imgs/Todo.ics",
     "JavaScript/클로저(Closure).md",
     "회사/멘토링/목차.md",
@@ -204,7 +213,6 @@
     "Front/Next/번역_Next.js.md",
     "Front/Next/How Next.js Works.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
-    "mono-repo.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
