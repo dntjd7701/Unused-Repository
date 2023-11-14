@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-14.md"
+                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md"
               }
             }
           },
@@ -184,15 +184,25 @@
   },
   "active": "baac857b31d66081",
   "lastOpenFiles": [
-    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+    "imgs/Pasted image 20231114174044.png",
+    "회사/Amaranth10/Skills & Tools.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
+    "회사/멘토링/목차.md",
+    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
+    "회사/Amaranth10/ERP/생산/E-BOM관리.md",
+    "회사/Amaranth10/ERP/물류/매출마감등록.md",
+    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
+    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+    "회사/Amaranth10/ERP/구매/무제 파일.md",
+    "Daily/2023-11-14.md",
     "imgs/Pasted image 20231114171904.png",
     "Daily/2023-11-16.md",
-    "Daily/2023-11-14.md",
-    "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20231114161514.png",
-    "회사/멘토링/목차.md",
     "무제 파일.canvas",
     "Tools/Vim.md",
     "회사/스케줄 이력.md",
@@ -206,16 +216,6 @@
     "회사/WIKI/async, await 병목현상 처리.md",
     "회사/멘토링",
     "회사/WIKI/전자 결재 정리.md",
-    "회사/Amaranth10/화면 리스트.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
-    "회사/Amaranth10/바코드.md",
-    "회사/Amaranth10/Skills & Tools.md",
-    "회사/Amaranth10/자료들.md",
-    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
-    "Front/React/이벤트 핸들러 바인딩.md",
-    "Front/React/React.lazy(), Suspense.md",
-    "Front/React/Key 이해하기.md",
-    "Front/React/dangerouslySetInnerHTML.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
