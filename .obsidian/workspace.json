@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Skills & Tools.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Skills & Tools.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "회사/Skills & Tools.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-14.md"
+                "file": "회사/Skills & Tools.md"
               }
             }
           },
@@ -196,12 +196,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0540535e8a221dd5",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+    "회사/Amaranth10/화면 리스트.md",
+    "회사/WIKI/전자 결재 정리.md",
+    "회사/WIKI/async, await 병목현상 처리.md",
+    "Tools/VSCODE/Extension.md",
+    "Tools/옵시디언 플러그인.png",
     "Daily/2023-11-14.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "imgs/Pasted image 20231114174044.png",
-    "회사/Amaranth10/Skills & Tools.md",
+    "회사/Skills & Tools.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/멘토링/목차.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
@@ -226,10 +231,7 @@
     "회사/스케줄.md",
     "무제 파일.md",
     "imgs/Todo.ics",
-    "JavaScript/클로저(Closure).md",
-    "회사/WIKI/async, await 병목현상 처리.md",
     "회사/멘토링",
-    "회사/WIKI/전자 결재 정리.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
@@ -238,7 +240,6 @@
     "회사/img/Pasted image 20231109135659.png",
     "회사/img/Pasted image 20231018094847.png",
     "회사/img/Pasted image 20231018092149.png",
-    "회사/img/Pasted image 20231018090342.png",
     "회사/img",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
