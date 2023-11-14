@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/매출마감등록.md",
+                "file": "Daily/2023-11-16.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/매출마감등록.md",
+                "file": "Daily/2023-11-16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/매출마감등록.md",
+                "file": "Daily/2023-11-16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/매출마감등록.md"
+                "file": "Daily/2023-11-16.md"
               }
             }
           },
@@ -184,10 +184,11 @@
   },
   "active": "baac857b31d66081",
   "lastOpenFiles": [
+    "Daily/2023-11-14.md",
+    "Daily/2023-11-16.md",
+    "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20231114161514.png",
     "회사/멘토링/목차.md",
-    "회사/Amaranth10/ERP/물류/매출마감등록.md",
-    "Daily/2023-11-14.md",
     "무제 파일.canvas",
     "Tools/Vim.md",
     "회사/스케줄 이력.md",
@@ -231,7 +232,6 @@
     "Tools/옵시디언 플러그인.png",
     "Todo.canvas",
     "imgs/Pasted image 20230918152716.png",
-    "imgs/Pasted image 20230918152702.png",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
   ]
