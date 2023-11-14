@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/스케줄.md",
+                "file": "Daily/2023-11-14.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/스케줄.md",
+                "file": "Daily/2023-11-14.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/스케줄.md",
+                "file": "Daily/2023-11-14.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/스케줄.md"
+                "file": "Daily/2023-11-14.md"
               }
             }
           },
@@ -155,8 +155,17 @@
               "type": "calendar",
               "state": {}
             }
+          },
+          {
+            "id": "71de136eb9d65790",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -175,13 +184,17 @@
   },
   "active": "9ad6f5234281db1f",
   "lastOpenFiles": [
+    "Daily/2023-11-13.md",
+    "Daily/2023-11-14.md",
+    "회사/무제 파일.md",
+    "Daily",
     "회사/스케줄 이력.md",
     "회사/스케줄.md",
+    "무제 파일.md",
     "무제 파일.canvas",
     "imgs/Todo.ics",
     "JavaScript/클로저(Closure).md",
     "회사/멘토링/목차.md",
-    "무제 파일.md",
     "회사/WIKI/async, await 병목현상 처리.md",
     "회사/멘토링",
     "회사/WIKI/전자 결재 정리.md",
@@ -201,8 +214,6 @@
     "Front/Next/How Next.js Works.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
     "mono-repo.md",
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
-    "JavaScript/Iteration Protocol.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
@@ -213,12 +224,10 @@
     "회사/img/Pasted image 20231018092149.png",
     "회사/img/Pasted image 20231018090342.png",
     "회사/img",
-    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
     "회사/Amaranth10/ERP/외주",
     "회사/Amaranth10/ERP/생산",
-    "회사/Amaranth10/ERP/물류",
     "Tools/옵시디언 플러그인.png",
     "Todo.canvas",
     "imgs/Pasted image 20230918152716.png",
