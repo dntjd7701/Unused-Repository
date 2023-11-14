@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+                "file": "Daily/2023-11-14.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0540535e8a221dd5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Daily/2023-11-14.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+                "file": "Daily/2023-11-14.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+                "file": "Daily/2023-11-14.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md"
+                "file": "Daily/2023-11-14.md"
               }
             }
           },
@@ -182,11 +196,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "baac857b31d66081",
+  "active": "0540535e8a221dd5",
   "lastOpenFiles": [
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+    "Daily/2023-11-14.md",
     "imgs/Pasted image 20231114174044.png",
     "회사/Amaranth10/Skills & Tools.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/멘토링/목차.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
@@ -199,7 +214,6 @@
     "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/ERP/구매/무제 파일.md",
-    "Daily/2023-11-14.md",
     "imgs/Pasted image 20231114171904.png",
     "Daily/2023-11-16.md",
     "imgs/Pasted image 20231114161514.png",
@@ -230,7 +244,6 @@
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
     "회사/Amaranth10/ERP/외주",
     "회사/Amaranth10/ERP/생산",
-    "Tools/옵시디언 플러그인.png",
     "Todo.canvas",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
