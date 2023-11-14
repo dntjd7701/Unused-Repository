@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-14.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-14.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-14.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-16.md"
+                "file": "Daily/2023-11-14.md"
               }
             }
           },
@@ -184,8 +184,12 @@
   },
   "active": "baac857b31d66081",
   "lastOpenFiles": [
-    "Daily/2023-11-14.md",
+    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+    "회사/Amaranth10/순환 참조 쿼리 참고.md",
+    "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
+    "imgs/Pasted image 20231114171904.png",
     "Daily/2023-11-16.md",
+    "Daily/2023-11-14.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20231114161514.png",
     "회사/멘토링/목차.md",
@@ -206,15 +210,12 @@
     "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
     "회사/Amaranth10/바코드.md",
     "회사/Amaranth10/Skills & Tools.md",
-    "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/자료들.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "Front/React/이벤트 핸들러 바인딩.md",
     "Front/React/React.lazy(), Suspense.md",
     "Front/React/Key 이해하기.md",
     "Front/React/dangerouslySetInnerHTML.md",
-    "Front/Next/번역_Pre-rendering and Data Fetching.md",
-    "Front/Next/번역_Next.js.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
@@ -231,7 +232,6 @@
     "회사/Amaranth10/ERP/생산",
     "Tools/옵시디언 플러그인.png",
     "Todo.canvas",
-    "imgs/Pasted image 20230918152716.png",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
   ]
