@@ -26,19 +26,6 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-14.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ae245c994a8f71b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "멘토링/Back/Klago.md",
                 "mode": "source",
                 "backlinks": true,
@@ -47,7 +34,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,18 +196,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "ae245c994a8f71b5",
+  "active": "0540535e8a221dd5",
   "lastOpenFiles": [
+    "Daily/2023-11-14.md",
+    "멘토링/Back/Klago.md",
     "멘토링/Back/Back.md",
     "멘토링/Back/Spring.md",
-    "멘토링/Back/Klago.md",
     "멘토링/Front.md",
     "멘토링/Query.md",
     "멘토링/목차.md",
     "멘토링/Back",
     "Daily/2023-11-15.md",
     "Daily/2023-11-19.md",
-    "Daily/2023-11-14.md",
     "Daily/2023-11-16.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Skills & Tools.md",
