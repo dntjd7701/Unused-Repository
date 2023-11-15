@@ -8,3 +8,5 @@
 - JS DOC 
 - async await 
 - 클로저 
+- 동기 vs 비동기 
+- 
