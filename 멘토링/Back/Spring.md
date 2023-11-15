@@ -67,7 +67,29 @@ public class Douzone {
 2. AOP
 3. PSA 
 
-순서대로 IoC/DI 부터 알아보자 
+순서대로 IoC/DI 부터 알아보자.
+
+Java는 하나의 프로그램을 완성하기 위해. 하나의 목적을 가진 여러 객체들을 쌓아올려 만드는 방식의 ==객체지향언어==지.
+
+이러한 언어들은 객체들 간의 관계를 적절하게 맺어주는 게 매우 중요해. 이 때, A 인스턴스가 B 인스턴스이 메서
+
+\호출하고  있다면 ?  이러한 관계는 ==A가 B에 의존하는 관계== 라고 나타낼 수 있어. 
+
+```java
+class A {
+   public void methodA() {
+	   B b = new B();
+	   b.methodB();
+   }
+}
+
+class B {
+	public void methodB() {
+		...
+	}
+}
+```
+
 
 
 
