@@ -1,7 +1,17 @@
 
 #### RequestContext vs BaseInfoContext 
 
-BaseInfoContext느
+BaseInfoContext는 직접 만든 모델이야. 
+
+DAO를 만들 때, 세션 정보나 필수적으로 가져야하는 파라미터 값에 대해 미리 선언한 모델로.  RequestContext 혹은 BaseInfoContext를 상속해서 만들게돼.
+		 `DTO(Data Transfer Object)` 는 계층 간 데이터 교환을 하기 위해 사용하는 객체로,  로직을 가지지 않는 순수한 데이터 객체(getter & setter 만 가진 클래스)야 
+		예를 들어, 유저가 입력한 데이터를 DB에 넣는 과정에서 유저가 자신의 브라우저에서 데이터를 입력하여 form에 있는 데이터를 DTO에 넣어서 전송하고 해당 DTO를 받은 서버가 DAO를 이용하여 데이터베이스로 데이터를 집어넣어. 
+
+그렇다면, RequestContext 와 BaseInfoContext의 차이 그리고 왜 BaseInfoContext를 상속받아 처리할까 ?
+
+답은 매우 간단해. 중복되고 공통되고 필수적인 파라미터들에 대해 미리 선언하고 쓰기 위해서야. 
+사용
+
 
 
 ### @KlagoController
