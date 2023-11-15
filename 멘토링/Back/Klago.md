@@ -15,10 +15,9 @@ DAO를 만들 때, 세션 정보나 필수적으로 가져야하는 파라미터
 
 그렇다면 왜 기존에 있던 RequestContext에서 새로운 모델인 BaseInfoContext를 만들었을까. 이건 몇 가지 이유가 있어. 
 
-1. RequestContext의 경우 
-2. 소숫점 자릿수 정보
+1. @JsonIgnore
+2.  소숫점 자릿수 정보
 3. Date타입 정보 
-4. @JsonIgnore
 
 
 
