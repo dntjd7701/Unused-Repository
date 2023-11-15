@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "멘토링/Back/Spring.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "멘토링/Back/Spring.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "멘토링/Back/Spring.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Back.md"
+                "file": "멘토링/Back/Spring.md"
               }
             }
           },
@@ -211,10 +211,12 @@
   },
   "active": "ae245c994a8f71b5",
   "lastOpenFiles": [
-    "회사/멘토링/Front.md",
-    "회사/멘토링/Query.md",
-    "회사/멘토링/Back.md",
-    "회사/멘토링/목차.md",
+    "멘토링/Back/Back.md",
+    "멘토링/Back/Spring.md",
+    "멘토링/목차.md",
+    "멘토링/Back",
+    "멘토링/Front.md",
+    "멘토링/Query.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-19.md",
     "Daily/2023-11-14.md",
@@ -240,10 +242,9 @@
     "Tools/Vim.md",
     "회사/스케줄 이력.md",
     "회사/무제 파일.md",
-    "Daily/2023-11-13.md",
     "Daily",
     "imgs/Todo.ics",
-    "회사/멘토링",
+    "멘토링",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
@@ -257,7 +258,6 @@
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
     "회사/Amaranth10/ERP/외주",
-    "회사/Amaranth10/ERP/생산",
     "Todo.canvas",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
