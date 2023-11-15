@@ -1,6 +1,9 @@
 
 #### RequestContext vs BaseInfoContext 
 
+> 직렬화:  서버 -> 클라이언트
+> 역직렬화: 클라이언트 -> 서버 
+
 BaseInfoContext는 팀의 한 멤버가 직접 만든 모델이야. 
 기존에 있던 RequestContext를 조금 더 편의성있게 사용하기 위해 새롭게 선언한 모델이지 
 
@@ -24,7 +27,17 @@ RequestContext에서는 멤버 변수들이 @JsonIgnore로 처리되어 있기 �
 소숫점 자릿수 정보의 경우. 수량, 금액, 비율 등의 데이터를 다룰 경우 우린 환경설정값에 따라 다르게 처리하게 되어있어. 이러한 정보를 세션으로 부터 주입받아 사용하기 위해 이미 정의되어 있는 BaseInfoContext로부터 상속받아 처리해.
 
 날짜의 경우도 마찬가지야. 
-우린 insertDtA와 insertDt라는 두개의 멤버 변수를 BaseInfoContext에서 가지고 있는걸 확인할 수 있는데, 날짜의 경우는 데이터타입이 `Dat`
+우린 insertDtA와 insertDt라는 두개의 멤버 변수를 BaseInfoContext에서 가지고 있는걸 확인할 수 있는데, 날짜의 경우는 데이터타입이 `Date`인 insertDtA라는 멤버변수를 활용해 데이터의 파라미터로 사용하고, 그 결과값을 반환할때는 String인 insertDt라는 변수를 통해 반환받아. 그래서 우린 insertDt 변수에 @JsonIgnore가 포함되어 있지 않은걸 알 수 있어. 
+
+
+
+
+### @JsonIgnoreProperties(ignoreUnknown = true)
+
+@JsonIgnore이 각 클래스의 속성 수준에서 사용되었다면 @JsonIgnoreProperties는 클래스 수준에서 사용되는 어노테이션이야. 클래스 전반의 직렬화, 역직렬화를 결정하고 그 외의 속성들도 가지고 있어. 
+
+
+
 
 
 ### @KlagoController
