@@ -32,9 +32,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "ae245c994a8f71b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Daily/2023-11-15.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -108,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "Daily/2023-11-15.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-14.md",
+                "file": "Daily/2023-11-15.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-14.md"
+                "file": "Daily/2023-11-15.md"
               }
             }
           },
@@ -196,11 +209,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0540535e8a221dd5",
+  "active": "ae245c994a8f71b5",
   "lastOpenFiles": [
-    "회사/Skills & Tools.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "Daily/2023-11-14.md",
+    "Daily/2023-11-15.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+    "회사/Skills & Tools.md",
     "imgs/Pasted image 20231114174044.png",
     "회사/Amaranth10/Skills & Tools.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
@@ -230,7 +244,6 @@
     "JavaScript/클로저(Closure).md",
     "회사/WIKI/async, await 병목현상 처리.md",
     "회사/멘토링",
-    "회사/WIKI/전자 결재 정리.md",
     "회사/고찰",
     "회사/WIKI",
     "회사/img/Pasted image 20231110114013.png",
