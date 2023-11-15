@@ -86,13 +86,44 @@ class B {
 C라는 인스턴스의 메소드를 호출하는 방식으로  변경하고싶다 ? 이렇게 B에 의존하는 객체가 A하나뿐만이 아니
 라 수백개라면 ?  모든 코드를 수정하는데 많은 공수가 들게 될거야. 
 
-Spring은 이러한 문제를 해결하기 위해 다음과 같은 방식을 지원해. 
+Spring은 이러한 문제를 해결하기 위해 어떻게 할까?
 
 ```java
-Interface I() {
 
+//method를 추상 메소드로 선언 -- 추상화
+Interface I() {
+	void method();
+}
+
+class A {
+	private I i; 
+
+	public A(I i) {
+		this.I = i;
+	}
+
+	public void methodA() {
+		I i = new I();
+		i.method();
+	}
+}
+
+
+class B implements I {
+	public void method() {
+		...
+	}
+}
+
+
+class C implements I {
+	public void method() {
+		...
+	}
 }
 ```
+
+위와 같이 코드를 작성했을 때, A는 저 인터페이스 I의 method에 대해 알지 못해. 그냥 선언을 했을 뿐이지. 그렇다면 Bdhk 
 
 
 
