@@ -8,4 +8,3 @@
 - JS DOC 
 - async await 
 - 클로저 
-- 
