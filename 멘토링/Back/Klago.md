@@ -24,7 +24,7 @@ RequestContext에서는 멤버 변수들이 @JsonIgnore로 처리되어 있기 �
 소숫점 자릿수 정보의 경우. 수량, 금액, 비율 등의 데이터를 다룰 경우 우린 환경설정값에 따라 다르게 처리하게 되어있어. 이러한 정보를 세션으로 부터 주입받아 사용하기 위해 이미 정의되어 있는 BaseInfoContext로부터 상속받아 처리해.
 
 날짜의 경우도 마찬가지야. 
-우린 insertDtA와 insertDt라는 두개의 멤버 변수를 BaseInfoContext에서 가지고 있는걸 확인할 수 있는데, 날짜의 경우는 데이터압
+우린 insertDtA와 insertDt라는 두개의 멤버 변수를 BaseInfoContext에서 가지고 있는걸 확인할 수 있는데, 날짜의 경우는 데이터타입이 `Dat`
 
 
 ### @KlagoController
