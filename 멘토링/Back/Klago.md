@@ -29,12 +29,18 @@ RequestContext에서는 멤버 변수들이 @JsonIgnore로 처리되어 있기 �
 날짜의 경우도 마찬가지야. 
 우린 insertDtA와 insertDt라는 두개의 멤버 변수를 BaseInfoContext에서 가지고 있는걸 확인할 수 있는데, 날짜의 경우는 데이터타입이 `Date`인 insertDtA라는 멤버변수를 활용해 데이터의 파라미터로 사용하고, 그 결과값을 반환할때는 String인 insertDt라는 변수를 통해 반환받아. 그래서 우린 insertDt 변수에 @JsonIgnore가 포함되어 있지 않은걸 알 수 있어. 
 
-
-
-
 ### @JsonIgnoreProperties(ignoreUnknown = true)
 
 @JsonIgnore이 각 클래스의 속성 수준에서 사용되었다면 @JsonIgnoreProperties는 클래스 수준에서 사용되는 어노테이션이야. 클래스 전반의 직렬화, 역직렬화를 결정하고 그 외의 속성들도 가지고 있어. 
+
+1. allowGetter : 직렬화 O
+2. allowSetter: 역직렬화 O
+3. ==ignoreUnknown==
+4. value: Ignore 대상 선언
+
+위의 여러 속성들 중 가장 중점적으로 봐야할 건, ignoreUnknown이라는 속성이야. 
+
+
 
 
 
