@@ -1,5 +1,5 @@
 
-#### RequestContext vs BaseInfoContext 
+# RequestContext vs BaseInfoContext 
 
 > 직렬화:  서버 -> 클라이언트
 > 역직렬화: 클라이언트 -> 서버 
@@ -39,11 +39,10 @@ RequestContext에서는 멤버 변수들이 @JsonIgnore로 처리되어 있기 �
 4. value: Ignore 대상 선언
 
 위의 여러 속성들 중 가장 중점적으로 봐야할 건, ignoreUnknown이라는 속성이야. 
+@JsonIgnoreProperties(ignoreUnknown = true)를 사용하게 되면 역직렬화,  JSON 데이터가 가진 프로퍼티 중에  프로퍼티로 값이 없는경우  에러를 던지지 않고 무시되게 해. 
+자주 사용하는 속성이니깐 알아두면 좋아. 
+
+---
+# @KlagoController
 
 
-
-
-
-
-
-### @KlagoController
