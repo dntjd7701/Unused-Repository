@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "회사/멘토링/Front.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "회사/멘토링/Front.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Back.md",
+                "file": "회사/멘토링/Front.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Back.md"
+                "file": "회사/멘토링/Front.md"
               }
             }
           },
@@ -211,8 +211,10 @@
   },
   "active": "ae245c994a8f71b5",
   "lastOpenFiles": [
-    "회사/멘토링/목차.md",
+    "회사/멘토링/Query.md",
+    "회사/멘토링/Front.md",
     "회사/멘토링/Back.md",
+    "회사/멘토링/목차.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-19.md",
     "Daily/2023-11-14.md",
@@ -240,8 +242,6 @@
     "회사/무제 파일.md",
     "Daily/2023-11-13.md",
     "Daily",
-    "회사/스케줄.md",
-    "무제 파일.md",
     "imgs/Todo.ics",
     "회사/멘토링",
     "회사/고찰",
