@@ -36,7 +36,7 @@ public class Douzone {
 	public String getMember() {
 		return member;
 	}
-	public String setMember() {
+	public String setMember(String me) {
 		
 	}
 }
