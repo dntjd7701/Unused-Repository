@@ -10,8 +10,13 @@ DAO를 만들 때, 세션 정보나 필수적으로 가져야하는 파라미터
 그렇다면, RequestContext 와 BaseInfoContext의 차이 그리고 왜 BaseInfoContext를 상속받아 처리할까 ?
 
 답은 매우 간단해. 중복되고 공통되고 필수적인 파라미터들에 대해 미리 선언하고 쓰기 위해서야. 
-사용
+사용자의 로그인 정보나 회사/부서/사원 정보, 입력일, 수정일, db 정보 등 다양한 데이터를 세션으로부터 주입받아 함께 전달하기 위해 사용해
 
+그렇다면 왜 기존에 있던 RequestContext에서 새로운 모델인 BaseInfoContext를 만들었을까. 이건 몇 가지 이유가 있어. 
 
+1. RequestContext의 경우 
+2. 소숫점 자릿수 정보
+3. Date타입 정보 
+4. 
 
 ### @KlagoController
