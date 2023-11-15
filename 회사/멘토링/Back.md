@@ -10,6 +10,38 @@
 
 #### 그래서 결과적으로 뭐가 좋은건데  ? 
 
+스프링을 사용함으로써 기존 기술을 사용할 때 불가피하게 작성해야했던 반복적이고 형식적인 코드를 단순화할 수 있어. 
+
+
+#### 주요한 특징 
+
+==POJO==
+
+스프링을 하면서 제일 먼저 알아야하는 개념은 POJO야  
+
+POJO는 Plain Old Java Object, 즉 순수 Java만을 통해서 생성한 객체를 의미해. 말 그대로, 다른 기술을 사용하지 않는 순수한 Java가 가지고 있는 기술만을 사용해 만든 객체인 거야. 
+
+
+```java
+public class Douzone {
+	private String dept;
+	private String member;
+
+	public String getDept() {
+		return dept;
+	}
+	public String setDept(String dept) {
+		this.dept = dept; 
+	}
+	public String getMember() {
+		return member;
+	}
+	public String setMember() {
+		
+	}
+}
+```
+
 
 
 
