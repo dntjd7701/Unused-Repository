@@ -49,4 +49,4 @@ KlagoController는 Klago.util의 직접 만든 어노테이션으로
 런타임시까지 유지되는 어노테이션이야. 
 - useLogging
 - useApiResult
-- 
+- useSession
