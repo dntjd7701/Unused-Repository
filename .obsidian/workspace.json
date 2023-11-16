@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "멘토링/Back/Klago.md",
+                "file": "Daily/2023-11-16.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "멘토링/Back/Klago.md",
+                "file": "Daily/2023-11-16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "멘토링/Back/Klago.md",
+                "file": "Daily/2023-11-16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "멘토링/Back/Klago.md"
+                "file": "Daily/2023-11-16.md"
               }
             }
           },
@@ -211,8 +211,8 @@
   },
   "active": "bcac6588496c7022",
   "lastOpenFiles": [
-    "멘토링/Back/Back.md",
     "멘토링/Back/Klago.md",
+    "멘토링/Back/Back.md",
     "멘토링/Back/Spring.md",
     "멘토링/Front.md",
     "Daily/2023-11-16.md",
