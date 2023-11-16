@@ -1,13 +1,4 @@
 
-- [[Spring]] ? 
-- api? 
-- mvc
-- @KlagoController
-- @SessionMapping
-- @KlagoApiDesc
-- @KlagoVersion
-- BaseInfoContext
-- @JsonIgnoreProperties(ignoreUnknown = true) ?? 
-- RequestContext vs BaseInfoContext
+- [[Spring]] 
+- [[Klago]]
 - 인터페이스의 구현 이유 ?
-- 
