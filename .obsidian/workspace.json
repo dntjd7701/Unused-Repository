@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "멘토링/Front/Front.md",
+                "file": "Daily/2023-11-16.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "멘토링/Front/Front.md",
+                "file": "Daily/2023-11-16.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "멘토링/Front/Front.md",
+                "file": "Daily/2023-11-16.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "멘토링/Front/Front.md"
+                "file": "Daily/2023-11-16.md"
               }
             }
           },
@@ -196,11 +196,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c7852406a1674ff0",
+  "active": "0540535e8a221dd5",
   "lastOpenFiles": [
-    "Daily/2023-11-16.md",
+    "멘토링/과제.md",
     "멘토링/Front/Front.md",
     "멘토링/Front/Life Cycle.md",
+    "Daily/2023-11-16.md",
     "멘토링/목차.md",
     "멘토링/Query.md",
     "Front/React/Key 이해하기.md",
@@ -226,7 +227,6 @@
     "회사/Amaranth10/ERP/생산/E-BOM관리.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "imgs/Pasted image 20231114171904.png",
     "imgs/Pasted image 20231114161514.png",
     "무제 파일.canvas",

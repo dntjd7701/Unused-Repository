@@ -1,3 +1,4 @@
+
 - ECMA2022
 - 기본 문법
 - filter, map, splice, slice, find, findIndex, split... 
@@ -9,4 +10,3 @@
 - async await 
 - 클로저 
 - 동기 vs 비동기 
-- 
