@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "멘토링/목차.md",
+                "file": "멘토링/Front/Life Cycle.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "멘토링/목차.md",
+                "file": "멘토링/Front/Life Cycle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "멘토링/목차.md",
+                "file": "멘토링/Front/Life Cycle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "멘토링/목차.md"
+                "file": "멘토링/Front/Life Cycle.md"
               }
             }
           },
@@ -198,6 +198,7 @@
   },
   "active": "0540535e8a221dd5",
   "lastOpenFiles": [
+    "멘토링/목차.md",
     "멘토링/Front/Life Cycle.md",
     "멘토링/Query.md",
     "멘토링/Front/Front.md",
@@ -212,7 +213,6 @@
     "Daily/2023-11-19.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
-    "멘토링/목차.md",
     "멘토링/Back",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Skills & Tools.md",
