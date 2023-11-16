@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "멘토링/Front.md",
+                "file": "멘토링/Back/Klago.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "멘토링/Front.md",
+                "file": "멘토링/Back/Klago.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "멘토링/Front.md",
+                "file": "멘토링/Back/Klago.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "멘토링/Front.md"
+                "file": "멘토링/Back/Klago.md"
               }
             }
           },
@@ -198,6 +198,7 @@
   },
   "active": "0540535e8a221dd5",
   "lastOpenFiles": [
+    "멘토링/Front.md",
     "멘토링/Back/Back.md",
     "멘토링/Back/Klago.md",
     "멘토링/Back/Spring.md",
@@ -205,7 +206,6 @@
     "Daily/2023-11-19.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
-    "멘토링/Front.md",
     "멘토링/Query.md",
     "멘토링/목차.md",
     "멘토링/Back",
