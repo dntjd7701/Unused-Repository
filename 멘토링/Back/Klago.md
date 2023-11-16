@@ -49,4 +49,16 @@ KlagoController는 Klago.util의 직접 만든 어노테이션으로
 런타임시까지 유지되는 어노테이션이야. 
 - useLogging
 - useApiResult
-- useSession
+- useSessionInfo
+- verifyRequired
+- useOverrideUserInfo
+와 같은 메소드를 가지고 있어. 다만 우린 우리 팀에서 만든 @SessionMapping이라는 어노테이션도 함께 사용하게 됨으로(BaseInfoContext 사용 시) 이 중 useSessionInfo = false 라는 속성값을 부여함으로써 세션값 주입이 중복으로 되는 것을 막을 수 있어. 
+---
+# @SessionMapping 
+
+@SessionMapping의 역할은 다음과 같아. 
+
+ 1) 세션(RequestContext) 필드명과 동일한 필드가 존재할 경우 해당 세션에 맞는 값을 자동으로 주입
+ 2) BaseInfoContext 상속 시 BaseInfoContext의 내부 세션 필드 값들을 자동으로 주입해 준다.
+ 3) 필드 타입 중 모델이나 List<모델>이 존재할 경우 해당 모델에도 세션 필드 값들을 자동으로 주입해 준다.
+
