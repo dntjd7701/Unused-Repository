@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "멘토링/Front/Front.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "멘토링/Front/Front.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "멘토링/Front/Front.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-16.md"
+                "file": "멘토링/Front/Front.md"
               }
             }
           },
@@ -196,8 +196,9 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0540535e8a221dd5",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
+    "Daily/2023-11-16.md",
     "멘토링/Front/Front.md",
     "멘토링/Front/Life Cycle.md",
     "멘토링/목차.md",
@@ -207,7 +208,6 @@
     "Front/React/이벤트 핸들러 바인딩.md",
     "멘토링/Back/Back.md",
     "멘토링/Front",
-    "Daily/2023-11-16.md",
     "멘토링/Back/Klago.md",
     "멘토링/Back/Spring.md",
     "Daily/2023-11-19.md",
