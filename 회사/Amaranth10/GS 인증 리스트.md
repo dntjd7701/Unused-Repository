@@ -1,4 +1,31 @@
 
+제목 : GS인증 엑셀업로드 삭제와 인포메이션바 개발 문서 수정 안내 
+ 
+안녕하세요. ERP물류개발1Cell 이호현 책임연구원입니다. 
+ 
+GS인증 엑셀업로드 삭제와 인포메이션바 관련 로직에 대해서 일부 수정 사안이 발생해서 내용 공유 합니다. 
+ 
+✅ 엑셀업로드 삭제 
+    - 엑셀 업로드에서는 "적용" 된 항목을 포함해서 체크해서 삭제했을 경우에 메시지가 다르게 노출됩니다. 
+    - 메시지 형태는 첨부파일과 같이 변경되었으니 참조해주시길 바랍니다. 
+    - logis-Common develop 브랜치로 최신 적용 
+    - 참고 메뉴 : PON0010 청구요청등록엑셀업로드 
+ 
+✅ 인포메이션바 로직 변경 
+    - handleFocus에 개인 메뉴 로직에 맞게 변수에 값을 넣어야 합니다. 
+    - targetGrid를 참조하는게 아니라 명시적으로 grid 값을 넣기를 추천합니다. 
+ 
+위에 대한 내용은 원피스 문서에 최신으로 반영 되었으니 참조해주시길 바랍니다. 
+
+---
+
+ 기타 참고 자료 
+    - GS 인증 가이드 원본 문서 : https://gwa.douzone.com/ecm/oneffice/one003A06?c2VxPUcyOTFjM0I0NWM2MTc1NDlCREJGNDI3MTQ3NWUyMTgz  
+    - 그리드 컬럼 정렬에 관한 문서 : https://gwa.douzone.com/ecm/oneffice/one003A06?c2VxPWVhODFjMTI3Rzk1NjlhZTQ5RjZjZThlYzczYUc0YTcz&sso=Y  
+    - 업무 관리 문서 : https://docs.google.com/spreadsheets/d/1qUqqHRFUHUae6bgFdAsUOeQk_QhM53tIeL4_4mR_e_Q/edit#gid=815547688
+
+---
+
 > 조회 
 
 - 데이터 X : 스넥바 
