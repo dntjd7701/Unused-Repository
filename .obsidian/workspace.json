@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-17.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-17.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "Daily/2023-11-17.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-16.md"
+                "file": "Daily/2023-11-17.md"
               }
             }
           },
@@ -211,8 +211,9 @@
   },
   "active": "f20e323f17f7fc56",
   "lastOpenFiles": [
-    "회사/Amaranth10/GS 인증 리스트.md",
     "Daily/2023-11-16.md",
+    "Daily/2023-11-17.md",
+    "회사/Amaranth10/GS 인증 리스트.md",
     "디자인.md",
     "Daily/2023-11-14.md",
     "회사/Amaranth10/화면 리스트.md",
@@ -239,7 +240,6 @@
     "회사/Skills & Tools.md",
     "imgs/Pasted image 20231114174044.png",
     "회사/Amaranth10/Skills & Tools.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
     "imgs/Pasted image 20231114171904.png",
     "imgs/Pasted image 20231114161514.png",
     "무제 파일.canvas",
