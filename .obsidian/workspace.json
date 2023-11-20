@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-20.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-20.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-20.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-20.md"
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md"
               }
             }
           },
@@ -211,8 +211,11 @@
   },
   "active": "f20e323f17f7fc56",
   "lastOpenFiles": [
-    "Daily/2023-11-22.md",
+    "imgs/Pasted image 20231120112147.png",
+    "imgs/Pasted image 20231120112118.png",
     "Daily/2023-11-20.md",
+    "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
+    "Daily/2023-11-22.md",
     "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
@@ -235,8 +238,6 @@
     "회사/멘토링/Front/Front.md",
     "멘토링/Front/Life Cycle.md",
     "회사/멘토링/목차.md",
-    "회사/멘토링/Query.md",
-    "Front/React/Key 이해하기.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "imgs/Pasted image 20231114174044.png",
@@ -254,7 +255,6 @@
     "회사/img/Pasted image 20231109135659.png",
     "회사/img/Pasted image 20231018094847.png",
     "회사/img/Pasted image 20231018092149.png",
-    "회사/img/Pasted image 20231018090342.png",
     "회사/img",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
