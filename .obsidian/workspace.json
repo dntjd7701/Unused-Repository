@@ -24,14 +24,12 @@
             "id": "db0ebd720745d060",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Todo.canvas",
-                "viewState": {
-                  "x": -740.5,
-                  "y": 112.5,
-                  "zoom": -1.2973981600549827
-                }
+                "file": "현대 자동차.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
@@ -94,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Todo.canvas",
+                "file": "현대 자동차.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Todo.canvas",
+                "file": "현대 자동차.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Todo.canvas"
+                "file": "현대 자동차.md"
               }
             }
           },
@@ -185,7 +184,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,6 +200,7 @@
   },
   "active": "db0ebd720745d060",
   "lastOpenFiles": [
+    "Todo.canvas",
     "README.md",
     "현대 자동차.md",
     "디자인.md",
@@ -208,7 +209,6 @@
     "회사/WIKI/async, await 병목현상 처리.md",
     "회사/WIKI/전자 결재 정리.md",
     "회사/Skills & Tools.md",
-    "Todo.canvas",
     "mono-repo.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
@@ -237,7 +237,6 @@
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
     "회사/Amaranth10/바코드.md",
-    "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "무제 파일.canvas",
