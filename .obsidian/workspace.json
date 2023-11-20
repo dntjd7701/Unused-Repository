@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "db0ebd720745d060",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "현대 자동차.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "현대 자동차.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-16.md",
+                "file": "현대 자동차.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-16.md"
+                "file": "현대 자동차.md"
               }
             }
           },
@@ -182,8 +196,18 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0540535e8a221dd5",
+  "active": "db0ebd720745d060",
   "lastOpenFiles": [
+    "imgs/Pasted image 20231120213420.png",
+    "imgs/Pasted image 20231120213409.png",
+    "imgs/Pasted image 20231120213348.png",
+    "imgs/Pasted image 20231120213339.png",
+    "imgs/Pasted image 20231120213302.png",
+    "imgs/Pasted image 20231120213246.png",
+    "imgs/Pasted image 20231120213233.png",
+    "Daily/2023-11-16.md",
+    "현대 자동차.md",
+    "무제 폴더",
     "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
     "Daily/2023-11-20.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
@@ -199,7 +223,6 @@
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "Daily/2023-11-26.md",
     "회사/Amaranth10/GS 인증 리스트.md",
-    "Daily/2023-11-16.md",
     "디자인.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
@@ -210,26 +233,18 @@
     "회사/멘토링/과제.md",
     "회사/멘토링/Front/Front.md",
     "멘토링/Front/Life Cycle.md",
-    "회사/멘토링/목차.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "imgs/Pasted image 20231114174044.png",
     "imgs/Pasted image 20231114171904.png",
-    "imgs/Pasted image 20231114161514.png",
     "무제 파일.canvas",
     "Daily",
     "imgs/Todo.ics",
     "회사/멘토링",
     "회사/고찰",
     "회사/WIKI",
-    "회사/img/Pasted image 20231110114013.png",
-    "회사/img/Pasted image 20231110113935.png",
-    "회사/img/Pasted image 20231109135731.png",
-    "회사/img/Pasted image 20231109135659.png",
-    "회사/img/Pasted image 20231018094847.png",
     "회사/img",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
-    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
     "Todo.canvas",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
