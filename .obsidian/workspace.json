@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/화면 리스트.md",
+                "file": "Daily/2023-11-20.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/화면 리스트.md",
+                "file": "Daily/2023-11-20.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/화면 리스트.md",
+                "file": "Daily/2023-11-20.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/화면 리스트.md"
+                "file": "Daily/2023-11-20.md"
               }
             }
           },
@@ -211,9 +211,11 @@
   },
   "active": "f20e323f17f7fc56",
   "lastOpenFiles": [
+    "Daily/2023-11-22.md",
+    "Daily/2023-11-20.md",
+    "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
-    "Daily/2023-11-20.md",
     "Daily/2023-11-19.md",
     "Daily/2023-11-17.md",
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
@@ -225,7 +227,6 @@
     "디자인.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
-    "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/바코드.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
@@ -236,7 +237,6 @@
     "회사/멘토링/목차.md",
     "회사/멘토링/Query.md",
     "Front/React/Key 이해하기.md",
-    "Front/React/React.lazy(), Suspense.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "imgs/Pasted image 20231114174044.png",
