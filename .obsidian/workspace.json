@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-27.md",
+                "file": "회사/Amaranth10/GS 인증 리스트.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Daily/2023-11-27.md",
+                "file": "회사/Amaranth10/GS 인증 리스트.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Daily/2023-11-27.md",
+                "file": "회사/Amaranth10/GS 인증 리스트.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Daily/2023-11-27.md"
+                "file": "회사/Amaranth10/GS 인증 리스트.md"
               }
             }
           },
@@ -184,11 +184,14 @@
   },
   "active": "dbd5456288d0ddc5",
   "lastOpenFiles": [
-    "회사/Amaranth10/GS 인증 리스트.md",
+    "Daily/2023-11-22.md",
     "Daily/2023-11-21.md",
+    "무제 파일.canvas",
+    "무제 파일 1.canvas",
     "Daily/2023-11-20.md",
-    "Daily/2023-11-26.md",
     "Daily/2023-11-27.md",
+    "회사/Amaranth10/GS 인증 리스트.md",
+    "Daily/2023-11-26.md",
     "Daily/2023-11-16.md",
     "현대 자동차.md",
     "imgs/Pasted image 20231120213420.png",
@@ -203,7 +206,6 @@
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
     "imgs/Pasted image 20231120112147.png",
     "imgs/Pasted image 20231120112118.png",
-    "Daily/2023-11-22.md",
     "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "Daily/2023-11-19.md",
@@ -218,11 +220,9 @@
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "회사/멘토링/과제.md",
-    "회사/멘토링/Front/Front.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "imgs/Pasted image 20231114174044.png",
-    "무제 파일.canvas",
     "Daily",
     "imgs/Todo.ics",
     "회사/멘토링",
@@ -232,7 +232,6 @@
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
     "Todo.canvas",
-    "무제 파일 1.canvas",
     "무제 파일 2.canvas"
   ]
 }
