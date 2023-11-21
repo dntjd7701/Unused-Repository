@@ -13,28 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily/2023-11-16.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "db0ebd720745d060",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "현대 자동차.md",
+                "file": "Daily/2023-11-21.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -92,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -109,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "현대 자동차.md",
+                "file": "Daily/2023-11-21.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "현대 자동차.md",
+                "file": "Daily/2023-11-21.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "현대 자동차.md"
+                "file": "Daily/2023-11-21.md"
               }
             }
           },
@@ -184,8 +169,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,18 +182,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "db0ebd720745d060",
+  "active": "0540535e8a221dd5",
   "lastOpenFiles": [
-    "Todo.canvas",
-    "README.md",
+    "Daily/2023-11-20.md",
+    "Daily/2023-11-21.md",
+    "Daily/2023-11-16.md",
     "현대 자동차.md",
-    "디자인.md",
-    "Tools/Vim.md",
-    "Tools/옵시디언 플러그인.png",
-    "회사/WIKI/async, await 병목현상 처리.md",
-    "회사/WIKI/전자 결재 정리.md",
-    "회사/Skills & Tools.md",
-    "mono-repo.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
@@ -217,10 +195,7 @@
     "imgs/Pasted image 20231120213302.png",
     "imgs/Pasted image 20231120213246.png",
     "imgs/Pasted image 20231120213233.png",
-    "Daily/2023-11-16.md",
-    "무제 폴더",
     "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
-    "Daily/2023-11-20.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
     "imgs/Pasted image 20231120112147.png",
@@ -234,11 +209,19 @@
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "Daily/2023-11-26.md",
     "회사/Amaranth10/GS 인증 리스트.md",
+    "디자인.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-14.md",
     "회사/Amaranth10/바코드.md",
+    "회사/Amaranth10/순환 참조 쿼리 참고.md",
+    "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
+    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+    "회사/멘토링/과제.md",
+    "회사/멘토링/Front/Front.md",
+    "멘토링/Front/Life Cycle.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
+    "imgs/Pasted image 20231114174044.png",
     "무제 파일.canvas",
     "Daily",
     "imgs/Todo.ics",
@@ -247,6 +230,8 @@
     "회사/WIKI",
     "회사/img",
     "회사/Amaranth10/공통 작업 업무/모바일물류 웹뷰 디자인",
+    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램",
+    "Todo.canvas",
     "무제 파일 1.canvas",
     "무제 파일 2.canvas"
   ]
