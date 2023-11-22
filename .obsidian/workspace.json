@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "Daily/2023-11-21.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "Daily/2023-11-21.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "Daily/2023-11-21.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md"
+                "file": "Daily/2023-11-21.md"
               }
             }
           },
@@ -199,6 +199,7 @@
   "active": "e187ff03d27ab618",
   "lastOpenFiles": [
     "Daily/2023-11-22.md",
+    "회사/Amaranth10/GS 인증 리스트.md",
     "Daily/2023-11-14.md",
     "mono-repo.md",
     "README.md",
@@ -214,7 +215,6 @@
     "Daily/2023-11-27.md",
     "Daily/2023-11-26.md",
     "Daily/2023-11-19.md",
-    "회사/Amaranth10/GS 인증 리스트.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "무제 파일.canvas",
     "무제 파일 1.canvas",
