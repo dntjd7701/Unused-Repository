@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md",
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/GS 인증 리스트.md"
+                "file": "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md"
               }
             }
           },
@@ -184,11 +184,17 @@
   },
   "active": "dbd5456288d0ddc5",
   "lastOpenFiles": [
+    "회사/Amaranth10/ERP/물류/매출마감현황.md",
+    "imgs/Pasted image 20231127131632.png",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
+    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
+    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+    "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
+    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+    "회사/Amaranth10/GS 인증 리스트.md",
+    "회사/Amaranth10/바코드.md",
     "Daily/2023-11-22.md",
     "mono-repo.md",
-    "회사/Amaranth10/GS 인증 리스트.md",
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "Daily/2023-11-21.md",
     "Daily/2023-11-14.md",
     "README.md",
@@ -213,18 +219,11 @@
     "imgs/Pasted image 20231120213302.png",
     "imgs/Pasted image 20231120213246.png",
     "imgs/Pasted image 20231120213233.png",
-    "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
-    "회사/Amaranth10/ERP/물류/매출마감현황.md",
     "imgs/Pasted image 20231120112147.png",
     "imgs/Pasted image 20231120112118.png",
     "회사/Amaranth10/화면 리스트.md",
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
-    "회사/Amaranth10/바코드.md",
-    "회사/Amaranth10/순환 참조 쿼리 참고.md",
-    "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
-    "imgs/Pasted image 20231114174044.png",
     "Daily",
     "imgs/Todo.ics",
     "회사/멘토링",
