@@ -22,6 +22,7 @@ GS인증 엑셀업로드 삭제와 인포메이션바 관련 로직에 대해서
 
  기타 참고 자료 
     - GS 인증 가이드 원본 문서 : https://gwa.douzone.com/ecm/oneffice/one003A06?c2VxPUcyOTFjM0I0NWM2MTc1NDlCREJGNDI3MTQ3NWUyMTgz  
+    - GS 인증 수정작업범위 : https://gwa.douzone.com/ecm/oneffice/one003A06?c2VxPTkxOEZCQjk0MjE3ODNHNEI0NEJlQjlGNkZHOTVlZTJh&noAuthPopup=1701161616
     - 그리드 컬럼 정렬에 관한 문서 : https://gwa.douzone.com/ecm/oneffice/one003A06?c2VxPWVhODFjMTI3Rzk1NjlhZTQ5RjZjZThlYzczYUc0YTcz&sso=Y  
     - 업무 관리 문서 : https://docs.google.com/spreadsheets/d/1qUqqHRFUHUae6bgFdAsUOeQk_QhM53tIeL4_4mR_e_Q/edit#gid=815547688
 
