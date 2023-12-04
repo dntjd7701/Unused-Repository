@@ -11,8 +11,15 @@
             "id": "e1f9b47f946635c1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "canvas",
+              "state": {
+                "file": "무제 파일 1.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0
+                }
+              }
             }
           }
         ]
@@ -90,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "무제 파일 1.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "무제 파일 1.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "무제 파일 1.canvas"
+              }
             }
           },
           {
@@ -178,6 +189,7 @@
   },
   "active": "e1f9b47f946635c1",
   "lastOpenFiles": [
+    "무제 파일 1.canvas",
     "무제 파일.canvas",
     "2023-12-04 오전 회의.md",
     "일정관리.md",
@@ -208,7 +220,6 @@
     "Daily/2023-11-27.md",
     "Daily/2023-11-26.md",
     "Daily/2023-11-19.md",
-    "무제 파일 1.canvas",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
