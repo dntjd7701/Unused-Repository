@@ -4,15 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "0d4538543b0a1d23",
+        "id": "d075850a3246ee16",
         "type": "tabs",
         "children": [
           {
-            "id": "0cf3a6e873094b1f",
+            "id": "c9fd86a8778fd280",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -69,8 +74,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "JavaScript/함수 표현식 vs 함수 선언문.md"
+              }
             }
           },
           {
@@ -157,7 +165,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -176,13 +184,24 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "0cf3a6e873094b1f",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
-    "무제 파일 1.canvas",
+    "현대 자동차.md",
+    "Algorithm/요세푸스 알고리즘.md",
+    "Daily/2023-11-22.md",
+    "Daily/2023-11-21.md",
+    "Daily/2023-11-20.md",
+    "Daily/2023-11-16.md",
+    "Daily/2023-11-14.md",
+    "mono-repo.md",
+    "README.md",
+    "일정관리.md",
+    "디자인.md",
+    "Todo.canvas",
+    "무제 파일.md",
     "무제 파일.canvas",
     "2023-12-04 오전 회의.md",
-    "일정관리.md",
-    "무제 파일.md",
+    "무제 파일 1.canvas",
     "회사/Amaranth10/GS 인증 리스트.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20231129151153.png",
@@ -194,16 +213,6 @@
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Amaranth10/바코드.md",
-    "Daily/2023-11-22.md",
-    "mono-repo.md",
-    "Daily/2023-11-21.md",
-    "Daily/2023-11-14.md",
-    "README.md",
-    "Todo.canvas",
-    "디자인.md",
-    "현대 자동차.md",
-    "Daily/2023-11-20.md",
-    "Daily/2023-11-16.md",
     "Daily/2023-11-17.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-27.md",
