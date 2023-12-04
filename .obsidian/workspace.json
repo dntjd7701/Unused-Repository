@@ -4,22 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "ab5dbc07dc857003",
+        "id": "0d4538543b0a1d23",
         "type": "tabs",
         "children": [
           {
-            "id": "e1f9b47f946635c1",
+            "id": "0cf3a6e873094b1f",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "무제 파일 1.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": 0,
-                  "zoom": 0
-                }
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -97,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "무제 파일 1.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +106,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "무제 파일 1.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,9 +127,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "무제 파일 1.canvas"
-              }
+              "state": {}
             }
           },
           {
@@ -187,7 +176,7 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "e1f9b47f946635c1",
+  "active": "0cf3a6e873094b1f",
   "lastOpenFiles": [
     "무제 파일 1.canvas",
     "무제 파일.canvas",
