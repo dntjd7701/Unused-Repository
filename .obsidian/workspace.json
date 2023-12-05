@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
+                "file": "회사/Amaranth10/ㅇ.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
+                "file": "회사/Amaranth10/ㅇ.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/함수 표현식 vs 함수 선언문.md",
+                "file": "회사/Amaranth10/ㅇ.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/함수 표현식 vs 함수 선언문.md"
+                "file": "회사/Amaranth10/ㅇ.md"
               }
             }
           },
@@ -184,8 +184,10 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c7852406a1674ff0",
+  "active": "c9fd86a8778fd280",
   "lastOpenFiles": [
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "회사/Amaranth10/ㅇ.md",
     "현대 자동차.md",
     "Algorithm/요세푸스 알고리즘.md",
     "Daily/2023-11-22.md",
@@ -216,8 +218,6 @@
     "Daily/2023-11-17.md",
     "Daily/2023-11-15.md",
     "Daily/2023-11-27.md",
-    "Daily/2023-11-26.md",
-    "Daily/2023-11-19.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
