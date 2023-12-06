@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "1bd8d1db75e76f05",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제 파일.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/클로저(Closure).md",
+                "file": "무제 파일.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/클로저(Closure).md",
+                "file": "무제 파일.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/클로저(Closure).md"
+                "file": "무제 파일.md"
               }
             }
           },
@@ -184,8 +198,10 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c9fd86a8778fd280",
+  "active": "1bd8d1db75e76f05",
   "lastOpenFiles": [
+    "JavaScript/클로저(Closure).md",
+    "무제 파일.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
     "회사/Amaranth10/ㅇ.md",
     "현대 자동차.md",
@@ -200,7 +216,6 @@
     "일정관리.md",
     "디자인.md",
     "Todo.canvas",
-    "무제 파일.md",
     "무제 파일.canvas",
     "2023-12-04 오전 회의.md",
     "무제 파일 1.canvas",
@@ -217,7 +232,6 @@
     "회사/Amaranth10/바코드.md",
     "Daily/2023-11-17.md",
     "Daily/2023-11-15.md",
-    "Daily/2023-11-27.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
