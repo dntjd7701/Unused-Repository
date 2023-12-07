@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BOM 성능 최적화.md",
+                "file": "회사/Amaranth10/자료들.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "053494a43a67dec0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "회사/멘토링/주문유통 진행.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -34,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -108,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "BOM 성능 최적화.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "BOM 성능 최적화.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "BOM 성능 최적화.md"
+                "file": "회사/멘토링/주문유통 진행.md"
               }
             }
           },
@@ -198,13 +211,15 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "1bd8d1db75e76f05",
+  "active": "053494a43a67dec0",
   "lastOpenFiles": [
+    "회사/Amaranth10/자료들.md",
+    "회사/멘토링/주문유통 진행.md",
+    "회사/Amaranth10/ㅇ.md",
+    "BOM 성능 최적화.md",
     "imgs/Pasted image 20231207091438.png",
     "JavaScript/클로저(Closure).md",
-    "BOM 성능 최적화.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "회사/Amaranth10/ㅇ.md",
     "현대 자동차.md",
     "Algorithm/요세푸스 알고리즘.md",
     "Daily/2023-11-22.md",
@@ -231,14 +246,12 @@
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/Amaranth10/바코드.md",
-    "Daily/2023-11-17.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
     "imgs/Pasted image 20231120213339.png",
     "imgs/Pasted image 20231120213302.png",
     "imgs/Pasted image 20231120213246.png",
-    "imgs/Pasted image 20231120213233.png",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
