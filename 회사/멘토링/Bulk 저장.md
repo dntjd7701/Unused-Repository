@@ -38,32 +38,22 @@
 ### 프론트 처리 
 
 - 예시 제한 사항: 그리드의 마스터 - 디테일 구조 
-- 참고화면 : MFD0010 생산지시등록 
 
 그리드의 마스터-디테일 구조에서 디테일 기준, 데이터의 적용 혹은 데이터의 다건 입력시 즉시 저장이 아닌, 마스터의 행 변경에 따라 데이터가 저장된다.
 
 ```js
-/**
-  * 행선택이 변경되기 전에 호출 이벤트
-  * @author 김도건 선임연구원
-  * @since 2021-12-08
-*/
 mstGrid.onBeforeChangeRowSelectionAsync.add(async(e) => {
 try {
+	...
 	await this.saveBulkData(oldRowIndex);
-
-}
-
-  
-
-// 행변경
-return true;
+	...
+	
+	// 행변경
+	return true;
 } catch (error) {
-ProMessage.showErrorMessage(this.pageContainer, error);
-
-return false;
-
+	...
 }
-
-});
 ```
+
+프로세스의 흐름과 화면별 특성에 따라 구조가 달라질 수는 있지만, 디테일의 단건 저장이 아닌, 마스터의 행 변경시 디테일의 입력/수정이 일괄 처리된다는 특징이 있다. 
+

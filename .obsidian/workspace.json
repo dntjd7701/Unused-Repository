@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md"
+                "file": "회사/멘토링/주문유통 진행.md"
               }
             }
           },
@@ -226,12 +226,12 @@
   },
   "active": "80d9f6fe79211f18",
   "lastOpenFiles": [
+    "회사/멘토링/Bulk 저장.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
     "imgs/Screen Recording 2023-12-07 at 3.23.53 PM.mov",
     "회사/멘토링/주문유통 진행.md",
-    "회사/멘토링/Bulk 저장.md",
     "회사/Amaranth10/자료들.md",
     "회사/Amaranth10/ㅇ.md",
     "BOM 성능 최적화.md",
@@ -265,7 +265,6 @@
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
-    "imgs/Pasted image 20231120213339.png",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
