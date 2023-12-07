@@ -52,7 +52,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "회사/멘토링/주문유통 진행.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md"
+                "file": "회사/멘토링/주문유통 진행.md"
               }
             }
           },
@@ -226,8 +226,8 @@
   },
   "active": "c7852406a1674ff0",
   "lastOpenFiles": [
-    "회사/멘토링/주문유통 진행.md",
     "회사/멘토링/Bulk 저장.md",
+    "회사/멘토링/주문유통 진행.md",
     "JavaScript/클로저(Closure).md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
