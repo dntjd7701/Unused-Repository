@@ -26,4 +26,5 @@ npx shadcn-ui@latest init
 
 ### NextJs
 
-- pages 폴더 안에 이
+- app 폴더 안에 있는 페이지의 경우 Server Component이다. 
+- Nextjs의 Dynamic routing을 사용할 때, params 는 어디에서 오는가 ?? 이는 Server Component의 특별한 옵션이다. 
