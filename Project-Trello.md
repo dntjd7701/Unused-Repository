@@ -1,9 +1,8 @@
 
 ## Q&A
 
-- NextJs page에 들어오는 params 혹은 layout 파일에서의 children props와 같은 것들은 어디서
-
-
+- NextJs page에 들어오는 params 혹은 layout 파일에서의 children props와 같은 것들은 어디로부터 오는 것인가.
+- 
 
 ### 2023-12-08 ~ ???
 
