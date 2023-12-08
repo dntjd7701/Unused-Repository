@@ -18,3 +18,12 @@ npx shadcn-ui@latest init
 - [tailwindcss](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+
+### 프로젝트 구조 
+
+파일 트리 생성기를 이용하여 구조 작성할 것!!!
+
+
+### NextJs
+
+- pages 폴더 안에 이
