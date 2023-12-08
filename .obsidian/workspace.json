@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "a9eb96c1c6a484ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project-Trello.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "Project-Trello.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "Project-Trello.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md"
+                "file": "Project-Trello.md"
               }
             }
           },
@@ -184,12 +198,13 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "80d9f6fe79211f18",
+  "active": "a9eb96c1c6a484ed",
   "lastOpenFiles": [
+    "회사/멘토링/Bulk 저장.md",
+    "Project-Trello.md",
     "회사/Amaranth10/자료들.md",
     "회사/멘토링/주문유통 진행.md",
     "JavaScript/클로저(Closure).md",
-    "회사/멘토링/Bulk 저장.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
