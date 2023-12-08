@@ -1,4 +1,10 @@
 
+## Q&A
+
+- NextJs page에 들어오는 params 혹은 layout 파일에서의 children props와 같은 것들은 어디서
+
+
+
 ### 2023-12-08 ~ ???
 
 https://www.youtube.com/watch?v=pRybm9lXW2c&t=26s
