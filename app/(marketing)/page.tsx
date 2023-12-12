@@ -1,4 +1,9 @@
+// npm
 import { Medal } from 'lucide-react';
+import Link from 'next/link';
+
+// shadcn-ui
+import { Button } from '@/components/ui/button';
 
 const MarketingPage = () => {
   return (
@@ -21,6 +26,11 @@ const MarketingPage = () => {
         협력하고, 프로젝트를 관리하고, 생산성을 높이세요. 어쩌고 저쩌고. 광고성
         글을 막 !
       </div>
+      <Button className="mt-6" size={'lg'} asChild>
+        <Link href={'/sign-up'}>
+          Get Taskify for free!! 공짜로 이용해라 이거야 !
+        </Link>
+      </Button>
     </div>
   );
 };
