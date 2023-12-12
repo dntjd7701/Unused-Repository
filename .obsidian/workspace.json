@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+                "file": "Project-Trello.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+                "file": "Project-Trello.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+                "file": "Project-Trello.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md"
+                "file": "Project-Trello.md"
               }
             }
           },
@@ -186,6 +186,7 @@
   },
   "active": "80d9f6fe79211f18",
   "lastOpenFiles": [
+    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "회사/Amaranth10/바코드.md",
     "Err/[Error] Maven blocker.md",
     "Front/Next/How Next.js Works.md",
@@ -217,7 +218,6 @@
     "회사/Amaranth10/ㅇ.md",
     "imgs/Pasted image 20231207091438.png",
     "현대 자동차.md",
-    "Algorithm/요세푸스 알고리즘.md",
     "무제 파일.canvas",
     "무제 파일 1.canvas",
     "imgs/Pasted image 20231129151153.png",
