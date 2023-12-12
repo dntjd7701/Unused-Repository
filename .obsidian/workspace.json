@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "Linux/crontab을 이용한 스케쥴링.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "Linux/crontab을 이용한 스케쥴링.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md",
+                "file": "Linux/crontab을 이용한 스케쥴링.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Bulk 저장.md"
+                "file": "Linux/crontab을 이용한 스케쥴링.md"
               }
             }
           },
@@ -186,11 +186,14 @@
   },
   "active": "80d9f6fe79211f18",
   "lastOpenFiles": [
+    "Front/React/React.lazy(), Suspense.md",
+    "Front/React/dangerouslySetInnerHTML.md",
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "회사/멘토링/Bulk 저장.md",
     "Project-Trello.md",
     "회사/Amaranth10/자료들.md",
     "회사/멘토링/주문유통 진행.md",
     "JavaScript/클로저(Closure).md",
-    "회사/멘토링/Bulk 저장.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
@@ -198,7 +201,6 @@
     "회사/Amaranth10/ㅇ.md",
     "BOM 성능 최적화.md",
     "imgs/Pasted image 20231207091438.png",
-    "JavaScript/함수 표현식 vs 함수 선언문.md",
     "현대 자동차.md",
     "Algorithm/요세푸스 알고리즘.md",
     "Daily/2023-11-22.md",
@@ -221,8 +223,6 @@
     "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
     "imgs/Pasted image 20231127131632.png",
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
     "imgs/Pasted image 20231120213348.png",
