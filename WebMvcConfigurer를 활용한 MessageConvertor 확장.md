@@ -6,4 +6,4 @@
 
 우리는 XML 기반의 메세지 컨버터를 사용하기 위해 다음과 같이 설정 클래스를 작성할 수 있다.
 
-출처: [https://mangkyu.tistory.com/176](https://mangkyu.tistory.com/176) [MangKyu's Diary:티스토리]
+출처: [https://mangkyu.tistory.com/176](https://mangkyu.tistory.com/176) [MangKyu's Diary:티스토리]****

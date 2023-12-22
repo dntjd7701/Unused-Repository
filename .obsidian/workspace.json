@@ -8,14 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4980a9218d21cf08",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
             "id": "ce8c704e39762bc0",
             "type": "leaf",
             "state": {
@@ -32,17 +24,11 @@
             "id": "c39bd44d77cad882",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -116,7 +102,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md"
+                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md"
               }
             }
           },
@@ -206,10 +192,10 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c39bd44d77cad882",
+  "active": "ce8c704e39762bc0",
   "lastOpenFiles": [
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "업무사항.md",
