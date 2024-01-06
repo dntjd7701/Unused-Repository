@@ -38,7 +38,7 @@ typescript. 사실 업무 시에는 jsdoc에 중점을 두고 typescript에 대�
 이 모든 것들은 유튜브, 노마트코더, 구글링, 공식 문서를 통해 학습할 예정이다. 
 
 맨 기초부터 다시 시작해봐야하나 라는 생각도 해보았지만, 그렇기엔 기초만 반복하는 무한 루프에 돌 것 같아. 
-TypeScript -> React -> Tailwind -> NextJs 순으로 공부하기로 결정. 마지막은 Trello로 장식할 예정이다.
+TypeScript -> Tailwind -> **React** -> NextJs 순으로 공부하기로 결정. 마지막은 Trello로 장식할 예정이다.
 
 우선. TypeScript 부터.
 
