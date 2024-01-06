@@ -21,6 +21,19 @@
             }
           },
           {
+            "id": "c4115cff6b0185f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "더존인을 위한 Trello를 만들기 위한 여정.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c39bd44d77cad882",
             "type": "leaf",
             "state": {
@@ -28,7 +41,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+                "file": "더존인을 위한 Trello를 만들기 위한 여정.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,9 +133,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+                "file": "더존인을 위한 Trello를 만들기 위한 여정.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -142,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md"
+                "file": "더존인을 위한 Trello를 만들기 위한 여정.md"
               }
             }
           },
@@ -192,10 +206,11 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "ce8c704e39762bc0",
+  "active": "c4115cff6b0185f8",
   "lastOpenFiles": [
-    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+    "더존인을 위한 Trello를 만들기 위한 여정.md",
+    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "업무사항.md",
@@ -220,7 +235,6 @@
     "Linux/crontab을 이용한 스케쥴링.md",
     "Front/React/dangerouslySetInnerHTML.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
-    "회사/멘토링/Bulk 저장.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
