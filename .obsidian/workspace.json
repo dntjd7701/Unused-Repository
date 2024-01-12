@@ -47,6 +47,32 @@
             }
           },
           {
+            "id": "f3d9b640a8731b30",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제 파일.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4f3f381f8964d616",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "무제 파일 1.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
             "id": "c39bd44d77cad882",
             "type": "leaf",
             "state": {
@@ -55,7 +81,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -129,7 +155,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+                "file": "무제 파일 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +172,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+                "file": "무제 파일 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -169,7 +195,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md"
+                "file": "무제 파일 1.md"
               }
             }
           },
@@ -221,14 +247,15 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "430c6eb2d8ef9ac7",
+  "active": "4f3f381f8964d616",
   "lastOpenFiles": [
     "무제 파일.md",
+    "무제 파일 1.md",
+    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
-    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "업무사항.md",
     "Project-Trello.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
@@ -249,7 +276,6 @@
     "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/자료들.md",
     "Linux/crontab을 이용한 스케쥴링.md",
-    "Front/React/dangerouslySetInnerHTML.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
