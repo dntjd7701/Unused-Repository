@@ -62,4 +62,21 @@ export default class Basic extends Component {
 > 현재 사용 중인 React ver 16.10.2
 
 
-1. 
+![[Pasted image 20240112130853.png]]
+
+### Mount
+
+1. **constructor** 호출 
+2. **context**, **defaultProps**, **state** 저장 
+3. **componentWillMount** 호출 
+4. **render**()
+5. Mount 이후 **componentDidMount** 실행(이 시점부터 DOM에 접근이 가능. 주로 AJAX 요청)
+
+
+### Props Update
+
+1. **componentWillReceiveProps**
+2. **shouldComponentUpdate**
+3. **componentWillUpdate**
+4. 업데이트 완료 시, **render**()
+5. **componentDidUpdate**
