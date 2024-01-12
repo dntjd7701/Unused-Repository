@@ -119,3 +119,21 @@ export default class Basic extends Component {
 
 2. getDerivedStateFromProps
 
+props 를 state에 주입 
+
+리랜더링 시점에 항상 호출된다. 
+
+this 조회 불가 
+
+```jsx
+static getDerivedStateFromProps(nextProps, prevState) {
+    console.log("getDerivedStateFromProps");
+    if (nextProps.color !== prevState.color) {
+      return { color: nextProps.color };
+    }
+    return null;
+  }
+```
+
+
+constructor -> render -> DidMount 

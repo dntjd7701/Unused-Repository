@@ -45,9 +45,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "e06a2e43e70ad7fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Rendering process.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -121,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/멘토링/Front/React Life Cycle(class component).md",
+                "file": "Rendering process.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/멘토링/Front/React Life Cycle(class component).md",
+                "file": "Rendering process.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -161,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/멘토링/Front/React Life Cycle(class component).md"
+                "file": "Rendering process.md"
               }
             }
           },
@@ -213,11 +226,12 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "430c6eb2d8ef9ac7",
+  "active": "e06a2e43e70ad7fc",
   "lastOpenFiles": [
+    "회사/멘토링/Front/React Life Cycle(class component).md",
+    "Rendering process.md",
     "imgs/Pasted image 20240112130853.png",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
-    "회사/멘토링/Front/React Life Cycle(class component).md",
     "무제 파일.md",
     "무제 파일 1.md",
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
@@ -254,7 +268,6 @@
     "imgs/Pasted image 20231127131632.png",
     "imgs/Pasted image 20231120213420.png",
     "imgs/Pasted image 20231120213409.png",
-    "imgs/Pasted image 20231120213348.png",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
