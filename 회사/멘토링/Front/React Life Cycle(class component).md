@@ -105,8 +105,6 @@ export default class Basic extends Component {
 리액트 16 버전 이상. props의 변경에 따라 state도 함께 변경
 
 
-
-
 ### Douzone 
 
 
