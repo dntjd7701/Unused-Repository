@@ -34,6 +34,16 @@
             }
           },
           {
+            "id": "430c6eb2d8ef9ac7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.5.3"
+              }
+            }
+          },
+          {
             "id": "c39bd44d77cad882",
             "type": "leaf",
             "state": {
@@ -42,7 +52,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -166,7 +176,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           },
@@ -206,7 +218,7 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c4115cff6b0185f8",
+  "active": "430c6eb2d8ef9ac7",
   "lastOpenFiles": [
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
