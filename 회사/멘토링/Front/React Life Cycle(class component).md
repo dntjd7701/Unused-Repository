@@ -100,3 +100,22 @@ export default class Basic extends Component {
 1. **componentDidCatch**: after react 16 
 
 
+### getDerivedStateFromProps
+
+리액트 16 버전 이상. props의 변경에 따라 state도 함께 변경
+
+
+
+
+### Douzone 
+
+
+1. constructor 
+
+해당 컴포넌트가 마운트되기 이전 시점에 호출 
+
+주로 state, event handler binding 작업
+
+
+2. getDerivedStateFromProps
+
