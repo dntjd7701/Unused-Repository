@@ -39,7 +39,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+                "file": "회사/멘토링/Front/React Life Cycle(class component).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -121,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+                "file": "회사/멘토링/Front/React Life Cycle(class component).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+                "file": "회사/멘토링/Front/React Life Cycle(class component).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md"
+                "file": "회사/멘토링/Front/React Life Cycle(class component).md"
               }
             }
           },
@@ -215,9 +215,10 @@
   },
   "active": "430c6eb2d8ef9ac7",
   "lastOpenFiles": [
+    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+    "회사/멘토링/Front/React Life Cycle(class component).md",
     "무제 파일.md",
     "무제 파일 1.md",
-    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
@@ -241,7 +242,6 @@
     "회사/Amaranth10/GS 인증 리스트.md",
     "회사/Amaranth10/화면 리스트.md",
     "회사/Amaranth10/자료들.md",
-    "Linux/crontab을 이용한 스케쥴링.md",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
