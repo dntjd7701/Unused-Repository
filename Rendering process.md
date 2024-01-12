@@ -4,8 +4,8 @@
 3. class -> classComponentInstance.render() | function -> FunctionComponent()
 4. Component의 rendering 결과물 컴파일
 5. runtime 시점에 React.createElement()를 호출하여 반환 
-6. createElement 는 일반적인 JS 객체를 반환하는 React Element를 리턴 
 
+> JSX -> React.createElement -> JS
 
 ```jsx
 // 일반적인 jsx문법
@@ -18,7 +18,18 @@ return React.createElement(SomeComponent, {a: 42, b: "testing"}, "Text Here")
 {type: SomeComponent, props: {a: 42, b: "testing"}, children: ["Text Here"]}
 ```
 
+``` js 
+<body>
+    <div id="root"></div>
+    <script>
+        const rootElement = document.getElementById("root");
+        const element = document.createElement("h1");
+        element.textContent = "Hello";
+        rootElement.appendChild(element);
+    </script>
+</body>
 
+```
 
 1. 위와 같은 결과물 수집 후, 새로운 Object TREE 구성 (Virtual DOM)
 2. 실제 DOM과의 비교를 통해 변경 사항 수집
