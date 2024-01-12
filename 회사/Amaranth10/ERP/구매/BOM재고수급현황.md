@@ -1,4 +1,7 @@
 
+### 설계서 
+
+http://wiki.duzon.com:8080/pages/viewpage.action?pageId=203797044
 
 - 메뉴코드 : POM1020
 - 설계자 : 임성환

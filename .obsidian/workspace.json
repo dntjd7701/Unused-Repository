@@ -45,43 +45,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "f3d9b640a8731b30",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "무제 파일.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4f3f381f8964d616",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "무제 파일 1.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c39bd44d77cad882",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -155,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "무제 파일 1.md",
+                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "무제 파일 1.md",
+                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -195,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "무제 파일 1.md"
+                "file": "회사/Amaranth10/ERP/구매/BOM재고수급현황.md"
               }
             }
           },
@@ -247,7 +213,7 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "4f3f381f8964d616",
+  "active": "430c6eb2d8ef9ac7",
   "lastOpenFiles": [
     "무제 파일.md",
     "무제 파일 1.md",
