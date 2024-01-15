@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+                "file": "회사/ERP/물류/BOM 역전개.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -213,18 +213,18 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "2b58ac2cf33258e1",
+  "active": "c7852406a1674ff0",
   "lastOpenFiles": [
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
+    "회사/ERP/물류/BATCH BOM 등록.md",
     "회사/Amaranth10/Template.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "회사/멘토링/Front/React Life Cycle(class component).md",
     "회사/Amaranth10/무제 파일.md",
     "무제 파일.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
-    "회사/Amaranth10/ERP/물류/매출마감등록.md",
+    "회사/ERP/물류/매출마감등록.md",
     "회사/멘토링/Front/Rendering process.md",
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+    "회사/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/멘토링/Query.md",
     "BOM 성능 최적화.md",
@@ -235,7 +235,7 @@
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "Project-Trello.md",
     "imgs/Pasted image 20240112130853.png",
-    "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
+    "회사/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "회사/Amaranth10/바코드.md",
