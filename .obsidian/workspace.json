@@ -134,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+                "file": "회사/멘토링/Front/Rendering process.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md",
+                "file": "회사/멘토링/Front/Rendering process.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -174,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/Amaranth10/ERP/물류/BOM 역전개.md"
+                "file": "회사/멘토링/Front/Rendering process.md"
               }
             }
           },
@@ -226,8 +226,9 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c7852406a1674ff0",
+  "active": "e06a2e43e70ad7fc",
   "lastOpenFiles": [
+    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/멘토링/Front/React Life Cycle(class component).md",
     "회사/멘토링/Front/Rendering process.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
@@ -243,7 +244,6 @@
     "Project-Trello.md",
     "imgs/Pasted image 20240112130853.png",
     "회사/Amaranth10/ERP/구매/BOM재고수급현황.md",
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
     "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "회사/Amaranth10/바코드.md",
