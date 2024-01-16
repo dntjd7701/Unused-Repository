@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/ERP/물류/매출마감등록.md",
+                "file": "Algorithm/소수구하기_에라토스테네스의 체.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/ERP/물류/매출마감등록.md",
+                "file": "Algorithm/소수구하기_에라토스테네스의 체.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/ERP/물류/매출마감등록.md",
+                "file": "Algorithm/소수구하기_에라토스테네스의 체.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/ERP/물류/매출마감등록.md"
+                "file": "Algorithm/소수구하기_에라토스테네스의 체.md"
               }
             }
           },
@@ -188,6 +188,8 @@
   },
   "active": "ce8c704e39762bc0",
   "lastOpenFiles": [
+    "회사/ERP/물류/매출마감등록.md",
+    "Algorithm/소수구하기_에라토스테네스의 체.md",
     "회사/ERP/물류/BOM 역전개.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "회사/Amaranth10/Template.md",
@@ -196,7 +198,6 @@
     "회사/Amaranth10/무제 파일.md",
     "무제 파일.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
-    "회사/ERP/물류/매출마감등록.md",
     "회사/멘토링/Front/Rendering process.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/멘토링/Query.md",
@@ -214,7 +215,6 @@
     "회사/Amaranth10/바코드.md",
     "Err/[Error] Maven blocker.md",
     "Front/Next/How Next.js Works.md",
-    "Front/Next/번역_Pre-rendering and Data Fetching.md",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
