@@ -67,6 +67,23 @@ crypto 사용
 
 ---
 
+javascript로 작성된 패키지를 import해서 사용할 때, TypeScript의 타입 정의를 받고 싶을 땐,
+Definitely Type 레포를 이용할 수 있다.
+
+Definitely Type 여러 명의 자원봉사자와 같은 개발자들이 각 JS로 개발된 패키지를 분석하여 정의해놓은 레파지토리이다.
+
+.d.ts 파일을 정의함으로서 TypeScript의 보호와 정의를 받을 수 있는데 위의 레파지토리를 이용하여 .d.ts 파일을 정의할 수 있다.
+
+위의 레파지토리를 통해 파일을 복사하여 붙여넣어도 되겠지만, 콘솔을 통해 다운받을 수 있는 좋은 방법이 있다.
+
+```linux
+npm i -D @types/express
+```
+
+위와 같은 명령어를 통해 원하는 패키지의 이미 정의된 타입을 받을 수 있다.
+
+---
+
 ### Ref
 
 https://nomadcoders.co/typescript-for-beginners/lectures/3686

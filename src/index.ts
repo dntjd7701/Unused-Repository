@@ -1,4 +1,4 @@
-import * as crptyo from 'crptyo';
+import crypto from 'crypto';
 
 interface BlockShape {
    hash: string; //해쉬
@@ -18,6 +18,9 @@ class Block implements BlockShape {
    }
 
    static calc(prevHash: string, height: number, data: string): string {
-      return '';
+      const toHash = `${prevHash}${height}${data}`;
+      return crypto.createHash('sha256').update(toHash).digest('hex');
    }
 }
+
+console.debug(Block.calc('hi', 4, 'data'));
