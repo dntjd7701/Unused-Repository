@@ -19,8 +19,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6466ce385037b4cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "팀 Prettier 적용기.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md",
+                "file": "팀 Prettier 적용기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md",
+                "file": "팀 Prettier 적용기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -134,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algorithm/유클리드 호제법(최대공약수).md"
+                "file": "팀 Prettier 적용기.md"
               }
             }
           },
@@ -186,8 +200,10 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "ce8c704e39762bc0",
+  "active": "6466ce385037b4cc",
   "lastOpenFiles": [
+    "Algorithm/유클리드 호제법(최대공약수).md",
+    "팀 Prettier 적용기.md",
     "Algorithm/요세푸스 알고리즘.md",
     "Algorithm/알고리즘 자동 푸쉬.md",
     "Algorithm/소수구하기_에라토스테네스의 체.md",
@@ -213,8 +229,6 @@
     "imgs/Pasted image 20240112130853.png",
     "회사/ERP/구매/BOM재고수급현황.md",
     "회사/Amaranth10/순환 참조 쿼리 참고.md",
-    "회사/Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
-    "회사/Amaranth10/바코드.md",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
