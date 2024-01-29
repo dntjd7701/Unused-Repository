@@ -32,9 +32,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "184e6841aa2fdba9",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "imgs/Pasted image 20240129132813.png"
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -108,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "팀 Prettier 적용기.md",
+                "file": "imgs/Pasted image 20240129132813.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "팀 Prettier 적용기.md",
+                "file": "imgs/Pasted image 20240129132813.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -148,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "팀 Prettier 적용기.md"
+                "file": "imgs/Pasted image 20240129132813.png"
               }
             }
           },
@@ -200,14 +210,14 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "6466ce385037b4cc",
+  "active": "184e6841aa2fdba9",
   "lastOpenFiles": [
-    "imgs/Pasted image 20240129133007.png",
+    "팀 Prettier 적용기.md",
     "imgs/Pasted image 20240129132813.png",
+    "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129132702.png",
     "Algorithm/유클리드 호제법(최대공약수).md",
-    "팀 Prettier 적용기.md",
     "Algorithm/요세푸스 알고리즘.md",
     "Algorithm/알고리즘 자동 푸쉬.md",
     "Algorithm/소수구하기_에라토스테네스의 체.md",
@@ -241,7 +251,6 @@
     "무제 파일.canvas",
     "무제 파일 1.canvas",
     "imgs/Pasted image 20231129151153.png",
-    "imgs/Pasted image 20231129151129.png",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
