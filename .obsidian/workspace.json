@@ -39,15 +39,25 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
+                "file": "팀 Prettier 적용기.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
+          },
+          {
+            "id": "0a5cb109b2940883",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "imgs/Pasted image 20240129132813.png"
+              }
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -121,7 +131,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
+                "file": "imgs/Pasted image 20240129132813.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -138,7 +148,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
+                "file": "imgs/Pasted image 20240129132813.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -161,7 +171,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md"
+                "file": "imgs/Pasted image 20240129132813.png"
               }
             }
           },
@@ -213,12 +223,12 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "69e132906b9cfbfb",
+  "active": "0a5cb109b2940883",
   "lastOpenFiles": [
-    "Tools/VSCODE/Extension.md",
-    "Tools/VSCODE/vscode vim.md",
-    "Tools/VSCODE/Shortcuts.md",
     "팀 Prettier 적용기.md",
+    "Tools/VSCODE/vscode vim.md",
+    "Tools/VSCODE/Extension.md",
+    "Tools/VSCODE/Shortcuts.md",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129132813.png",
     "imgs/Pasted image 20240129133007.png",
