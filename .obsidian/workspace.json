@@ -32,19 +32,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "184e6841aa2fdba9",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "imgs/Pasted image 20240129132813.png"
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -118,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "imgs/Pasted image 20240129132813.png",
+                "file": "팀 Prettier 적용기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "imgs/Pasted image 20240129132813.png",
+                "file": "팀 Prettier 적용기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -158,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "imgs/Pasted image 20240129132813.png"
+                "file": "팀 Prettier 적용기.md"
               }
             }
           },
@@ -210,12 +200,12 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "184e6841aa2fdba9",
+  "active": "6466ce385037b4cc",
   "lastOpenFiles": [
+    "imgs/Pasted image 20240129132728.png",
     "팀 Prettier 적용기.md",
     "imgs/Pasted image 20240129132813.png",
     "imgs/Pasted image 20240129133007.png",
-    "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129132702.png",
     "Algorithm/유클리드 호제법(최대공약수).md",
     "Algorithm/요세푸스 알고리즘.md",
