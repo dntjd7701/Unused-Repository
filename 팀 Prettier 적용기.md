@@ -16,3 +16,22 @@
 
 참고로 이때에, ESLint는 적용하지 않기로 했다. 단계적으로 필요성을 느낄 때 추가적으로 건의할 예정이다. 
 
+
+
+### prettier 설치 
+
+vscode의 extesion 클릭 후 'prettier' 검색 및 설치 
+![[Pasted image 20240129132813.png]]
+
+### 자동 포맷팅 지정
+
+vscode settings > 'format on save' 검색 
+![[Pasted image 20240129132728.png]]
+
+### 기본 포맷터 지정
+
+vscode settings > 'default formatter' 검색 
+![[Pasted image 20240129132702.png]]
+다음과 같이 설정 
+
+### 프로젝트 최상단에 prettier tj
