@@ -34,4 +34,10 @@ vscode settings > 'default formatter' 검색
 ![[Pasted image 20240129132702.png]]
 다음과 같이 설정 
 
-### 프로젝트 최상단에 prettier tj
+### 지정된 설정 파일이 존재할 경우에만 포맷팅을 진행할 수 있도록, 옵션 설정 
+
+vscode settings > 'require config' 검색 
+![[Pasted image 20240129133007.png]]
+
+### prettier 설정 확인
+
