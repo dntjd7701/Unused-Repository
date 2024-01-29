@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "팀 Prettier 적용기.md",
+                "file": "Tools/VSCODE/Extension.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "69e132906b9cfbfb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tools/VSCODE/vscode vim.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -34,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -108,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "팀 Prettier 적용기.md",
+                "file": "Tools/VSCODE/vscode vim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "팀 Prettier 적용기.md",
+                "file": "Tools/VSCODE/vscode vim.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -148,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "팀 Prettier 적용기.md"
+                "file": "Tools/VSCODE/vscode vim.md"
               }
             }
           },
@@ -200,10 +213,13 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "6466ce385037b4cc",
+  "active": "69e132906b9cfbfb",
   "lastOpenFiles": [
-    "imgs/Pasted image 20240129132728.png",
+    "Tools/VSCODE/Extension.md",
+    "Tools/VSCODE/vscode vim.md",
+    "Tools/VSCODE/Shortcuts.md",
     "팀 Prettier 적용기.md",
+    "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129132813.png",
     "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132702.png",
@@ -229,9 +245,7 @@
     "무제 파일 1.md",
     "디자인.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
-    "Project-Trello.md",
     "imgs/Pasted image 20240112130853.png",
-    "회사/ERP/구매/BOM재고수급현황.md",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
