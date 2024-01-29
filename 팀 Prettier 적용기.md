@@ -41,3 +41,56 @@ vscode settings > 'require config' 검색
 
 ### prettier 설정 확인
 
+프로젝트 최상단의 .prettierrc.js 확인
+
+```js
+module.exports = {
+
+// '' or ""
+
+singleQuote: true,
+
+//코드 마지막에 세미콜른이 있게 formatting
+
+semi: true,
+
+//탭의 사용을 금하고 스페이스바 사용으로 대체하게 formatting
+
+useTabs: false,
+
+// 들여쓰기 너비는 2칸
+
+tabWidth: 2,
+
+/**
+
+* 기본값은 버전 v2.0.0에서 none-> es5로 바뀌었다.
+
+* es5로 설정하면 유효한 곳(객체,배열)에서의 Trailing commas는 허용하지만 다른곳에서는 허용하지 않는다. 타입스크립트의 함수 파라미터에는 허용되지 않는다.
+
+* none으로 설정하면 trailing commas다.
+
+* all로 설정하면 가능한 모든곳에 콤마를 찍는다. 예를들어 함수의 파라미터.
+
+*/
+
+trailingComma: 'all',
+
+// '가독성을 위해 80자를 초과하는 문자를 사용하지 않는 것이 좋습니다.'라는 지침에 따라 80으로 지정. >> 코드 한줄이 maximum 80칸
+
+printWidth: 80,
+
+// 화살표 함수가 하나의 매개변수를 받을 때 괄호 생략
+
+arrowParens: 'avoid',
+
+//객체 리터럴의 대괄호 사이에 공백을 인쇄
+
+bracketSpacing: true,
+
+// 여러 줄의 HTML(HTML, JSX, Vue, Angular) 요소를 다음 줄에 단독으로 두는 대신 마지막 줄 끝에 넣음 (자체 닫는 요소에는 적용되지 않음).
+
+bracketSameLine: true,
+
+};
+```
