@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tools/VSCODE/Extension.md",
+                "file": "Tools/VSCODE/vscode vim.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/VSCODE/Extension.md",
+                "file": "Tools/VSCODE/vscode vim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/VSCODE/Extension.md",
+                "file": "Tools/VSCODE/vscode vim.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/VSCODE/Extension.md"
+                "file": "Tools/VSCODE/vscode vim.md"
               }
             }
           },
@@ -202,10 +202,10 @@
   },
   "active": "6466ce385037b4cc",
   "lastOpenFiles": [
+    "Tools/VSCODE/Extension.md",
     "팀 Prettier 적용기.md",
     "imgs/Pasted image 20240129132813.png",
     "Tools/VSCODE/vscode vim.md",
-    "Tools/VSCODE/Extension.md",
     "Tools/VSCODE/Shortcuts.md",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129133007.png",
