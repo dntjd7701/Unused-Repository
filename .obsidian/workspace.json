@@ -19,22 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "6466ce385037b4cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
+                "file": "Algorithm/유클리드 호제법(최대공약수).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md",
+                "file": "Algorithm/유클리드 호제법(최대공약수).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -148,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tools/VSCODE/vscode vim.md"
+                "file": "Algorithm/유클리드 호제법(최대공약수).md"
               }
             }
           },
@@ -200,12 +186,12 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "6466ce385037b4cc",
+  "active": "ce8c704e39762bc0",
   "lastOpenFiles": [
+    "Tools/VSCODE/vscode vim.md",
     "Tools/VSCODE/Extension.md",
     "팀 Prettier 적용기.md",
     "imgs/Pasted image 20240129132813.png",
-    "Tools/VSCODE/vscode vim.md",
     "Tools/VSCODE/Shortcuts.md",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129133007.png",
