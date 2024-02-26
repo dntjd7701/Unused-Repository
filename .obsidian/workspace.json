@@ -13,38 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "팀 Prettier 적용기.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "efcb1b2d8771993a",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.5.8"
-              }
-            }
-          },
-          {
-            "id": "b200c510b862c30b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+                "file": "부산시 인터뷰.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5
+    "width": 370.5,
+    "collapsed": true
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -118,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+                "file": "부산시 인터뷰.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+                "file": "부산시 인터뷰.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -158,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md"
+                "file": "부산시 인터뷰.md"
               }
             }
           },
@@ -210,13 +187,15 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "b200c510b862c30b",
+  "active": "ce8c704e39762bc0",
   "lastOpenFiles": [
-    "부산시 인터뷰.md",
-    "업무사항.md",
-    "Tools/VSCODE/Shortcuts.md",
-    "현대 자동차.md",
     "팀 Prettier 적용기.md",
+    "현대 자동차.md",
+    "업무사항.md",
+    "더존인을 위한 Trello를 만들기 위한 여정.md",
+    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "부산시 인터뷰.md",
+    "Tools/VSCODE/Shortcuts.md",
     "디자인.md",
     "무제 파일 1.md",
     "무제 파일.md",
@@ -237,7 +216,6 @@
     "Algorithm/소수구하기_에라토스테네스의 체.md",
     "회사/ERP/물류/매출마감등록.md",
     "회사/ERP/물류/BOM 역전개.md",
-    "더존인을 위한 Trello를 만들기 위한 여정.md",
     "회사/Amaranth10/Template.md",
     "회사/ERP/물류/BATCH BOM 등록.md",
     "회사/멘토링/Front/React Life Cycle(class component).md",
@@ -246,7 +224,6 @@
     "회사/멘토링/Front/Rendering process.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/멘토링/Query.md",
-    "BOM 성능 최적화.md",
     "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
