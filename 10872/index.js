@@ -10,3 +10,13 @@ const fs = require('fs')
    .readFileSync(isLinux ? '/dev/stdin' : './test.txt')
    .toString()
    .split(' ');
+
+let input = +fs[0];
+let answer = 1;
+while (input > 0) {
+   answer *= input;
+   input--;
+}
+
+console.log(answer);
+4;
