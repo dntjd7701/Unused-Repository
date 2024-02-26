@@ -36,7 +36,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -118,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -158,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "부산시 인터뷰.md"
+                "file": "WebMvcConfigurer를 활용한 MessageConvertor 확장.md"
               }
             }
           },
@@ -212,18 +212,23 @@
   },
   "active": "b200c510b862c30b",
   "lastOpenFiles": [
+    "부산시 인터뷰.md",
+    "업무사항.md",
+    "Tools/VSCODE/Shortcuts.md",
+    "현대 자동차.md",
+    "팀 Prettier 적용기.md",
+    "디자인.md",
+    "무제 파일 1.md",
+    "무제 파일.md",
     "imgs/더존비즈온_회사소개서_v.20240102 1.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pdf",
     "imgs/240207_[보도자료] 더존비즈온, 한국생산성본부에 ‘AI 서비스’ 최초 공급.docx",
     "imgs/240124_[보도자료] 더존비즈온, AI 전환(AX) 선도기업으로 진화.docx",
-    "부산시 인터뷰.md",
     "Algorithm/유클리드 호제법(최대공약수).md",
     "Tools/VSCODE/vscode vim.md",
     "Tools/VSCODE/Extension.md",
-    "팀 Prettier 적용기.md",
     "imgs/Pasted image 20240129132813.png",
-    "Tools/VSCODE/Shortcuts.md",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132702.png",
@@ -237,15 +242,11 @@
     "회사/ERP/물류/BATCH BOM 등록.md",
     "회사/멘토링/Front/React Life Cycle(class component).md",
     "회사/Amaranth10/무제 파일.md",
-    "무제 파일.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
     "회사/멘토링/Front/Rendering process.md",
     "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
     "회사/멘토링/Query.md",
     "BOM 성능 최적화.md",
-    "현대 자동차.md",
-    "업무사항.md",
-    "무제 파일 1.md",
     "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
@@ -260,7 +261,6 @@
     "회사/멘토링/Back",
     "Daily",
     "imgs/Todo.ics",
-    "회사/멘토링",
     "무제 파일 2.canvas"
   ]
 }
