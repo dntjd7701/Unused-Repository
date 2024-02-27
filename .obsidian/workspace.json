@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5011385a8509cade",
+        "id": "df8de0c04f1c9092",
         "type": "tabs",
         "children": [
           {
-            "id": "ce8c704e39762bc0",
+            "id": "c137cb23f1f73c93",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5,
-    "collapsed": true
+    "width": 370.5
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -188,14 +187,14 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "ce8c704e39762bc0",
+  "active": "c137cb23f1f73c93",
   "lastOpenFiles": [
+    "부산시 인터뷰.md",
     "팀 Prettier 적용기.md",
     "현대 자동차.md",
     "업무사항.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
-    "부산시 인터뷰.md",
     "Tools/VSCODE/Shortcuts.md",
     "디자인.md",
     "무제 파일 1.md",
