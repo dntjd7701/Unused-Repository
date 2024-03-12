@@ -1,0 +1,16 @@
+{
+  "name": "helloweb-ex01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app04.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "connect-route": "^0.1.5",
+    "serve-static": "^1.14.1"
+  }
+}

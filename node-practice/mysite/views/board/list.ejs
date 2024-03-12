@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>mysite</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link href="/assets/css/board.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="container">
+		<%- include("../includes/header")%>
+			<div id="content">
+				<div id="board">
+					<form id="search_form" action="" method="post">
+						<input type="text" id="kwd" name="kwd" value="">
+						<input type="submit" value="찾기">
+					</form>
+					<table class="tbl-ex">
+						<tr>
+							<th>번호</th>
+							<th>제목</th>
+							<th>글쓴이</th>
+							<th>조회수</th>
+							<th>작성일</th>
+							<th>&nbsp;</th>
+						</tr>
+
+						<% const count=boardList.length; boardList.forEach(function(board, index){ %>
+							<tr>
+								<td>
+									<%=count-index%>
+								</td>
+
+
+								<td class="left" style="text-align:left; padding-left:<%=20*board.depth %>px">
+									<% if( board.depth !=0) { %>
+										<img src="/assets/images/reply.png">
+										<% } %>
+											<a href="/board/view/<%=board.no %>">
+												<%=board.title %>
+											</a>
+								</td>
+
+
+								<td>
+									<%=board.User.name %>
+								</td>
+								<td>
+									<%=board.hit %>
+								</td>
+								<td>
+									<%- moment(board.regDate).format('YYYY-MM-DD HH:mm:ss') %>
+								</td>
+								<td>
+									<% if(authUserNo !=0 && authUserNo==board.User.no) { %>
+										<a href="/board/delete/<%= board.no%>" class="del"
+											style='background-image:url("/assets/images/recycle.png")'>삭제</a>
+										<% } %>
+								</td>
+							</tr>
+							<% }) %>
+
+					</table>
+					<% if(authUserNo !=0) { %>
+						<div class="bottom">
+							<a href="/board/write" id="new-book">글쓰기</a>
+						</div>
+						<% } %>
+				</div>
+			</div>
+			<%- include('../includes/navigation') %>
+				<%- include('../includes/footer') %>
+	</div>
+</body>
+
+</html>
