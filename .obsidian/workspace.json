@@ -8,19 +8,46 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c137cb23f1f73c93",
+            "id": "02476855855ab1a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "회사/Amaranth10/무제 파일.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a156d0c95cb8a175",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "매출마감등록.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "76762c3d7f9c4410",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "회계처리(매출&수금).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "매출마감등록.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "부산시 인터뷰.md",
+                "file": "매출마감등록.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -134,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "부산시 인터뷰.md"
+                "file": "매출마감등록.md"
               }
             }
           },
@@ -171,8 +198,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -187,8 +213,23 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "c137cb23f1f73c93",
+  "active": "a156d0c95cb8a175",
   "lastOpenFiles": [
+    "imgs/Pasted image 20240319110524.png",
+    "회계처리(매출&수금).md",
+    "매출마감등록.md",
+    "회사/Amaranth10/무제 파일.md",
+    "회사/Amaranth10/Template.md",
+    "JavaScript/함수 표현식 vs 함수 선언문.md",
+    "JavaScript/클로저(Closure).md",
+    "Front/React/Key 이해하기.md",
+    "Front/React/React.lazy(), Suspense.md",
+    "Front/React/dangerouslySetInnerHTML.md",
+    "Front/Next/번역_Pre-rendering and Data Fetching.md",
+    "Front/Next/How Next.js Works.md",
+    "imgs/next-app.png",
+    "Front/Next/번역_Next.js.md",
+    "imgs/Pasted image 20230105170045.png",
     "부산시 인터뷰.md",
     "팀 Prettier 적용기.md",
     "현대 자동차.md",
@@ -198,7 +239,6 @@
     "Tools/VSCODE/Shortcuts.md",
     "디자인.md",
     "무제 파일 1.md",
-    "무제 파일.md",
     "imgs/더존비즈온_회사소개서_v.20240102 1.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pdf",
@@ -212,28 +252,14 @@
     "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132702.png",
     "Algorithm/요세푸스 알고리즘.md",
-    "Algorithm/알고리즘 자동 푸쉬.md",
-    "Algorithm/소수구하기_에라토스테네스의 체.md",
-    "회사/ERP/물류/매출마감등록.md",
-    "회사/ERP/물류/BOM 역전개.md",
-    "회사/Amaranth10/Template.md",
-    "회사/ERP/물류/BATCH BOM 등록.md",
-    "회사/멘토링/Front/React Life Cycle(class component).md",
-    "회사/Amaranth10/무제 파일.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
-    "회사/멘토링/Front/Rendering process.md",
-    "회사/Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
-    "회사/멘토링/Query.md",
     "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
     "imgs/Pasted image 20231207152825.png",
     "imgs/Pasted image 20231207152705.png",
     "imgs/Screen Recording 2023-12-07 at 3.23.53 PM.mov",
-    "imgs/Pasted image 20231207091438.png",
     "무제 파일.canvas",
     "무제 파일 1.canvas",
-    "imgs/Pasted image 20231129151153.png",
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
