@@ -38,5 +38,13 @@
       ],
       "key": "PageDown"
     }
+  ],
+  "app:toggle-left-sidebar": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "PageUp"
+    }
   ]
 }

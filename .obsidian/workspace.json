@@ -4,62 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "df8de0c04f1c9092",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "02476855855ab1a6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "회사/Amaranth10/무제 파일.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a156d0c95cb8a175",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "매출마감등록.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "76762c3d7f9c4410",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "회계처리(매출&수금).md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
         "id": "3116f2e5c7b118bb",
         "type": "tabs",
         "children": [
           {
-            "id": "e3c7e1b2db72a813",
+            "id": "bef7b2faeefea331",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "매출마감등록.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7274f08bdf48ca3e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "매\b출전자세금계산서처리.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -214,7 +181,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -233,14 +200,18 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "e3c7e1b2db72a813",
+  "active": "bef7b2faeefea331",
   "lastOpenFiles": [
-    "무제 파일.md",
+    "매\b출전자세금계산서처리.md",
     "매출마감등록.md",
+    "회계처리(매출&수금).md",
+    "무제 파일.md",
+    "매출전자세금계산서처리.md",
+    "회계처리(매출/마감).md",
+    "회계처리(매출",
+    "회사/Amaranth10/무제 파일.md",
     "imgs/Pasted image 20240320091059.png",
     "imgs/Pasted image 20240319110524.png",
-    "회계처리(매출&수금).md",
-    "회사/Amaranth10/무제 파일.md",
     "회사/Amaranth10/Template.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
     "JavaScript/클로저(Closure).md",
@@ -267,13 +238,10 @@
     "imgs/240207_[보도자료] 더존비즈온, 한국생산성본부에 ‘AI 서비스’ 최초 공급.docx",
     "imgs/240124_[보도자료] 더존비즈온, AI 전환(AX) 선도기업으로 진화.docx",
     "Algorithm/유클리드 호제법(최대공약수).md",
-    "Tools/VSCODE/vscode vim.md",
-    "Tools/VSCODE/Extension.md",
     "imgs/Pasted image 20240129132813.png",
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132702.png",
-    "Algorithm/요세푸스 알고리즘.md",
     "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
@@ -283,7 +251,6 @@
     "회사/멘토링/Front",
     "회사/멘토링/Back",
     "Daily",
-    "imgs/Todo.ics",
     "무제 파일 2.canvas"
   ]
 }
