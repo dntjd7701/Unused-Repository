@@ -48,6 +48,25 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "3116f2e5c7b118bb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e3c7e1b2db72a813",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "매출마감등록.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -105,7 +124,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5
+    "width": 370.5,
+    "collapsed": true
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -213,11 +233,13 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "a156d0c95cb8a175",
+  "active": "e3c7e1b2db72a813",
   "lastOpenFiles": [
+    "무제 파일.md",
+    "매출마감등록.md",
+    "imgs/Pasted image 20240320091059.png",
     "imgs/Pasted image 20240319110524.png",
     "회계처리(매출&수금).md",
-    "매출마감등록.md",
     "회사/Amaranth10/무제 파일.md",
     "회사/Amaranth10/Template.md",
     "JavaScript/함수 표현식 vs 함수 선언문.md",
@@ -255,8 +277,6 @@
     "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Pasted image 20231207152943.png",
-    "imgs/Pasted image 20231207152825.png",
-    "imgs/Pasted image 20231207152705.png",
     "imgs/Screen Recording 2023-12-07 at 3.23.53 PM.mov",
     "무제 파일.canvas",
     "무제 파일 1.canvas",
