@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "매출마감등록.md",
+                "file": "회계처리(매출&수금).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "매출마감등록.md",
+                "file": "회계처리(매출&수금).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "매출마감등록.md",
+                "file": "회계처리(매출&수금).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -134,7 +134,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "매출마감등록.md"
+                "file": "회계처리(매출&수금).md"
               }
             }
           },
@@ -188,14 +188,14 @@
   },
   "active": "7274f08bdf48ca3e",
   "lastOpenFiles": [
+    "매출마감등록.md",
+    "회계처리(매출/마감).md",
     "imgs/Pasted image 20240321110927.png",
     "매\b출전자세금계산서처리.md",
-    "매출마감등록.md",
     "imgs/Pasted image 20240321110752.png",
     "회계처리(매출&수금).md",
     "무제 파일.md",
     "매출전자세금계산서처리.md",
-    "회계처리(매출/마감).md",
     "회계처리(매출",
     "회사/Amaranth10/무제 파일.md",
     "imgs/Pasted image 20240320091059.png",
@@ -229,7 +229,6 @@
     "imgs/Pasted image 20240129132728.png",
     "imgs/Pasted image 20240129133007.png",
     "imgs/Pasted image 20240129132702.png",
-    "imgs/Pasted image 20240112130853.png",
     "Todo.canvas",
     "imgs/Screen Recording 2023-12-07 at 3.23.53 PM.mov",
     "무제 파일.canvas",
