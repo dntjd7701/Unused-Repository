@@ -91,8 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5,
-    "collapsed": true
+    "width": 370.5
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -202,9 +201,9 @@
   },
   "active": "bef7b2faeefea331",
   "lastOpenFiles": [
-    "매\b출전자세금계산서처리.md",
-    "매출마감등록.md",
     "회계처리(매출&수금).md",
+    "매출마감등록.md",
+    "매\b출전자세금계산서처리.md",
     "무제 파일.md",
     "매출전자세금계산서처리.md",
     "회계처리(매출/마감).md",
