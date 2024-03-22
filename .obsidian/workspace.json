@@ -8,19 +8,46 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7274f08bdf48ca3e",
+            "id": "8cac731519b84abc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회계처리(매출&수금).md",
+                "file": "매\b출전자세금계산서처리.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "44b89127a545ddd9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "매출마감등록.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9f0503fce117fc28",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "정리.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -78,7 +105,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 370.5
+    "width": 370.5,
+    "collapsed": true
   },
   "right": {
     "id": "dc1c3b702dfdaeb5",
@@ -94,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회계처리(매출&수금).md",
+                "file": "정리.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회계처리(매출&수금).md",
+                "file": "정리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -134,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회계처리(매출&수금).md"
+                "file": "정리.md"
               }
             }
           },
@@ -186,15 +214,19 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "7274f08bdf48ca3e",
+  "active": "9f0503fce117fc28",
   "lastOpenFiles": [
     "매출마감등록.md",
+    "매\b출전자세금계산서처리.md",
+    "정리.md",
+    "리팩토링/매출미마감현황/BACK.md",
+    "리팩토링/매출미마감현황",
+    "리팩토링",
+    "리팩토링/BLG0070 매출미마감현황.md",
+    "회계처리(매출&수금).md",
     "회계처리(매출/마감).md",
     "imgs/Pasted image 20240321110927.png",
-    "매\b출전자세금계산서처리.md",
     "imgs/Pasted image 20240321110752.png",
-    "회계처리(매출&수금).md",
-    "무제 파일.md",
     "매출전자세금계산서처리.md",
     "회계처리(매출",
     "회사/Amaranth10/무제 파일.md",
@@ -219,7 +251,6 @@
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "Tools/VSCODE/Shortcuts.md",
     "디자인.md",
-    "무제 파일 1.md",
     "imgs/더존비즈온_회사소개서_v.20240102 1.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pptx",
     "imgs/더존비즈온_회사소개서_v.20240102.pdf",
@@ -234,8 +265,6 @@
     "무제 파일.canvas",
     "무제 파일 1.canvas",
     "회사/멘토링/Front",
-    "회사/멘토링/Back",
-    "Daily",
     "무제 파일 2.canvas"
   ]
 }
