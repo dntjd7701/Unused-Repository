@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -149,13 +150,21 @@
                 "file": "회사/ERP/물류/회계처리(매출&수금).md"
               }
             }
+          },
+          {
+            "id": "511b097b9ae1a830",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,6 +181,8 @@
   },
   "active": "213116441e30413a",
   "lastOpenFiles": [
+    "imgs/Pasted image 20240326174947.png",
+    "imgs/Pasted image 20240326174817.png",
     "imgs/Pasted image 20240326172808.png",
     "imgs/Pasted image 20240326153957.png",
     "imgs/Pasted image 20240326153951.png",
