@@ -6,6 +6,7 @@
       {
         "id": "9499f78c57f3ed02",
         "type": "tabs",
+        "dimension": 81.07954545454545,
         "children": [
           {
             "id": "6b896278de6e4414",
@@ -25,6 +26,7 @@
       {
         "id": "44d4bda1dc8c0e4b",
         "type": "tabs",
+        "dimension": 18.920454545454547,
         "children": [
           {
             "id": "213116441e30413a",
@@ -200,8 +202,11 @@
   },
   "active": "6b896278de6e4414",
   "lastOpenFiles": [
-    "회사/ERP/물류/매출마감등록 1.md",
+    "imgs/Pasted image 20240327131342.png",
     "회사/ERP/물류/회계처리(매출&수금).md",
+    "imgs/Pasted image 20240327131409.png",
+    "imgs/Pasted image 20240327131214.png",
+    "회사/ERP/물류/매출마감등록 1.md",
     "회사/ERP/물류/매출마감등록.md",
     "회사/ERP/물류/매출마감현황.md",
     "imgs/Pasted image 20240326174947.png",
