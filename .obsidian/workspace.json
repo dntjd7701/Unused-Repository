@@ -8,35 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "479d40701568b1a1",
+            "id": "4dad0bd4b61afc76",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/ERP/물류/회계처리(매출&수금).md",
+                "file": "회사/ERP/물류/초기라벨엑셀업로드.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "911ce3b9dc79c8da",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "imgs/Pasted image 20240322115013.png"
-              }
-            }
-          },
-          {
-            "id": "f94ccf8c65123259",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "imgs/Pasted image 20240327132143.png"
               }
             }
           }
@@ -114,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/ERP/물류/회계처리(매출&수금).md",
+                "file": "회사/ERP/물류/초기라벨엑셀업로드.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/ERP/물류/회계처리(매출&수금).md",
+                "file": "회사/ERP/물류/초기라벨엑셀업로드.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -166,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/ERP/물류/회계처리(매출&수금).md"
+                "file": "회사/ERP/물류/초기라벨엑셀업로드.md"
               }
             }
           },
@@ -198,20 +178,24 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "479d40701568b1a1",
+  "active": "4dad0bd4b61afc76",
   "lastOpenFiles": [
-    "imgs/Pasted image 20240327144452.png",
-    "회사/ERP/물류/회계처리(매출&수금).md",
-    "imgs/Pasted image 20240322115013.png",
+    "imgs/Pasted image 20240329093407.png",
     "회사/ERP/물류/매출마감등록 1.md",
-    "imgs/Pasted image 20240327143931.png",
-    "imgs/Pasted image 20240327143924.png",
-    "imgs/Pasted image 20240327142806.png",
-    "imgs/Pasted image 20240327135844.png",
-    "imgs/Pasted image 20240327132143.png",
-    "imgs/Pasted image 20240327131342.png",
+    "회사/ERP/물류/초기라벨엑셀업로드.md",
+    "회사/ERP/물류/회계처리(매출&수금).md",
+    "회사/ERP/물류/매\b출전자세금계산서처리.md",
+    "회사/ERP/물류/쇼핑몰매출자료업로드.md",
+    "imgs/Pasted image 20240327144452.png",
+    "imgs/Pasted image 20240326174817.png",
     "imgs/Pasted image 20240327131409.png",
-    "imgs/Pasted image 20240327131214.png",
+    "imgs/Pasted image 20240322115013.png",
+    "imgs/Pasted image 20240322171803.png",
+    "imgs/Pasted image 20240322171554.png",
+    "imgs/Pasted image 20240326153957.png",
+    "imgs/Pasted image 20240326153951.png",
+    "imgs/Pasted image 20240327132143.png",
+    "imgs/Pasted image 20240327143931.png",
     "회사/ERP/물류/매출마감등록.md",
     "회사/ERP/물류/매출마감현황.md"
   ]
