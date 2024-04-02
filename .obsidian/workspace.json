@@ -19,22 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "27002309c8af5765",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Amaranth10/ERP/물류/매출마감등록.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출마감등록.md",
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출마감등록.md",
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -160,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출마감등록.md"
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md"
               }
             }
           },
@@ -191,11 +177,19 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "27002309c8af5765",
+  "active": "aeff9717fc687072",
   "lastOpenFiles": [
-    "Amaranth10/ERP/물류/매출마감등록.md",
-    "Amaranth10/ERP/물류/매출마감등록.md",
+    "imgs/Pasted image 20240402152625.png",
     "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+    "BOM 성능 최적화.md",
+    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "업무사항.md",
+    "Amaranth10/ERP/물류/초기라벨엑셀업로드.md",
+    "Calendar",
+    "Daily/2024-04-02.md",
+    "Daily",
+    "Amaranth10/ERP/물류/매출마감등록.md",
+    "Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20240402115217.png",
     "imgs/Pasted image 20240402115208.png",
     "imgs/Pasted image 20240402115157.png",
@@ -203,9 +197,6 @@
     "리팩토링/2024-04-03 ERP물류개발2Cell 리팩토링 발표.md",
     "리팩토링/원가분석현황(마감기준)/BACK.md",
     "리팩토링/매출미마감현황/BACK.md",
-    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
-    "BOM 성능 최적화.md",
-    "업무사항.md",
     "팀 Prettier 적용기.md",
     "Skills & Tools.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
@@ -220,17 +211,12 @@
     "Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
     "Amaranth10/GS 인증 리스트.md",
     "Amaranth10/Template.md",
-    "Amaranth10/바코드.md",
-    "Amaranth10/순환 참조 쿼리 참고.md",
-    "Amaranth10/ERP/Bulk 저장.md",
     "Todo.canvas",
-    "Daily",
     "imgs/Pasted image 20240402105103.png",
     "imgs/Pasted image 20240402105000.png",
     "imgs/Pasted image 20240402105037.png",
     "imgs/Pasted image 20240402105015.png",
     "imgs/Pasted image 20240402102528.png",
-    "imgs/Pasted image 20240401193053.png",
     "리팩토링/원가분석현황(마감기준)"
   ]
 }
