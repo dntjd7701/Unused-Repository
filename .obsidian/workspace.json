@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "회사/ERP/물류/매출전자세금계산서처리.md",
+                "file": "업무사항.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "20240402105015",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "회사/ERP/물류/매출전자세금계산서처리.md",
+                "file": "업무사항.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "회사/ERP/물류/매출전자세금계산서처리.md",
+                "file": "업무사항.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "회사/ERP/물류/매출전자세금계산서처리.md"
+                "file": "업무사항.md"
               }
             }
           },
@@ -158,8 +158,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "horizontal",
@@ -180,30 +179,44 @@
   },
   "active": "aeff9717fc687072",
   "lastOpenFiles": [
+    "팀 Prettier 적용기.md",
+    "업무사항.md",
+    "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "Skills & Tools.md",
+    "더존인을 위한 Trello를 만들기 위한 여정.md",
+    "mono-repo.md",
+    "정리.md",
+    "Amaranth10/화면 리스트.md",
+    "Amaranth10/자료들.md",
+    "Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
+    "Amaranth10/Mobile 물류관리 시스템/생산출고.md",
+    "Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
+    "Amaranth10/공통 작업 업무/동아리 참가 인원 모집.md",
+    "Amaranth10/공통 작업 업무/개발서버 자동배포 프로그램/회사 배포 프로그램 개발.md",
+    "Amaranth10/GS 인증 리스트.md",
+    "Amaranth10/Template.md",
+    "Amaranth10/바코드.md",
+    "Amaranth10/순환 참조 쿼리 참고.md",
+    "Amaranth10/ERP/Bulk 저장.md",
+    "BOM 성능 최적화.md",
+    "Project-Trello.md",
+    "무제 파일.md",
+    "부산시 인터뷰.md",
+    "Todo.canvas",
+    "Daily",
+    "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+    "2024-04-02 업무.md",
     "imgs/Pasted image 20240402105103.png",
+    "imgs/Pasted image 20240402105000.png",
     "imgs/Pasted image 20240402105037.png",
     "imgs/Pasted image 20240402105015.png",
-    "imgs/Pasted image 20240402105000.png",
     "imgs/Pasted image 20240402102528.png",
-    "imgs/Pasted image 20240402102500.png",
-    "imgs/Pasted image 20240402102202.png",
-    "imgs/Screenshot 2024-04-02 at 10.19.43 AM.png",
-    "imgs/Pasted image 20240402102010.png",
-    "회사/ERP/물류/회계처리(매출&수금).md",
-    "imgs/Pasted image 20240327144452.png",
-    "회사/ERP/물류/매출전자세금계산서처리.md",
     "imgs/Pasted image 20240401193053.png",
-    "회사/ERP/물류/매출마감등록 1.md",
-    "회사/ERP/물류/매출마감현황.md",
-    "리팩토링/2024-04-03 ERP물류개발2Cell 리팩토링 발표.md",
-    "리팩토링/Before.md",
-    "리팩토링/매출미마감현황/BACK.md",
-    "리팩토링/원가분석현황(마감기준)/BACK.md",
-    "리팩토링/원가분석현황(마감기준)",
-    "회사/ERP/물류/매\b출전자세금계산서처리.md",
-    "회사/ERP/물류/매출마감등록.md",
-    "회사/ERP/물류/초기라벨엑셀업로드.md",
-    "무제 파일.md",
-    "회사/ERP/물류/쇼핑몰매출자료업로드.md"
+    "imgs/Pasted image 20240401193038.png",
+    "imgs/Pasted image 20240402102500.png",
+    "imgs/Screenshot 2024-04-02 at 10.19.43 AM.png",
+    "imgs/Screenshot 2024-04-01 at 7.27.25 PM.png",
+    "Amaranth10/ERP/물류/회계처리(매출&수금).md",
+    "리팩토링/원가분석현황(마감기준)"
   ]
 }
