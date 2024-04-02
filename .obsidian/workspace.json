@@ -13,14 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "업무사항.md",
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "27002309c8af5765",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -70,7 +84,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -94,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "업무사항.md",
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "업무사항.md",
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "업무사항.md"
+                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md"
               }
             }
           },
@@ -177,11 +192,20 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "aeff9717fc687072",
+  "active": "27002309c8af5765",
   "lastOpenFiles": [
-    "팀 Prettier 적용기.md",
-    "업무사항.md",
+    "imgs/Pasted image 20240402115217.png",
+    "imgs/Pasted image 20240402115208.png",
+    "imgs/Pasted image 20240402115157.png",
+    "imgs/Pasted image 20240402115147.png",
+    "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+    "리팩토링/2024-04-03 ERP물류개발2Cell 리팩토링 발표.md",
+    "리팩토링/원가분석현황(마감기준)/BACK.md",
+    "리팩토링/매출미마감현황/BACK.md",
     "WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "BOM 성능 최적화.md",
+    "업무사항.md",
+    "팀 Prettier 적용기.md",
     "Skills & Tools.md",
     "더존인을 위한 Trello를 만들기 위한 여정.md",
     "mono-repo.md",
@@ -198,14 +222,9 @@
     "Amaranth10/바코드.md",
     "Amaranth10/순환 참조 쿼리 참고.md",
     "Amaranth10/ERP/Bulk 저장.md",
-    "BOM 성능 최적화.md",
     "Project-Trello.md",
-    "무제 파일.md",
-    "부산시 인터뷰.md",
     "Todo.canvas",
     "Daily",
-    "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
-    "2024-04-02 업무.md",
     "imgs/Pasted image 20240402105103.png",
     "imgs/Pasted image 20240402105000.png",
     "imgs/Pasted image 20240402105037.png",
@@ -213,10 +232,6 @@
     "imgs/Pasted image 20240402102528.png",
     "imgs/Pasted image 20240401193053.png",
     "imgs/Pasted image 20240401193038.png",
-    "imgs/Pasted image 20240402102500.png",
-    "imgs/Screenshot 2024-04-02 at 10.19.43 AM.png",
-    "imgs/Screenshot 2024-04-01 at 7.27.25 PM.png",
-    "Amaranth10/ERP/물류/회계처리(매출&수금).md",
     "리팩토링/원가분석현황(마감기준)"
   ]
 }
