@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+                "file": "Amaranth10/ERP/물류/매출마감등록.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -84,8 +84,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -109,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+                "file": "Amaranth10/ERP/물류/매출마감등록.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
+                "file": "Amaranth10/ERP/물류/매출마감등록.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -161,7 +160,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Amaranth10/ERP/물류/매출전자세금계산서처리.md"
+                "file": "Amaranth10/ERP/물류/매출마감등록.md"
               }
             }
           },
@@ -194,11 +193,13 @@
   },
   "active": "27002309c8af5765",
   "lastOpenFiles": [
+    "Amaranth10/ERP/물류/매출마감등록.md",
+    "Amaranth10/ERP/물류/매출마감등록.md",
+    "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
     "imgs/Pasted image 20240402115217.png",
     "imgs/Pasted image 20240402115208.png",
     "imgs/Pasted image 20240402115157.png",
     "imgs/Pasted image 20240402115147.png",
-    "Amaranth10/ERP/물류/매출전자세금계산서처리.md",
     "리팩토링/2024-04-03 ERP물류개발2Cell 리팩토링 발표.md",
     "리팩토링/원가분석현황(마감기준)/BACK.md",
     "리팩토링/매출미마감현황/BACK.md",
@@ -222,7 +223,6 @@
     "Amaranth10/바코드.md",
     "Amaranth10/순환 참조 쿼리 참고.md",
     "Amaranth10/ERP/Bulk 저장.md",
-    "Project-Trello.md",
     "Todo.canvas",
     "Daily",
     "imgs/Pasted image 20240402105103.png",
@@ -231,7 +231,6 @@
     "imgs/Pasted image 20240402105015.png",
     "imgs/Pasted image 20240402102528.png",
     "imgs/Pasted image 20240401193053.png",
-    "imgs/Pasted image 20240401193038.png",
     "리팩토링/원가분석현황(마감기준)"
   ]
 }
