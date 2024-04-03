@@ -1,5 +1,4 @@
 
-
 #### 선적 추가 전 
 
 http://14.41.55.45:8089/KLAGO/klago-backend-logis/blob/93b24124cf9587aab555931f6a2a655b6a67a0bc/src/main/java/klago/logis/blg/blg0000/blg0070/query/common/BLG0070Query.xml
