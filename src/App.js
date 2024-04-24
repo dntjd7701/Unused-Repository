@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ImageEditor from './components/ImageEditor';
+import { useWindowEventListener } from './hook';
 
 function ImageViewer() {
   const EditMode = {
@@ -21,7 +22,7 @@ function ImageViewer() {
   let startX,
     startY = 0;
 
-  const historyRef = useRef([]); // useRef를 사용하여 초기화_undo 효과를 위한 히스토리 작업
+  /** state */
   const [canvasSize, setCanvasSize] = useState({
     width: 0,
     height: 0,
@@ -29,6 +30,8 @@ function ImageViewer() {
   const [canvas, setCanvas] = useState(null);
   const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
 
+  /** ref */
+  const historyRef = useRef([]); // useRef를 사용하여 초기화_undo 효과를 위한 히스토리 작업
   const canvasRef = useRef(null);
   const canvasContainer = useCallback((ref) => {
     setCanvasSize({
@@ -36,6 +39,11 @@ function ImageViewer() {
       height: ref?.offsetHeight,
     });
   }, []);
+
+  /** custom hook */
+  useWindowEventListener('keydown', (e) => {
+    if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
+  });
 
   /** useEffect */
   useEffect(() => {
