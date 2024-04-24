@@ -67,9 +67,7 @@ const ImageEditor = ({ onChangeMode, EditMode, onClear, canvas }) => {
             className='btn-line'
             data-for='btnTooltip'
             data-tip='곡선'
-            onClick={(e) => onChangeMode(EditMode.FREE_DRAW)}
-            //   onClick={(e) => handleChangeEditMode(EditMode.FREE_DRAW)}
-          ></button>
+            onClick={(e) => onChangeMode(EditMode.FREE_DRAW)}></button>
           {/* <button
             className='btn-circle'
             data-for='btnTooltip'

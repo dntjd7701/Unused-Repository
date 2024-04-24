@@ -22,6 +22,9 @@ function ImageViewer() {
     startY = 0;
 
   let backup;
+  const history = []; // undo 효과를 위한 히스토리 작업
+  const historyIndex = [];
+
   const [canvasSize, setCanvasSize] = useState({
     width: 0,
     height: 0,
@@ -39,17 +42,6 @@ function ImageViewer() {
 
   /** useEffect */
   useEffect(() => {
-    return () => {
-      console.debug('canvas:', canvas);
-      if (canvas) {
-        canvas.removeEventListener('mousemove', handleMouseMove);
-        canvas.removeEventListener('mousedown', handleMouseDown);
-        canvas.removeEventListener('mouseup', handleMouseUp);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.width = canvasSize.width;
@@ -65,6 +57,13 @@ function ImageViewer() {
       canvas.addEventListener('mousedown', handleMouseDown);
       canvas.addEventListener('mouseup', handleMouseUp);
     }
+    return () => {
+      if (canvas) {
+        canvas.removeEventListener('mousemove', handleMouseMove);
+        canvas.removeEventListener('mousedown', handleMouseDown);
+        canvas.removeEventListener('mouseup', handleMouseUp);
+      }
+    };
   }, [canvas, editMode]);
 
   const handleMouseMove = (e) => {
@@ -100,15 +99,16 @@ function ImageViewer() {
   };
 
   const handleMouseUp = (e) => {
-    if (EditMode.STRAIGHT_LINE) {
-      const ctx = canvas.getContext('2d');
-      backup = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    }
+    const ctx = canvas.getContext('2d');
+    backup = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    console.log(history);
 
     painting = false;
   };
 
   const handleChangeMode = (mode) => {
+    console.debug('mode:', mode);
     setEditMode(mode);
   };
 
@@ -153,3 +153,7 @@ function ImageViewer() {
 }
 
 export default ImageViewer;
+
+// useWindowEventListener('keydown', (e) => {
+//   if (e.key === 'z' && (e.ctrlKey || e.metaKey)) undo();
+// });
