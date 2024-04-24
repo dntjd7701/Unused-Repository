@@ -1,15 +1,33 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import ImageEditor from './components/ImageEditor';
 
 function ImageViewer() {
+  const EditMode = {
+    DEFAULT: 'default',
+    STRAIGHT_LINE: 'straightLine',
+    INSERT_CIRCLE: 'insertCircle',
+    INSERT_SQUARE: 'insertSquare',
+    INSERT_TRIANGLE: 'inserTriangle',
+    CROP: 'crop',
+    LEFT_ROTATE: 'left',
+    RIGHT_ROTATE: 'right',
+    FREE_DRAW: 'freeDraw',
+    ERASE: 'erase',
+    MEASURE: 'measure',
+    COMPARE: 'compare',
+  };
+
   let painting = false;
   let startX,
     startY = 0;
 
+  let backup;
   const [canvasSize, setCanvasSize] = useState({
     width: 0,
     height: 0,
   });
-  const [ctx, setCtx] = useState(null);
+  const [canvas, setCanvas] = useState(null);
+  const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
 
   const canvasRef = useRef(null);
   const canvasContainer = useCallback((ref) => {
@@ -21,30 +39,36 @@ function ImageViewer() {
 
   /** useEffect */
   useEffect(() => {
-    const canvas = canvasRef.current;
-    canvas.width = canvasSize.width;
-    canvas.height = canvasSize.height;
-    const ctx = canvas.getContext('2d');
-    setCtx(ctx);
-  }, [canvasSize]);
+    return () => {
+      console.debug('canvas:', canvas);
+      if (canvas) {
+        canvas.removeEventListener('mousemove', handleMouseMove);
+        canvas.removeEventListener('mousedown', handleMouseDown);
+        canvas.removeEventListener('mouseup', handleMouseUp);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (canvas) {
+      canvas.width = canvasSize.width;
+      canvas.height = canvasSize.height;
+    }
+
+    setCanvas(canvas);
+  }, [canvasSize]);
+
+  useEffect(() => {
     if (canvas) {
       canvas.addEventListener('mousemove', handleMouseMove);
       canvas.addEventListener('mousedown', handleMouseDown);
       canvas.addEventListener('mouseup', handleMouseUp);
     }
-
-    return () => {
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mousedown', handleMouseDown);
-      canvas.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [ctx]);
+  }, [canvas, editMode]);
 
   const handleMouseMove = (e) => {
-    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
@@ -53,14 +77,15 @@ function ImageViewer() {
         ctx.beginPath();
         ctx.moveTo(x, y);
       } else {
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        // if (editMode === EditMode.STRAIGHT_LINE) {
-        //   drawStraight(x, y);
-        // } else if (editMode === EditMode.FREE_DRAW) {
-        //   ctx.lineTo(x, y);
-        //   ctx.stroke();
-        // }
+        switch (editMode) {
+          case EditMode.STRAIGHT_LINE:
+            drawStraight(x, y);
+            break;
+          default:
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            break;
+        }
       }
     }
   };
@@ -75,16 +100,32 @@ function ImageViewer() {
   };
 
   const handleMouseUp = (e) => {
+    if (EditMode.STRAIGHT_LINE) {
+      const ctx = canvas.getContext('2d');
+      backup = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    }
+
     painting = false;
   };
 
   const handleChangeMode = (mode) => {
-    // setEditMode(mode);
+    setEditMode(mode);
+  };
+
+  const handleClearCanvas = () => {
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
+    if (backup) {
+      backup = null;
+    }
   };
 
   const drawStraight = (endX, endY) => {
-    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
+    if (backup) {
+      ctx.putImageData(backup, 0, 0);
+    }
     ctx.beginPath();
     ctx.moveTo(startX, startY);
     ctx.lineTo(endX, endY);
@@ -92,16 +133,22 @@ function ImageViewer() {
   };
 
   return (
-    <div
-      className='canvas-container'
-      ref={canvasContainer}>
-      <canvas
-        id='canvas'
-        ref={canvasRef}
-        // width={canvasSize.width}
-        // height={canvasSize.height}
+    <>
+      <ImageEditor
+        onChangeMode={handleChangeMode}
+        onClear={handleClearCanvas}
+        EditMode={EditMode}
+        canvas={canvas}
       />
-    </div>
+      <div
+        className='canvas-container'
+        ref={canvasContainer}>
+        <canvas
+          id='canvas'
+          ref={canvasRef}
+        />
+      </div>
+    </>
   );
 }
 
