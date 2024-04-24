@@ -1,9 +1,14 @@
+import React, { useEffect, useState } from 'react';
+
+/** imgs */
 import icArrDown from '../imgs/ic_arrdown@3x.png';
 import icArrUp from '../imgs/ic_arrow_up_normal@3x.png';
-import React, { useEffect, useState } from 'react';
+import temp_undo from '../imgs/ic_arrow_left_01_m_disable@2x.png';
+
+/** css */
 import './ImageEditor.scss';
 
-const ImageEditor = ({ onChangeMode, EditMode, onClear, canvas }) => {
+const ImageEditor = ({ onChangeMode, EditMode, onClear, canvas, onUndo }) => {
   /** state */
   const [lineColor, setLineColor] = useState('#2c2c2c');
   // 선굵기
@@ -188,6 +193,16 @@ const ImageEditor = ({ onChangeMode, EditMode, onClear, canvas }) => {
               )}
             </div>
           </button>
+          <button
+            className='btn-line-bold'
+            onClick={onUndo}>
+            뒤로
+            <img
+              src={temp_undo}
+              alt=''
+            />
+          </button>
+
           <div className='flex-end'>
             {/* <OBTButton imageUrl={icPrint} width='27px' height='27px' onClick={handlePrint} />
           <OBTButton imageUrl={icDownload} width='27px' height='27px' onClick={() => saveImage('compare')} /> */}

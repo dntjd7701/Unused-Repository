@@ -21,10 +21,7 @@ function ImageViewer() {
   let startX,
     startY = 0;
 
-  let backup;
-  const history = []; // undo 효과를 위한 히스토리 작업
-  const historyIndex = [];
-
+  const historyRef = useRef([]); // useRef를 사용하여 초기화_undo 효과를 위한 히스토리 작업
   const [canvasSize, setCanvasSize] = useState({
     width: 0,
     height: 0,
@@ -100,31 +97,35 @@ function ImageViewer() {
 
   const handleMouseUp = (e) => {
     const ctx = canvas.getContext('2d');
-    backup = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-    console.log(history);
-
+    historyRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
     painting = false;
   };
 
   const handleChangeMode = (mode) => {
-    console.debug('mode:', mode);
     setEditMode(mode);
   };
 
   const handleClearCanvas = () => {
     const context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    if (backup) {
-      backup = null;
+    historyRef.current = [];
+  };
+
+  const handleUndo = () => {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
+    historyRef.current.pop();
+    if (historyRef.current.length > 0) {
+      ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
+      ctx.stroke();
     }
   };
 
   const drawStraight = (endX, endY) => {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    if (backup) {
-      ctx.putImageData(backup, 0, 0);
+    if (Array.isArray(historyRef.current) && historyRef.current.length > 0) {
+      ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
     }
     ctx.beginPath();
     ctx.moveTo(startX, startY);
@@ -139,6 +140,7 @@ function ImageViewer() {
         onClear={handleClearCanvas}
         EditMode={EditMode}
         canvas={canvas}
+        onUndo={handleUndo}
       />
       <div
         className='canvas-container'
