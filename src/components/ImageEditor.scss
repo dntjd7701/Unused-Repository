@@ -292,6 +292,26 @@
             }
           }
         }
+        &-undo-bold {
+          display: flex;
+          width: 70px;
+          align-items: center;
+          font-size: 12px;
+          gap: 0 10px;
+          color: #000;
+        }
+        &-image-upload {
+          input {
+            display: none;
+          }
+          display: flex;
+          align-items: center;
+          width: 100px;
+          font-size: 12px;
+          overflow: hidden;
+          height: 40px;
+          gap: 0 10px;
+        }
       }
     }
     .flex-end {

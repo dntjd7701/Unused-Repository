@@ -1,6 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ImageEditor from './components/ImageEditor';
-import { useWindowEventListener } from './hook';
+
+const useWindowEventListener = (type, listener, options) => {
+  useEffect(() => {
+    window.addEventListener(type, listener, options);
+    return () => {
+      window.removeEventListener(type, listener, options);
+    };
+  }, [type, listener, options]);
+};
 
 function ImageViewer() {
   const EditMode = {
@@ -122,11 +130,54 @@ function ImageViewer() {
   const handleUndo = () => {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
+    console.debug('historyRef:', historyRef);
     historyRef.current.pop();
     if (historyRef.current.length > 0) {
       ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
       ctx.stroke();
     }
+  };
+
+  const handleImageUpload = (e) => {
+    const image = e.target.files[0]; // 업로드된 파일 가져오기
+    const img = new Image();
+    img.onload = () => {
+      const ctx = canvas.getContext('2d');
+      const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+      const scaledWidth = img.width * scaleFactor;
+      const scaledHeight = img.height * scaleFactor;
+      ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
+
+      historyRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    };
+    img.src = URL.createObjectURL(image);
+
+    e.target.value = '';
+  };
+
+  const handleZoomIn = () => {
+    // const ctx = canvas.getContext('2d');
+    // const imageData = historyRef.current[historyRef.current.length - 1];
+    // ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
+    // setCanvasSize({
+    //   width: canvasSize.width * 1.5,
+    //   height: canvasSize.height * 1.5,
+    // });
+    // ctx.putImageData(imageData, 0, 0, 50, 0, 24, 24);
+    // ctx.stroke();
+    // console.log(historyRef.current);
+    // ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
+    // ctx.stroke();
+    // setCanvas({
+    //   width: canvasSize.width * 2,
+    //   height: canvasSize.height * 2,
+    // });
+    // ctx.setTransform(0, 2, 2, 0, 0, 0);
+    // // ctx.transs
+    // // setCanvasSize({
+    // //   width: canvasSize.width * 2,
+    // //   height: canvasSize.height * 2
+    // // })
   };
 
   const drawStraight = (endX, endY) => {
@@ -149,6 +200,8 @@ function ImageViewer() {
         EditMode={EditMode}
         canvas={canvas}
         onUndo={handleUndo}
+        onZoomIn={handleZoomIn}
+        onImageUpload={handleImageUpload}
       />
       <div
         className='canvas-container'
