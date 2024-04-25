@@ -1,0 +1,1 @@
+http://14.41.55.45:8089/KLAGO/klago-backend-logis/blob/c214c8bf1c2c392b5264650bdabad688cf1623d3/src/main/java/klago/logis/blg/blg0100/blg0130/query/mariadb/BLG0130Query.xml
