@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.scss';
+import './components/ImageEditor.scss';
 import ImageViewer from './ImageViewer';
 import AnotherWay from './AnotherWay';
 
