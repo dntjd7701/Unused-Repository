@@ -5,5 +5,5 @@ import ImageViewer from './ImageViewer';
 import AnotherWay from './AnotherWay';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<ImageViewer />);
-// root.render(<AnotherWay />);
+// root.render(<ImageViewer />);
+root.render(<AnotherWay />);

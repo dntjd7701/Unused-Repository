@@ -1,10 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import ImageEditor from './components/ImageEditor';
-
-/** imgs */
-import icArrDown from './imgs/ic_arrdown@3x.png';
-import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
+
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import ImageEditor from './components/ImageEditor';
 
 const useWindowEventListener = (type, listener, options) => {
   useEffect(() => {
@@ -15,229 +12,111 @@ const useWindowEventListener = (type, listener, options) => {
   }, [type, listener, options]);
 };
 
-function ImageViewer() {
-  const EditMode = {
-    DEFAULT: 'default',
-    STRAIGHT_LINE: 'straightLine',
-    INSERT_CIRCLE: 'insertCircle',
-    INSERT_SQUARE: 'insertSquare',
-    INSERT_TRIANGLE: 'inserTriangle',
-    CROP: 'crop',
-    LEFT_ROTATE: 'left',
-    RIGHT_ROTATE: 'right',
-    FREE_DRAW: 'freeDraw',
-    ERASE: 'erase',
-    MEASURE: 'measure',
-    COMPARE: 'compare',
-  };
+const EditMode = {
+  DEFAULT: 'default',
+  STRAIGHT_LINE: 'straightLine',
+  INSERT_CIRCLE: 'insertCircle',
+  INSERT_SQUARE: 'insertSquare',
+  INSERT_TRIANGLE: 'inserTriangle',
+  CROP: 'crop',
+  LEFT_ROTATE: 'left',
+  RIGHT_ROTATE: 'right',
+  FREE_DRAW: 'freeDraw',
+  ERASE: 'erase',
+  MEASURE: 'measure',
+  COMPARE: 'compare',
+};
 
-  let painting = false;
-  let startX,
-    startY = 0;
-  let zoom = 1;
-  let zoomCnt = 0;
+const createElement = (startX, startY, endX, endY, editMode) => {
+  return { startX, startY, endX, endY, editMode };
+};
 
-  /** state */
-  const [canvasSize, setCanvasSize] = useState({
-    width: 0,
-    height: 0,
-  });
-  const [canvas, setCanvas] = useState(null);
-  const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
+/**
+ *  이미지 저장 방식이 아닌, 좌표를 저장하여 다시 그려주도록 작업
+ */
+function AnotherWay() {
+  /** useState */
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [editMode, setEditMode] = useState(EditMode.STRAIGHT_LINE);
+  const [elements, setElements] = useState([]);
+  // const [elementsIdx, setElementsIdx] = useState(-1);
 
-  /** state */
-  const [lineColor, setLineColor] = useState('#2c2c2c');
-  // 선굵기
-  const [lineDrop, setLineDrop] = useState({
-    isOpen: false,
-    lineWidth: 1,
-    lineWidthImgTag: <span className='line-2 line'></span>,
-  });
-
-  /** ref */
-  const inputRef = useRef(null);
-  const historyRef = useRef([]); // useRef를 사용하여 초기화_undo 효과를 위한 히스토리 작업
+  /** useRef */
   const canvasRef = useRef(null);
-  const canvasContainer = useCallback((ref) => {
-    setCanvasSize({
-      width: ref?.offsetWidth,
-      height: ref?.offsetHeight,
-    });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 5;
   }, []);
+
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    elements.forEach(({ startX, startY, endX, endY, editMode }, idx) => {
+      switch (editMode) {
+        case EditMode.STRAIGHT_LINE:
+          ctx.beginPath();
+          ctx.moveTo(startX, startY);
+          ctx.lineTo(endX, endY);
+          ctx.stroke();
+          break;
+
+        default:
+          break;
+      }
+    });
+  }, [elements]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
     if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
   });
 
-  /** useEffect */
-  useEffect(() => {
+  /** handler */
+  const hanldeMouseMove = (e) => {
     const canvas = canvasRef.current;
-    if (canvas) {
-      canvas.width = canvasSize.width;
-      canvas.height = canvasSize.height;
-
-      const ctx = canvas.getContext('2d');
-      ctx.strokeStyle = lineColor;
-      ctx.lineWidth = lineDrop.lineWidth;
-    }
-
-    setCanvas(canvas);
-  }, [canvasSize]);
-
-  useEffect(() => {
-    if (canvas) {
-      canvas.addEventListener('mousemove', handleMouseMove);
-      canvas.addEventListener('mousedown', handleMouseDown);
-      canvas.addEventListener('mouseup', handleMouseUp);
-    }
-    return () => {
-      if (canvas) {
-        canvas.removeEventListener('mousemove', handleMouseMove);
-        canvas.removeEventListener('mousedown', handleMouseDown);
-        canvas.removeEventListener('mouseup', handleMouseUp);
-      }
-    };
-  }, [canvas, editMode]);
-
-  const drawStraight = (endX, endY) => {
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    if (Array.isArray(historyRef.current) && historyRef.current.length > 0) {
-      ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
-    }
-    ctx.beginPath();
-    ctx.moveTo(startX, startY);
-    ctx.lineTo(endX, endY);
-    ctx.stroke();
-  };
-
-  const handleMouseMove = (e) => {
-    const ctx = canvas.getContext('2d');
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
+    const ctx = canvas.getContext('2d');
 
-    if (ctx) {
-      if (!painting) {
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-      } else {
-        switch (editMode) {
-          case EditMode.STRAIGHT_LINE:
-            drawStraight(x, y);
-            break;
-          default:
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            break;
-        }
-      }
+    if (!isDrawing) {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      return;
     }
+
+    let elementsCopy = [...elements];
+    const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+
+    if (editMode === EditMode.STRAIGHT_LINE) {
+      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode);
+    } else {
+      elementsCopy[elementsCopy.length - 1] = createElement(x, y, x, y, editMode);
+    }
+
+    setElements(elementsCopy);
   };
 
   const handleMouseDown = (e) => {
+    setIsDrawing(true);
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    startX = x;
-    startY = y;
-    painting = true;
+    setElements((prevState) => [...prevState, createElement(x, y, x, y)]);
   };
 
-  const handleMouseUp = (e) => {
-    const ctx = canvas.getContext('2d');
-    historyRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-    painting = false;
-  };
-
-  const handleChangeMode = (mode) => {
-    setEditMode(mode);
-  };
-
-  const handleClearCanvas = () => {
-    const context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    historyRef.current = [];
+  const handleMouseUp = () => {
+    setIsDrawing(false);
   };
 
   const handleUndo = () => {
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    console.debug('historyRef:', historyRef);
-    historyRef.current.pop();
-    if (historyRef.current.length > 0) {
-      ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
-      ctx.stroke();
-    }
-  };
-
-  const handleImageUpload = (e) => {
-    const image = e.target.files[0]; // 업로드된 파일 가져오기
-    const img = new Image();
-    img.onload = () => {
-      const ctx = canvas.getContext('2d');
-      const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-      const scaledWidth = img.width * scaleFactor;
-      const scaledHeight = img.height * scaleFactor;
-      ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
-
-      historyRef.current.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-    };
-    img.src = URL.createObjectURL(image);
-
-    e.target.value = '';
-  };
-
-  const handleZoomIn = () => {
-    // const ctx = canvas.getContext('2d');
-    // const imageData = historyRef.current[historyRef.current.length - 1];
-    // ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-    // setCanvasSize({
-    //   width: canvasSize.width * 1.5,
-    //   height: canvasSize.height * 1.5,
-    // });
-    // ctx.putImageData(imageData, 0, 0, 50, 0, 24, 24);
-    // ctx.stroke();
-    // console.log(historyRef.current);
-    // ctx.putImageData(historyRef.current[historyRef.current.length - 1], 0, 0);
-    // ctx.stroke();
-    // setCanvas({
-    //   width: canvasSize.width * 2,
-    //   height: canvasSize.height * 2,
-    // });
-    // ctx.setTransform(0, 2, 2, 0, 0, 0);
-    // // ctx.transs
-    // // setCanvasSize({
-    // //   width: canvasSize.width * 2,
-    // //   height: canvasSize.height * 2
-    // // })
-  };
-
-  const handleColorPickerChange = (e) => {
-    const ctx = canvas.getContext('2d');
-    ctx.strokeStyle = e.target.value;
-    setLineColor(e.target.value);
-  };
-
-  const handleToggleLineDrop = () => {
-    setLineDrop((prevState) => {
-      return {
-        ...lineDrop,
-        isOpen: !prevState.isOpen,
-      };
-    });
-  };
-
-  const handleSelectLineDrop = (e) => {
-    const { value } = e.target;
-    const ctx = canvas.getContext('2d');
-    ctx.lineWidth = value;
-
-    setLineDrop({
-      isOpen: false,
-      lineWidth: value,
-      lineWidthImgTag: React.createElement('span', { className: `line-${value + 1} line` }),
-    });
+    const elementsCopy = [...elements];
+    elementsCopy.pop();
+    setElements(elementsCopy);
   };
 
   return (
@@ -248,19 +127,20 @@ function ImageViewer() {
             <button className='btn-edit'>편집</button>
             <button
               className='btn-clear'
-              onClick={handleClearCanvas}>
+              // onClick={onClear}
+            >
               초기화
             </button>
             <button
               className='btn-line-str'
               data-for='btnTooltip'
               data-tip='직선'
-              onClick={(e) => handleChangeMode(EditMode.STRAIGHT_LINE)}></button>
-            <button
+              onClick={() => setEditMode(EditMode.STRAIGHT_LINE)}></button>
+            {/* <button
               className='btn-line'
               data-for='btnTooltip'
               data-tip='곡선'
-              onClick={(e) => handleChangeMode(EditMode.FREE_DRAW)}></button>
+              onClick={() => setEditMode(EditMode.FREE_DRAW)}></button> */}
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -315,8 +195,8 @@ function ImageViewer() {
                 type='color'
                 className='colorPicker'
                 name='colorPicker'
-                value={lineColor}
-                onChange={handleColorPickerChange}
+                // value={lineColor}
+                // onChange={handleColorPickerChange}
               />
             </button>
             {/* <button className='btn-color'> */}
@@ -347,7 +227,7 @@ function ImageViewer() {
             {/* </button> */}
             <button className='btn-line-bold'>
               선 굵기
-              <div className='drop-list-wrap'>
+              {/* <div className='drop-list-wrap'>
                 <p
                   className={`drop-list-btn ${lineDrop.isOpen ? 'on' : ''}`}
                   onClick={handleToggleLineDrop}>
@@ -379,7 +259,7 @@ function ImageViewer() {
                     </li>
                   </ul>
                 )}
-              </div>
+              </div> */}
             </button>
             <button
               className='btn-undo-bold'
@@ -390,7 +270,7 @@ function ImageViewer() {
                 alt=''
               />
             </button>
-            <button
+            {/* <button
               className='btn-image-upload'
               onClick={() => {
                 inputRef.current.click();
@@ -401,10 +281,10 @@ function ImageViewer() {
                 id='image-upload'
                 type='file'
                 accept='image/*'
-                onChange={handleImageUpload}
+                onChange={onImageUpload}
               />
-            </button>
-            <button
+            </button> */}
+            {/* <button
               className='btn-zoom-in'
               onClick={() => {
                 // 현재 캔버스의 크기를 가져옵니다.
@@ -420,8 +300,8 @@ function ImageViewer() {
                 canvas.style.height = `${height * 1.2}px`;
               }}>
               확대
-            </button>
-            <button
+            </button> */}
+            {/* <button
               className='btn-zoom-in'
               onClick={() => {
                 // 현재 캔버스의 크기를 가져옵니다.
@@ -434,7 +314,7 @@ function ImageViewer() {
                 canvas.style.height = `${height * 0.8}px`;
               }}>
               축소
-            </button>
+            </button> */}
             <div className='flex-end'>
               {/* <OBTButton imageUrl={icPrint} width='27px' height='27px' onClick={handlePrint} />
           <OBTButton imageUrl={icDownload} width='27px' height='27px' onClick={() => saveImage('compare')} /> */}
@@ -442,19 +322,22 @@ function ImageViewer() {
           </div>
         </div>
       </div>
-      <div
-        className='canvas-container'
-        ref={canvasContainer}>
+      <div className='canvas-container'>
         <canvas
           id='canvas'
           ref={canvasRef}
+          width={window.innerWidth}
+          height={window.innerHeight}
+          onMouseMove={hanldeMouseMove}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
         />
       </div>
     </>
   );
 }
 
-export default ImageViewer;
+export default AnotherWay;
 
 // useWindowEventListener('keydown', (e) => {
 //   if (e.key === 'z' && (e.ctrlKey || e.metaKey)) undo();

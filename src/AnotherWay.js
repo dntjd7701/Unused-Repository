@@ -1,7 +1,10 @@
-import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
+/** react */
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import ImageEditor from './components/ImageEditor';
+/** imgs */
+import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
+import icArrDown from './imgs/ic_arrdown@3x.png';
+import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 
 const useWindowEventListener = (type, listener, options) => {
   useEffect(() => {
@@ -13,45 +16,52 @@ const useWindowEventListener = (type, listener, options) => {
 };
 
 const EditMode = {
-  DEFAULT: 'default',
   STRAIGHT_LINE: 'straightLine',
+  IMAGE: 'image',
   INSERT_CIRCLE: 'insertCircle',
   INSERT_SQUARE: 'insertSquare',
   INSERT_TRIANGLE: 'inserTriangle',
   CROP: 'crop',
   LEFT_ROTATE: 'left',
   RIGHT_ROTATE: 'right',
-  FREE_DRAW: 'freeDraw',
   ERASE: 'erase',
   MEASURE: 'measure',
   COMPARE: 'compare',
+  // FREE_DRAW: 'freeDraw',
+  // DEFAULT: 'default',
 };
 
-const createElement = (startX, startY, endX, endY, editMode) => {
-  return { startX, startY, endX, endY, editMode };
+const createElement = (startX, startY, endX, endY, editMode, color, width) => {
+  return { startX, startY, endX, endY, editMode, color, width };
 };
 
 /**
  *  이미지 저장 방식이 아닌, 좌표를 저장하여 다시 그려주도록 작업
  */
 function AnotherWay() {
-  let freeDrawPath = {};
-
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
-  const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
+  const [editMode, setEditMode] = useState(EditMode.STRAIGHT_LINE);
   const [elements, setElements] = useState([]);
+  const [lineColor, setLineColor] = useState('#2c2c2c');
+  const [lineDrop, setLineDrop] = useState({
+    isOpen: false,
+    lineWidth: 1,
+    lineWidthImgTag: <span className='line-2 line'></span>,
+  });
+  const [img, setImg] = useState(null);
+
   // const [elementsIdx, setElementsIdx] = useState(-1);
 
   /** useRef */
   const canvasRef = useRef(null);
-  const testRef = useRef([]);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 5;
+    ctx.strokeStyle = lineColor;
+    ctx.lineWidth = lineDrop.lineWidth;
   }, []);
 
   useLayoutEffect(() => {
@@ -59,67 +69,58 @@ function AnotherWay() {
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    elements.forEach(({ startX, startY, endX, endY, editMode }, idx) => {
+    // //이미지는 따로 그리자, 맨 하위에 그대로 유지되도록.
+    // if (img) {
+    //   const img = new Image();
+    //   img.onload = () => {
+    //     console.debug('img:', img);
+    //     // const ctx = canvas.getContext('2d');
+    //     // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+    //     // const scaledWidth = img.width * scaleFactor;
+    //     // const scaledHeight = img.height * scaleFactor;
+    //     // ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
+    //   };
+    //   img.src = '';
+    // }
+    elements.forEach(({ startX, startY, endX, endY, editMode, color, width }, idx) => {
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
+          ctx.strokeStyle = color;
+          ctx.lineWidth = width;
           ctx.beginPath();
           ctx.moveTo(startX, startY);
           ctx.lineTo(endX, endY);
           ctx.stroke();
           break;
-        case EditMode.FREE_DRAW:
-          ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          ctx.lineTo(endX, endY);
-          ctx.stroke();
+        case EditMode.IMAGE:
           break;
 
         default:
           break;
       }
     });
-
-    // elements.forEach(({ history = [] }) => {
-    //   history.forEach(({ startX, startY, endX, endY }) => {
-    //     console.debug('isDrawing:', isDrawing);
-    //     if (!isDrawing) {
-    //       ctx.beginPath();
-    //       ctx.moveTo(startX, startY);
-    //     } else {
-    //       ctx.lineTo(endX, endY);
-    //       ctx.stroke();
-    //     }
-    //   });
-    // });
-  }, [elements]);
+  }, [elements, img]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
     if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
   });
 
-  /** handler */
+  //#region 사용자 정의 함수
+
+  //#endregion
+
+  //#region handler
   const hanldeMouseMove = (e) => {
+    if (!isDrawing) return;
+
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    const ctx = canvas.getContext('2d');
-
-    if (!isDrawing) {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      return;
-    }
 
     let elementsCopy = [...elements];
     const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-
-    if (editMode === EditMode.STRAIGHT_LINE) {
-      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode);
-    } else {
-      elementsCopy[elementsCopy.length - 1] = createElement(x, y, x, y, editMode);
-    }
-
+    elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
     setElements(elementsCopy);
   };
 
@@ -128,11 +129,23 @@ function AnotherWay() {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    setElements((prevState) => [...prevState, createElement(x, y, x, y)]);
+    setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e) => {
+    // const canvas = canvasRef.current;
+    // const rect = canvas.getBoundingClientRect();
+    // let elementsCopy = [...elements];
+    // const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+    // const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
+    // elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+    // setElements(elementsCopy);
+
     setIsDrawing(false);
+  };
+
+  const handleColorPickerChange = (e) => {
+    setLineColor(e.target.value);
   };
 
   const handleUndo = () => {
@@ -140,6 +153,52 @@ function AnotherWay() {
     elementsCopy.pop();
     setElements(elementsCopy);
   };
+
+  const handleToggleLineDrop = () => {
+    setLineDrop((prevState) => {
+      return {
+        ...lineDrop,
+        isOpen: !prevState.isOpen,
+      };
+    });
+  };
+
+  const handleSelectLineDrop = (e) => {
+    const { value } = e.target;
+
+    setLineDrop({
+      isOpen: false,
+      lineWidth: value,
+      lineWidthImgTag: React.createElement('span', { className: `line-${value + 1} line` }),
+    });
+  };
+
+  const handleImageUpload = (e) => {
+    if (e.target.files.length === 0) return;
+
+    const canvas = canvasRef.current;
+    const image = e.target.files[0];
+
+    // setImg(URL.createObjectURL(e.target.files[0]));
+    // setImg(e.target.files[0]);
+    // setImg(image);
+
+    const img = new Image();
+    img.onload = () => {
+      const ctx = canvas.getContext('2d');
+      const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+      const scaledWidth = img.width * scaleFactor;
+      const scaledHeight = img.height * scaleFactor;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
+      // setImg(image);
+    };
+    img.src = URL.createObjectURL(image);
+
+    e.target.value = '';
+  };
+
+  //#endregion
 
   return (
     <>
@@ -158,11 +217,11 @@ function AnotherWay() {
               data-for='btnTooltip'
               data-tip='직선'
               onClick={() => setEditMode(EditMode.STRAIGHT_LINE)}></button>
-            <button
+            {/* <button
               className='btn-line'
               data-for='btnTooltip'
               data-tip='곡선'
-              onClick={() => setEditMode(EditMode.FREE_DRAW)}></button>
+              onClick={() => setEditMode(EditMode.FREE_DRAW)}></button> */}
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -217,8 +276,8 @@ function AnotherWay() {
                 type='color'
                 className='colorPicker'
                 name='colorPicker'
-                // value={lineColor}
-                // onChange={handleColorPickerChange}
+                value={lineColor}
+                onChange={handleColorPickerChange}
               />
             </button>
             {/* <button className='btn-color'> */}
@@ -246,10 +305,9 @@ function AnotherWay() {
                 />
               )}
             </span> */}
-            {/* </button> */}
             <button className='btn-line-bold'>
               선 굵기
-              {/* <div className='drop-list-wrap'>
+              <div className='drop-list-wrap'>
                 <p
                   className={`drop-list-btn ${lineDrop.isOpen ? 'on' : ''}`}
                   onClick={handleToggleLineDrop}>
@@ -281,7 +339,7 @@ function AnotherWay() {
                     </li>
                   </ul>
                 )}
-              </div> */}
+              </div>
             </button>
             <button
               className='btn-undo-bold'
@@ -292,7 +350,7 @@ function AnotherWay() {
                 alt=''
               />
             </button>
-            {/* <button
+            <button
               className='btn-image-upload'
               onClick={() => {
                 inputRef.current.click();
@@ -303,9 +361,9 @@ function AnotherWay() {
                 id='image-upload'
                 type='file'
                 accept='image/*'
-                onChange={onImageUpload}
+                onChange={handleImageUpload}
               />
-            </button> */}
+            </button>
             {/* <button
               className='btn-zoom-in'
               onClick={() => {
