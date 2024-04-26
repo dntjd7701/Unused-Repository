@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
 import icArrDown from './imgs/ic_arrdown@3x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
+import Line from './components/Line';
 
 const useWindowEventListener = (type, listener, options) => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const EditMode = {
   ERASE: 'erase',
   MEASURE: 'measure',
   COMPARE: 'compare',
-  // FREE_DRAW: 'freeDraw',
+  FREE_DRAW: 'freeDraw',
   // DEFAULT: 'default',
 };
 
@@ -48,6 +49,10 @@ function AnotherWay() {
     isOpen: false,
     lineWidth: 3,
     lineWidthImgTag: <span className='line-2 line'></span>,
+  });
+  const [canvasOnOff, setCanvasOnOff] = useState({
+    canvas: 'on',
+    canvas_line: 'off',
   });
 
   // const [elementsIdx, setElementsIdx] = useState(-1);
@@ -72,23 +77,33 @@ function AnotherWay() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (backgroundRef.current) {
+      // const img = new Image();
+      // img.src = backgroundRef.current;
+      // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // img.onload = () => {
+      //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+      //   // const scaledWidth = img.width * scaleFactor;
+      //   // const scaledHeight = img.height * scaleFactor;
+      //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      //   // backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      // };
+      // img.src = backgroundRef.current;
       ctx.putImageData(backgroundRef.current, 0, 0);
       ctx.stroke();
     }
 
     elements.forEach(({ startX, startY, endX, endY, editMode, color, width }, idx) => {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
-          ctx.strokeStyle = color;
-          ctx.lineWidth = width;
           ctx.beginPath();
           ctx.moveTo(startX, startY);
           ctx.lineTo(endX, endY);
           ctx.stroke();
           break;
-        case EditMode.IMAGE:
+        case EditMode.FREE_DRAW:
           break;
-
         default:
           break;
       }
@@ -109,20 +124,32 @@ function AnotherWay() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     ctx.reset();
+    backgroundRef.current = null;
     setElements([]);
   };
 
   const hanldeMouseMove = (e) => {
-    if (!isDrawing) return;
-
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
+    const ctx = canvas.getContext('2d');
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
-    let elementsCopy = [...elements];
-    const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-    elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-    setElements(elementsCopy);
+    if (!isDrawing) {
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      return;
+    }
+
+    if (editMode === EditMode.FREE_DRAW) {
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    } else {
+      let elementsCopy = [...elements];
+      const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+      setElements(elementsCopy);
+    }
   };
 
   const handleMouseDown = (e) => {
@@ -151,7 +178,11 @@ function AnotherWay() {
 
   const handleUndo = () => {
     const elementsCopy = [...elements];
-    elementsCopy.pop();
+    if (elements.length > 0) {
+      elementsCopy.pop();
+    } else {
+      handleClearRect();
+    }
     setElements(elementsCopy);
   };
 
@@ -188,12 +219,22 @@ function AnotherWay() {
       // const scaledHeight = img.height * scaleFactor;
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      // backgroundRef.current = URL.createObjectURL(image);
     };
 
     handleClearRect();
     img.src = URL.createObjectURL(image);
-
     e.target.value = '';
+  };
+
+  const handleChangeMode = (mode) => {
+    console.debug('mode:', mode);
+    setEditMode(mode);
+
+    setCanvasOnOff({
+      canvas: mode === EditMode.STRAIGHT_LINE ? 'on' : 'off',
+      canvas_line: mode === EditMode.FREE_DRAW ? 'on' : 'off',
+    });
   };
 
   //#endregion
@@ -213,12 +254,17 @@ function AnotherWay() {
               className='btn-line-str'
               data-for='btnTooltip'
               data-tip='직선'
-              onClick={() => setEditMode(EditMode.STRAIGHT_LINE)}></button>
-            {/* <button
+              onClick={() => {
+                handleChangeMode(EditMode.STRAIGHT_LINE);
+              }}></button>
+            <button
               className='btn-line'
               data-for='btnTooltip'
               data-tip='곡선'
-              onClick={() => setEditMode(EditMode.FREE_DRAW)}></button> */}
+              onClick={() => {
+                handleChangeMode(EditMode.FREE_DRAW);
+              }}></button>
+
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -401,14 +447,17 @@ function AnotherWay() {
       </div>
       <div className='canvas-container'>
         <canvas
-          id='canvas'
-          style={{ backgroundImage: temp_undo }}
+          className={`canvas ${canvasOnOff.canvas}`}
           ref={canvasRef}
           width={window.innerWidth}
           height={window.innerHeight}
           onMouseMove={hanldeMouseMove}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
+        />
+        <Line
+          editMode={editMode}
+          canvasOnOff
         />
       </div>
     </>

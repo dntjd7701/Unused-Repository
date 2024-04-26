@@ -13,13 +13,32 @@ body {
 }
 
 .canvas-container {
-  background-color: gray;
+  position: absolute;
+
+  // background-color: gray;
+  background-color: transparent;
   width: 100%;
   height: 100%;
 }
 
-#canvas {
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+
   &:hover {
     border: 5px solid blue;
+  }
+}
+
+.canvas {
+  &.on {
+    z-index: 1;
+  }
+}
+.canvas_line {
+  &.on {
+    z-index: 1;
   }
 }
