@@ -2,22 +2,11 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 /** components */
-import Line from './components/Line';
 import Background from './components/Background';
 
 /** imgs */
 import icArrDown from './imgs/ic_arrdown@3x.png';
-import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
-
-const useWindowEventListener = (type, listener, options) => {
-  useEffect(() => {
-    window.addEventListener(type, listener, options);
-    return () => {
-      window.removeEventListener(type, listener, options);
-    };
-  }, [type, listener, options]);
-};
 
 const EditMode = {
   STRAIGHT_LINE: 'straightLine',
@@ -35,6 +24,15 @@ const EditMode = {
   // DEFAULT: 'default',
 };
 
+const useWindowEventListener = (type, listener, options) => {
+  useEffect(() => {
+    window.addEventListener(type, listener, options);
+    return () => {
+      window.removeEventListener(type, listener, options);
+    };
+  }, [type, listener, options]);
+};
+
 const createElement = (startX, startY, endX, endY, editMode, color, width, history) => {
   return { startX, startY, endX, endY, editMode, color, width, history };
 };
@@ -45,6 +43,117 @@ const setLineStyle = (ctx, strokeStyle, width, lineDash = []) => {
   ctx.lineWidth = width;
   ctx.lineCap = 'round';
   ctx.setLineDash(lineDash);
+};
+
+/** 저장된 Element 그리기  */
+const drawElement = (ctx, elements, lineColor, lineDrop) => {
+  elements.forEach((element) => {
+    const { startX, startY, endX, endY, editMode, color, width, history } = element;
+    setLineStyle(ctx, color, width);
+
+    switch (editMode) {
+      case EditMode.STRAIGHT_LINE:
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+        break;
+      case EditMode.FREE_DRAW:
+        ctx.beginPath();
+        ctx.moveTo(history[0].x, history[0].y);
+        history.forEach(({ x, y }) => {
+          ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        break;
+      case EditMode.INSERT_SQUARE:
+        ctx.beginPath();
+        ctx.rect(startX, startY, endX - startX, endY - startY);
+        ctx.stroke();
+        break;
+      case EditMode.CROP:
+        setLineStyle(ctx, 'blue', 1, [4, 16]);
+
+        ctx.beginPath();
+        ctx.rect(startX, startY, endX - startX, endY - startY);
+        ctx.stroke();
+
+        setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
+        break;
+      default:
+        break;
+    }
+  });
+};
+
+/** crop한 이미지 처리하기 */
+const cropImage = (elements, canvasRef, callback) => {
+  const elementsCopy = [...elements];
+  const { startX, startY, endX, endY } = elementsCopy.pop();
+
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext('2d');
+
+  // 현재 이미지 데이터 가져오기
+  const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const { data, width: oldWidth, height: oldHeight } = imageData;
+
+  // 새로운 크기로 이미지 데이터 생성
+  const newWidth = canvas.width;
+  const newHeight = canvas.height;
+  const newImageData = new ImageData(newWidth, newHeight);
+  const newData = newImageData.data;
+
+  // 가로, 세로 비율 계산
+  const scaleX = oldWidth / newWidth;
+  const scaleY = oldHeight / newHeight;
+
+  // 효율적인 반복문을 사용하여 이미지 데이터 조정
+  for (let y = 0; y < newHeight; y++) {
+    for (let x = 0; x < newWidth; x++) {
+      // 현재 좌표를 이용하여 원본 이미지 데이터의 인덱스 계산
+      const sourceX = Math.floor(x * scaleX);
+      const sourceY = Math.floor(y * scaleY);
+      const sourceIndex = (sourceY * oldWidth + sourceX) * 4;
+
+      // 새로운 이미지 데이터의 인덱스 계산
+      const targetIndex = (y * newWidth + x) * 4;
+
+      // 원본 이미지 데이터의 픽셀을 새로운 이미지 데이터에 복사
+      newData[targetIndex] = data[sourceIndex];
+      newData[targetIndex + 1] = data[sourceIndex + 1];
+      newData[targetIndex + 2] = data[sourceIndex + 2];
+      newData[targetIndex + 3] = data[sourceIndex + 3];
+    }
+  }
+
+  // 변경된 이미지 데이터를 캔버스에 그리기
+  ctx.putImageData(newImageData, 0, 0);
+  callback();
+};
+
+const getMergedCanvas = (elements, lineColor, lineDrop) => {
+  // 캔버스 합치기용 캔버스 생성
+  const mergedCanvas = document.createElement('canvas');
+  const mergedCtx = mergedCanvas.getContext('2d');
+
+  // 캔버스 합치기용 캔버스 크기 설정
+  mergedCanvas.width = window.innerWidth;
+  mergedCanvas.height = window.innerHeight;
+
+  const container = document.getElementsByClassName('canvas-container');
+  const children = container[0].childNodes;
+
+  // 각 캔버스의 이미지 데이터를 합친 캔버스에 그리기
+  children.forEach((canvas) => {
+    mergedCtx.drawImage(canvas, 0, 0);
+
+    drawElement(mergedCtx, elements, lineColor, lineDrop);
+  });
+
+  return mergedCanvas;
 };
 
 /**
@@ -70,58 +179,17 @@ function ImageViewer() {
 
   const [scale, setScale] = useState(1);
 
-  // const [elementsIdx, setElementsIdx] = useState(-1);
-
   /** useRef */
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
 
   useLayoutEffect(() => {
-    // useEffect(() => {
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    elements.forEach((element) => {
-      const { startX, startY, endX, endY, editMode, color, width, history } = element;
-      setLineStyle(ctx, color, width);
-
-      switch (editMode) {
-        case EditMode.STRAIGHT_LINE:
-          ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          ctx.lineTo(endX, endY);
-          ctx.stroke();
-          break;
-        case EditMode.FREE_DRAW:
-          ctx.beginPath();
-          ctx.moveTo(history[0].x, history[0].y);
-          history.forEach(({ x, y }) => {
-            ctx.lineTo(x, y);
-          });
-          ctx.stroke();
-          break;
-        case EditMode.INSERT_SQUARE:
-          ctx.beginPath();
-          ctx.rect(startX, startY, endX - startX, endY - startY);
-          ctx.stroke();
-          break;
-        case EditMode.CROP:
-          setLineStyle(ctx, 'blue', 1, [4, 16]);
-
-          ctx.beginPath();
-          ctx.rect(startX, startY, endX - startX, endY - startY);
-          ctx.stroke();
-
-          setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
-          break;
-        default:
-          break;
-      }
-    });
+    drawElement(ctx, elements, lineColor, lineDrop);
 
     if (currentCurve.length > 0) {
       setLineStyle(ctx, lineColor, lineDrop.lineWidth);
@@ -139,19 +207,11 @@ function ImageViewer() {
     if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
   });
 
-  //#region 사용자 정의 함수
-
-  //#endregion
-
   //#region handler
   const handleClearRect = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     ctx.reset();
-
-    // const back = backgroundRef.current;
-    // const ctx2 = back.getContext('2d');
-    // ctx2.reset();
     setElements([]);
   };
 
@@ -187,51 +247,10 @@ function ImageViewer() {
 
   const handleMouseUp = (e) => {
     if (EditMode.CROP === editMode) {
-      const elementsCopy = [...elements];
-      const { startX, startY, endX, endY } = elementsCopy.pop();
-
-      const canvas = backgroundRef.current;
-      const ctx = canvas.getContext('2d');
-
-      // 현재 이미지 데이터 가져오기
-      const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const { data, width: oldWidth, height: oldHeight } = imageData;
-
-      // 새로운 크기로 이미지 데이터 생성
-      const newWidth = canvas.width;
-      const newHeight = canvas.height;
-      const newImageData = new ImageData(newWidth, newHeight);
-      const newData = newImageData.data;
-
-      // 가로, 세로 비율 계산
-      const scaleX = oldWidth / newWidth;
-      const scaleY = oldHeight / newHeight;
-
-      // 효율적인 반복문을 사용하여 이미지 데이터 조정
-      for (let y = 0; y < newHeight; y++) {
-        for (let x = 0; x < newWidth; x++) {
-          // 현재 좌표를 이용하여 원본 이미지 데이터의 인덱스 계산
-          const sourceX = Math.floor(x * scaleX);
-          const sourceY = Math.floor(y * scaleY);
-          const sourceIndex = (sourceY * oldWidth + sourceX) * 4;
-
-          // 새로운 이미지 데이터의 인덱스 계산
-          const targetIndex = (y * newWidth + x) * 4;
-
-          // 원본 이미지 데이터의 픽셀을 새로운 이미지 데이터에 복사
-          newData[targetIndex] = data[sourceIndex];
-          newData[targetIndex + 1] = data[sourceIndex + 1];
-          newData[targetIndex + 2] = data[sourceIndex + 2];
-          newData[targetIndex + 3] = data[sourceIndex + 3];
-        }
-      }
-
-      // 변경된 이미지 데이터를 캔버스에 그리기
-      ctx.putImageData(newImageData, 0, 0);
-      setElements([]);
-      handleChangeMode(EditMode.FREE_DRAW);
+      cropImage(elements, backgroundRef, () => {
+        setElements([]);
+        handleChangeMode(EditMode.FREE_DRAW);
+      });
     }
 
     if (editMode === EditMode.FREE_DRAW) {
@@ -295,53 +314,10 @@ function ImageViewer() {
 
   const handleChangeMode = (mode) => {
     setEditMode(mode);
-
-    setCanvasOnOff({
-      canvas: [EditMode.STRAIGHT_LINE, EditMode.INSERT_SQUARE, EditMode.CROP].includes(mode) ? 'on' : 'off',
-      canvas_line: [EditMode.FREE_DRAW, EditMode.ERASE].includes(mode) ? 'on' : 'off',
-    });
   };
 
   const handleImageDownload = (e) => {
-    // 캔버스 합치기용 캔버스 생성
-    const mergedCanvas = document.createElement('canvas');
-    const mergedCtx = mergedCanvas.getContext('2d');
-
-    // 캔버스 합치기용 캔버스 크기 설정
-    mergedCanvas.width = window.innerWidth;
-    mergedCanvas.height = window.innerHeight;
-
-    const container = document.getElementsByClassName('canvas-container');
-    const children = container[0].childNodes;
-
-    // 각 캔버스의 이미지 데이터를 합친 캔버스에 그리기
-    children.forEach((canvas) => {
-      mergedCtx.drawImage(canvas, 0, 0);
-      elements.forEach(({ startX, startY, endX, endY, editMode, color, width, history }) => {
-        mergedCtx.strokeStyle = color;
-        mergedCtx.lineWidth = width;
-
-        switch (editMode) {
-          case EditMode.STRAIGHT_LINE:
-            mergedCtx.beginPath();
-            mergedCtx.moveTo(startX, startY);
-            mergedCtx.lineTo(endX, endY);
-            mergedCtx.stroke();
-            break;
-          case EditMode.FREE_DRAW:
-            mergedCtx.beginPath();
-            mergedCtx.moveTo(history[0].x, history[0].y);
-            history.forEach(({ x, y }) => {
-              mergedCtx.lineTo(x, y);
-            });
-            mergedCtx.stroke();
-            break;
-          default:
-            break;
-        }
-      });
-    });
-
+    const mergedCanvas = getMergedCanvas(elements, lineColor, lineDrop);
     // 이미지로 변환하여 저장
     const imageDataURL = mergedCanvas.toDataURL('image/png');
 
@@ -405,7 +381,20 @@ function ImageViewer() {
               onClick={() => {
                 handleChangeMode(EditMode.FREE_DRAW);
               }}></button>
-
+            <button
+              className='btn-square'
+              data-for='btnTooltip'
+              data-tip='네모'
+              onClick={() => {
+                handleChangeMode(EditMode.INSERT_SQUARE);
+              }}></button>
+            <button
+              className='btn-crop'
+              data-for='btnTooltip'
+              data-tip='크롭'
+              onClick={() => {
+                handleChangeMode(EditMode.CROP);
+              }}></button>
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -413,23 +402,12 @@ function ImageViewer() {
             //   onClick={(e) => handleChangeEditMode(EditMode.INSERT_CIRCLE)}
           ></button>
           <button
-            className='btn-square'
-            data-for='btnTooltip'
-            data-tip='사각형'
-            // onClick={(e) => handleChangeEditMode(EditMode.INSERT_SQUARE)}
-          ></button>
-          <button
             className='btn-triangle'
             data-for='btnTooltip'
             data-tip='삼각형'
             // onClick={(e) => handleChangeEditMode(EditMode.INSERT_TRIANGLE)}
           ></button>
-          <button
-            className='btn-crop'
-            data-for='btnTooltip'
-            data-tip='크롭'
-            //   onClick={(e) => handleChangeEditMode(EditMode.CROP)}
-          ></button>
+       
           <button
             className='btn-lotate-left'
             data-for='btnTooltip'
@@ -559,94 +537,6 @@ function ImageViewer() {
                 +
               </button>
             </div>
-            <button
-              onClick={() => {
-                const canvas = backgroundRef.current;
-                const ctx = canvas.getContext('2d');
-
-                // 현재 이미지 데이터 가져오기
-                const imageData = ctx.getImageData(0, 0, 200, 200);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                const { data, width: oldWidth, height: oldHeight } = imageData;
-
-                // 새로운 크기로 이미지 데이터 생성
-                const newWidth = 1000;
-                const newHeight = 500;
-                const newImageData = new ImageData(newWidth, newHeight);
-                const newData = newImageData.data;
-
-                // 가로, 세로 비율 계산
-                const scaleX = oldWidth / newWidth;
-                const scaleY = oldHeight / newHeight;
-
-                // 효율적인 반복문을 사용하여 이미지 데이터 조정
-                for (let y = 0; y < newHeight; y++) {
-                  for (let x = 0; x < newWidth; x++) {
-                    // 현재 좌표를 이용하여 원본 이미지 데이터의 인덱스 계산
-                    const sourceX = Math.floor(x * scaleX);
-                    const sourceY = Math.floor(y * scaleY);
-                    const sourceIndex = (sourceY * oldWidth + sourceX) * 4;
-
-                    // 새로운 이미지 데이터의 인덱스 계산
-                    const targetIndex = (y * newWidth + x) * 4;
-
-                    // 원본 이미지 데이터의 픽셀을 새로운 이미지 데이터에 복사
-                    newData[targetIndex] = data[sourceIndex];
-                    newData[targetIndex + 1] = data[sourceIndex + 1];
-                    newData[targetIndex + 2] = data[sourceIndex + 2];
-                    newData[targetIndex + 3] = data[sourceIndex + 3];
-                  }
-                }
-
-                // 변경된 이미지 데이터를 캔버스에 그리기
-                ctx.putImageData(newImageData, 0, 0);
-              }}>
-              test
-            </button>
-            <button
-              className='btn-square'
-              data-for='btnTooltip'
-              data-tip='네모'
-              onClick={() => {
-                handleChangeMode(EditMode.INSERT_SQUARE);
-              }}></button>
-            <button
-              className='btn-crop'
-              data-for='btnTooltip'
-              data-tip='크롭'
-              onClick={() => handleChangeMode(EditMode.CROP)}></button>
-            {/* <button
-              className='btn-zoom-in'
-              onClick={() => {
-                // 현재 캔버스의 크기를 가져옵니다.
-                const { width, height } = canvas.getBoundingClientRect();
-                // console.debug('height:', height);
-                // console.debug('width:', width);
-
-                // let width = 1166;
-                // let height = 934;
-
-                // 현재 캔버스의 너비와 높이를 2배로 설정하여 확대 효과 적용
-                canvas.style.width = `${width * 1.2}px`;
-                canvas.style.height = `${height * 1.2}px`;
-              }}>
-              확대
-            </button> */}
-            {/* <button
-              className='btn-zoom-in'
-              onClick={() => {
-                // 현재 캔버스의 크기를 가져옵니다.
-                const { width, height } = canvas.getBoundingClientRect();
-                // let width = 1166;
-                // let height = 934;
-
-                // 현재 캔버스의 너비와 높이를 2배로 설정하여 확대 효과 적용
-                canvas.style.width = `${width * 0.8}px`;
-                canvas.style.height = `${height * 0.8}px`;
-              }}>
-              축소
-            </button> */}
             <div className='flex-end'>
               {/* <OBTButton imageUrl={icPrint} width='27px' height='27px' onClick={handlePrint} />
           <OBTButton imageUrl={icDownload} width='27px' height='27px' onClick={() => saveImage('compare')} /> */}
@@ -659,7 +549,8 @@ function ImageViewer() {
         className='canvas-container'
         onWheel={handleWheel}>
         <canvas
-          className={`canvas ${canvasOnOff.canvas}`}
+          // className={`canvas ${canvasOnOff.canvas}`}
+          className={`canvas`}
           ref={canvasRef}
           width={window.innerWidth}
           height={window.innerHeight}
@@ -667,30 +558,6 @@ function ImageViewer() {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         />
-        {/* <Line
-          editMode={editMode}
-          canvasOnOff={canvasOnOff}
-          lineColor={lineColor}
-          lineDrop={lineDrop}
-          setElements={(element) => {
-            setElements((prevState) => [...prevState, element]);
-          }}
-          currentCurve={currentCurve}
-          setCurrentCurve={(element) => {
-            if (!element) {
-              setCurrentCurve([]);
-            } else {
-              setCurrentCurve((prevState) => [...prevState, element]);
-            }
-          }}
-          cancelEraser={() => {
-            const color = eraserTempColor;
-            console.debug('color:', color);
-            setLineColor(color);
-            setEraserTempColor(null);
-            handleChangeMode(EditMode.FREE_DRAW);
-          }}
-        /> */}
         <Background backgroundRef={backgroundRef} />
       </div>
     </>
