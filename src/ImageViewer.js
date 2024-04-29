@@ -10,17 +10,18 @@ import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 
 const EditMode = {
   STRAIGHT_LINE: 'straightLine',
+  INSERT_TRIANGLE: 'inserTriangle',
+  FREE_DRAW: 'freeDraw',
+  CROP: 'crop',
+
   IMAGE: 'image',
   INSERT_CIRCLE: 'insertCircle',
   INSERT_SQUARE: 'insertSquare',
-  INSERT_TRIANGLE: 'inserTriangle',
-  CROP: 'crop',
   LEFT_ROTATE: 'left',
   RIGHT_ROTATE: 'right',
   ERASE: 'erase',
   MEASURE: 'measure',
   COMPARE: 'compare',
-  FREE_DRAW: 'freeDraw',
   // DEFAULT: 'default',
 };
 
@@ -80,29 +81,31 @@ const drawElement = (ctx, elements, lineColor, lineDrop) => {
 
         setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
         break;
+      case EditMode.ERASE:
+        setLineStyle(ctx, 'white', 15);
+
+        ctx.beginPath();
+        ctx.moveTo(history[0].x, history[0].y);
+        history.forEach(({ x, y }) => {
+          ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+
+        // setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
+        break;
       default:
         break;
     }
   });
 };
 
-/** crop한 이미지 처리하기 */
-const cropImage = (elements, canvasRef, callback) => {
-  const elementsCopy = [...elements];
-  const { startX, startY, endX, endY } = elementsCopy.pop();
-
-  const canvas = canvasRef.current;
-  const ctx = canvas.getContext('2d');
-
-  // 현재 이미지 데이터 가져오기
-  const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+/** image 객체 복사하여 반환 */
+const copyImage = (imageData, width, height) => {
   const { data, width: oldWidth, height: oldHeight } = imageData;
 
   // 새로운 크기로 이미지 데이터 생성
-  const newWidth = canvas.width;
-  const newHeight = canvas.height;
+  const newWidth = width;
+  const newHeight = height;
   const newImageData = new ImageData(newWidth, newHeight);
   const newData = newImageData.data;
 
@@ -129,11 +132,28 @@ const cropImage = (elements, canvasRef, callback) => {
     }
   }
 
+  return newImageData;
+};
+
+/** crop한 이미지 처리하기 */
+const cropImage = (elements, canvasRef, callback) => {
+  const elementsCopy = [...elements];
+  const { startX, startY, endX, endY } = elementsCopy.pop();
+
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext('2d');
+
+  // 현재 이미지 데이터 가져오기
+  const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
+  const newImageData = copyImage(imageData, canvas.width, canvas.height);
+
   // 변경된 이미지 데이터를 캔버스에 그리기
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.putImageData(newImageData, 0, 0);
   callback();
 };
 
+/** 나누어진 canvas 합치기 */
 const getMergedCanvas = (elements, lineColor, lineDrop) => {
   // 캔버스 합치기용 캔버스 생성
   const mergedCanvas = document.createElement('canvas');
@@ -192,7 +212,12 @@ function ImageViewer() {
     drawElement(ctx, elements, lineColor, lineDrop);
 
     if (currentCurve.length > 0) {
-      setLineStyle(ctx, lineColor, lineDrop.lineWidth);
+      if (editMode === EditMode.FREE_DRAW) {
+        setLineStyle(ctx, lineColor, lineDrop.lineWidth);
+      } else {
+        setLineStyle(ctx, 'white', 15);
+      }
+
       ctx.beginPath();
       ctx.moveTo(currentCurve[0].x, currentCurve[0].y);
       currentCurve.forEach(({ x, y }) => {
@@ -222,14 +247,26 @@ function ImageViewer() {
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
-    if (editMode === EditMode.FREE_DRAW) {
-      setCurrentCurve((prevState) => [...prevState, { x, y }]);
-    } else {
-      let elementsCopy = [...elements];
-      const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-      setElements(elementsCopy);
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+      default:
+        let elementsCopy = [...elements];
+        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+        setElements(elementsCopy);
+        break;
     }
+    // if (editMode === EditMode.FREE_DRAW) {
+    //   setCurrentCurve((prevState) => [...prevState, { x, y }]);
+    // } else {
+    //   let elementsCopy = [...elements];
+    //   const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+    //   elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+    //   setElements(elementsCopy);
+    // }
   };
 
   const handleMouseDown = (e) => {
@@ -238,24 +275,42 @@ function ImageViewer() {
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
-    if (editMode === EditMode.FREE_DRAW) {
-      setCurrentCurve((prevState) => [...prevState, { x, y }]);
-    } else {
-      setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+      default:
+        setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+        break;
     }
+
+    // if (editMode === EditMode.FREE_DRAW) {
+    //   setCurrentCurve((prevState) => [...prevState, { x, y }]);
+    // } else {
+    //   setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+    // }
   };
 
   const handleMouseUp = (e) => {
-    if (EditMode.CROP === editMode) {
-      cropImage(elements, backgroundRef, () => {
-        setElements([]);
-        handleChangeMode(EditMode.FREE_DRAW);
-      });
-    }
+    switch (editMode) {
+      case EditMode.CROP:
+        cropImage(elements, backgroundRef, () => {
+          setElements([]);
+          handleChangeMode(EditMode.FREE_DRAW);
+        });
+        break;
+      case EditMode.FREE_DRAW:
+        setCurrentCurve([]);
+        setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, lineColor, lineDrop.lineWidth, currentCurve)]);
+        break;
+      case EditMode.ERASE:
+        setCurrentCurve([]);
+        setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, 'white', lineDrop.lineWidth, currentCurve)]);
+        break;
 
-    if (editMode === EditMode.FREE_DRAW) {
-      setCurrentCurve([]);
-      setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, lineColor, lineDrop.lineWidth, currentCurve)]);
+      default:
+        break;
     }
 
     setIsDrawing(false);
@@ -395,6 +450,13 @@ function ImageViewer() {
               onClick={() => {
                 handleChangeMode(EditMode.CROP);
               }}></button>
+            <button
+              className='btn-edit-del'
+              data-for='btnTooltip'
+              data-tip='지우개'
+              onClick={(e) => {
+                handleChangeMode(EditMode.ERASE);
+              }}></button>
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -420,17 +482,7 @@ function ImageViewer() {
             data-tip='우회전'
             //   onClick={(e) => rotate(EditMode.RIGHT_ROTATE)}
           ></button> */}
-            {/* <button
-              className='btn-edit-del'
-              data-for='btnTooltip'
-              data-tip='지우개'
-              onClick={(e) => {
-                const color = lineColor;
-                console.debug('color:', color);
-                setEraserTempColor(color);
-                setLineColor('white');
-                handleChangeMode(EditMode.ERASE);
-              }}></button> */}
+
             {/* <button
             className='btn-ruler'
             //   onClick={(e) => handleChangeEditMode(EditMode.MEASURE)}
