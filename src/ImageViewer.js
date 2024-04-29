@@ -35,8 +35,16 @@ const EditMode = {
   // DEFAULT: 'default',
 };
 
-const createElement = (startX, startY, endX, endY, editMode, color, width) => {
-  return { startX, startY, endX, endY, editMode, color, width };
+const createElement = (startX, startY, endX, endY, editMode, color, width, history) => {
+  return { startX, startY, endX, endY, editMode, color, width, history };
+};
+
+/** 선 디자인 설정 */
+const setLineStyle = (ctx, strokeStyle, width, lineDash = []) => {
+  ctx.strokeStyle = strokeStyle;
+  ctx.lineWidth = width;
+  ctx.lineCap = 'round';
+  ctx.setLineDash(lineDash);
 };
 
 /**
@@ -60,6 +68,8 @@ function ImageViewer() {
   const [currentCurve, setCurrentCurve] = useState([]);
   const [eraserTempColor, setEraserTempColor] = useState(null);
 
+  const [scale, setScale] = useState(1);
+
   // const [elementsIdx, setElementsIdx] = useState(-1);
 
   /** useRef */
@@ -67,23 +77,17 @@ function ImageViewer() {
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.strokeStyle = lineColor;
-    ctx.lineWidth = lineDrop.lineWidth;
-  }, []);
-
   useLayoutEffect(() => {
     // useEffect(() => {
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    elements.forEach(({ startX, startY, endX, endY, editMode, color, width, history }) => {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = width;
+    elements.forEach((element) => {
+      const { startX, startY, endX, endY, editMode, color, width, history } = element;
+      setLineStyle(ctx, color, width);
 
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
@@ -100,17 +104,30 @@ function ImageViewer() {
           });
           ctx.stroke();
           break;
+        case EditMode.INSERT_SQUARE:
+          ctx.beginPath();
+          ctx.rect(startX, startY, endX - startX, endY - startY);
+          ctx.stroke();
+          break;
+        case EditMode.CROP:
+          setLineStyle(ctx, 'blue', 1, [4, 16]);
+
+          ctx.beginPath();
+          ctx.rect(startX, startY, endX - startX, endY - startY);
+          ctx.stroke();
+
+          setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
+          break;
         default:
           break;
       }
     });
 
     if (currentCurve.length > 0) {
+      setLineStyle(ctx, lineColor, lineDrop.lineWidth);
       ctx.beginPath();
       ctx.moveTo(currentCurve[0].x, currentCurve[0].y);
       currentCurve.forEach(({ x, y }) => {
-        ctx.strokeStyle = lineColor;
-        ctx.lineWidth = lineDrop.lineWidth;
         ctx.lineTo(x, y);
       });
       ctx.stroke();
@@ -129,11 +146,12 @@ function ImageViewer() {
   //#region handler
   const handleClearRect = () => {
     const canvas = canvasRef.current;
-    const back = backgroundRef.current;
     const ctx = canvas.getContext('2d');
-    const ctx2 = back.getContext('2d');
     ctx.reset();
-    ctx2.reset();
+
+    // const back = backgroundRef.current;
+    // const ctx2 = back.getContext('2d');
+    // ctx2.reset();
     setElements([]);
   };
 
@@ -144,10 +162,14 @@ function ImageViewer() {
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
-    let elementsCopy = [...elements];
-    const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-    elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-    setElements(elementsCopy);
+    if (editMode === EditMode.FREE_DRAW) {
+      setCurrentCurve((prevState) => [...prevState, { x, y }]);
+    } else {
+      let elementsCopy = [...elements];
+      const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+      setElements(elementsCopy);
+    }
   };
 
   const handleMouseDown = (e) => {
@@ -155,10 +177,68 @@ function ImageViewer() {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+
+    if (editMode === EditMode.FREE_DRAW) {
+      setCurrentCurve((prevState) => [...prevState, { x, y }]);
+    } else {
+      setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+    }
   };
 
   const handleMouseUp = (e) => {
+    if (EditMode.CROP === editMode) {
+      const elementsCopy = [...elements];
+      const { startX, startY, endX, endY } = elementsCopy.pop();
+
+      const canvas = backgroundRef.current;
+      const ctx = canvas.getContext('2d');
+
+      // 현재 이미지 데이터 가져오기
+      const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const { data, width: oldWidth, height: oldHeight } = imageData;
+
+      // 새로운 크기로 이미지 데이터 생성
+      const newWidth = canvas.width;
+      const newHeight = canvas.height;
+      const newImageData = new ImageData(newWidth, newHeight);
+      const newData = newImageData.data;
+
+      // 가로, 세로 비율 계산
+      const scaleX = oldWidth / newWidth;
+      const scaleY = oldHeight / newHeight;
+
+      // 효율적인 반복문을 사용하여 이미지 데이터 조정
+      for (let y = 0; y < newHeight; y++) {
+        for (let x = 0; x < newWidth; x++) {
+          // 현재 좌표를 이용하여 원본 이미지 데이터의 인덱스 계산
+          const sourceX = Math.floor(x * scaleX);
+          const sourceY = Math.floor(y * scaleY);
+          const sourceIndex = (sourceY * oldWidth + sourceX) * 4;
+
+          // 새로운 이미지 데이터의 인덱스 계산
+          const targetIndex = (y * newWidth + x) * 4;
+
+          // 원본 이미지 데이터의 픽셀을 새로운 이미지 데이터에 복사
+          newData[targetIndex] = data[sourceIndex];
+          newData[targetIndex + 1] = data[sourceIndex + 1];
+          newData[targetIndex + 2] = data[sourceIndex + 2];
+          newData[targetIndex + 3] = data[sourceIndex + 3];
+        }
+      }
+
+      // 변경된 이미지 데이터를 캔버스에 그리기
+      ctx.putImageData(newImageData, 0, 0);
+      setElements([]);
+      handleChangeMode(EditMode.FREE_DRAW);
+    }
+
+    if (editMode === EditMode.FREE_DRAW) {
+      setCurrentCurve([]);
+      setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, lineColor, lineDrop.lineWidth, currentCurve)]);
+    }
+
     setIsDrawing(false);
   };
 
@@ -217,7 +297,7 @@ function ImageViewer() {
     setEditMode(mode);
 
     setCanvasOnOff({
-      canvas: mode === EditMode.STRAIGHT_LINE ? 'on' : 'off',
+      canvas: [EditMode.STRAIGHT_LINE, EditMode.INSERT_SQUARE, EditMode.CROP].includes(mode) ? 'on' : 'off',
       canvas_line: [EditMode.FREE_DRAW, EditMode.ERASE].includes(mode) ? 'on' : 'off',
     });
   };
@@ -272,6 +352,30 @@ function ImageViewer() {
 
     // 클릭 이벤트 발생시키기
     link.click();
+  };
+
+  const handleWheel = (event) => {
+    event.preventDefault();
+    const zoomSpeed = 0.1; // 조절 가능한 확대/축소 속도
+    // 마우스 휠 방향에 따라 확대 또는 축소
+    const newScale = event.deltaY > 0 ? scale - zoomSpeed : scale + zoomSpeed;
+    // 최소 및 최대 확대/축소 비율 지정
+    const minScale = 0.1;
+    const maxScale = 3;
+    // 새로운 확대/축소 비율이 최소 및 최대 비율을 벗어나지 않도록 함
+    const clampedScale = Math.min(Math.max(newScale, minScale), maxScale);
+    // 확대/축소 비율 적용
+
+    const container = document.getElementsByClassName('canvas-container');
+    const children = container[0].childNodes;
+
+    children.forEach((child) => {
+      console.debug('child:', child);
+      // const ctx = child.getContext('2d');
+      // ctx.scale(clampedScale, clampedScale);
+      child.style.transform = `scale(${clampedScale})`;
+    });
+    setScale(clampedScale);
   };
 
   //#endregion
@@ -427,15 +531,6 @@ function ImageViewer() {
               </div>
             </button>
             <button
-              className='btn-undo-bold'
-              onClick={handleUndo}>
-              뒤로
-              <img
-                src={temp_undo}
-                alt=''
-              />
-            </button>
-            <button
               className='btn-image-upload'
               onClick={() => {
                 inputRef.current.click();
@@ -454,6 +549,73 @@ function ImageViewer() {
               onClick={handleImageDownload}>
               이미지 다운로드
             </button>
+            <div>
+              <button>-</button>
+              <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format(scale)}</span>
+              <button
+                onClick={() => {
+                  console.log('clicked!');
+                }}>
+                +
+              </button>
+            </div>
+            <button
+              onClick={() => {
+                const canvas = backgroundRef.current;
+                const ctx = canvas.getContext('2d');
+
+                // 현재 이미지 데이터 가져오기
+                const imageData = ctx.getImageData(0, 0, 200, 200);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const { data, width: oldWidth, height: oldHeight } = imageData;
+
+                // 새로운 크기로 이미지 데이터 생성
+                const newWidth = 1000;
+                const newHeight = 500;
+                const newImageData = new ImageData(newWidth, newHeight);
+                const newData = newImageData.data;
+
+                // 가로, 세로 비율 계산
+                const scaleX = oldWidth / newWidth;
+                const scaleY = oldHeight / newHeight;
+
+                // 효율적인 반복문을 사용하여 이미지 데이터 조정
+                for (let y = 0; y < newHeight; y++) {
+                  for (let x = 0; x < newWidth; x++) {
+                    // 현재 좌표를 이용하여 원본 이미지 데이터의 인덱스 계산
+                    const sourceX = Math.floor(x * scaleX);
+                    const sourceY = Math.floor(y * scaleY);
+                    const sourceIndex = (sourceY * oldWidth + sourceX) * 4;
+
+                    // 새로운 이미지 데이터의 인덱스 계산
+                    const targetIndex = (y * newWidth + x) * 4;
+
+                    // 원본 이미지 데이터의 픽셀을 새로운 이미지 데이터에 복사
+                    newData[targetIndex] = data[sourceIndex];
+                    newData[targetIndex + 1] = data[sourceIndex + 1];
+                    newData[targetIndex + 2] = data[sourceIndex + 2];
+                    newData[targetIndex + 3] = data[sourceIndex + 3];
+                  }
+                }
+
+                // 변경된 이미지 데이터를 캔버스에 그리기
+                ctx.putImageData(newImageData, 0, 0);
+              }}>
+              test
+            </button>
+            <button
+              className='btn-square'
+              data-for='btnTooltip'
+              data-tip='네모'
+              onClick={() => {
+                handleChangeMode(EditMode.INSERT_SQUARE);
+              }}></button>
+            <button
+              className='btn-crop'
+              data-for='btnTooltip'
+              data-tip='크롭'
+              onClick={() => handleChangeMode(EditMode.CROP)}></button>
             {/* <button
               className='btn-zoom-in'
               onClick={() => {
@@ -492,7 +654,10 @@ function ImageViewer() {
           </div>
         </div>
       </div>
-      <div className='canvas-container'>
+
+      <div
+        className='canvas-container'
+        onWheel={handleWheel}>
         <canvas
           className={`canvas ${canvasOnOff.canvas}`}
           ref={canvasRef}
@@ -502,7 +667,7 @@ function ImageViewer() {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         />
-        <Line
+        {/* <Line
           editMode={editMode}
           canvasOnOff={canvasOnOff}
           lineColor={lineColor}
@@ -525,7 +690,7 @@ function ImageViewer() {
             setEraserTempColor(null);
             handleChangeMode(EditMode.FREE_DRAW);
           }}
-        />
+        /> */}
         <Background backgroundRef={backgroundRef} />
       </div>
     </>

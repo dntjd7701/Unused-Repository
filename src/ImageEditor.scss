@@ -1,10 +1,13 @@
 .img-edit {
-  z-index: 9999;
+  z-index: 99;
   width: 100%;
   height: 50px;
   border: 2px solid #e6e6e6;
   padding: 4px;
   // margin-bottom: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   .tool {
     display: flex;
@@ -13,7 +16,7 @@
     height: 50px;
     background: #fff;
     justify-content: space-between;
-    padding: 0 12px;
+    padding: 0 8px;
     box-sizing: border-box;
     .flex-start {
       display: flex;
@@ -39,84 +42,84 @@
           width: 50px;
         }
         &-line-str {
-          background: url('../imgs/ic_edit_line_straight_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_line_straight_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_line_straight_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_line_straight_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_line_straight_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_line_straight_disable@3x.png') no-repeat center/cover;
           }
         }
         &-line {
-          background: url('../imgs/ic_edit_line_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_line_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_line_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_line_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_line_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_line_disable@3x.png') no-repeat center/cover;
           }
         }
         &-circle {
-          background: url('../imgs/ic_edit_circle_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_circle_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_circle_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_circle_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_circle_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_circle_disable@3x.png') no-repeat center/cover;
           }
         }
         &-square {
-          background: url('../imgs/ic_edit_square_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_square_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_square_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_square_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_square_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_square_disable@3x.png') no-repeat center/cover;
           }
         }
         &-triangle {
-          background: url('../imgs/ic_edit_triangle_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_triangle_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_triangle_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_triangle_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_triangle_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_triangle_disable@3x.png') no-repeat center/cover;
           }
         }
         &-crop {
-          background: url('../imgs/ic_edit_crop_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_crop_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_crop_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_crop_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_crop_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_crop_disable@3x.png') no-repeat center/cover;
           }
         }
         &-lotate-left {
-          background: url('../imgs/ic_edit_lotate_l_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_lotate_l_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_lotate_l_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_lotate_l_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_lotate_l_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_lotate_l_disable@3x.png') no-repeat center/cover;
           }
         }
         &-lotate-right {
-          background: url('../imgs/ic_edit_lotate_r_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_lotate_r_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_lotate_r_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_lotate_r_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_lotate_r_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_lotate_r_disable@3x.png') no-repeat center/cover;
           }
         }
         &-edit-del {
-          background: url('../imgs/ic_edit_delete_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_edit_delete_normal@3x.png') no-repeat center/cover;
           &:active {
-            background: url('../imgs/ic_edit_delete_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_delete_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_edit_delete_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_edit_delete_disable@3x.png') no-repeat center/cover;
           }
         }
         &-ruler {
@@ -152,16 +155,16 @@
             display: block;
             width: 24px;
             height: 24px;
-            background: url('../imgs/ic_ruler_normal@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_ruler_normal@3x.png') no-repeat center/cover;
           }
           &:active {
             span {
-              background: url('../imgs/ic_ruler_over@3x.png') no-repeat center/cover;
+              background: url('./imgs/ic_ruler_over@3x.png') no-repeat center/cover;
             }
           }
           &:disabled {
             span {
-              background: url('../imgs/ic_ruler_disable@3x.png') no-repeat center/cover;
+              background: url('./imgs/ic_ruler_disable@3x.png') no-repeat center/cover;
             }
           }
         }
@@ -218,7 +221,7 @@
           font-size: 12px;
           gap: 0 10px;
           color: #000;
-          z-index: 9999;
+          z-index: 999;
           .drop-list-wrap {
             position: relative;
             span {
@@ -398,7 +401,7 @@
         .btn-pop-close {
           width: 24px;
           height: 24px;
-          background: url('../imgs/ic_close_pop_l_normal@3x.png') no-repeat center/cover;
+          background: url('./imgs/ic_close_pop_l_normal@3x.png') no-repeat center/cover;
           border: none;
           outline: none;
           position: absolute;
@@ -406,10 +409,10 @@
           top: 20px;
           z-index: 99;
           &:active {
-            background: url('../imgs/ic_close_pop_l_over@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_close_pop_l_over@3x.png') no-repeat center/cover;
           }
           &:disabled {
-            background: url('../imgs/ic_close_pop_l_disable@3x.png') no-repeat center/cover;
+            background: url('./imgs/ic_close_pop_l_disable@3x.png') no-repeat center/cover;
           }
         }
         // .canvas-container {
