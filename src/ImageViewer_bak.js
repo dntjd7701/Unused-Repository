@@ -10,7 +10,7 @@ const useWindowEventListener = (type, listener, options) => {
   }, [type, listener, options]);
 };
 
-function ImageViewer() {
+function ImageViewer_bak() {
   const EditMode = {
     DEFAULT: 'default',
     STRAIGHT_LINE: 'straightLine',
@@ -215,7 +215,7 @@ function ImageViewer() {
   );
 }
 
-export default ImageViewer;
+export default ImageViewer_bak;
 
 // useWindowEventListener('keydown', (e) => {
 //   if (e.key === 'z' && (e.ctrlKey || e.metaKey)) undo();

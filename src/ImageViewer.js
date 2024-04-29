@@ -1,9 +1,10 @@
 /** react */
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 /** imgs */
-import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
+import Line from './components/Line';
 import icArrDown from './imgs/ic_arrdown@3x.png';
+import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 
 const useWindowEventListener = (type, listener, options) => {
@@ -27,36 +28,39 @@ const EditMode = {
   ERASE: 'erase',
   MEASURE: 'measure',
   COMPARE: 'compare',
-  // FREE_DRAW: 'freeDraw',
+  FREE_DRAW: 'freeDraw',
   // DEFAULT: 'default',
 };
 
-const createElement = (startX, startY, endX, endY, editMode, color, width, image) => {
-  return { startX, startY, endX, endY, editMode, color, width, image };
+const createElement = (startX, startY, endX, endY, editMode, color, width) => {
+  return { startX, startY, endX, endY, editMode, color, width };
 };
 
 /**
  *  이미지 저장 방식이 아닌, 좌표를 저장하여 다시 그려주도록 작업
  */
-function AnotherWay() {
-  let startX, startY;
-
+function ImageViewer() {
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
-  const [editMode, setEditMode] = useState(EditMode.STRAIGHT_LINE);
+  const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
   const [elements, setElements] = useState([]);
   const [lineColor, setLineColor] = useState('#2c2c2c');
   const [lineDrop, setLineDrop] = useState({
     isOpen: false,
-    lineWidth: 1,
+    lineWidth: 3,
     lineWidthImgTag: <span className='line-2 line'></span>,
   });
-  const [backGroundImage, setBackGroundImage] = useState(null);
-  const [history, setHistory] = useState([]);
+  const [canvasOnOff, setCanvasOnOff] = useState({
+    canvas: 'off',
+    canvas_line: 'on',
+  });
+
+  // const [elementsIdx, setElementsIdx] = useState(-1);
 
   /** useRef */
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
+  const backgroundRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,36 +70,49 @@ function AnotherWay() {
   }, []);
 
   useLayoutEffect(() => {
+    // useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (backGroundImage) {
-      ctx.putImageData(backGroundImage, 0, 0);
+    if (backgroundRef.current) {
+      // const img = new Image();
+      // img.src = backgroundRef.current;
+      // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      // img.onload = () => {
+      //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+      //   // const scaledWidth = img.width * scaleFactor;
+      //   // const scaledHeight = img.height * scaleFactor;
+      //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      //   // backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      // };
+      // img.src = backgroundRef.current;
+      // ctx.putImageData(backgroundRef.current, 0, 0);
       ctx.stroke();
     }
+
     elements.forEach(({ startX, startY, endX, endY, editMode, color, width }, idx) => {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
-          ctx.strokeStyle = color;
-          ctx.lineWidth = width;
           ctx.beginPath();
           ctx.moveTo(startX, startY);
           ctx.lineTo(endX, endY);
           ctx.stroke();
-          break;
-        case EditMode.IMAGE:
           break;
 
         default:
           break;
       }
     });
-  }, [elements, backGroundImage]);
+  }, [elements]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
+    console.debug('e:', e);
     if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
   });
 
@@ -107,38 +124,32 @@ function AnotherWay() {
   const handleClearRect = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.reset();
+    backgroundRef.current = null;
     setElements([]);
   };
 
   const hanldeMouseMove = (e) => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
     const rect = canvas.getBoundingClientRect();
+    const ctx = canvas.getContext('2d');
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
     if (!isDrawing) {
+      ctx.closePath();
       ctx.beginPath();
       ctx.moveTo(x, y);
       return;
     }
 
-    switch (editMode) {
-      case EditMode.STRAIGHT_LINE:
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전에 그린 그림 지우기
-        if (history.length > 0) {
-          ctx.putImageData(history[history.length - 1]);
-        }
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        break;
-      default:
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        break;
+    if (editMode === EditMode.FREE_DRAW) {
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    } else {
+      let elementsCopy = [...elements];
+      const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+      setElements(elementsCopy);
     }
   };
 
@@ -147,17 +158,11 @@ function AnotherWay() {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    startX = x;
-    startY = y;
+    setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
   };
 
   const handleMouseUp = (e) => {
     setIsDrawing(false);
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const copyHistory = [...history];
-    copyHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-    setHistory(copyHistory);
   };
 
   const handleColorPickerChange = (e) => {
@@ -165,7 +170,13 @@ function AnotherWay() {
   };
 
   const handleUndo = () => {
-    const copyHistory = [...history];
+    const elementsCopy = [...elements];
+    if (elements.length > 0) {
+      elementsCopy.pop();
+    } else {
+      handleClearRect();
+    }
+    setElements(elementsCopy);
   };
 
   const handleToggleLineDrop = () => {
@@ -190,23 +201,32 @@ function AnotherWay() {
   const handleImageUpload = (e) => {
     if (e.target.files.length === 0) return;
 
-    const canvas = canvasRef.current;
-    const image = e.target.files[0];
-    const ctx = canvas.getContext('2d');
+    // const canvas = canvasRef.current;
+    // const image = e.target.files[0];
+    // const ctx = canvas.getContext('2d');
 
-    const img = new Image();
-    img.onload = () => {
-      const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-      // const scaledWidth = img.width * scaleFactor;
-      // const scaledHeight = img.height * scaleFactor;
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      // ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
-    };
-    img.src = URL.createObjectURL(image);
-    e.target.value = '';
+    // const img = new Image();
+    // img.onload = () => {
+    //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+    //   // const scaledWidth = img.width * scaleFactor;
+    //   // const scaledHeight = img.height * scaleFactor;
+    //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //   backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //   // backgroundRef.current = URL.createObjectURL(image);
+    // };
 
-    console.debug('ctx.getImageData(0, 0, canvas.width, canvas.height):', ctx.getImageData(0, 0, canvas.width, canvas.height));
-    setBackGroundImage(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    // handleClearRect();
+    // img.src = URL.createObjectURL(image);
+    // e.target.value = '';
+  };
+
+  const handleChangeMode = (mode) => {
+    setEditMode(mode);
+
+    setCanvasOnOff({
+      canvas: mode === EditMode.STRAIGHT_LINE ? 'on' : 'off',
+      canvas_line: mode === EditMode.FREE_DRAW ? 'on' : 'off',
+    });
   };
 
   //#endregion
@@ -226,12 +246,17 @@ function AnotherWay() {
               className='btn-line-str'
               data-for='btnTooltip'
               data-tip='직선'
-              onClick={() => setEditMode(EditMode.STRAIGHT_LINE)}></button>
-            {/* <button
+              onClick={() => {
+                handleChangeMode(EditMode.STRAIGHT_LINE);
+              }}></button>
+            <button
               className='btn-line'
               data-for='btnTooltip'
               data-tip='곡선'
-              onClick={() => setEditMode(EditMode.FREE_DRAW)}></button> */}
+              onClick={() => {
+                handleChangeMode(EditMode.FREE_DRAW);
+              }}></button>
+
             {/* <button
             className='btn-circle'
             data-for='btnTooltip'
@@ -414,8 +439,7 @@ function AnotherWay() {
       </div>
       <div className='canvas-container'>
         <canvas
-          id='canvas'
-          style={{ backgroundImage: temp_undo }}
+          className={`canvas ${canvasOnOff.canvas}`}
           ref={canvasRef}
           width={window.innerWidth}
           height={window.innerHeight}
@@ -423,12 +447,18 @@ function AnotherWay() {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         />
+        <Line
+          editMode={editMode}
+          canvasOnOff={canvasOnOff}
+          lineColor={lineColor}
+          lineDrop={lineDrop}
+        />
       </div>
     </>
   );
 }
 
-export default AnotherWay;
+export default ImageViewer;
 
 // useWindowEventListener('keydown', (e) => {
 //   if (e.key === 'z' && (e.ctrlKey || e.metaKey)) undo();
