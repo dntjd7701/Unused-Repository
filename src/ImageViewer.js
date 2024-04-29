@@ -259,14 +259,6 @@ function ImageViewer() {
         setElements(elementsCopy);
         break;
     }
-    // if (editMode === EditMode.FREE_DRAW) {
-    //   setCurrentCurve((prevState) => [...prevState, { x, y }]);
-    // } else {
-    //   let elementsCopy = [...elements];
-    //   const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-    //   elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-    //   setElements(elementsCopy);
-    // }
   };
 
   const handleMouseDown = (e) => {
@@ -284,12 +276,6 @@ function ImageViewer() {
         setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
         break;
     }
-
-    // if (editMode === EditMode.FREE_DRAW) {
-    //   setCurrentCurve((prevState) => [...prevState, { x, y }]);
-    // } else {
-    //   setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
-    // }
   };
 
   const handleMouseUp = (e) => {
@@ -617,7 +603,3 @@ function ImageViewer() {
 }
 
 export default ImageViewer;
-
-// useWindowEventListener('keydown', (e) => {
-//   if (e.key === 'z' && (e.ctrlKey || e.metaKey)) undo();
-// });
