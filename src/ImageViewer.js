@@ -222,6 +222,58 @@ function ImageViewer() {
     });
   };
 
+  const handleImageDownload = (e) => {
+    // 캔버스 합치기용 캔버스 생성
+    const mergedCanvas = document.createElement('canvas');
+    const mergedCtx = mergedCanvas.getContext('2d');
+
+    // 캔버스 합치기용 캔버스 크기 설정
+    mergedCanvas.width = window.innerWidth;
+    mergedCanvas.height = window.innerHeight;
+
+    const container = document.getElementsByClassName('canvas-container');
+    const children = container[0].childNodes;
+
+    // 각 캔버스의 이미지 데이터를 합친 캔버스에 그리기
+    children.forEach((canvas) => {
+      mergedCtx.drawImage(canvas, 0, 0);
+      elements.forEach(({ startX, startY, endX, endY, editMode, color, width, history }) => {
+        mergedCtx.strokeStyle = color;
+        mergedCtx.lineWidth = width;
+
+        switch (editMode) {
+          case EditMode.STRAIGHT_LINE:
+            mergedCtx.beginPath();
+            mergedCtx.moveTo(startX, startY);
+            mergedCtx.lineTo(endX, endY);
+            mergedCtx.stroke();
+            break;
+          case EditMode.FREE_DRAW:
+            mergedCtx.beginPath();
+            mergedCtx.moveTo(history[0].x, history[0].y);
+            history.forEach(({ x, y }) => {
+              mergedCtx.lineTo(x, y);
+            });
+            mergedCtx.stroke();
+            break;
+          default:
+            break;
+        }
+      });
+    });
+
+    // 이미지로 변환하여 저장
+    const imageDataURL = mergedCanvas.toDataURL('image/png');
+
+    // 가상 링크 생성
+    const link = document.createElement('a');
+    link.href = imageDataURL;
+    link.download = 'kkk.png';
+
+    // 클릭 이벤트 발생시키기
+    link.click();
+  };
+
   //#endregion
 
   return (
@@ -396,6 +448,11 @@ function ImageViewer() {
                 accept='image/*'
                 onChange={handleImageUpload}
               />
+            </button>
+            <button
+              className='btn-image-upload'
+              onClick={handleImageDownload}>
+              이미지 다운로드
             </button>
             {/* <button
               className='btn-zoom-in'
