@@ -54,6 +54,7 @@ function ImageViewer() {
     canvas: 'off',
     canvas_line: 'on',
   });
+  const [currentCurve, setCurrentCurve] = useState([]);
 
   // const [elementsIdx, setElementsIdx] = useState(-1);
 
@@ -74,25 +75,25 @@ function ImageViewer() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
+    // if (backgroundRef.current) {
+    //   // const img = new Image();
+    //   // img.src = backgroundRef.current;
+    //   // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //   // img.onload = () => {
+    //   //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+    //   //   // const scaledWidth = img.width * scaleFactor;
+    //   //   // const scaledHeight = img.height * scaleFactor;
+    //   //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //   //   // backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    //   // };
+    //   // img.src = backgroundRef.current;
+    //   // ctx.putImageData(backgroundRef.current, 0, 0);
+    //   ctx.stroke();
+    // }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (backgroundRef.current) {
-      // const img = new Image();
-      // img.src = backgroundRef.current;
-      // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      // img.onload = () => {
-      //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-      //   // const scaledWidth = img.width * scaleFactor;
-      //   // const scaledHeight = img.height * scaleFactor;
-      //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      //   // backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      // };
-      // img.src = backgroundRef.current;
-      // ctx.putImageData(backgroundRef.current, 0, 0);
-      ctx.stroke();
-    }
-
-    elements.forEach(({ startX, startY, endX, endY, editMode, color, width }, idx) => {
+    elements.forEach(({ startX, startY, endX, endY, editMode, color, width, history }) => {
       ctx.strokeStyle = color;
       ctx.lineWidth = width;
 
@@ -103,12 +104,29 @@ function ImageViewer() {
           ctx.lineTo(endX, endY);
           ctx.stroke();
           break;
-
+        case EditMode.FREE_DRAW:
+          ctx.beginPath();
+          ctx.moveTo(history[0].x, history[0].y);
+          history.forEach(({ x, y }) => {
+            ctx.lineTo(x, y);
+          });
+          ctx.stroke();
+          break;
         default:
           break;
       }
     });
-  }, [elements]);
+    console.debug('currentCurve:', currentCurve);
+
+    if (currentCurve.length > 0) {
+      ctx.beginPath();
+      ctx.moveTo(currentCurve[0].x, currentCurve[0].y);
+      currentCurve.forEach(({ x, y }) => {
+        ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    }
+  }, [elements, currentCurve]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -130,27 +148,16 @@ function ImageViewer() {
   };
 
   const hanldeMouseMove = (e) => {
+    if (!isDrawing) return;
+
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
-    const ctx = canvas.getContext('2d');
     const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
 
-    if (!isDrawing) {
-      ctx.closePath();
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      return;
-    }
-
-    if (editMode === EditMode.FREE_DRAW) {
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    } else {
-      let elementsCopy = [...elements];
-      const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-      elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-      setElements(elementsCopy);
-    }
+    let elementsCopy = [...elements];
+    const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+    elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
+    setElements(elementsCopy);
   };
 
   const handleMouseDown = (e) => {
@@ -452,6 +459,18 @@ function ImageViewer() {
           canvasOnOff={canvasOnOff}
           lineColor={lineColor}
           lineDrop={lineDrop}
+          setElements={(element) => {
+            setElements((prevState) => [...prevState, element]);
+          }}
+          currentCurve={currentCurve}
+          setCurrentCurve={(element) => {
+            console.debug('element:', element);
+            if (!element) {
+              setCurrentCurve([]);
+            } else {
+              setCurrentCurve((prevState) => [...prevState, element]);
+            }
+          }}
         />
       </div>
     </>
