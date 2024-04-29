@@ -1,15 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-const Line = ({ canvasOnOff, lineColor, lineDrop, setElements, setCurrentCurve, currentCurve }) => {
+const Line = ({ canvasOnOff, lineColor, lineDrop, setElements, setCurrentCurve, currentCurve, cancelEraser }) => {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.strokeStyle = lineColor;
-    ctx.lineWidth = lineDrop.lineWidth;
-  }, []);
 
   const hanldeMouseMove = (e) => {
     if (!isDrawing) return;
@@ -31,6 +24,7 @@ const Line = ({ canvasOnOff, lineColor, lineDrop, setElements, setCurrentCurve, 
     setElements({ editMode: 'freeDraw', color: lineColor, width: lineDrop.lineWidth, history: currentCurve });
     setCurrentCurve();
     setIsDrawing(false);
+    // cancelEraser();
   };
 
   return (

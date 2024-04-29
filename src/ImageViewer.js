@@ -1,8 +1,11 @@
 /** react */
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-/** imgs */
+/** components */
 import Line from './components/Line';
+import Background from './components/Background';
+
+/** imgs */
 import icArrDown from './imgs/ic_arrdown@3x.png';
 import temp_undo from './imgs/ic_arrow_left_01_m_disable@2x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
@@ -55,6 +58,7 @@ function ImageViewer() {
     canvas_line: 'on',
   });
   const [currentCurve, setCurrentCurve] = useState([]);
+  const [eraserTempColor, setEraserTempColor] = useState(null);
 
   // const [elementsIdx, setElementsIdx] = useState(-1);
 
@@ -74,22 +78,6 @@ function ImageViewer() {
     // useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-
-    // if (backgroundRef.current) {
-    //   // const img = new Image();
-    //   // img.src = backgroundRef.current;
-    //   // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    //   // img.onload = () => {
-    //   //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-    //   //   // const scaledWidth = img.width * scaleFactor;
-    //   //   // const scaledHeight = img.height * scaleFactor;
-    //   //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    //   //   // backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    //   // };
-    //   // img.src = backgroundRef.current;
-    //   // ctx.putImageData(backgroundRef.current, 0, 0);
-    //   ctx.stroke();
-    // }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -116,12 +104,13 @@ function ImageViewer() {
           break;
       }
     });
-    console.debug('currentCurve:', currentCurve);
 
     if (currentCurve.length > 0) {
       ctx.beginPath();
       ctx.moveTo(currentCurve[0].x, currentCurve[0].y);
       currentCurve.forEach(({ x, y }) => {
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = lineDrop.lineWidth;
         ctx.lineTo(x, y);
       });
       ctx.stroke();
@@ -130,7 +119,6 @@ function ImageViewer() {
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
-    console.debug('e:', e);
     if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
   });
 
@@ -141,9 +129,11 @@ function ImageViewer() {
   //#region handler
   const handleClearRect = () => {
     const canvas = canvasRef.current;
+    const back = backgroundRef.current;
     const ctx = canvas.getContext('2d');
+    const ctx2 = back.getContext('2d');
     ctx.reset();
-    backgroundRef.current = null;
+    ctx2.reset();
     setElements([]);
   };
 
@@ -208,23 +198,19 @@ function ImageViewer() {
   const handleImageUpload = (e) => {
     if (e.target.files.length === 0) return;
 
-    // const canvas = canvasRef.current;
-    // const image = e.target.files[0];
-    // const ctx = canvas.getContext('2d');
+    const canvas = backgroundRef.current;
+    const image = e.target.files[0];
+    const ctx = canvas.getContext('2d');
 
-    // const img = new Image();
-    // img.onload = () => {
-    //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-    //   // const scaledWidth = img.width * scaleFactor;
-    //   // const scaledHeight = img.height * scaleFactor;
-    //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    //   backgroundRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    //   // backgroundRef.current = URL.createObjectURL(image);
-    // };
-
-    // handleClearRect();
-    // img.src = URL.createObjectURL(image);
-    // e.target.value = '';
+    const img = new Image();
+    img.onload = () => {
+      // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+      // const scaledWidth = img.width * scaleFactor;
+      // const scaledHeight = img.height * scaleFactor;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+    img.src = URL.createObjectURL(image);
+    e.target.value = '';
   };
 
   const handleChangeMode = (mode) => {
@@ -232,7 +218,7 @@ function ImageViewer() {
 
     setCanvasOnOff({
       canvas: mode === EditMode.STRAIGHT_LINE ? 'on' : 'off',
-      canvas_line: mode === EditMode.FREE_DRAW ? 'on' : 'off',
+      canvas_line: [EditMode.FREE_DRAW, EditMode.ERASE].includes(mode) ? 'on' : 'off',
     });
   };
 
@@ -300,12 +286,17 @@ function ImageViewer() {
             data-tip='우회전'
             //   onClick={(e) => rotate(EditMode.RIGHT_ROTATE)}
           ></button> */}
-            <button
+            {/* <button
               className='btn-edit-del'
               data-for='btnTooltip'
               data-tip='지우개'
-              //   onClick={(e) => handleRemoveObject(e, EditMode.ERASE)}
-            ></button>
+              onClick={(e) => {
+                const color = lineColor;
+                console.debug('color:', color);
+                setEraserTempColor(color);
+                setLineColor('white');
+                handleChangeMode(EditMode.ERASE);
+              }}></button> */}
             {/* <button
             className='btn-ruler'
             //   onClick={(e) => handleChangeEditMode(EditMode.MEASURE)}
@@ -464,14 +455,21 @@ function ImageViewer() {
           }}
           currentCurve={currentCurve}
           setCurrentCurve={(element) => {
-            console.debug('element:', element);
             if (!element) {
               setCurrentCurve([]);
             } else {
               setCurrentCurve((prevState) => [...prevState, element]);
             }
           }}
+          cancelEraser={() => {
+            const color = eraserTempColor;
+            console.debug('color:', color);
+            setLineColor(color);
+            setEraserTempColor(null);
+            handleChangeMode(EditMode.FREE_DRAW);
+          }}
         />
+        <Background backgroundRef={backgroundRef} />
       </div>
     </>
   );

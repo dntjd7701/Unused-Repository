@@ -42,3 +42,7 @@ canvas {
     z-index: 1;
   }
 }
+
+.canvas_background {
+  z-index: -1;
+}
