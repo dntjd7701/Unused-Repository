@@ -46,3 +46,63 @@ canvas {
 .canvas_background {
   z-index: -1;
 }
+
+// --------------------------------------------------------------------
+// 360 image Viewer
+
+.view_box {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #333944, #333944 64%, #a5afb7);
+
+  .img_area {
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    text-align: center;
+    z-index: 13;
+
+    .img_wrap {
+      // touch-action: pan-y;
+      // user-select: none;
+      // -webkit-user-drag: none;
+      // position: relative;
+      // display: inline-block;
+      // vertical-align: top;
+      // z-index: 2;
+      // animation-name: slideInRight;
+
+      img {
+        position: absolute;
+        // height: 150px;
+        vertical-align: top;
+        -webkit-user-drag: none;
+      }
+    }
+    // .img_wrap {
+    //   width: 100%;
+    //   height: 100%;
+    //   transform-style: preserve-3d;
+    //   transition: transform 0.3s ease; /* 회전 애니메이션 */
+
+    //   img {
+    //     // position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    //     display: block !important;
+    //   }
+    // }
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

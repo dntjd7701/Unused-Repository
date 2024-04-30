@@ -1,53 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Three = () => {
-  // useEffect(() => {
-  //   console.log(img);
-  //   let canvas = document.querySelector('#threeCanvas');
-  //   console.debug('canvas:', canvas);
-  //   let scene = new THREE.Scene();
-  //   let renderer = new THREE.WebGLRenderer({
-  //     antialias: true,
-  //     canvas: canvas,
-  //   });
-  //   scene.background = new THREE.Color('white');
-  //   let light = new THREE.DirectionalLight(0xffff00, 10);
-  //   scene.add(light);
+  const [imgIndex, setImgIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  // let startX, startY;
+  const imageContainerRef = useRef(null);
 
-  //   let camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-  //   // 카메라의 위치 설정 (x: 0, y: 0, z: 5)
-  //   camera.position.set(0, 0, 5);
-
-  //   let loader = new GLTFLoader();
-  //   console.debug('loader:', loader);
-  //   loader.load(
-  //     './three/hackney_back_cab_agv/scene.gltf',
-  //     (gltf) => {
-  //       console.debug('gltf:', gltf);
-  //     },
-  //     undefined,
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-
-  //   // // 렌더링 함수 정의
-  //   // const animate = function () {
-  //   //   requestAnimationFrame(animate);
-  //   //   renderer.render(scene, camera);
-  //   // };
-
-  //   // // 초기 렌더링 수행
-  //   // animate();
-  // }, []);
+  useEffect(() => {}, [imgIndex]);
 
   return (
-    <>
-      <canvas
-        id='threeCanvas'
-        width={window.innerWidth}
-        height={window.innerHeight}></canvas>
-    </>
+    <div
+      className='view_box'
+      onMouseDown={(event) => {
+        setStartX(event.clientX);
+        setIsDragging(true);
+      }}
+      onMouseMove={(event) => {
+        if (!isDragging) return;
+        setImgIndex((prevState) => {
+          const left = prevState - 1 < 0 ? 35 : prevState - 1;
+          const right = prevState + 1 > 35 ? 0 : prevState + 1;
+          return startX < event.clientX ? right : left;
+        });
+      }}
+      onMouseUp={() => {
+        setIsDragging(false);
+      }}>
+      <button
+        onClick={() => {
+          setImgIndex((prevState) => {
+            return prevState - 1 < 0 ? 35 : prevState - 1;
+          });
+        }}>
+        {'<'}
+      </button>
+      <button
+        onClick={() => {
+          setImgIndex((prevState) => {
+            return prevState + 1 > 35 ? 0 : prevState + 1;
+          });
+        }}>
+        {'>'}
+      </button>
+      <div className='img_area'>
+        <div
+          className='img_wrap animated slideInRight _3d_image'
+          ref={imageContainerRef}>
+          {Array.from({ length: 36 }).map((_, idx) => {
+            return (
+              <img
+                key={idx}
+                // width={'500px'}
+                height={'300px'}
+                src={`/car/car-${idx}.png`}
+                alt=''
+                style={{ display: imgIndex === idx ? 'inline-block' : 'none' }}
+              />
+            );
+          })}
+
+          {/* {getImg()}
+          <img
+            src={`/car/car-${0}.png`}
+            alt=''
+            style={{ display: 'inline-block' }}
+          /> */}
+        </div>
+      </div>
+    </div>
   );
 };
 
