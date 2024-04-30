@@ -195,7 +195,6 @@ function ImageViewer() {
     canvas_line: 'on',
   });
   const [currentCurve, setCurrentCurve] = useState([]);
-  const [eraserTempColor, setEraserTempColor] = useState(null);
 
   const [scale, setScale] = useState(1);
 
