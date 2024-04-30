@@ -49,7 +49,7 @@ const useWindowEventListener = (type, listener, options) => {
  * @param {string} color
  * @param {number} width
  * @param {object[]} history
- * @returns
+ * @returns {object} element
  */
 const createElement = (startX, startY, endX, endY, editMode, color, width, history) => {
   return { startX, startY, endX, endY, editMode, color, width, history };
@@ -84,6 +84,9 @@ const setLineStyle = (ctx, editMode, strokeStyle, width, lineDash = []) => {
   }
 };
 
+/**
+ * @returns {object} actions
+ */
 const drawAction = {
   line: (ctx, { startX, startY, endX, endY }) => {
     ctx.beginPath();
@@ -135,7 +138,12 @@ const drawElement = (ctx, elements) => {
   });
 };
 
-/** image 객체 복사하여 반환 */
+/**
+ * @param {object} imageData - 기존 이미지
+ * @param {number} width - 새롭게 그려질 이미지의 width
+ * @param {number} height - 새롭게 그려질 이미지의 height
+ * @returns {object} newImageData - 새로운 이미지
+ */
 const copyImage = (imageData, width, height) => {
   const { data, width: oldWidth, height: oldHeight } = imageData;
 
@@ -171,8 +179,17 @@ const copyImage = (imageData, width, height) => {
   return newImageData;
 };
 
-/** crop한 이미지 처리하기 */
+/**
+ * @param {object[]} elements
+ * @param {React.ref} canvasRef
+ * @param {function} callback
+ *
+ * @TODO
+ * 현재, background(이미지) 에 대해서만 크롭 기능 활성화, 이미 그려진 element에 대해서도 crop할 수 있또록
+ * merge 필요
+ */
 const cropImage = (elements, canvasRef, callback) => {
+  // 크롭 박스 제거
   const elementsCopy = [...elements];
   const { startX, startY, endX, endY } = elementsCopy.pop();
 
@@ -212,9 +229,6 @@ const getMergedCanvas = (elements) => {
   return mergedCanvas;
 };
 
-/**
- *  이미지 저장 방식이 아닌, 좌표를 저장하여 다시 그려주도록 작업
- */
 function ImageViewer() {
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
@@ -227,7 +241,6 @@ function ImageViewer() {
     lineWidthImgTag: <span className='line-2 line'></span>,
   });
   const [currentCurve, setCurrentCurve] = useState([]);
-
   const [scale, setScale] = useState(1);
 
   /** useRef */
@@ -254,6 +267,8 @@ function ImageViewer() {
   });
 
   //#region handler
+
+  /** 초기화 버튼 */
   const handleClearRect = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -261,6 +276,7 @@ function ImageViewer() {
     setElements([]);
   };
 
+  /** canvas onMouseMove */
   const hanldeMouseMove = (e) => {
     if (!isDrawing) return;
 
@@ -282,6 +298,7 @@ function ImageViewer() {
     }
   };
 
+  /** canvas onMouseDown */
   const handleMouseDown = (e) => {
     setIsDrawing(true);
     const canvas = canvasRef.current;
@@ -299,6 +316,7 @@ function ImageViewer() {
     }
   };
 
+  /** canvas onMouseUp */
   const handleMouseUp = (e) => {
     switch (editMode) {
       case EditMode.CROP:
@@ -323,10 +341,12 @@ function ImageViewer() {
     setIsDrawing(false);
   };
 
+  /** 선 색상 변경 */
   const handleColorPickerChange = (e) => {
     setLineColor(e.target.value);
   };
 
+  /** Undo - elements 제거 */
   const handleUndo = () => {
     const elementsCopy = [...elements];
     if (elements.length > 0) {
@@ -337,6 +357,7 @@ function ImageViewer() {
     setElements(elementsCopy);
   };
 
+  /** 선 굵기 드랍다운 */
   const handleToggleLineDrop = () => {
     setLineDrop((prevState) => {
       return {
@@ -346,6 +367,7 @@ function ImageViewer() {
     });
   };
 
+  /** 선 굵기 선택 */
   const handleSelectLineDrop = (e) => {
     const { value } = e.target;
 
@@ -356,6 +378,7 @@ function ImageViewer() {
     });
   };
 
+  /** 이미지 업로드 */
   const handleImageUpload = (e) => {
     if (e.target.files.length === 0) return;
 
@@ -374,10 +397,12 @@ function ImageViewer() {
     e.target.value = '';
   };
 
+  /** 드로우 타입 선택 */
   const handleChangeMode = (mode) => {
     setEditMode(mode);
   };
 
+  /** 이미지 다운로드 */
   const handleImageDownload = (e) => {
     const mergedCanvas = getMergedCanvas(elements);
     // 이미지로 변환하여 저장
@@ -392,6 +417,7 @@ function ImageViewer() {
     link.click();
   };
 
+  /** 줌 휠 */
   const handleWheel = (event) => {
     event.preventDefault();
     const zoomSpeed = 0.1; // 조절 가능한 확대/축소 속도
