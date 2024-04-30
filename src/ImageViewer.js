@@ -14,6 +14,7 @@ const EditMode = {
   FREE_DRAW: 'freeDraw',
   CROP: 'crop',
   ERASE: 'erase',
+  SELECTOR: 'selector',
   // IMAGE: 'image',
   // INSERT_CIRCLE: 'insertCircle',
   // INSERT_TRIANGLE: 'inserTriangle',
@@ -229,7 +230,9 @@ const getMergedCanvas = (elements) => {
   return mergedCanvas;
 };
 
-function ImageViewer() {
+const ImageViewer = () => {
+  let isSelected = false;
+
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
   const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
@@ -289,11 +292,15 @@ function ImageViewer() {
       case EditMode.ERASE:
         setCurrentCurve((prevState) => [...prevState, { x, y }]);
         break;
-      default:
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
         let elementsCopy = [...elements];
         const { startX, startY } = elementsCopy[elementsCopy.length - 1];
         elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
         setElements(elementsCopy);
+        break;
+      default:
         break;
     }
   };
@@ -310,14 +317,25 @@ function ImageViewer() {
       case EditMode.ERASE:
         setCurrentCurve((prevState) => [...prevState, { x, y }]);
         break;
-      default:
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
         setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
+        break;
+      case EditMode.SELECTOR:
+        console.log(elements);
+        console.log(x, y);
+      //
+      // elements.find(({}))
+      default:
         break;
     }
   };
 
   /** canvas onMouseUp */
   const handleMouseUp = (e) => {
+    setIsDrawing(false);
+
     switch (editMode) {
       case EditMode.CROP:
         cropImage(elements, backgroundRef, () => {
@@ -337,8 +355,6 @@ function ImageViewer() {
       default:
         break;
     }
-
-    setIsDrawing(false);
   };
 
   /** 선 색상 변경 */
@@ -454,6 +470,13 @@ function ImageViewer() {
               onClick={handleClearRect}>
               초기화
             </button>
+            <button
+              className='btn-line-str'
+              data-for='btnTooltip'
+              data-tip='선택'
+              onClick={() => {
+                handleChangeMode(EditMode.SELECTOR);
+              }}></button>
             <button
               className='btn-line-str'
               data-for='btnTooltip'
@@ -645,6 +668,6 @@ function ImageViewer() {
       </div>
     </>
   );
-}
+};
 
 export default ImageViewer;
