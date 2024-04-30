@@ -10,21 +10,26 @@ import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 
 const EditMode = {
   STRAIGHT_LINE: 'straightLine',
-  INSERT_TRIANGLE: 'inserTriangle',
+  INSERT_SQUARE: 'insertSquare',
   FREE_DRAW: 'freeDraw',
   CROP: 'crop',
-
-  IMAGE: 'image',
-  INSERT_CIRCLE: 'insertCircle',
-  INSERT_SQUARE: 'insertSquare',
-  LEFT_ROTATE: 'left',
-  RIGHT_ROTATE: 'right',
   ERASE: 'erase',
-  MEASURE: 'measure',
-  COMPARE: 'compare',
+  // IMAGE: 'image',
+  // INSERT_CIRCLE: 'insertCircle',
+  // INSERT_TRIANGLE: 'inserTriangle',
+  // LEFT_ROTATE: 'left',
+  // RIGHT_ROTATE: 'right',
+  // MEASURE: 'measure',
+  // COMPARE: 'compare',
   // DEFAULT: 'default',
 };
 
+/**
+ * window event listener hook
+ * @param {string} type-'keydown'|'mousemove'...
+ * @param {function} listener
+ * @param {object} options
+ */
 const useWindowEventListener = (type, listener, options) => {
   useEffect(() => {
     window.addEventListener(type, listener, options);
@@ -34,67 +39,98 @@ const useWindowEventListener = (type, listener, options) => {
   }, [type, listener, options]);
 };
 
+/**
+ * 각 draw의 정보를 담은 객체를 반환
+ * @param {number} startX
+ * @param {number} startY
+ * @param {number} endX
+ * @param {number} endY
+ * @param {string<EditMode>} editMode
+ * @param {string} color
+ * @param {number} width
+ * @param {object[]} history
+ * @returns
+ */
 const createElement = (startX, startY, endX, endY, editMode, color, width, history) => {
   return { startX, startY, endX, endY, editMode, color, width, history };
 };
 
-/** 선 디자인 설정 */
-const setLineStyle = (ctx, strokeStyle, width, lineDash = []) => {
-  ctx.strokeStyle = strokeStyle;
-  ctx.lineWidth = width;
+/**
+ * 선의 기본 디자인 설정
+ * @param {object} ctx
+ * @param {string} editMode
+ * @param {string} strokeStyle
+ * @param {number} width
+ * @param {number[]} lineDash
+ */
+const setLineStyle = (ctx, editMode, strokeStyle, width, lineDash = []) => {
   ctx.lineCap = 'round';
-  ctx.setLineDash(lineDash);
+  ctx.setLineDash([]);
+
+  switch (editMode) {
+    case EditMode.CROP:
+      ctx.strokeStyle = 'blue';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 16]);
+      break;
+    case EditMode.ERASE:
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 15;
+      break;
+    default:
+      ctx.strokeStyle = strokeStyle;
+      ctx.lineWidth = width;
+      break;
+  }
 };
 
-/** 저장된 Element 그리기  */
-const drawElement = (ctx, elements, lineColor, lineDrop) => {
+const drawAction = {
+  line: (ctx, { startX, startY, endX, endY }) => {
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+    ctx.lineTo(endX, endY);
+    ctx.stroke();
+  },
+  curve: (ctx, { x, y }, paths) => {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    paths.forEach(({ x, y }) => {
+      ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+  },
+  square: (ctx, { startX, startY, endX, endY }) => {
+    ctx.beginPath();
+    ctx.rect(startX, startY, endX - startX, endY - startY);
+    ctx.stroke();
+  },
+};
+
+/**
+ * 저장된 Element 그리기
+ * @param {object} ctx
+ * @param {object[]} elements
+ * @param {string} lineColor
+ * @param {number} lineWidth
+ */
+const drawElement = (ctx, elements) => {
   elements.forEach((element) => {
-    const { startX, startY, endX, endY, editMode, color, width, history } = element;
-    setLineStyle(ctx, color, width);
+    const { editMode, color, width, history } = element;
+    setLineStyle(ctx, editMode, color, width);
 
     switch (editMode) {
       case EditMode.STRAIGHT_LINE:
-        ctx.beginPath();
-        ctx.moveTo(startX, startY);
-        ctx.lineTo(endX, endY);
-        ctx.stroke();
+        drawAction.line(ctx, element);
         break;
       case EditMode.FREE_DRAW:
-        ctx.beginPath();
-        ctx.moveTo(history[0].x, history[0].y);
-        history.forEach(({ x, y }) => {
-          ctx.lineTo(x, y);
-        });
-        ctx.stroke();
+      case EditMode.ERASE:
+        drawAction.curve(ctx, history[0], history);
         break;
       case EditMode.INSERT_SQUARE:
-        ctx.beginPath();
-        ctx.rect(startX, startY, endX - startX, endY - startY);
-        ctx.stroke();
-        break;
       case EditMode.CROP:
-        setLineStyle(ctx, 'blue', 1, [4, 16]);
-
-        ctx.beginPath();
-        ctx.rect(startX, startY, endX - startX, endY - startY);
-        ctx.stroke();
-
-        setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
-        break;
-      case EditMode.ERASE:
-        setLineStyle(ctx, 'white', 15);
-
-        ctx.beginPath();
-        ctx.moveTo(history[0].x, history[0].y);
-        history.forEach(({ x, y }) => {
-          ctx.lineTo(x, y);
-        });
-        ctx.stroke();
-
-        // setLineStyle(ctx, lineColor, lineDrop.lineWidth, []);
+        drawAction.square(ctx, element);
         break;
       default:
-        break;
     }
   });
 };
@@ -154,7 +190,7 @@ const cropImage = (elements, canvasRef, callback) => {
 };
 
 /** 나누어진 canvas 합치기 */
-const getMergedCanvas = (elements, lineColor, lineDrop) => {
+const getMergedCanvas = (elements) => {
   // 캔버스 합치기용 캔버스 생성
   const mergedCanvas = document.createElement('canvas');
   const mergedCtx = mergedCanvas.getContext('2d');
@@ -170,7 +206,7 @@ const getMergedCanvas = (elements, lineColor, lineDrop) => {
   children.forEach((canvas) => {
     mergedCtx.drawImage(canvas, 0, 0);
 
-    drawElement(mergedCtx, elements, lineColor, lineDrop);
+    drawElement(mergedCtx, elements);
   });
 
   return mergedCanvas;
@@ -190,10 +226,6 @@ function ImageViewer() {
     lineWidth: 3,
     lineWidthImgTag: <span className='line-2 line'></span>,
   });
-  const [canvasOnOff, setCanvasOnOff] = useState({
-    canvas: 'off',
-    canvas_line: 'on',
-  });
   const [currentCurve, setCurrentCurve] = useState([]);
 
   const [scale, setScale] = useState(1);
@@ -208,21 +240,11 @@ function ImageViewer() {
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawElement(ctx, elements, lineColor, lineDrop);
+    drawElement(ctx, elements);
 
     if (currentCurve.length > 0) {
-      if (editMode === EditMode.FREE_DRAW) {
-        setLineStyle(ctx, lineColor, lineDrop.lineWidth);
-      } else {
-        setLineStyle(ctx, 'white', 15);
-      }
-
-      ctx.beginPath();
-      ctx.moveTo(currentCurve[0].x, currentCurve[0].y);
-      currentCurve.forEach(({ x, y }) => {
-        ctx.lineTo(x, y);
-      });
-      ctx.stroke();
+      setLineStyle(ctx, editMode, lineColor, lineDrop.lineWidth);
+      drawAction.curve(ctx, currentCurve[0], currentCurve);
     }
   }, [elements, currentCurve]);
 
@@ -292,8 +314,8 @@ function ImageViewer() {
       case EditMode.ERASE:
         setCurrentCurve([]);
         setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, 'white', lineDrop.lineWidth, currentCurve)]);
+        handleChangeMode(EditMode.FREE_DRAW);
         break;
-
       default:
         break;
     }
@@ -357,7 +379,7 @@ function ImageViewer() {
   };
 
   const handleImageDownload = (e) => {
-    const mergedCanvas = getMergedCanvas(elements, lineColor, lineDrop);
+    const mergedCanvas = getMergedCanvas(elements);
     // 이미지로 변환하여 저장
     const imageDataURL = mergedCanvas.toDataURL('image/png');
 
@@ -386,7 +408,6 @@ function ImageViewer() {
     const children = container[0].childNodes;
 
     children.forEach((child) => {
-      console.debug('child:', child);
       // const ctx = child.getContext('2d');
       // ctx.scale(clampedScale, clampedScale);
       child.style.transform = `scale(${clampedScale})`;
@@ -586,7 +607,6 @@ function ImageViewer() {
         className='canvas-container'
         onWheel={handleWheel}>
         <canvas
-          // className={`canvas ${canvasOnOff.canvas}`}
           className={`canvas`}
           ref={canvasRef}
           width={window.innerWidth}
