@@ -58,11 +58,11 @@ canvas {
 
   .img_area {
     position: absolute;
-    left: 30%;
-    top: 50%;
+    left: 25%;
+    top: 35%;
     text-align: center;
     z-index: 13;
-
+    animation: slidFromRight 1s ease-in-out;
     .img_wrap {
       // touch-action: pan-y;
       // user-select: none;
@@ -75,7 +75,7 @@ canvas {
 
       img {
         position: absolute;
-        // height: 150px;
+        height: 400px;
         vertical-align: top;
         -webkit-user-drag: none;
       }
@@ -94,6 +94,15 @@ canvas {
     //     display: block !important;
     //   }
     // }
+  }
+}
+
+@keyframes slidFromRight {
+  0% {
+    left: 60%;
+  }
+  100% {
+    left: 25%;
   }
 }
 
