@@ -52,8 +52,8 @@ const useWindowEventListener = (type, listener, options) => {
  * @param {object[]} history
  * @returns {object} element
  */
-const createElement = (startX, startY, endX, endY, editMode, color, width, history) => {
-  return { startX, startY, endX, endY, editMode, color, width, history };
+const createElement = (startX, startY, endX, endY, editMode, color, width, history, distanceX, distanceY) => {
+  return { startX, startY, endX, endY, editMode, color, width, history, distanceX, distanceY };
 };
 
 /**
@@ -117,13 +117,24 @@ const drawAction = {
  * @param {string} lineColor
  * @param {number} lineWidth
  */
-const drawElement = (ctx, elements) => {
+const drawElement = (ctx, elements, isSelected) => {
   elements.forEach((element) => {
     const { editMode, color, width, history } = element;
+    console.debug('editMode:', editMode);
     setLineStyle(ctx, editMode, color, width);
 
     switch (editMode) {
       case EditMode.STRAIGHT_LINE:
+        if (isSelected) {
+          setLineStyle(ctx, editMode, 'red', 3);
+          ctx.beginPath();
+          ctx.moveTo(element.startX, element.startY);
+          ctx.lineTo(element.startX - element.distanceX, element.startY - element.distanceY);
+          ctx.moveTo(element.startX, element.startY);
+          ctx.lineTo(element.endX - element.distanceX, element.endY - element.distanceY);
+          ctx.stroke();
+          return;
+        }
         drawAction.line(ctx, element);
         break;
       case EditMode.FREE_DRAW:
@@ -133,9 +144,6 @@ const drawElement = (ctx, elements) => {
       case EditMode.INSERT_SQUARE:
       case EditMode.CROP:
         drawAction.square(ctx, element);
-        break;
-      case EditMode.SELECTOR:
-        drawAction.line(ctx, element);
         break;
       default:
     }
@@ -272,7 +280,7 @@ const ImageViewer = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawElement(ctx, elements);
+    drawElement(ctx, elements, isSelected);
 
     if (currentCurve.length > 0) {
       setLineStyle(ctx, editMode, lineColor, lineDrop.lineWidth);
@@ -318,42 +326,18 @@ const ImageViewer = () => {
         break;
       case EditMode.SELECTOR:
         let elementsCopy2 = [...elements];
-        const { startX: x1, startY: y1, endX: x2, endY: y2, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
+        const { startX: x1, startY: y1, endX: x2, endY: y2, distanceX, distanceY, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
 
         if (isSelected) {
-          // elementsCopy2[elementsCopy2.length - 1] = createElement(
-          //   x1 + (x - x1),
-          //   y1 + (y - y1),
-          //   x2 + (x2 - x),
-          //   y2 + (y2 - y),
-          //   // endY + (y - endY),
-          //   editMode,
-          //   lineColor,
-          //   lineDrop.lineWidth
-          // );
-          // elementsCopy2[elementsCopy2.length - 1] = createElement(
-          //   x1 + (x1 < x ? x - x1 : x1 - x),
-          //   y1,
-          //   x2 + (x2 - x1),
-          //   y2,
-          //   // endY + (y - endY),
-          //   editMode,
-          //   lineColor,
-          //   lineDrop.lineWidth
-          // );
-          console.debug('(x2 - x1):', x2 - x1);
-
-          elementsCopy2[elementsCopy2.length - 1] = createElement(
-            x1 < x ? x1 + (x - x1) : x1 - (x1 - x),
-            y1 < y ? y1 + (y - y1) : y1 - (y1 - y),
-            (x1 < x ? x1 + (x - x1) : x1 - (x1 - x)) + (x2 < x1 ? x1 - x2 : x2 - x1),
-            (y1 < y ? y1 + (y - y1) : y1 - (y1 - y)) + (y2 < y1 ? y1 - y2 : y2 - y1),
-            // y2,
-            // endY + (y - endY),
-            oldMode,
-            lineColor,
-            lineDrop.lineWidth
-          );
+          const sx = x1 < x ? x1 + (x - x1) : x1 - (x1 - x);
+          const sy = y1 < y ? y1 + (y - y1) : y1 - (y1 - y);
+          const ex = sx + (x2 < x1 ? x1 - x2 : x2 - x1);
+          const ey = sy + (y2 < y1 ? y1 - y2 : y2 - y1);
+          elementsCopy2[elementsCopy2.length - 1] = {
+            ...createElement(sx, sy, ex, ey, oldMode, lineColor, lineDrop.lineWidth, []),
+            distanceX,
+            distanceY,
+          };
           setElements(elementsCopy2);
         }
         break;
@@ -380,17 +364,35 @@ const ImageViewer = () => {
         setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
         break;
       case EditMode.SELECTOR:
-        const 오차범위 = 5;
+        const 오차범위 = 3;
         console.debug('elements:', elements);
 
-        const a = elements.find(({ startX, startY, endX, endY, editMode }) => {
-          console.debug('Math.abs(calcDistance(startX, startY, endX, endY, x, y)):', Math.abs(calcDistance(startX, startY, endX, endY, x, y)));
-          return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 5;
+        let copy = [...elements];
+        const idx = copy.findIndex(({ startX, startY, endX, endY, editMode }) => {
+          return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 오차범위;
         });
+        console.debug('copy:', copy);
 
-        console.debug('a:', a);
+        if (idx !== -1) {
+          copy[idx] = { ...copy[idx], distanceX: x - copy[idx].startX, distanceY: y - copy[idx].startY };
+          console.debug('copy:', copy);
+          setElements(copy);
+          // const { startX, startY, endX, endY } = element;
 
-        if (a) {
+          // const ctx = canvas.getContext('2d');
+          // setLineStyle(ctx, EditMode.STRAIGHT_LINE, 'red', 3);
+
+          // console.log(x, y);
+          // ctx.beginPath();
+          // ctx.moveTo(x, y);
+          // ctx.lineTo(x - (x - startX), y - (y - startY));
+          // ctx.stroke();
+          // // ctx.beginPath();
+          // // ctx.moveTo(x, y);
+          // ctx.moveTo(x, y);
+
+          // ctx.lineTo(x + (endX - x), y + (endY - y));
+          // ctx.stroke();
           setIsSelected(true);
         } else {
           setIsSelected(false);
