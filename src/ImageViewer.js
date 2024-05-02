@@ -134,6 +134,9 @@ const drawElement = (ctx, elements) => {
       case EditMode.CROP:
         drawAction.square(ctx, element);
         break;
+      case EditMode.SELECTOR:
+        drawAction.line(ctx, element);
+        break;
       default:
     }
   });
@@ -230,13 +233,25 @@ const getMergedCanvas = (elements) => {
   return mergedCanvas;
 };
 
+const calcDistance = (x1, y1, x2, y2, clickX, clickY) => {
+  const m = (y2 - y1) / (x2 - x1); // 기울기
+  const b = y2 - m * x2;
+  // y = mx + b
+  // mx + b - y = 0
+  const sqrt = Math.sqrt(m * m + 1);
+
+  const divide = (m * clickX + b - clickY) / sqrt;
+  return divide;
+};
+
 const ImageViewer = () => {
-  let isSelected = false;
+  const [isSelected, setIsSelected] = useState(false);
 
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
-  const [editMode, setEditMode] = useState(EditMode.FREE_DRAW);
-  const [elements, setElements] = useState([]);
+  const [editMode, setEditMode] = useState(EditMode.SELECTOR);
+  // const [elements, setElements] = useState([]);
+  const [elements, setElements] = useState([createElement(100, 100, 200, 200, EditMode.STRAIGHT_LINE)]);
   const [lineColor, setLineColor] = useState('#2c2c2c');
   const [lineDrop, setLineDrop] = useState({
     isOpen: false,
@@ -256,6 +271,7 @@ const ImageViewer = () => {
     const ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     drawElement(ctx, elements);
 
     if (currentCurve.length > 0) {
@@ -296,9 +312,50 @@ const ImageViewer = () => {
       case EditMode.STRAIGHT_LINE:
       case EditMode.INSERT_SQUARE:
         let elementsCopy = [...elements];
-        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+        const { startX, startY, endX, endY } = elementsCopy[elementsCopy.length - 1];
         elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
         setElements(elementsCopy);
+        break;
+      case EditMode.SELECTOR:
+        let elementsCopy2 = [...elements];
+        const { startX: x1, startY: y1, endX: x2, endY: y2, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
+
+        if (isSelected) {
+          // elementsCopy2[elementsCopy2.length - 1] = createElement(
+          //   x1 + (x - x1),
+          //   y1 + (y - y1),
+          //   x2 + (x2 - x),
+          //   y2 + (y2 - y),
+          //   // endY + (y - endY),
+          //   editMode,
+          //   lineColor,
+          //   lineDrop.lineWidth
+          // );
+          // elementsCopy2[elementsCopy2.length - 1] = createElement(
+          //   x1 + (x1 < x ? x - x1 : x1 - x),
+          //   y1,
+          //   x2 + (x2 - x1),
+          //   y2,
+          //   // endY + (y - endY),
+          //   editMode,
+          //   lineColor,
+          //   lineDrop.lineWidth
+          // );
+          console.debug('(x2 - x1):', x2 - x1);
+
+          elementsCopy2[elementsCopy2.length - 1] = createElement(
+            x1 < x ? x1 + (x - x1) : x1 - (x1 - x),
+            y1 < y ? y1 + (y - y1) : y1 - (y1 - y),
+            (x1 < x ? x1 + (x - x1) : x1 - (x1 - x)) + (x2 < x1 ? x1 - x2 : x2 - x1),
+            (y1 < y ? y1 + (y - y1) : y1 - (y1 - y)) + (y2 < y1 ? y1 - y2 : y2 - y1),
+            // y2,
+            // endY + (y - endY),
+            oldMode,
+            lineColor,
+            lineDrop.lineWidth
+          );
+          setElements(elementsCopy2);
+        }
         break;
       default:
         break;
@@ -323,10 +380,22 @@ const ImageViewer = () => {
         setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
         break;
       case EditMode.SELECTOR:
-        console.log(elements);
-        console.log(x, y);
-      //
-      // elements.find(({}))
+        const 오차범위 = 5;
+        console.debug('elements:', elements);
+
+        const a = elements.find(({ startX, startY, endX, endY, editMode }) => {
+          console.debug('Math.abs(calcDistance(startX, startY, endX, endY, x, y)):', Math.abs(calcDistance(startX, startY, endX, endY, x, y)));
+          return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 5;
+        });
+
+        console.debug('a:', a);
+
+        if (a) {
+          setIsSelected(true);
+        } else {
+          setIsSelected(false);
+        }
+
       default:
         break;
     }
@@ -335,6 +404,7 @@ const ImageViewer = () => {
   /** canvas onMouseUp */
   const handleMouseUp = (e) => {
     setIsDrawing(false);
+    setIsSelected(false);
 
     switch (editMode) {
       case EditMode.CROP:
