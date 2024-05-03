@@ -8,6 +8,14 @@ import Background from './components/Background';
 import icArrDown from './imgs/ic_arrdown@3x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 
+/**
+ * =========================================================================================================
+ * @TODO
+ * zoom in/out 좌표값 재계산
+ * 물체 선택 drag
+ * =========================================================================================================
+ */
+
 const EditMode = {
   STRAIGHT_LINE: 'straightLine',
   INSERT_SQUARE: 'insertSquare',
