@@ -41,6 +41,14 @@
           font-size: 12px;
           width: 50px;
         }
+        &-selection {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:active {
+            background-color: rgba(28, 144, 251, 0.15);
+          }
+        }
         &-line-str {
           background: url('./imgs/ic_edit_line_straight_normal@3x.png') no-repeat center/cover;
           &:active {

@@ -128,7 +128,6 @@ const drawAction = {
 const drawElement = (ctx, elements, isSelected) => {
   elements.forEach((element) => {
     const { editMode, color, width, history } = element;
-    console.debug('editMode:', editMode);
     setLineStyle(ctx, editMode, color, width);
 
     switch (editMode) {
@@ -260,14 +259,17 @@ const calcDistance = (x1, y1, x2, y2, clickX, clickY) => {
   return divide;
 };
 
+//#region ==============================================================================================================
 const ImageViewer = () => {
   const [isSelected, setIsSelected] = useState(false);
+  const [selectOffeset, setSelectOffset] = useState({ x: 100, y: 100 });
+  const [selectStartPosition, setSelectStartPosition] = useState({ x: 0, y: 0 });
 
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
   const [editMode, setEditMode] = useState(EditMode.SELECTOR);
-  // const [elements, setElements] = useState([]);
-  const [elements, setElements] = useState([createElement(100, 100, 200, 200, EditMode.STRAIGHT_LINE)]);
+  const [elements, setElements] = useState([]);
+  // const [elements, setElements] = useState([createElement(100, 100, 200, 200, EditMode.STRAIGHT_LINE)]);
   const [lineColor, setLineColor] = useState('#2c2c2c');
   const [lineDrop, setLineDrop] = useState({
     isOpen: false,
@@ -282,11 +284,32 @@ const ImageViewer = () => {
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
 
+  const getPosition = (event) => {
+    const canvas = canvasRef.current;
+    const { left, top } = canvas.getBoundingClientRect();
+    const { clientX, clientY } = event;
+    const x = clientX - left - selectOffeset.x;
+    const y = clientY - top - selectOffeset.y;
+    return {
+      x,
+      y,
+    };
+  };
+
   useLayoutEffect(() => {
     const canvas = canvasRef.current;
+    const background = backgroundRef.current;
     const ctx = canvas.getContext('2d');
 
+    ctx.save();
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.translate(selectOffeset.x, selectOffeset.y);
+
+    ctx.beginPath();
+    ctx.rect(100, 100, 50, 50);
+    ctx.stroke();
 
     drawElement(ctx, elements, isSelected);
 
@@ -294,7 +317,8 @@ const ImageViewer = () => {
       setLineStyle(ctx, editMode, lineColor, lineDrop.lineWidth);
       drawAction.curve(ctx, currentCurve[0], currentCurve);
     }
-  }, [elements, currentCurve]);
+    ctx.restore();
+  }, [elements, currentCurve, selectOffeset]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -314,11 +338,13 @@ const ImageViewer = () => {
   /** canvas onMouseMove */
   const hanldeMouseMove = (e) => {
     if (!isDrawing) return;
-
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-
+    // const canvas = canvasRef.current;
+    // const rect = canvas.getBoundingClientRect();
+    // // const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
+    // const [x, y] = [e.clientX, e.clientY];
+    const { x, y } = getPosition(e);
+    // console.debug('y:', y);
+    // console.debug('x:', x);
     switch (editMode) {
       case EditMode.FREE_DRAW:
       case EditMode.ERASE:
@@ -328,26 +354,37 @@ const ImageViewer = () => {
       case EditMode.STRAIGHT_LINE:
       case EditMode.INSERT_SQUARE:
         let elementsCopy = [...elements];
-        const { startX, startY, endX, endY } = elementsCopy[elementsCopy.length - 1];
+        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
         elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
         setElements(elementsCopy);
         break;
       case EditMode.SELECTOR:
-        let elementsCopy2 = [...elements];
-        const { startX: x1, startY: y1, endX: x2, endY: y2, distanceX, distanceY, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
+        const deltaX = x - selectStartPosition.x;
+        const deltaY = y - selectStartPosition.y;
+        setSelectOffset({ x: selectOffeset.x + deltaX, y: selectOffeset.y + deltaY });
+        // const container = document.getElementsByClassName('canvas-container');
+        // const children = container[0].childNodes;
 
-        if (isSelected) {
-          const sx = x1 < x ? x1 + (x - x1) : x1 - (x1 - x);
-          const sy = y1 < y ? y1 + (y - y1) : y1 - (y1 - y);
-          const ex = sx + (x2 < x1 ? x1 - x2 : x2 - x1);
-          const ey = sy + (y2 < y1 ? y1 - y2 : y2 - y1);
-          elementsCopy2[elementsCopy2.length - 1] = {
-            ...createElement(sx, sy, ex, ey, oldMode, lineColor, lineDrop.lineWidth, []),
-            distanceX,
-            distanceY,
-          };
-          setElements(elementsCopy2);
-        }
+        // children.forEach((child) => {
+        //   // const ctx = child.getContext('2d');
+        //   // ctx.scale(clampedScale, clampedScale);
+        //   child.style.transform = `scale(${scale}); translate(${x}px,${y}px)`;
+        // });
+        // let elementsCopy2 = [...elements];
+        // const { startX: x1, startY: y1, endX: x2, endY: y2, distanceX, distanceY, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
+
+        // if (isSelected) {
+        //   const sx = x1 < x ? x1 + (x - x1) : x1 - (x1 - x);
+        //   const sy = y1 < y ? y1 + (y - y1) : y1 - (y1 - y);
+        //   const ex = sx + (x2 < x1 ? x1 - x2 : x2 - x1);
+        //   const ey = sy + (y2 < y1 ? y1 - y2 : y2 - y1);
+        //   elementsCopy2[elementsCopy2.length - 1] = {
+        //     ...createElement(sx, sy, ex, ey, oldMode, lineColor, lineDrop.lineWidth, []),
+        //     distanceX,
+        //     distanceY,
+        //   };
+        //   setElements(elementsCopy2);
+        // }
         break;
       default:
         break;
@@ -357,9 +394,7 @@ const ImageViewer = () => {
   /** canvas onMouseDown */
   const handleMouseDown = (e) => {
     setIsDrawing(true);
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
+    const { x, y } = getPosition(e);
 
     switch (editMode) {
       case EditMode.FREE_DRAW:
@@ -372,39 +407,41 @@ const ImageViewer = () => {
         setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
         break;
       case EditMode.SELECTOR:
-        const 오차범위 = 3;
-        console.debug('elements:', elements);
+        setSelectStartPosition({ x, y });
 
-        let copy = [...elements];
-        const idx = copy.findIndex(({ startX, startY, endX, endY, editMode }) => {
-          return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 오차범위;
-        });
-        console.debug('copy:', copy);
+      // const 오차범위 = 3;
+      // console.debug('elements:', elements);
 
-        if (idx !== -1) {
-          copy[idx] = { ...copy[idx], distanceX: x - copy[idx].startX, distanceY: y - copy[idx].startY };
-          console.debug('copy:', copy);
-          setElements(copy);
-          // const { startX, startY, endX, endY } = element;
+      // let copy = [...elements];
+      // const idx = copy.findIndex(({ startX, startY, endX, endY, editMode }) => {
+      //   return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 오차범위;
+      // });
+      // console.debug('copy:', copy);
 
-          // const ctx = canvas.getContext('2d');
-          // setLineStyle(ctx, EditMode.STRAIGHT_LINE, 'red', 3);
+      // if (idx !== -1) {
+      //   copy[idx] = { ...copy[idx], distanceX: x - copy[idx].startX, distanceY: y - copy[idx].startY };
+      //   console.debug('copy:', copy);
+      //   setElements(copy);
+      //   // const { startX, startY, endX, endY } = element;
 
-          // console.log(x, y);
-          // ctx.beginPath();
-          // ctx.moveTo(x, y);
-          // ctx.lineTo(x - (x - startX), y - (y - startY));
-          // ctx.stroke();
-          // // ctx.beginPath();
-          // // ctx.moveTo(x, y);
-          // ctx.moveTo(x, y);
+      //   // const ctx = canvas.getContext('2d');
+      //   // setLineStyle(ctx, EditMode.STRAIGHT_LINE, 'red', 3);
 
-          // ctx.lineTo(x + (endX - x), y + (endY - y));
-          // ctx.stroke();
-          setIsSelected(true);
-        } else {
-          setIsSelected(false);
-        }
+      //   // console.log(x, y);
+      //   // ctx.beginPath();
+      //   // ctx.moveTo(x, y);
+      //   // ctx.lineTo(x - (x - startX), y - (y - startY));
+      //   // ctx.stroke();
+      //   // // ctx.beginPath();
+      //   // // ctx.moveTo(x, y);
+      //   // ctx.moveTo(x, y);
+
+      //   // ctx.lineTo(x + (endX - x), y + (endY - y));
+      //   // ctx.stroke();
+      //   setIsSelected(true);
+      // } else {
+      //   setIsSelected(false);
+      // }
 
       default:
         break;
@@ -415,6 +452,7 @@ const ImageViewer = () => {
   const handleMouseUp = (e) => {
     setIsDrawing(false);
     setIsSelected(false);
+    setSelectStartPosition({ x: 0, y: 0 });
 
     switch (editMode) {
       case EditMode.CROP:
@@ -523,18 +561,23 @@ const ImageViewer = () => {
     const minScale = 0.1;
     const maxScale = 3;
     // 새로운 확대/축소 비율이 최소 및 최대 비율을 벗어나지 않도록 함
-    const clampedScale = Math.min(Math.max(newScale, minScale), maxScale);
+    const clampedScale = Math.min(Math.max(newScale, minScale), maxScale) < 1 ? 1 : Math.min(Math.max(newScale, minScale), maxScale);
     // 확대/축소 비율 적용
 
-    const container = document.getElementsByClassName('canvas-container');
-    const children = container[0].childNodes;
+    // const container = document.getElementsByClassName('canvas-container');
+    // const children = container[0].childNodes;
 
-    children.forEach((child) => {
-      // const ctx = child.getContext('2d');
-      // ctx.scale(clampedScale, clampedScale);
-      child.style.transform = `scale(${clampedScale})`;
-    });
-    setScale(clampedScale);
+    // children.forEach((child) => {
+    //   // const ctx = child.getContext('2d');
+    //   // ctx.scale(clampedScale, clampedScale);
+    //   child.style.transform = `scale(${clampedScale})`;
+    // });
+    const canvas = backgroundRef.current;
+    const ctx = canvas.getContext('2d');
+    console.debug('ctx:', ctx);
+
+    // setScale(clampedScale);
+    ctx.setTransform(scale, 0, 0, scale, selectOffeset.x, selectOffeset.y);
   };
 
   //#endregion
@@ -551,12 +594,14 @@ const ImageViewer = () => {
               초기화
             </button>
             <button
-              className='btn-line-str'
+              className='btn-selection'
               data-for='btnTooltip'
               data-tip='선택'
               onClick={() => {
                 handleChangeMode(EditMode.SELECTOR);
-              }}></button>
+              }}>
+              ✋
+            </button>
             <button
               className='btn-line-str'
               data-for='btnTooltip'
@@ -744,10 +789,21 @@ const ImageViewer = () => {
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
         />
+        <canvas
+          className={`canvas_background`}
+          ref={backgroundRef}
+          width={window.innerWidth}
+          height={window.innerHeight}
+          //   onMouseMove={hanldeMouseMove}
+          //   onMouseDown={handleMouseDown}
+          //   onMouseUp={handleMouseUp}
+        />
         <Background backgroundRef={backgroundRef} />
       </div>
     </>
   );
 };
+
+//#endregion ==============================================================================================================
 
 export default ImageViewer;
