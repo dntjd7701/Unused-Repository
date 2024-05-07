@@ -2,7 +2,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 /** components */
-// import Background from './components/Background';
 
 /** imgs */
 import icArrDown from './imgs/ic_arrdown@3x.png';
@@ -15,23 +14,6 @@ import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
  * 물체 선택 drag
  * =========================================================================================================
  */
-
-const EditMode = {
-  STRAIGHT_LINE: 'straightLine',
-  INSERT_SQUARE: 'insertSquare',
-  FREE_DRAW: 'freeDraw',
-  CROP: 'crop',
-  ERASE: 'erase',
-  SELECTOR: 'selector',
-  // IMAGE: 'image',
-  // INSERT_CIRCLE: 'insertCircle',
-  // INSERT_TRIANGLE: 'inserTriangle',
-  // LEFT_ROTATE: 'left',
-  // RIGHT_ROTATE: 'right',
-  // MEASURE: 'measure',
-  // COMPARE: 'compare',
-  // DEFAULT: 'default',
-};
 
 /**
  * window event listener hook
@@ -50,15 +32,29 @@ const useWindowEventListener = (type, listener, options) => {
 
 //#region ==============================================================================================================
 const ImageViewer = () => {
-  const [isSelected, setIsSelected] = useState(false);
+  const EditMode = {
+    STRAIGHT_LINE: 'straightLine',
+    INSERT_SQUARE: 'insertSquare',
+    FREE_DRAW: 'freeDraw',
+    CROP: 'crop',
+    ERASE: 'erase',
+    SELECTOR: 'selector',
+    DEFAULT: 'insertSquare',
+  };
+
+  const MouseAction = {
+    MOVE: 'move',
+    DOWN: 'down',
+    UP: 'up',
+  };
+
   const [selectOffeset, setSelectOffset] = useState({ x: 0, y: 0 });
   const [selectStartPosition, setSelectStartPosition] = useState({ x: 0, y: 0 });
 
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
-  const [editMode, setEditMode] = useState(EditMode.SELECTOR);
+  const [editMode, setEditMode] = useState(EditMode.DEFAULT);
   const [elements, setElements] = useState([]);
-  // const [elements, setElements] = useState([createElement(100, 100, 200, 200, EditMode.STRAIGHT_LINE)]);
   const [lineColor, setLineColor] = useState('#2c2c2c');
   const [lineDrop, setLineDrop] = useState({
     isOpen: false,
@@ -66,7 +62,6 @@ const ImageViewer = () => {
     lineWidthImgTag: <span className='line-2 line'></span>,
   });
   const [currentCurve, setCurrentCurve] = useState([]);
-  const [scale, setScale] = useState(1);
 
   /** useRef */
   const canvasRef = useRef(null);
@@ -80,11 +75,9 @@ const ImageViewer = () => {
     const { left, top } = canvas.getBoundingClientRect();
     const { clientX, clientY } = event;
 
-    const x = clientX - left - selectOffeset.x;
-    const y = clientY - top - selectOffeset.y;
     return {
-      x,
-      y,
+      x: clientX - left - selectOffeset.x,
+      y: clientY - top - selectOffeset.y,
     };
   };
 
@@ -94,29 +87,26 @@ const ImageViewer = () => {
    * @param {number} startY
    * @param {number} endX
    * @param {number} endY
-   * @param {string<EditMode>} editMode
-   * @param {string} color
-   * @param {number} width
-   * @param {object[]} history
+   * @param {object[]} history-곡선 pos
    * @returns {object} element
    */
-  const createElement = (startX, startY, endX, endY, editMode, color, width, history, distanceX, distanceY) => {
-    return { startX, startY, endX, endY, editMode, color, width, history, distanceX, distanceY };
+  const createElement = (startX, startY, endX, endY, history, distanceX, distanceY) => {
+    return { startX, startY, endX, endY, editMode, color: lineColor, width: lineDrop.lineWidth, history, distanceX, distanceY };
   };
 
   /**
    * 선의 기본 디자인 설정
    * @param {object} ctx
-   * @param {string} editMode
+   * @param {string} mode
    * @param {string} strokeStyle
    * @param {number} width
    * @param {number[]} lineDash
    */
-  const setLineStyle = (ctx, editMode, strokeStyle, width, lineDash = []) => {
+  const setLineStyle = (ctx, mode = editMode, strokeStyle = lineColor, width = lineDrop.lineWidth) => {
     ctx.lineCap = 'round';
     ctx.setLineDash([]);
 
-    switch (editMode) {
+    switch (mode) {
       case EditMode.CROP:
         ctx.strokeStyle = 'blue';
         ctx.lineWidth = 1;
@@ -165,23 +155,12 @@ const ImageViewer = () => {
    * @param {string} lineColor
    * @param {number} lineWidth
    */
-  const drawElement = (ctx, elements, isSelected) => {
+  const drawElement = (ctx, elements) => {
     elements.forEach((element) => {
       const { editMode, color, width, history } = element;
       setLineStyle(ctx, editMode, color, width);
-
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
-          if (isSelected) {
-            setLineStyle(ctx, editMode, 'red', 3);
-            ctx.beginPath();
-            ctx.moveTo(element.startX, element.startY);
-            ctx.lineTo(element.startX - element.distanceX, element.startY - element.distanceY);
-            ctx.moveTo(element.startX, element.startY);
-            ctx.lineTo(element.endX - element.distanceX, element.endY - element.distanceY);
-            ctx.stroke();
-            return;
-          }
           drawAction.line(ctx, element);
           break;
         case EditMode.FREE_DRAW:
@@ -238,33 +217,6 @@ const ImageViewer = () => {
     return newImageData;
   };
 
-  /**
-   * @param {object[]} elements
-   * @param {React.ref} canvasRef
-   * @param {function} callback
-   *
-   * @TODO
-   * 현재, background(이미지) 에 대해서만 크롭 기능 활성화, 이미 그려진 element에 대해서도 crop할 수 있또록
-   * merge 필요
-   */
-  const cropImage = (elements, canvasRef, callback) => {
-    // 크롭 박스 제거
-    const elementsCopy = [...elements];
-    const { startX, startY, endX, endY } = elementsCopy.pop();
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    // 현재 이미지 데이터 가져오기
-    const imageData = ctx.getImageData(startX, startY, endX - startX, endY - startY);
-    const newImageData = copyImage(imageData, canvas.width, canvas.height);
-
-    // 변경된 이미지 데이터를 캔버스에 그리기
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(newImageData, 0, 0);
-    callback();
-  };
-
   /** 나누어진 canvas 합치기 */
   const getMergedCanvas = (elements) => {
     // 캔버스 합치기용 캔버스 생성
@@ -281,22 +233,113 @@ const ImageViewer = () => {
     // 각 캔버스의 이미지 데이터를 합친 캔버스에 그리기
     children.forEach((canvas) => {
       mergedCtx.drawImage(canvas, 0, 0);
-
       drawElement(mergedCtx, elements);
     });
 
     return mergedCanvas;
   };
 
-  const calcDistance = (x1, y1, x2, y2, clickX, clickY) => {
-    const m = (y2 - y1) / (x2 - x1); // 기울기
-    const b = y2 - m * x2;
-    // y = mx + b
-    // mx + b - y = 0
-    const sqrt = Math.sqrt(m * m + 1);
+  /**
+   * @param {object[]} elements
+   * @param {React.ref} canvasRef
+   * @param {function} callback
+   *
+   * @TODO
+   * 현재, background(이미지) 에 대해서만 크롭 기능 활성화, 이미 그려진 element에 대해서도 crop할 수 있또록
+   * merge 필요
+   */
+  const cropImage = (elements, canvasRef, callback) => {
+    // 크롭 박스 제거
+    const elementsCopy = [...elements];
+    const { startX, startY, endX, endY } = elementsCopy.pop();
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const mergedCanvas = getMergedCanvas(elements);
+    const mergedCtx = mergedCanvas.getContext('2d');
 
-    const divide = (m * clickX + b - clickY) / sqrt;
-    return divide;
+    // 현재 이미지 데이터 가져오기
+    const imageData = mergedCtx.getImageData(startX, startY, endX - startX, endY - startY);
+    const newImageData = copyImage(imageData, mergedCtx.width, mergedCtx.height);
+
+    // 변경된 이미지 데이터를 캔버스에 그리기
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.putImageData(newImageData, 0, 0);
+    callback();
+  };
+
+  const mouseDownAction = (e) => {
+    const { x, y } = getPosition(e);
+
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
+        setElements((prevState) => [...prevState, createElement(x, y, x, y)]);
+        break;
+
+      case EditMode.SELECTOR:
+        setSelectStartPosition({ x, y });
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const mouseUpAction = (e) => {
+    switch (editMode) {
+      case EditMode.CROP:
+        cropImage(elements, backgroundRef, () => {
+          setElements([]);
+          handleChangeMode(EditMode.DEFAULT);
+        });
+        break;
+
+      case EditMode.FREE_DRAW:
+        setCurrentCurve([]);
+        setElements((prevState) => [...prevState, createElement(null, null, null, null, currentCurve)]);
+        break;
+
+      case EditMode.ERASE:
+        setCurrentCurve([]);
+        setElements((prevState) => [...prevState, createElement(null, null, null, null, currentCurve)]);
+        handleChangeMode(EditMode.DEFAULT);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  const mouseMoveAction = (e) => {
+    const { x, y } = getPosition(e);
+
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
+        let elementsCopy = [...elements];
+        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y);
+        setElements(elementsCopy);
+        break;
+      case EditMode.SELECTOR:
+        const deltaX = x - selectStartPosition.x;
+        const deltaY = y - selectStartPosition.y;
+        setSelectOffset({ x: selectOffeset.x + deltaX, y: selectOffeset.y + deltaY });
+        break;
+      default:
+        break;
+    }
   };
   //#endregion
 
@@ -321,15 +364,17 @@ const ImageViewer = () => {
 
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.setTransform(scale, 0, 0, scale, selectOffeset.x, selectOffeset.y);
+    ctx.setTransform(1, 0, 0, 1, selectOffeset.x, selectOffeset.y);
 
-    drawElement(ctx, elements, isSelected);
+    drawElement(ctx, elements);
+
     if (currentCurve.length > 0) {
-      setLineStyle(ctx, editMode, lineColor, lineDrop.lineWidth);
+      setLineStyle(ctx);
       drawAction.curve(ctx, currentCurve[0], currentCurve);
     }
+
     ctx.restore();
-  }, [elements, currentCurve, selectOffeset, scale]);
+  }, [elements, currentCurve, selectOffeset]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -349,155 +394,24 @@ const ImageViewer = () => {
   /** canvas onMouseMove */
   const hanldeMouseMove = (e) => {
     if (!isDrawing) return;
-    // const canvas = canvasRef.current;
-    // const rect = canvas.getBoundingClientRect();
-    // // const [x, y] = [e.clientX - rect.left, e.clientY - rect.top];
-    // const [x, y] = [e.clientX, e.clientY];
-    const { x, y } = getPosition(e);
-    // console.debug('y:', y);
-    // console.debug('x:', x);
-    switch (editMode) {
-      case EditMode.FREE_DRAW:
-      case EditMode.ERASE:
-        setCurrentCurve((prevState) => [...prevState, { x, y }]);
-        break;
-      case EditMode.CROP:
-      case EditMode.STRAIGHT_LINE:
-      case EditMode.INSERT_SQUARE:
-        let elementsCopy = [...elements];
-        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y, editMode, lineColor, lineDrop.lineWidth);
-        setElements(elementsCopy);
-        break;
-      case EditMode.SELECTOR:
-        const background = backgroundRef.current;
-        const ctx2 = background.getContext('2d');
-
-        ctx2.reset();
-        ctx2.setTransform(scale, 0, 0, scale, selectOffeset.x, selectOffeset.y);
-        ctx2.drawImage(img, 0, 0, background.width, background.height);
-
-        const deltaX = x - selectStartPosition.x;
-        const deltaY = y - selectStartPosition.y;
-        setSelectOffset({ x: selectOffeset.x + deltaX, y: selectOffeset.y + deltaY });
-
-        // const container = document.getElementsByClassName('canvas-container');
-        // const children = container[0].childNodes;
-
-        // children.forEach((child) => {
-        //   // const ctx = child.getContext('2d');
-        //   // ctx.scale(clampedScale, clampedScale);
-        //   child.style.transform = `scale(${scale}); translate(${x}px,${y}px)`;
-        // });
-        // let elementsCopy2 = [...elements];
-        // const { startX: x1, startY: y1, endX: x2, endY: y2, distanceX, distanceY, editMode: oldMode } = elementsCopy2[elementsCopy2.length - 1];
-
-        // if (isSelected) {
-        //   const sx = x1 < x ? x1 + (x - x1) : x1 - (x1 - x);
-        //   const sy = y1 < y ? y1 + (y - y1) : y1 - (y1 - y);
-        //   const ex = sx + (x2 < x1 ? x1 - x2 : x2 - x1);
-        //   const ey = sy + (y2 < y1 ? y1 - y2 : y2 - y1);
-        //   elementsCopy2[elementsCopy2.length - 1] = {
-        //     ...createElement(sx, sy, ex, ey, oldMode, lineColor, lineDrop.lineWidth, []),
-        //     distanceX,
-        //     distanceY,
-        //   };
-        //   setElements(elementsCopy2);
-        // }
-        break;
-      default:
-        break;
-    }
+    mouseMoveAction(e);
   };
 
   /** canvas onMouseDown */
   const handleMouseDown = (e) => {
     setIsDrawing(true);
-    const { x, y } = getPosition(e);
-
-    switch (editMode) {
-      case EditMode.FREE_DRAW:
-      case EditMode.ERASE:
-        setCurrentCurve((prevState) => [...prevState, { x, y }]);
-        break;
-      case EditMode.CROP:
-      case EditMode.STRAIGHT_LINE:
-      case EditMode.INSERT_SQUARE:
-        setElements((prevState) => [...prevState, createElement(x, y, x, y, editMode, lineColor, lineDrop.lineWidth)]);
-        break;
-      case EditMode.SELECTOR:
-        setSelectStartPosition({ x, y });
-
-      // const 오차범위 = 3;
-      // console.debug('elements:', elements);
-
-      // let copy = [...elements];
-      // const idx = copy.findIndex(({ startX, startY, endX, endY, editMode }) => {
-      //   return editMode === EditMode.STRAIGHT_LINE && Math.abs(calcDistance(startX, startY, endX, endY, x, y)) <= 오차범위;
-      // });
-      // console.debug('copy:', copy);
-
-      // if (idx !== -1) {
-      //   copy[idx] = { ...copy[idx], distanceX: x - copy[idx].startX, distanceY: y - copy[idx].startY };
-      //   console.debug('copy:', copy);
-      //   setElements(copy);
-      //   // const { startX, startY, endX, endY } = element;
-
-      //   // const ctx = canvas.getContext('2d');
-      //   // setLineStyle(ctx, EditMode.STRAIGHT_LINE, 'red', 3);
-
-      //   // console.log(x, y);
-      //   // ctx.beginPath();
-      //   // ctx.moveTo(x, y);
-      //   // ctx.lineTo(x - (x - startX), y - (y - startY));
-      //   // ctx.stroke();
-      //   // // ctx.beginPath();
-      //   // // ctx.moveTo(x, y);
-      //   // ctx.moveTo(x, y);
-
-      //   // ctx.lineTo(x + (endX - x), y + (endY - y));
-      //   // ctx.stroke();
-      //   setIsSelected(true);
-      // } else {
-      //   setIsSelected(false);
-      // }
-
-      default:
-        break;
-    }
+    mouseDownAction(e);
   };
 
   /** canvas onMouseUp */
   const handleMouseUp = (e) => {
     setIsDrawing(false);
-    setIsSelected(false);
     setSelectStartPosition({ x: 0, y: 0 });
-
-    switch (editMode) {
-      case EditMode.CROP:
-        cropImage(elements, backgroundRef, () => {
-          setElements([]);
-          handleChangeMode(EditMode.FREE_DRAW);
-        });
-        break;
-      case EditMode.FREE_DRAW:
-        setCurrentCurve([]);
-        setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, lineColor, lineDrop.lineWidth, currentCurve)]);
-        break;
-      case EditMode.ERASE:
-        setCurrentCurve([]);
-        setElements((prevState) => [...prevState, createElement(null, null, null, null, editMode, 'white', lineDrop.lineWidth, currentCurve)]);
-        handleChangeMode(EditMode.FREE_DRAW);
-        break;
-      default:
-        break;
-    }
+    mouseUpAction(e);
   };
 
   /** 선 색상 변경 */
-  const handleColorPickerChange = (e) => {
-    setLineColor(e.target.value);
-  };
+  const handleColorPickerChange = (e) => setLineColor(e.target.value);
 
   /** Undo - elements 제거 */
   const handleUndo = () => {
@@ -571,50 +485,7 @@ const ImageViewer = () => {
   };
 
   /** 줌 휠 */
-  const handleWheel = (e) => {
-    // const { offsetX, offsetY } = e.nativeEvent;
-    // e.preventDefault();
-    // const xs = (offsetX - selectOffeset.x) / scale;
-    // const ys = (offsetY - selectOffeset.y) / scale;
-    // const delta = -e.deltaY;
-    // const newScale = delta > 0 ? scale * 1.2 : scale / 1.2;
-    // if (newScale >= 1 && newScale <= 3) {
-    //   // const background = backgroundRef.current;
-    //   // const ctx2 = background.getContext('2d');
-    //   // ctx2.reset();
-    //   // ctx2.setTransform(newScale, 0, 0, newScale, offsetX - xs * scale, offsetY - ys * scale);
-    //   // ctx2.scale(scale, scale);
-    //   // ctx2.drawImage(img, 0, 0, background.width, background.height);
-    //   setScale(newScale);
-    //   setSelectOffset({
-    //     x: offsetX - xs * scale,
-    //     y: offsetY - ys * scale,
-    //   });
-    // }
-    // const zoomSpeed = 0.1; // 조절 가능한 확대/축소 속도
-    // // 마우스 휠 방향에 따라 확대 또는 축소
-    // const newScale = e.deltaY > 0 ? scale - zoomSpeed : scale + zoomSpeed;
-    // // 최소 및 최대 확대/축소 비율 지정
-    // const minScale = 0.1;
-    // const maxScale = 3;
-    // // 새로운 확대/축소 비율이 최소 및 최대 비율을 벗어나지 않도록 함
-    // const clampedScale = Math.min(Math.max(newScale, minScale), maxScale) < 1 ? 1 : Math.min(Math.max(newScale, minScale), maxScale);
-    // 확대/축소 비율 적용
-    // const container = document.getElementsByClassName('canvas-container');
-    // const children = container[0].childNodes;
-    // children.forEach((child) => {
-    //   // const ctx = child.getContext('2d');
-    //   // ctx.scale(clampedScale, clampedScale);
-    //   child.style.transform = `scale(${clampedScale})`;
-    // });
-    // const background = backgroundRef.current;
-    // const ctx2 = background.getContext('2d');
-    // ctx2.reset();
-    // ctx2.setTransform(clampedScale, 0, 0, clampedScale, selectOffeset.x, selectOffeset.y);
-    // ctx2.drawImage(img, 0, 0, background.width, background.height);
-    // ctx.setTransform(scale, 0, 0, scale, selectOffeset.x, selectOffeset.y);
-    // setScale(clampedScale);
-  };
+  const handleWheel = (e) => {};
 
   //#endregion
 
@@ -673,38 +544,6 @@ const ImageViewer = () => {
               onClick={(e) => {
                 handleChangeMode(EditMode.ERASE);
               }}></button>
-            {/* <button
-            className='btn-circle'
-            data-for='btnTooltip'
-            data-tip='원'
-            //   onClick={(e) => handleChangeEditMode(EditMode.INSERT_CIRCLE)}
-          ></button>
-          <button
-            className='btn-triangle'
-            data-for='btnTooltip'
-            data-tip='삼각형'
-            // onClick={(e) => handleChangeEditMode(EditMode.INSERT_TRIANGLE)}
-          ></button>
-       
-          <button
-            className='btn-lotate-left'
-            data-for='btnTooltip'
-            data-tip='좌회전'
-            //   onClick={(e) => rotate(EditMode.LEFT_ROTATE)}
-          ></button>
-          <button
-            className='btn-lotate-right'
-            data-for='btnTooltip'
-            data-tip='우회전'
-            //   onClick={(e) => rotate(EditMode.RIGHT_ROTATE)}
-          ></button> */}
-
-            {/* <button
-            className='btn-ruler'
-            //   onClick={(e) => handleChangeEditMode(EditMode.MEASURE)}
-          >
-            측정<span></span>
-          </button> */}
             <button className='btn-color'>
               선 색상
               <input
@@ -715,31 +554,6 @@ const ImageViewer = () => {
                 onChange={handleColorPickerChange}
               />
             </button>
-            {/* <button className='btn-color'> */}
-            {/* 채우기 */}
-            {/* <span
-              className='colorPicker'
-              onClick={(e) => {
-                // setFillColor((prevFillColor) => ({
-                //   ...prevFillColor,
-                //   isOpen: !prevFillColor.isOpen,
-                // }));
-              }}
-            >
-              <em style={{ backgroundColor: fillColor.color }}></em>
-              <img src={icArrDown} alt='' />
-              {fillColor.isOpen && (
-                <OBTColorPicker
-                  value={fillColor.color}
-                  onChange={(e) => {
-                    setFillColor({
-                      isOpen: false,
-                      color: e.value.hex,
-                    });
-                  }}
-                />
-              )}
-            </span> */}
             <button className='btn-line-bold'>
               선 굵기
               <div className='drop-list-wrap'>
@@ -797,17 +611,13 @@ const ImageViewer = () => {
             </button>
             <div>
               <button>-</button>
-              <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format(scale)}</span>
+              {/* <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format()}</span> */}
               <button
                 onClick={() => {
                   console.log('clicked!');
                 }}>
                 +
               </button>
-            </div>
-            <div className='flex-end'>
-              {/* <OBTButton imageUrl={icPrint} width='27px' height='27px' onClick={handlePrint} />
-          <OBTButton imageUrl={icDownload} width='27px' height='27px' onClick={() => saveImage('compare')} /> */}
             </div>
           </div>
         </div>
@@ -834,7 +644,6 @@ const ImageViewer = () => {
           //   onMouseDown={handleMouseDown}
           //   onMouseUp={handleMouseUp}
         />
-        {/* <Background backgroundRef={backgroundRef} /> */}
       </div>
     </>
   );
