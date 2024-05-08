@@ -116,7 +116,7 @@ const ImageViewer = () => {
     switch (mode) {
       case EditMode.CROP:
         ctx.strokeStyle = 'blue';
-        ctx.lineWidth = 1 / scale;
+        ctx.lineWidth = 3 / scale;
         ctx.setLineDash([4, 16]);
         break;
       case EditMode.ERASE:
@@ -469,7 +469,6 @@ const ImageViewer = () => {
     const image = e.target.files[0];
     const ctx = canvas.getContext('2d');
 
-    // const img = new Image();
     img.onload = () => {
       // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
       // const scaledWidth = img.width * scaleFactor;
