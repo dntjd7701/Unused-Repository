@@ -385,7 +385,7 @@ const ImageViewer = () => {
     backgroundCtx.reset();
     backgroundCtx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
     backgroundCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  }, [elements, currentCurve, viewPosOffset, scale]);
+  }, [elements, currentCurve, viewPosOffset, scale, img]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -468,7 +468,9 @@ const ImageViewer = () => {
     const canvas = backgroundRef.current;
     const image = e.target.files[0];
     const ctx = canvas.getContext('2d');
-
+    setScale(1);
+    setViewPosOffset({ x: 0, y: 0 });
+    setScaleOffset({ x: 0, y: 0 });
     img.onload = () => {
       // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
       // const scaledWidth = img.width * scaleFactor;
