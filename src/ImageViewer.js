@@ -30,6 +30,8 @@ const useWindowEventListener = (type, listener, options) => {
   }, [type, listener, options]);
 };
 
+let img = new Image();
+
 //#region ==============================================================================================================
 const ImageViewer = () => {
   const EditMode = {
@@ -42,15 +44,6 @@ const ImageViewer = () => {
     DEFAULT: 'insertSquare',
   };
 
-  const MouseAction = {
-    MOVE: 'move',
-    DOWN: 'down',
-    UP: 'up',
-  };
-
-  const [selectOffeset, setSelectOffset] = useState({ x: 0, y: 0 });
-  const [selectStartPosition, setSelectStartPosition] = useState({ x: 0, y: 0 });
-
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
   const [editMode, setEditMode] = useState(EditMode.DEFAULT);
@@ -62,22 +55,36 @@ const ImageViewer = () => {
     lineWidthImgTag: <span className='line-2 line'></span>,
   });
   const [currentCurve, setCurrentCurve] = useState([]);
+  const [viewPosOffset, setViewPosOffset] = useState({ x: 0, y: 0 });
+  const [startViewPosOffset, setStartViewPosOffset] = useState({ x: 0, y: 0 });
+  const [scale, setScale] = useState(1);
+  const [scaleOffset, setScaleOffset] = useState({ x: 0, y: 0 });
 
   /** useRef */
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
-  const img = new Image();
+  const cropImgRef = useRef(null);
 
-  //#region 사용자 정의 함수
+  //#region 사용자 정의 함수 ============================================================================================================
   const getPosition = (event) => {
     const canvas = canvasRef.current;
     const { left, top } = canvas.getBoundingClientRect();
     const { clientX, clientY } = event;
+    /**
+     * client: 마우스 이벤트 발생 위치(브라우저 왼쪽 상단 기준)
+     * getBoundingClientRect: 뷰포트에 대한 상대적인 위치
+     * clientX - left: 마우스 이벤트가 발생한 클라이언트 좌표에서 캔버스 요소의 왼쪽 상단의 뷰포트에 대한 상대적인 위치를 뺀다. 이렇게 하면 마우스 이벤트가 발생한 지점이 캔버스 요소 내에서의 상대적인 위치를 구할 수 있다.
+     *
+     */
 
+    const x = (clientX - left - (viewPosOffset.x * scale - scaleOffset.x)) / scale;
+    const y = (clientY - top - (viewPosOffset.y * scale - scaleOffset.y)) / scale;
     return {
-      x: clientX - left - selectOffeset.x,
-      y: clientY - top - selectOffeset.y,
+      // x: (clientX - left) / scale + scaleOffset.x - viewPosOffset.x,
+      // y: (clientY - top) / scale + scaleOffset.y - viewPosOffset.y,
+      x,
+      y,
     };
   };
 
@@ -109,16 +116,16 @@ const ImageViewer = () => {
     switch (mode) {
       case EditMode.CROP:
         ctx.strokeStyle = 'blue';
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1 / scale;
         ctx.setLineDash([4, 16]);
         break;
       case EditMode.ERASE:
         ctx.strokeStyle = 'white';
-        ctx.lineWidth = 15;
+        ctx.lineWidth = 15 / scale;
         break;
       default:
         ctx.strokeStyle = strokeStyle;
-        ctx.lineWidth = width;
+        ctx.lineWidth = width / scale;
         break;
     }
   };
@@ -159,6 +166,7 @@ const ImageViewer = () => {
     elements.forEach((element) => {
       const { editMode, color, width, history } = element;
       setLineStyle(ctx, editMode, color, width);
+
       switch (editMode) {
         case EditMode.STRAIGHT_LINE:
           drawAction.line(ctx, element);
@@ -253,18 +261,16 @@ const ImageViewer = () => {
     const elementsCopy = [...elements];
     const { startX, startY, endX, endY } = elementsCopy.pop();
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const mergedCanvas = getMergedCanvas(elements);
+    // const ctx = canvas.getContext('2d');
+    const mergedCanvas = getMergedCanvas(elementsCopy);
     const mergedCtx = mergedCanvas.getContext('2d');
 
     // 현재 이미지 데이터 가져오기
     const imageData = mergedCtx.getImageData(startX, startY, endX - startX, endY - startY);
-    const newImageData = copyImage(imageData, mergedCtx.width, mergedCtx.height);
-
-    // 변경된 이미지 데이터를 캔버스에 그리기
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.putImageData(newImageData, 0, 0);
-    callback();
+    const newImageData = copyImage(imageData, canvas.width, canvas.height);
+    cropImgRef.current = newImageData;
+    img = new Image();
+    handleChangeMode(EditMode.DEFAULT);
   };
 
   const mouseDownAction = (e) => {
@@ -276,6 +282,8 @@ const ImageViewer = () => {
         setCurrentCurve((prevState) => [...prevState, { x, y }]);
         break;
 
+      // cropRect.current = createElement(x, y, x, y);
+      // break;
       case EditMode.CROP:
       case EditMode.STRAIGHT_LINE:
       case EditMode.INSERT_SQUARE:
@@ -283,9 +291,45 @@ const ImageViewer = () => {
         break;
 
       case EditMode.SELECTOR:
-        setSelectStartPosition({ x, y });
+        setStartViewPosOffset({ x, y });
         break;
 
+      default:
+        break;
+    }
+  };
+
+  const mouseMoveAction = (e) => {
+    const { x, y } = getPosition(e);
+
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+      // const ctx = canvasRef.current.getContext('2d');
+      // setLineStyle(ctx);
+      // drawAction.square(ctx, {
+      //   startX: cropRect.current.startX,
+      //   startY: cropRect.current.startY,
+      //   endX: x,
+      //   endY: y,
+      // });
+
+      // break;
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
+        let elementsCopy = [...elements];
+        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y);
+        setElements(elementsCopy);
+        break;
+      case EditMode.SELECTOR:
+        const deltaX = x - startViewPosOffset.x;
+        const deltaY = y - startViewPosOffset.y;
+        setViewPosOffset({ x: viewPosOffset.x + deltaX, y: viewPosOffset.y + deltaY });
+        break;
       default:
         break;
     }
@@ -294,10 +338,25 @@ const ImageViewer = () => {
   const mouseUpAction = (e) => {
     switch (editMode) {
       case EditMode.CROP:
-        cropImage(elements, backgroundRef, () => {
-          setElements([]);
-          handleChangeMode(EditMode.DEFAULT);
-        });
+        // const cropedImageUrl = cropImage(elements, backgroundRef);
+        // img.src = cropedImageUrl;
+        // setElements([]);
+        // handleChangeMode(EditMode.DEFAULT);
+        // img.onload = () => {
+        //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
+        //   // const scaledWidth = img.width * scaleFactor;
+        //   // const scaledHeight = img.height * scaleFactor;
+        //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        // };
+        // img.src = imageDataURL;
+        // // // // 변경된 이미지 데이터를 캔버스에 그리기
+        // // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // // ctx.reset();
+        // // // ctx.putImageData(newImageData, 0, 0);
+        // callback();
+
+        cropImage(elements, backgroundRef);
+
         break;
 
       case EditMode.FREE_DRAW:
@@ -316,32 +375,7 @@ const ImageViewer = () => {
     }
   };
 
-  const mouseMoveAction = (e) => {
-    const { x, y } = getPosition(e);
-
-    switch (editMode) {
-      case EditMode.FREE_DRAW:
-      case EditMode.ERASE:
-        setCurrentCurve((prevState) => [...prevState, { x, y }]);
-        break;
-      case EditMode.CROP:
-      case EditMode.STRAIGHT_LINE:
-      case EditMode.INSERT_SQUARE:
-        let elementsCopy = [...elements];
-        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y);
-        setElements(elementsCopy);
-        break;
-      case EditMode.SELECTOR:
-        const deltaX = x - selectStartPosition.x;
-        const deltaY = y - selectStartPosition.y;
-        setSelectOffset({ x: selectOffeset.x + deltaX, y: selectOffeset.y + deltaY });
-        break;
-      default:
-        break;
-    }
-  };
-  //#endregion
+  //#endregion ============================================================================================================
 
   // useEffect(() => {
   //   const addr =
@@ -362,19 +396,32 @@ const ImageViewer = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
+    const scaleOffsetX = (canvas.width * scale - canvas.width) / 2;
+    const scaleOffsetY = (canvas.height * scale - canvas.height) / 2;
+    setScaleOffset({ x: scaleOffsetX, y: scaleOffsetY });
+
     ctx.save();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.setTransform(1, 0, 0, 1, selectOffeset.x, selectOffeset.y);
+    ctx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
 
     drawElement(ctx, elements);
-
     if (currentCurve.length > 0) {
       setLineStyle(ctx);
       drawAction.curve(ctx, currentCurve[0], currentCurve);
     }
-
     ctx.restore();
-  }, [elements, currentCurve, selectOffeset]);
+
+    const backgroundCanvas = backgroundRef.current;
+    const backgroundCtx = backgroundCanvas.getContext('2d');
+
+    backgroundCtx.reset();
+    backgroundCtx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
+    if (cropImgRef.current) {
+      ctx.putImageData(cropImgRef.current, 0, 0);
+    } else {
+      backgroundCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
+  }, [elements, currentCurve, viewPosOffset, scale]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -389,6 +436,11 @@ const ImageViewer = () => {
     const ctx = canvas.getContext('2d');
     ctx.reset();
     setElements([]);
+    setScale(1);
+    setViewPosOffset({ x: 0, y: 0 });
+    setScaleOffset({ x: 0, y: 0 });
+    cropImgRef.current = null;
+    img = new Image();
   };
 
   /** canvas onMouseMove */
@@ -406,7 +458,7 @@ const ImageViewer = () => {
   /** canvas onMouseUp */
   const handleMouseUp = (e) => {
     setIsDrawing(false);
-    setSelectStartPosition({ x: 0, y: 0 });
+    setStartViewPosOffset({ x: 0, y: 0 });
     mouseUpAction(e);
   };
 
@@ -485,7 +537,42 @@ const ImageViewer = () => {
   };
 
   /** 줌 휠 */
-  const handleWheel = (e) => {};
+  const handleWheel = (e) => setScale((prevState) => (e.deltaY > 0 ? Math.min(prevState + 0.1, 2) : Math.max(prevState - 0.1, 0.1)));
+
+  // const handleWheel = (e) => {
+  //   const { offsetX, offsetY } = e.nativeEvent;
+  //   e.preventDefault();
+  //   const xs = (offsetX - viewPosRef.current.x) / scaleRef.current;
+  //   const ys = (offsetY - viewPosRef.current.y) / scaleRef.current;
+  //   const delta = -e.deltaY;
+  //   const newScale = delta > 0 ? scaleRef.current * 1.2 : scaleRef.current / 1.2;
+
+  //   if (newScale >= MIN_SCALE && newScale <= MAX_SCALE) {
+  //     scaleRef.current = newScale;
+  //     viewPosRef.current = {
+  //       x: offsetX - xs * scaleRef.current,
+  //       y: offsetY - ys * scaleRef.current,
+  //     };
+  //   }
+  //   draw();
+  // };
+  // const handleWheel = (e) => {
+  //   const { offsetX, offsetY } = e.nativeEvent;
+  //   e.preventDefault();
+  //   const xs = (offsetX - viewPosRef.current.x) / scaleRef.current;
+  //   const ys = (offsetY - viewPosRef.current.y) / scaleRef.current;
+  //   const delta = -e.deltaY;
+  //   const newScale = delta > 0 ? scaleRef.current * 1.2 : scaleRef.current / 1.2;
+
+  //   if (newScale >= MIN_SCALE && newScale <= MAX_SCALE) {
+  //     scaleRef.current = newScale;
+  //     viewPosRef.current = {
+  //       x: offsetX - xs * scaleRef.current,
+  //       y: offsetY - ys * scaleRef.current,
+  //     };
+  //   }
+  //   draw();
+  // };
 
   //#endregion
 
@@ -611,7 +698,7 @@ const ImageViewer = () => {
             </button>
             <div>
               <button>-</button>
-              {/* <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format()}</span> */}
+              <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format(scale)}</span>
               <button
                 onClick={() => {
                   console.log('clicked!');
