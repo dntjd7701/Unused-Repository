@@ -64,7 +64,6 @@ const ImageViewer = () => {
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
-  const cropImgRef = useRef(null);
 
   //#region 사용자 정의 함수 ============================================================================================================
   const getPosition = (event) => {
@@ -385,7 +384,7 @@ const ImageViewer = () => {
     backgroundCtx.reset();
     backgroundCtx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
     backgroundCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  }, [elements, currentCurve, viewPosOffset, scale, img]);
+  }, [elements, currentCurve, viewPosOffset, scale]);
 
   /** custom hook */
   useWindowEventListener('keydown', (e) => {
@@ -403,8 +402,8 @@ const ImageViewer = () => {
     setScale(1);
     setViewPosOffset({ x: 0, y: 0 });
     setScaleOffset({ x: 0, y: 0 });
-    cropImgRef.current = null;
-    img = new Image();
+    // cropImgRef.current = null;
+    // img = new Image();
   };
 
   /** canvas onMouseMove */
