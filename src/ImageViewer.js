@@ -241,27 +241,21 @@ const ImageViewer = () => {
     // 각 캔버스의 이미지 데이터를 합친 캔버스에 그리기
     children.forEach((canvas) => {
       mergedCtx.drawImage(canvas, 0, 0);
-      drawElement(mergedCtx, elements);
+      drawElement(
+        mergedCtx,
+        elements.filter(({ editMode }) => editMode !== EditMode.CROP)
+      );
     });
 
     return mergedCanvas;
   };
 
-  /**
-   * @param {object[]} elements
-   * @param {React.ref} canvasRef
-   * @param {function} callback
-   *
-   * @TODO
-   * 현재, background(이미지) 에 대해서만 크롭 기능 활성화, 이미 그려진 element에 대해서도 crop할 수 있또록
-   * merge 필요
-   */
-  const cropImage = (elements, canvasRef, callback) => {
+  const cropImage = () => {
     // 크롭 박스 제거
     const elementsCopy = [...elements];
     const { startX, startY, endX, endY } = elementsCopy.pop();
-    const canvas = canvasRef.current;
-    // const ctx = canvas.getContext('2d');
+    const canvas = backgroundRef.current;
+
     const mergedCanvas = getMergedCanvas(elementsCopy);
     const mergedCtx = mergedCanvas.getContext('2d');
 
@@ -270,6 +264,7 @@ const ImageViewer = () => {
     const newImageData = copyImage(imageData, canvas.width, canvas.height);
     cropImgRef.current = newImageData;
     img = new Image();
+    setElements([]);
     handleChangeMode(EditMode.DEFAULT);
   };
 
@@ -281,9 +276,6 @@ const ImageViewer = () => {
       case EditMode.ERASE:
         setCurrentCurve((prevState) => [...prevState, { x, y }]);
         break;
-
-      // cropRect.current = createElement(x, y, x, y);
-      // break;
       case EditMode.CROP:
       case EditMode.STRAIGHT_LINE:
       case EditMode.INSERT_SQUARE:
@@ -355,7 +347,7 @@ const ImageViewer = () => {
         // // // ctx.putImageData(newImageData, 0, 0);
         // callback();
 
-        cropImage(elements, backgroundRef);
+        cropImage();
 
         break;
 
