@@ -13,54 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS 회의.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "52c1788f104d3503",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Vercel 배포하기.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b01a911f58625d1a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Vercel 배포하기.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ba84f68df018ce00",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "WEHAGO H.md",
+                "file": "2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -134,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "WEHAGO H.md",
+                "file": "2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "WEHAGO H.md",
+                "file": "2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "WEHAGO H.md"
+                "file": "2024.05.13 WEHAGO H 회의록 정리 (by 우성).md"
               }
             }
           },
@@ -217,20 +178,20 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "ba84f68df018ce00",
+  "active": "a4601e51d778a9c6",
   "lastOpenFiles": [
-    "WEHAGO H.md",
+    "HIS 회의.md",
+    "Canvas.md",
     "Vercel 배포하기.md",
+    "2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "Node Server 배포하기.md",
     "imgs/Pasted image 20240509093931.png",
     "imgs/Pasted image 20240509093929.png",
-    "Canvas.md",
     "img/Pasted image 20231018094847.png",
     "img/Pasted image 20231018092149.png",
     "img/Pasted image 20231018090342.png",
     "imgs/Pasted image 20240509093721.png",
     "imgs/Pasted image 20240509093539.png",
-    "HIS 회의.md",
     "HIS 관련.md",
     "우성/Linux/crontab을 이용한 스케쥴링.md",
     "우성/Tools/옵시디언 플러그인.png",
