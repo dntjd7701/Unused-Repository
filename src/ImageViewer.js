@@ -10,7 +10,6 @@ import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
 /**
  * =========================================================================================================
  * @TODO
- * zoom in/out 좌표값 재계산
  * 물체 선택 drag
  * =========================================================================================================
  */
@@ -466,6 +465,8 @@ const ImageViewer = () => {
 
     const canvas = backgroundRef.current;
     const image = e.target.files[0];
+    console.debug('image:', image);
+
     const ctx = canvas.getContext('2d');
     setScale(1);
     setViewPosOffset({ x: 0, y: 0 });
