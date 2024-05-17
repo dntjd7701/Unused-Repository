@@ -19,8 +19,48 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "7027b5d35be41f4e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Blob 파일 DB 저장하기.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ff256725726b6a54",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A10 이미지 저장 프로세스.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a4087eb789eb39b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A10 이미지 저장 프로세스.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -94,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+                "file": "A10 이미지 저장 프로세스.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+                "file": "A10 이미지 저장 프로세스.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md"
+                "file": "A10 이미지 저장 프로세스.md"
               }
             }
           },
@@ -178,10 +218,14 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "a4601e51d778a9c6",
+  "active": "a4087eb789eb39b7",
   "lastOpenFiles": [
-    "HIS/HIS 용어.md",
+    "무제 파일.md",
+    "A10 이미지 저장 프로세스.md",
+    "Blob 파일 DB 저장하기.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+    "무제 폴더",
+    "HIS/HIS 용어.md",
     "HIS/HIS 회의.md",
     "HIS/HIS 관련.md",
     "HIS",
@@ -212,8 +256,6 @@
     "회사/Amaranth10/ERP/물류/매출전자세금계산서처리.md",
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
     "회사/Amaranth10/ERP/물류/매출마감등록.md",
-    "무제 파일 1.md",
-    "업무사항.md",
     "imgs/Pasted image 20240322171803.png",
     "imgs/Pasted image 20240405105358.png",
     "개선사항",
