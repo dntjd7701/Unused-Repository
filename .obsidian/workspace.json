@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -159,11 +160,12 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 321.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,16 +182,16 @@
   },
   "active": "d1c66ca7004e39dc",
   "lastOpenFiles": [
-    "HIS/HIS 회의.md",
+    "무제 파일.md",
+    "HIS/회의록/2024-05-20.md",
     "HIS/HIS 용어.md",
+    "HIS/HIS 회의.md",
     "HIS/HIS 관련.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
-    "HIS/회의록/2024-05-20.md",
     "A10 이미지 저장 프로세스.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
     "무제 폴더",
-    "무제 파일.md",
     "HIS",
     "Canvas.md",
     "Vercel 배포하기.md",
