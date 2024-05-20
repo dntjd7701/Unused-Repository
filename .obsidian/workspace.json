@@ -58,9 +58,22 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "d1c66ca7004e39dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HIS/회의록/2024-05-20.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -134,7 +147,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "A10 이미지 저장 프로세스.md",
+                "file": "HIS/회의록/2024-05-20.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +164,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "A10 이미지 저장 프로세스.md",
+                "file": "HIS/회의록/2024-05-20.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +199,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "A10 이미지 저장 프로세스.md"
+                "file": "HIS/회의록/2024-05-20.md"
               }
             }
           },
@@ -218,13 +231,15 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "a4087eb789eb39b7",
+  "active": "d1c66ca7004e39dc",
   "lastOpenFiles": [
-    "무제 파일.md",
     "A10 이미지 저장 프로세스.md",
+    "HIS/회의록/2024-05-20.md",
+    "HIS/회의록",
+    "무제 폴더",
+    "무제 파일.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
-    "무제 폴더",
     "HIS/HIS 용어.md",
     "HIS/HIS 회의.md",
     "HIS/HIS 관련.md",
@@ -255,7 +270,6 @@
     "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
     "회사/Amaranth10/ERP/물류/매출전자세금계산서처리.md",
     "회사/Amaranth10/ERP/물류/매출마감현황.md",
-    "회사/Amaranth10/ERP/물류/매출마감등록.md",
     "imgs/Pasted image 20240322171803.png",
     "imgs/Pasted image 20240405105358.png",
     "개선사항",
