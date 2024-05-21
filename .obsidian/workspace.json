@@ -13,7 +13,40 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS/회의록/2024-05-20.md",
+                "file": "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fc849c277cb41146",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HIS/업무/A10 이미지 저장 프로세스.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "cb8b306f0a0a1f7f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06447ed175a52ed4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -70,7 +103,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -94,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/회의록/2024-05-20.md",
+                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/회의록/2024-05-20.md",
+                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +180,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/회의록/2024-05-20.md"
+                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md"
               }
             }
           },
@@ -179,21 +213,28 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "d1c66ca7004e39dc",
+  "active": "06447ed175a52ed4",
   "lastOpenFiles": [
+    "imgs/Pasted image 20240521134032.png",
+    "imgs/Pasted image 20240521134013.png",
+    "HIS/업무/A10 이미지 저장 프로세스.md",
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "imgs/Pasted image 20240521094018.png",
+    "imgs/Pasted image 20240521094014.png",
+    "Vercel 배포하기.md",
+    "HIS/업무",
     "무제 파일.md",
+    "무제 파일 1.md",
+    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/2024-05-20.md",
     "HIS/HIS 용어.md",
     "HIS/HIS 회의.md",
     "HIS/HIS 관련.md",
-    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
-    "A10 이미지 저장 프로세스.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
     "무제 폴더",
     "HIS",
     "Canvas.md",
-    "Vercel 배포하기.md",
     "Node Server 배포하기.md",
     "imgs/Pasted image 20240509093931.png",
     "imgs/Pasted image 20240509093929.png",
@@ -203,7 +244,6 @@
     "imgs/Pasted image 20240509093721.png",
     "imgs/Pasted image 20240509093539.png",
     "우성/Linux/crontab을 이용한 스케쥴링.md",
-    "우성/Tools/옵시디언 플러그인.png",
     "우성/JavaScript/클로저(Closure).md",
     "우성/Err/[Error] Maven blocker.md",
     "우성/Calendar/2024-04-02 더존 캘린더 백업.md",
@@ -215,11 +255,6 @@
     "회사/Amaranth10/ERP/물류/BOM 역전개.md",
     "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산검사관리.md",
-    "회사/Amaranth10/ERP/물류/쇼핑몰매출자료업로드.md",
-    "회사/Amaranth10/ERP/물류/매출전자세금계산서처리.md",
-    "회사/Amaranth10/ERP/물류/매출마감현황.md",
-    "imgs/Pasted image 20240322171803.png",
-    "imgs/Pasted image 20240405105358.png",
     "개선사항",
     "Calendar",
     "Daily",
