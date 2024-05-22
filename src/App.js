@@ -12,7 +12,12 @@ const App = () => {
         <Routes>
           <Route
             path='/'
-            element={<ImageViewer />}></Route>
+            element={
+              <ImageViewer
+                width={'500px'}
+                height={'500px'}
+              />
+            }></Route>
           <Route
             path='/three'
             element={<Three />}></Route>
