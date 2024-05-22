@@ -19,22 +19,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "b54a8d066f8d247b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -108,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
+                "file": "HIS/회의록/2024-05-22 원무교육.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
+                "file": "HIS/회의록/2024-05-22 원무교육.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -160,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/회의록/산정 코드와 관련한 의사의 처방.md"
+                "file": "HIS/회의록/2024-05-22 원무교육.md"
               }
             }
           },
@@ -173,7 +159,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -192,14 +178,14 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "b54a8d066f8d247b",
+  "active": "42b9f63476e984b7",
   "lastOpenFiles": [
+    "HIS/회의록/2024-05-20.md",
+    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/2024-05-22 원무교육.md",
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
     "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
     "MQTT.md",
-    "HIS/회의록/2024-05-20.md",
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
     "imgs/Pasted image 20240521134032.png",
     "imgs/Pasted image 20240521134013.png",
