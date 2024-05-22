@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7b255e2a1929fa55",
+        "id": "18995079b50e2750",
         "type": "tabs",
         "children": [
           {
-            "id": "75ab094e96c963e3",
+            "id": "42b9f63476e984b7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -160,12 +160,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 321.5,
-    "collapsed": true
+    "width": 321.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,9 +179,10 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "75ab094e96c963e3",
+  "active": "42b9f63476e984b7",
   "lastOpenFiles": [
     "HIS/회의록/2024-05-22 원무교육.md",
+    "HIS/회의록/2024-05-20.md",
     "HIS/업무/A10이미지 저장 프로세스 정리.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
@@ -194,7 +194,6 @@
     "HIS/업무",
     "무제 파일.md",
     "무제 파일 1.md",
-    "HIS/회의록/2024-05-20.md",
     "HIS/HIS 용어.md",
     "HIS/HIS 회의.md",
     "HIS/HIS 관련.md",
