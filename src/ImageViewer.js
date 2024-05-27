@@ -9,6 +9,7 @@ import './ImageEditor.scss';
 /** imgs */
 import icArrDown from './imgs/ic_arrdown@3x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
+import { element } from 'three/examples/jsm/nodes/Nodes.js';
 
 /**
  * =========================================================================================================
@@ -52,11 +53,12 @@ const ImageViewer = (props) => {
     ERASE: 'erase',
     SELECTOR: 'selector',
     DEFAULT: 'insertSquare',
+    PIN: 'pin',
   };
 
   /** useState */
   const [isDrawing, setIsDrawing] = useState(false);
-  const [editMode, setEditMode] = useState(EditMode.DEFAULT);
+  const [editMode, setEditMode] = useState(EditMode.PIN);
   const [elements, setElements] = useState([]);
   const [lineColor, setLineColor] = useState('#2c2c2c');
   const [lineDrop, setLineDrop] = useState({
@@ -75,10 +77,6 @@ const ImageViewer = (props) => {
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
   const backgroundRef = useRef(null);
-
-  /** IMG UPLOADER  */
-  const [patientImg, setPatientImg] = useState({});
-  const imgUploadRef = useRef(null);
 
   //#region 사용자 정의 함수 ============================================================================================================
   const getPosition = (event) => {
@@ -167,6 +165,14 @@ const ImageViewer = (props) => {
       ctx.rect(startX, startY, endX - startX, endY - startY);
       ctx.stroke();
     },
+    circle: (ctx, { x, y, size, color }) => {
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.strokeStyle = color;
+      ctx.fill();
+      ctx.stroke();
+    },
   };
 
   /**
@@ -192,6 +198,14 @@ const ImageViewer = (props) => {
         case EditMode.INSERT_SQUARE:
         case EditMode.CROP:
           drawAction.square(ctx, element);
+          break;
+        case EditMode.PIN:
+          drawAction.circle(ctx, element);
+          ctx.fillStyle = 'black';
+          ctx.font = '12px Arial ';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(element.innerNumberCount, element.x, element.y);
           break;
         default:
       }
@@ -301,9 +315,23 @@ const ImageViewer = (props) => {
       case EditMode.INSERT_SQUARE:
         setElements((prevState) => [...prevState, createElement(x, y, x, y)]);
         break;
-
       case EditMode.SELECTOR:
         setStartViewPosOffset({ x, y });
+        break;
+      case EditMode.PIN:
+        let cnt = elements.filter(({ editMode }) => EditMode.PIN === editMode).length + 1;
+        setElements((prevState) => [
+          ...prevState,
+          {
+            editMode: EditMode.PIN,
+            x,
+            y,
+            size: 8,
+            color: 'red',
+            innerNumberCount: cnt,
+          },
+        ]);
+
         break;
 
       default:
@@ -566,13 +594,9 @@ const ImageViewer = (props) => {
 
   //#endregion
 
-  const propsWidth = '1000px';
-  const propsHeight = '1000px';
   return (
     <>
-      <div
-        className='imageViewer'
-        style={{ width: '1000px', height: '500px' }}>
+      <div className='imageViewer'>
         <div className='img-edit'>
           <button
             className='btn-clear'
@@ -587,6 +611,15 @@ const ImageViewer = (props) => {
               handleChangeMode(EditMode.SELECTOR);
             }}>
             ✋
+          </button>
+          <button
+            className='btn-pin'
+            data-for='btnTooltip'
+            data-tip='선택'
+            onClick={() => {
+              handleChangeMode(EditMode.PIN);
+            }}>
+            📍
           </button>
           <button
             className='btn-line-str'
@@ -699,8 +732,8 @@ const ImageViewer = (props) => {
           <canvas
             className={`canvas`}
             ref={canvasRef}
-            width={propsWidth}
-            height={propsHeight}
+            width={window.innerWidth}
+            height={window.innerHeight}
             onMouseMove={hanldeMouseMove}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -708,8 +741,8 @@ const ImageViewer = (props) => {
           <canvas
             className={`canvas_background`}
             ref={backgroundRef}
-            width={propsWidth}
-            height={propsHeight}
+            width={window.innerWidth}
+            height={window.innerHeight}
           />
         </div>
       </div>
