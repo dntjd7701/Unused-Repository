@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS/회의록/2024-05-22 원무교육.md",
+                "file": "HIS/회의록/2024-05-27 간호 교육.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/회의록/2024-05-22 원무교육.md",
+                "file": "HIS/회의록/2024-05-27 간호 교육.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/회의록/2024-05-22 원무교육.md",
+                "file": "HIS/회의록/2024-05-27 간호 교육.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/회의록/2024-05-22 원무교육.md"
+                "file": "HIS/회의록/2024-05-27 간호 교육.md"
               }
             }
           },
@@ -180,16 +181,17 @@
   },
   "active": "42b9f63476e984b7",
   "lastOpenFiles": [
+    "imgs/Pasted image 20240521134032.png",
+    "HIS/회의록/2024-05-27 간호 교육.md",
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "imgs/Pasted image 20240521094018.png",
+    "HIS/회의록/2024-05-22 원무교육.md",
+    "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
     "HIS/회의록/2024-05-20.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
-    "HIS/회의록/2024-05-22 원무교육.md",
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
     "MQTT.md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
-    "imgs/Pasted image 20240521134032.png",
     "imgs/Pasted image 20240521134013.png",
-    "imgs/Pasted image 20240521094018.png",
     "imgs/Pasted image 20240521094014.png",
     "Vercel 배포하기.md",
     "HIS/업무",
@@ -218,8 +220,6 @@
     "우성/mono-repo.md",
     "회사/Amaranth10/ERP/물류/회계처리(매출&수금).md",
     "회사/Amaranth10/ERP/물류/초기라벨엑셀업로드.md",
-    "회사/Amaranth10/ERP/물류/BOM 역전개.md",
-    "회사/Amaranth10/ERP/물류/BATCH BOM 등록.md",
     "개선사항",
     "Calendar",
     "Daily",
