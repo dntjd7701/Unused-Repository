@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "872430252679c975",
+        "id": "ba20e3915b0b8329",
         "type": "tabs",
         "children": [
           {
-            "id": "0a96d4d7df5cd107",
+            "id": "644ae45772f60ed0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -178,14 +178,14 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "0a96d4d7df5cd107",
+  "active": "644ae45772f60ed0",
   "lastOpenFiles": [
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "HIS/회의록/2024-05-27 간호 교육.md",
     "HIS/HIS 용어.md",
     "HIS/회의록/2024-05-20.md",
-    "HIS/회의록/2024-05-27 간호 교육.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "imgs/Pasted image 20240521134032.png",
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
     "imgs/Pasted image 20240521094018.png",
     "HIS/회의록/2024-05-22 원무교육.md",
     "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
