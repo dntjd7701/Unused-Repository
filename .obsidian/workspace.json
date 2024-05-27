@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS/회의록/2024-05-27 간호 교육.md",
+                "file": "HIS/HIS 관련.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/회의록/2024-05-27 간호 교육.md",
+                "file": "HIS/HIS 관련.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/회의록/2024-05-27 간호 교육.md",
+                "file": "HIS/HIS 관련.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/회의록/2024-05-27 간호 교육.md"
+                "file": "HIS/HIS 관련.md"
               }
             }
           },
@@ -180,15 +180,19 @@
   },
   "active": "644ae45772f60ed0",
   "lastOpenFiles": [
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "HIS/회의록/2024-05-27 간호 교육.md",
+    "HIS/HIS 회의.md",
+    "HIS/HIS 관련.md",
     "HIS/HIS 용어.md",
-    "HIS/회의록/2024-05-20.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+    "HIS/회의록/간호/2024-05-27 간호 교육.md",
+    "HIS/회의록/원무/2024-05-22 원무교육.md",
+    "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
+    "HIS/회의록/2024-05-20.md",
+    "HIS/회의록/원무",
+    "HIS/회의록/간호",
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
     "imgs/Pasted image 20240521134032.png",
     "imgs/Pasted image 20240521094018.png",
-    "HIS/회의록/2024-05-22 원무교육.md",
-    "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
     "MQTT.md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
     "imgs/Pasted image 20240521134013.png",
@@ -196,8 +200,6 @@
     "Vercel 배포하기.md",
     "HIS/업무",
     "무제 파일.md",
-    "HIS/HIS 회의.md",
-    "HIS/HIS 관련.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
     "무제 폴더",
