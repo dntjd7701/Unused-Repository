@@ -9,22 +9,7 @@ import './ImageEditor.scss';
 /** imgs */
 import icArrDown from './imgs/ic_arrdown@3x.png';
 import icArrUp from './imgs/ic_arrow_up_normal@3x.png';
-import { element } from 'three/examples/jsm/nodes/Nodes.js';
-
-/**
- * =========================================================================================================
- * @TODO
- * DB생성
- * useEffect hook을 통한 기초 데이터 조회(환자 정보, 이미지 정보)
- * 이미지 수정 후 저장 시 이미지 정보 수정
- *
- * 컨테이너 사이즈만큼, canvas widht, height 지정해주기
- *
- * 이미지 선택 시, 숫자로된 표지? 마크? 지정
- *
- * 물체 선택 drag
- * =========================================================================================================
- */
+import xRay from './x-ray.png';
 
 /**
  * window event listener hook
@@ -44,7 +29,8 @@ const useWindowEventListener = (type, listener, options) => {
 let img = new Image();
 
 //#region ==============================================================================================================
-const ImageViewer = (props) => {
+const ImageViewer = ({ imageChangeFlag, onSaveImage, onDeleteImage, list, pageContainer, accordianGroupValue, width = '100%', height = '100%' }) => {
+  //#region Def
   const EditMode = {
     STRAIGHT_LINE: 'straightLine',
     INSERT_SQUARE: 'insertSquare',
@@ -55,12 +41,14 @@ const ImageViewer = (props) => {
     DEFAULT: 'insertSquare',
     PIN: 'pin',
   };
+  //#endregion
 
-  /** useState */
+  //#region useState
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isDrawing, setIsDrawing] = useState(false);
   const [editMode, setEditMode] = useState(EditMode.PIN);
   const [elements, setElements] = useState([]);
-  const [lineColor, setLineColor] = useState('#2c2c2c');
+  const [lineColor, setLineColor] = useState('#fd0d0d');
   const [lineDrop, setLineDrop] = useState({
     isOpen: false,
     lineWidth: 3,
@@ -71,12 +59,77 @@ const ImageViewer = (props) => {
   const [startViewPosOffset, setStartViewPosOffset] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState(1);
   const [scaleOffset, setScaleOffset] = useState({ x: 0, y: 0 });
+  //#endregion
 
-  /** useRef */
-  const cavasContainerRef = useRef(null);
+  //#region useRef
+  const canvasContainerRef = useRef(null);
   const canvasRef = useRef(null);
-  const inputRef = useRef(null);
   const backgroundRef = useRef(null);
+  //#endregion
+
+  //#region useEffect
+  useEffect(() => {
+    const canvasConatiner = document.getElementsByClassName('canvas-container')[0];
+
+    const canvasBackground = backgroundRef.current;
+    canvasBackground.width = canvasConatiner.clientWidth;
+    canvasBackground.height = canvasConatiner.clientHeight;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = canvasConatiner.clientWidth;
+    canvas.height = canvasConatiner.clientHeight;
+
+    img = new Image();
+
+    setScale(1);
+    setViewPosOffset({ x: 0, y: 0 });
+    setScaleOffset({ x: 0, y: 0 });
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+
+    img.src = xRay;
+  }, []);
+
+  useEffect(() => {}, []);
+
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const backgroundCanvas = backgroundRef.current;
+    const backgroundCtx = backgroundCanvas.getContext('2d');
+
+    console.log(cursorPos);
+    const scaleOffsetX = (canvas.width * scale - canvas.width) / 2;
+    console.debug('scaleOffsetX:', scaleOffsetX);
+    const scaleOffsetY = (canvas.height * scale - canvas.height) / 2;
+    console.debug('scaleOffsetY:', scaleOffsetY);
+    setScaleOffset({ x: scaleOffsetX, y: scaleOffsetY });
+
+    ctx.save();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
+
+    backgroundCtx.reset();
+    // backgroundCtx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
+    backgroundCtx.setTransform(scale, 0, 0, scale, -scaleOffsetX, -scaleOffsetY);
+    backgroundCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    drawElement(ctx, elements);
+    if (currentCurve.length > 0) {
+      setLineStyle(ctx);
+      drawAction.curve(ctx, currentCurve[0], currentCurve);
+    }
+    ctx.restore();
+  }, [elements, currentCurve, viewPosOffset, scale]);
+
+  /** custom hook */
+  useWindowEventListener('keydown', (e) => {
+    if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
+  });
+  //#endregion
 
   //#region 사용자 정의 함수 ============================================================================================================
   const getPosition = (event) => {
@@ -93,8 +146,6 @@ const ImageViewer = (props) => {
     const x = (clientX - left - (viewPosOffset.x * scale - scaleOffset.x)) / scale;
     const y = (clientY - top - (viewPosOffset.y * scale - scaleOffset.y)) / scale;
     return {
-      // x: (clientX - left) / scale + scaleOffset.x - viewPosOffset.x,
-      // y: (clientY - top) / scale + scaleOffset.y - viewPosOffset.y,
       x,
       y,
     };
@@ -200,12 +251,17 @@ const ImageViewer = (props) => {
           drawAction.square(ctx, element);
           break;
         case EditMode.PIN:
-          drawAction.circle(ctx, element);
-          ctx.fillStyle = 'black';
-          ctx.font = '12px Arial ';
+          drawAction.circle(ctx, {
+            ...element,
+            x: element.x - 12,
+            y: element.y - 20,
+          });
+          ctx.fillStyle = 'white';
+          ctx.font = '15px Arial ';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
-          ctx.fillText(element.innerNumberCount, element.x, element.y);
+          ctx.fillText(element.innerNumberCount, element.x - 12, element.y - 20);
+          ctx.fillText('📍', element.x, element.y);
           break;
         default:
       }
@@ -260,8 +316,9 @@ const ImageViewer = (props) => {
     const mergedCtx = mergedCanvas.getContext('2d');
 
     // 캔버스 합치기용 캔버스 크기 설정
-    mergedCanvas.width = window.innerWidth;
-    mergedCanvas.height = window.innerHeight;
+    const canvas = canvasRef.current;
+    mergedCanvas.width = canvas.width;
+    mergedCanvas.height = canvas.height;
 
     const container = document.getElementsByClassName('canvas-container');
     const children = container[0].childNodes;
@@ -302,7 +359,57 @@ const ImageViewer = (props) => {
     handleChangeMode(EditMode.DEFAULT);
   };
 
-  const mouseDownAction = (e) => {
+  //#endregion ============================================================================================================
+
+  //#region handler
+
+  /** 초기화 버튼 */
+  const handleClearRect = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    ctx.reset();
+    setElements([]);
+    setScale(1);
+    setViewPosOffset({ x: 0, y: 0 });
+    setScaleOffset({ x: 0, y: 0 });
+  };
+
+  /** canvas onMouseMove */
+  const hanldeMouseMove = (e) => {
+    const { x, y } = getPosition(e);
+    setCursorPos({ x, y });
+    if (!isDrawing) return;
+
+    switch (editMode) {
+      case EditMode.FREE_DRAW:
+      case EditMode.ERASE:
+        setCurrentCurve((prevState) => [...prevState, { x, y }]);
+        break;
+      case EditMode.CROP:
+      case EditMode.STRAIGHT_LINE:
+      case EditMode.INSERT_SQUARE:
+        let elementsCopy = [...elements];
+        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
+        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y);
+        setElements(elementsCopy);
+        break;
+      case EditMode.SELECTOR:
+        /** 이미지를 벗어난 Dragging이 안되도록 막기 */
+        if (scale === 1) return;
+
+        const deltaX = x - startViewPosOffset.x;
+        const deltaY = y - startViewPosOffset.y;
+        setViewPosOffset({ x: viewPosOffset.x + deltaX, y: viewPosOffset.y + deltaY });
+        break;
+      default:
+        break;
+    }
+  };
+
+  /** canvas onMouseDown */
+  const handleMouseDown = (e) => {
+    setIsDrawing(true);
+
     const { x, y } = getPosition(e);
 
     switch (editMode) {
@@ -319,7 +426,7 @@ const ImageViewer = (props) => {
         setStartViewPosOffset({ x, y });
         break;
       case EditMode.PIN:
-        let cnt = elements.filter(({ editMode }) => EditMode.PIN === editMode).length + 1;
+        const cnt = elements.filter(({ editMode }) => EditMode.PIN === editMode).length + 1;
         setElements((prevState) => [
           ...prevState,
           {
@@ -327,45 +434,20 @@ const ImageViewer = (props) => {
             x,
             y,
             size: 8,
-            color: 'red',
+            color: lineColor,
             innerNumberCount: cnt,
           },
         ]);
-
         break;
-
       default:
-        break;
     }
   };
 
-  const mouseMoveAction = (e) => {
-    const { x, y } = getPosition(e);
+  /** canvas onMouseUp */
+  const handleMouseUp = (e) => {
+    setIsDrawing(false);
+    setStartViewPosOffset({ x: 0, y: 0 });
 
-    switch (editMode) {
-      case EditMode.FREE_DRAW:
-      case EditMode.ERASE:
-        setCurrentCurve((prevState) => [...prevState, { x, y }]);
-        break;
-      case EditMode.CROP:
-      case EditMode.STRAIGHT_LINE:
-      case EditMode.INSERT_SQUARE:
-        let elementsCopy = [...elements];
-        const { startX, startY } = elementsCopy[elementsCopy.length - 1];
-        elementsCopy[elementsCopy.length - 1] = createElement(startX, startY, x, y);
-        setElements(elementsCopy);
-        break;
-      case EditMode.SELECTOR:
-        const deltaX = x - startViewPosOffset.x;
-        const deltaY = y - startViewPosOffset.y;
-        setViewPosOffset({ x: viewPosOffset.x + deltaX, y: viewPosOffset.y + deltaY });
-        break;
-      default:
-        break;
-    }
-  };
-
-  const mouseUpAction = (e) => {
     switch (editMode) {
       case EditMode.CROP:
         cropImage();
@@ -384,127 +466,6 @@ const ImageViewer = (props) => {
       default:
         break;
     }
-  };
-
-  //#endregion ============================================================================================================
-  // useEffect(() => {
-  //   console.debug('URL.revokeObjectURL(imgFile):', URL.revokeObjectURL(imgFile));
-  //   console.debug('imgFile:', imgFile);
-  //   if (!!imgFile) {
-  //     const reader = new FileReader();
-
-  //     reader.onload = function(e) {
-  //       console.log(e.target.result);
-  //       img.src = e.target.result;
-  //       // const imgElement = document.getElementById('image');
-  //       // imgElement.src = e.target.result;
-  //     };
-
-  //     reader.readAsDataURL(imgFile);
-
-  //     const canvas = backgroundRef.current;
-  //     const ctx = canvas.getContext('2d');
-  //     setScale(1);
-  //     setViewPosOffset({ x: 0, y: 0 });
-  //     setScaleOffset({ x: 0, y: 0 });
-  //     img.onload = () => {
-  //       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  //     };
-  //     // img.src = URL.revokeObjectURL(imgFile);
-  //   }
-  // }, [imgFile]);
-
-  // useEffect(() => {
-  //   console.log();
-  //   // const addr =
-  //   //   'data:image/jpeg;base64,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';
-  //   // const canvas = backgroundRef.current;
-  //   // const ctx = canvas.getContext('2d');
-  //   // img.onload = () => {
-  //   //   // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-  //   //   // const scaledWidth = img.width * scaleFactor;
-  //   //   // const scaledHeight = img.height * scaleFactor;
-  //   //   ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  //   // };
-  //   // img.src = addr;
-  //   const canvas = backgroundRef.current;
-  //   const ctx = canvas.getContext('2d');
-  //   setScale(1);
-  //   setViewPosOffset({ x: 0, y: 0 });
-  //   setScaleOffset({ x: 0, y: 0 });
-  //   img.onload = () => {
-  //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  //   };
-  //   // img.src = URL.revokeObjectURL();
-  //   img.src = ;
-  // }, []);
-
-  useEffect(() => {}, []);
-
-  useLayoutEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    const scaleOffsetX = (canvas.width * scale - canvas.width) / 2;
-    const scaleOffsetY = (canvas.height * scale - canvas.height) / 2;
-    setScaleOffset({ x: scaleOffsetX, y: scaleOffsetY });
-
-    ctx.save();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
-
-    drawElement(ctx, elements);
-    if (currentCurve.length > 0) {
-      setLineStyle(ctx);
-      drawAction.curve(ctx, currentCurve[0], currentCurve);
-    }
-    ctx.restore();
-
-    const backgroundCanvas = backgroundRef.current;
-    const backgroundCtx = backgroundCanvas.getContext('2d');
-
-    backgroundCtx.reset();
-    backgroundCtx.setTransform(scale, 0, 0, scale, viewPosOffset.x * scale - scaleOffsetX, viewPosOffset.y * scale - scaleOffsetY);
-    backgroundCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-  }, [elements, currentCurve, viewPosOffset, scale]);
-
-  /** custom hook */
-  useWindowEventListener('keydown', (e) => {
-    if (e.key === 'z' && (e.ctrlKey || e.metaKey)) handleUndo();
-  });
-
-  //#region handler
-
-  /** 초기화 버튼 */
-  const handleClearRect = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.reset();
-    setElements([]);
-    setScale(1);
-    setViewPosOffset({ x: 0, y: 0 });
-    setScaleOffset({ x: 0, y: 0 });
-    // cropImgRef.current = null;
-    // img = new Image();
-  };
-
-  /** canvas onMouseMove */
-  const hanldeMouseMove = (e) => {
-    if (!isDrawing) return;
-    mouseMoveAction(e);
-  };
-
-  /** canvas onMouseDown */
-  const handleMouseDown = (e) => {
-    setIsDrawing(true);
-    mouseDownAction(e);
-  };
-
-  /** canvas onMouseUp */
-  const handleMouseUp = (e) => {
-    setIsDrawing(false);
-    setStartViewPosOffset({ x: 0, y: 0 });
-    mouseUpAction(e);
   };
 
   /** 선 색상 변경 */
@@ -542,61 +503,34 @@ const ImageViewer = (props) => {
     });
   };
 
-  /** 이미지 업로드 */
-  const handleImageUpload = (e) => {
-    if (e.target.files.length === 0) return;
-
-    const canvas = backgroundRef.current;
-    const image = e.target.files[0];
-    console.debug('image:', image);
-
-    const ctx = canvas.getContext('2d');
-    setScale(1);
-    setViewPosOffset({ x: 0, y: 0 });
-    setScaleOffset({ x: 0, y: 0 });
-    img.onload = () => {
-      // const scaleFactor = Math.min(canvas.width / img.width, canvas.height / img.height);
-      // const scaledWidth = img.width * scaleFactor;
-      // const scaledHeight = img.height * scaleFactor;
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    };
-    img.src = URL.createObjectURL(image);
-    e.target.value = '';
-  };
-
   /** 드로우 타입 선택 */
-  const handleChangeMode = (mode) => {
-    setEditMode(mode);
-  };
+  const handleChangeMode = (mode) => setEditMode(mode);
 
   /** 이미지 다운로드 */
-  const handleImageDownload = (e) => {
+  const handleImageSave = async (e) => {
     const mergedCanvas = getMergedCanvas(elements);
     // 이미지로 변환하여 저장
     const imageDataURL = mergedCanvas.toDataURL('image/png');
+    img.src = imageDataURL;
+    await onSaveImage(imageDataURL);
 
-    // 가상 링크 생성
-    const link = document.createElement('a');
-    link.href = imageDataURL;
-    link.download = 'kkk.png';
-
-    // 클릭 이벤트 발생시키기
-    link.click();
+    pageContainer.snackbar({
+      tyep: 'success',
+      labelText: '저장되었습니다.',
+    });
   };
 
   const handleWheel = (e) => {
     e.preventDefault();
-    // const delta = -e.deltaY;
-    // const newScale = delta > 0 ? scale * 1.2 : Math.max(scale / 1.2, 1);
     const newScale = e.deltaY > 0 ? Math.min(scale + 0.2, 3) : Math.max(scale - 0.2, 1);
     setScale(newScale);
   };
-
   //#endregion
-
   return (
     <>
-      <div className='imageViewer'>
+      <div
+        className='imageViewer'
+        style={{ width, height }}>
         <div className='img-edit'>
           <button
             className='btn-clear'
@@ -613,9 +547,9 @@ const ImageViewer = (props) => {
             ✋
           </button>
           <button
-            className='btn-pin'
+            className='btn-pin-str'
             data-for='btnTooltip'
-            data-tip='선택'
+            data-tip='핀'
             onClick={() => {
               handleChangeMode(EditMode.PIN);
             }}>
@@ -705,35 +639,49 @@ const ImageViewer = (props) => {
               )}
             </div>
           </button>
-          <button
+          {/* <button
             className='btn-image-upload'
             onClick={() => {
               inputRef.current.click();
-            }}>
+            }}
+          >
             이미지 업로드
-            <input
-              ref={inputRef}
-              id='image-upload'
-              type='file'
-              accept='image/*'
-              onChange={handleImageUpload}
-            />
-          </button>
-          <button
-            className='btn-image-upload'
-            onClick={handleImageDownload}>
-            저장
-          </button>
+            <input ref={inputRef} id='image-upload' type='file' accept='image/*' onChange={handleImageUpload} />
+          </button> */}
+          {typeof onSaveImage === 'function' && (
+            <button
+              disabled={!list?.[accordianGroupValue]?.patientCd}
+              className='btn-image-upload'
+              onClick={handleImageSave}>
+              저장
+            </button>
+          )}
+          {typeof onDeleteImage === 'function' && (
+            <button
+              disabled={!list?.[accordianGroupValue]?.patientCd}
+              className='btn-image-upload'
+              onClick={onDeleteImage}>
+              삭제
+            </button>
+          )}
+          <div>
+            <button>-</button>
+            <span>{new Intl.NumberFormat('en-GB', { style: 'percent' }).format(scale)}</span>
+            <button
+              onClick={() => {
+                console.log('clicked!');
+              }}>
+              +
+            </button>
+          </div>
         </div>
         <div
-          ref={cavasContainerRef}
+          ref={canvasContainerRef}
           className='canvas-container'
           onWheel={handleWheel}>
           <canvas
             className={`canvas`}
             ref={canvasRef}
-            width={window.innerWidth}
-            height={window.innerHeight}
             onMouseMove={hanldeMouseMove}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -741,8 +689,6 @@ const ImageViewer = (props) => {
           <canvas
             className={`canvas_background`}
             ref={backgroundRef}
-            width={window.innerWidth}
-            height={window.innerHeight}
           />
         </div>
       </div>

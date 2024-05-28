@@ -14,8 +14,8 @@ const App = () => {
             path='/'
             element={
               <ImageViewer
-                width={'500px'}
-                height={'500px'}
+                width={window.innerWidth}
+                height={window.innerHeight}
               />
             }></Route>
           <Route
