@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS/HIS 용어.md",
+                "file": "HIS/DA Tool.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/HIS 용어.md",
+                "file": "HIS/DA Tool.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/HIS 용어.md",
+                "file": "HIS/DA Tool.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +147,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/HIS 용어.md"
+                "file": "HIS/DA Tool.md"
               }
             }
           },
@@ -180,9 +181,10 @@
   },
   "active": "644ae45772f60ed0",
   "lastOpenFiles": [
+    "HIS/HIS 용어.md",
+    "HIS/DA Tool.md",
     "HIS/HIS 관련.md",
     "HIS/HIS 회의.md",
-    "HIS/HIS 용어.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/간호/2024-05-27 간호 교육.md",
     "HIS/회의록/원무/2024-05-22 원무교육.md",
