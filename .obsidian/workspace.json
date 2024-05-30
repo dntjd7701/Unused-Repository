@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "ba20e3915b0b8329",
+        "id": "02c4a1123902dcdc",
         "type": "tabs",
         "children": [
           {
-            "id": "644ae45772f60ed0",
+            "id": "255116c19ec828da",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HIS/DA Tool.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -49,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "PRN",
+                "query": "[\"작성자\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -95,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/DA Tool.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/DA Tool.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,13 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "HIS/DA Tool.md"
-              }
+              "state": {}
             }
           },
           {
-            "id": "511b097b9ae1a830",
+            "id": "90369f308a390e1f",
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
@@ -160,7 +150,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -179,17 +169,20 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "644ae45772f60ed0",
+  "active": "255116c19ec828da",
   "lastOpenFiles": [
-    "HIS/HIS 용어.md",
+    "정규화.md",
+    "무제 파일 1.md",
     "HIS/DA Tool.md",
+    "HIS/회의록/원무/2024-05-30 원무 교육.md",
+    "HIS/회의록/2024-05-20.md",
+    "HIS/HIS 용어.md",
     "HIS/HIS 관련.md",
     "HIS/HIS 회의.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/간호/2024-05-27 간호 교육.md",
     "HIS/회의록/원무/2024-05-22 원무교육.md",
     "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
-    "HIS/회의록/2024-05-20.md",
     "HIS/회의록/원무",
     "HIS/회의록/간호",
     "HIS/업무/A10이미지 저장 프로세스 정리.md",
@@ -201,7 +194,6 @@
     "imgs/Pasted image 20240521094014.png",
     "Vercel 배포하기.md",
     "HIS/업무",
-    "무제 파일.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
     "무제 폴더",
@@ -221,8 +213,6 @@
     "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
     "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
     "우성/mono-repo.md",
-    "회사/Amaranth10/ERP/물류/회계처리(매출&수금).md",
-    "회사/Amaranth10/ERP/물류/초기라벨엑셀업로드.md",
     "개선사항",
     "Calendar",
     "Daily",
