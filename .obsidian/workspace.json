@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "02c4a1123902dcdc",
+        "id": "f5daa8ad0f365c35",
         "type": "tabs",
         "children": [
           {
-            "id": "255116c19ec828da",
+            "id": "512bbead86d53716",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -44,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"작성자\"]",
+                "query": "file:next",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +61,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,7 +143,7 @@
             }
           },
           {
-            "id": "90369f308a390e1f",
+            "id": "511b097b9ae1a830",
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
@@ -150,7 +151,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -169,54 +170,54 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "255116c19ec828da",
+  "active": "28e8643f834854d4",
   "lastOpenFiles": [
-    "정규화.md",
-    "무제 파일 1.md",
-    "HIS/DA Tool.md",
-    "HIS/회의록/원무/2024-05-30 원무 교육.md",
-    "HIS/회의록/2024-05-20.md",
+    "우성/imgs/next-app.png",
+    "imgs/next-app.png",
+    "우성/JavaScript/Iteration Protocol.md",
+    "우성/imgs/iteration-protocol.png",
+    "우성/imgs/iteration-protocol-interface.png",
+    "imgs/iteration-protocol-interface.png",
+    "imgs/iteration-protocol.png",
+    "우성/부산시 인터뷰.md",
+    "imgs/더존비즈온_회사소개서_v.20240102.pdf",
+    "img/Pasted image 20231110114013.png",
+    "static",
+    "img/Pasted image 20231110113935.png",
+    "img/Pasted image 20231109135659.png",
+    "img/Pasted image 20231018094847.png",
+    "img/Pasted image 20231018092149.png",
     "HIS/HIS 용어.md",
+    "정규화.md",
+    "HIS/회의록/원무/2024-05-30 원무 교육.md",
+    "HIS/DA Tool.md",
     "HIS/HIS 관련.md",
     "HIS/HIS 회의.md",
     "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/간호/2024-05-27 간호 교육.md",
     "HIS/회의록/원무/2024-05-22 원무교육.md",
     "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
+    "HIS/회의록/2024-05-20.md",
     "HIS/회의록/원무",
     "HIS/회의록/간호",
     "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "imgs/Pasted image 20240521134032.png",
-    "imgs/Pasted image 20240521094018.png",
     "MQTT.md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
-    "imgs/Pasted image 20240521134013.png",
-    "imgs/Pasted image 20240521094014.png",
     "Vercel 배포하기.md",
     "HIS/업무",
+    "무제 파일.md",
     "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
-    "무제 폴더",
     "HIS",
     "Canvas.md",
     "Node Server 배포하기.md",
-    "imgs/Pasted image 20240509093931.png",
-    "imgs/Pasted image 20240509093929.png",
-    "img/Pasted image 20231018094847.png",
-    "img/Pasted image 20231018092149.png",
-    "img/Pasted image 20231018090342.png",
-    "imgs/Pasted image 20240509093721.png",
     "우성/Linux/crontab을 이용한 스케쥴링.md",
     "우성/JavaScript/클로저(Closure).md",
     "우성/Err/[Error] Maven blocker.md",
     "우성/Calendar/2024-04-02 더존 캘린더 백업.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/시리얼발행.md",
-    "회사/Amaranth10/Mobile 물류관리 시스템/생산출고.md",
-    "우성/mono-repo.md",
     "개선사항",
     "Calendar",
     "Daily",
-    "Todo.canvas",
-    "리팩토링/원가분석현황(마감기준)"
+    "Todo.canvas"
   ]
 }

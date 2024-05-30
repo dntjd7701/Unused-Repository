@@ -1,6 +1,7 @@
 {
-  "promptDelete": false,
+  "promptDelete": true,
   "alwaysUpdateLinks": true,
-  "attachmentFolderPath": "imgs",
-  "spellcheck": false
+  "attachmentFolderPath": "static",
+  "spellcheck": false,
+  "newFileLocation": "current"
 }
