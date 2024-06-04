@@ -11,8 +11,13 @@
             "id": "512bbead86d53716",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "HIS/회의록/원무/2024-06-04.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
             }
           }
         ]
@@ -61,12 +66,12 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 239.50390243530273,
+    "collapsed": true
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -90,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "HIS/회의록/원무/2024-06-04.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,6 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "HIS/회의록/원무/2024-06-04.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +146,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "HIS/회의록/원무/2024-06-04.md"
+              }
             }
           },
           {
@@ -151,7 +160,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -172,6 +181,22 @@
   },
   "active": "512bbead86d53716",
   "lastOpenFiles": [
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "HIS/회의록/원무/2024-06-04.md",
+    "HIS/업무/A10 이미지 저장 프로세스.md",
+    "MQTT.md",
+    "Blob 파일 DB 저장하기.md",
+    "회사/업무사항.md",
+    "회사/WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
+    "회사/Canvas.md",
+    "회사/BOM재고수급현황 쿼리 튜닝.md",
+    "회사/BOM 성능 최적화.md",
+    "회사/멘토링/Front/Rendering process.md",
+    "회사/멘토링/Back/Klago.md",
+    "회사/멘토링/Back/Spring.md",
+    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
+    "HIS/DA Tool.md",
+    "HIS/회의록/원무/2024-05-30 원무 교육.md",
     "우성/imgs/next-app.png",
     "imgs/next-app.png",
     "우성/JavaScript/Iteration Protocol.md",
@@ -186,35 +211,19 @@
     "img/Pasted image 20231110113935.png",
     "img/Pasted image 20231109135659.png",
     "img/Pasted image 20231018094847.png",
-    "img/Pasted image 20231018092149.png",
     "HIS/HIS 용어.md",
     "정규화.md",
-    "HIS/회의록/원무/2024-05-30 원무 교육.md",
-    "HIS/DA Tool.md",
     "HIS/HIS 관련.md",
     "HIS/HIS 회의.md",
-    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
     "HIS/회의록/간호/2024-05-27 간호 교육.md",
     "HIS/회의록/원무/2024-05-22 원무교육.md",
     "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
     "HIS/회의록/2024-05-20.md",
     "HIS/회의록/원무",
     "HIS/회의록/간호",
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "MQTT.md",
-    "HIS/업무/A10 이미지 저장 프로세스.md",
-    "Vercel 배포하기.md",
     "HIS/업무",
-    "무제 파일.md",
-    "Blob 파일 DB 저장하기.md",
     "HIS/회의록",
     "HIS",
-    "Canvas.md",
-    "Node Server 배포하기.md",
-    "우성/Linux/crontab을 이용한 스케쥴링.md",
-    "우성/JavaScript/클로저(Closure).md",
-    "우성/Err/[Error] Maven blocker.md",
-    "우성/Calendar/2024-04-02 더존 캘린더 백업.md",
     "개선사항",
     "Calendar",
     "Daily",
