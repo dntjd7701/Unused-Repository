@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f5daa8ad0f365c35",
+        "id": "6a6f2bb7ef40fa94",
         "type": "tabs",
         "children": [
           {
-            "id": "512bbead86d53716",
+            "id": "74f15152d14c5139",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HIS/회의록/원무/2024-06-04.md",
+                "file": "우성/무제 파일.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -70,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 239.50390243530273,
-    "collapsed": true
+    "width": 239.50390243530273
   },
   "right": {
     "id": "8a39aa3dffdbfd5f",
@@ -95,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/회의록/원무/2024-06-04.md",
+                "file": "우성/무제 파일.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/회의록/원무/2024-06-04.md",
+                "file": "우성/무제 파일.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/회의록/원무/2024-06-04.md"
+                "file": "우성/무제 파일.md"
               }
             }
           },
@@ -168,24 +167,34 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-full-calendar:Open Full Calendar": false,
-      "obsidian-projects:Open projects": false,
       "switcher:퀵 스위처 열기": false,
       "graph:그래프 뷰 열기": false,
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "obsidian-projects:Open projects": false
     }
   },
-  "active": "512bbead86d53716",
+  "active": "74f15152d14c5139",
   "lastOpenFiles": [
-    "HIS/업무/A10이미지 저장 프로세스 정리.md",
-    "HIS/회의록/원무/2024-06-04.md",
-    "HIS/업무/A10 이미지 저장 프로세스.md",
+    "우성/부산시 인터뷰.md",
+    "우성/Skills & Tools.md",
+    "우성/Project-Trello.md",
+    "우성/mono-repo.md",
+    "우성/imgs/iteration-protocol.png",
+    "우성/Err/[Error] Maven blocker.md",
+    "우성/Calendar/2024-04-02 더존 캘린더 백업.md",
     "MQTT.md",
     "Blob 파일 DB 저장하기.md",
+    "Vercel 배포하기.md",
+    "정규화.md",
+    "img/Pasted image 20231018090342.png",
+    "HIS/회의록/원무/2024-06-04.md",
+    "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "HIS/업무/A10 이미지 저장 프로세스.md",
     "회사/업무사항.md",
     "회사/WebMvcConfigurer를 활용한 MessageConvertor 확장.md",
     "회사/Canvas.md",
@@ -200,25 +209,15 @@
     "우성/imgs/next-app.png",
     "imgs/next-app.png",
     "우성/JavaScript/Iteration Protocol.md",
-    "우성/imgs/iteration-protocol.png",
     "우성/imgs/iteration-protocol-interface.png",
     "imgs/iteration-protocol-interface.png",
     "imgs/iteration-protocol.png",
-    "우성/부산시 인터뷰.md",
     "imgs/더존비즈온_회사소개서_v.20240102.pdf",
     "img/Pasted image 20231110114013.png",
     "static",
     "img/Pasted image 20231110113935.png",
     "img/Pasted image 20231109135659.png",
-    "img/Pasted image 20231018094847.png",
     "HIS/HIS 용어.md",
-    "정규화.md",
-    "HIS/HIS 관련.md",
-    "HIS/HIS 회의.md",
-    "HIS/회의록/간호/2024-05-27 간호 교육.md",
-    "HIS/회의록/원무/2024-05-22 원무교육.md",
-    "HIS/회의록/산정 코드와 관련한 의사의 처방.md",
-    "HIS/회의록/2024-05-20.md",
     "HIS/회의록/원무",
     "HIS/회의록/간호",
     "HIS/업무",
