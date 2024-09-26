@@ -19,8 +19,35 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "a7e1aa19b59b3c0a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "리스트.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d8dc8c7178165089",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "성능 개선.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +121,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md",
+                "file": "성능 개선.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +138,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md",
+                "file": "성능 개선.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HIS/업무/A10이미지 저장 프로세스 정리.md"
+                "file": "성능 개선.md"
               }
             }
           },
@@ -178,10 +205,14 @@
       "obsidian-projects:Open projects": false
     }
   },
-  "active": "74f15152d14c5139",
+  "active": "d8dc8c7178165089",
   "lastOpenFiles": [
-    "HIS/업무/AutoCompleteTreeView.md",
+    "assets/Pasted image 20240926152014.png",
+    "assets",
+    "리스트.md",
+    "성능 개선.md",
     "HIS/업무/A10이미지 저장 프로세스 정리.md",
+    "HIS/업무/AutoCompleteTreeView.md",
     "HIS/업무/A10 이미지 저장 프로세스.md",
     "우성/Project-Trello.md",
     "무제 파일.canvas",
@@ -207,9 +238,6 @@
     "회사/멘토링/Front/Rendering process.md",
     "회사/멘토링/Back/Klago.md",
     "회사/멘토링/Back/Spring.md",
-    "HIS/2024.05.13 WEHAGO H 회의록 정리 (by 우성).md",
-    "HIS/DA Tool.md",
-    "HIS/회의록/원무/2024-05-30 원무 교육.md",
     "우성/imgs/next-app.png",
     "imgs/next-app.png",
     "우성/imgs/iteration-protocol-interface.png",
@@ -227,7 +255,6 @@
     "HIS",
     "개선사항",
     "Calendar",
-    "Daily",
     "Todo.canvas"
   ]
 }
