@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+    <g data-name="사각형 3763" transform="translate(1 3)" style="stroke:#7b7b7b;fill:none">
+        <rect width="15" height="13" rx="1" style="stroke:none"/>
+        <rect x=".5" y=".5" width="14" height="12" rx=".5" style="fill:none"/>
+    </g>
+    <path data-name="합치기 627" d="M2484.5 11206a.5.5 0 0 1 0-1h2a.5.5 0 1 1 0 1zm0-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 0 1zm0-2a.5.5 0 0 1 0-1h2a.5.5 0 1 1 0 1z" transform="translate(-2474 -11194)" style="fill:#7b7b7b"/>
+    <path d="M-1587-2499a1.875 1.875 0 0 1 1.875-1.875h1.25A1.875 1.875 0 0 1-1582-2499zm1.25-3.75a1.249 1.249 0 0 1 1.249-1.25 1.25 1.25 0 0 1 1.25 1.25 1.25 1.25 0 0 1-1.25 1.25 1.249 1.249 0 0 1-1.249-1.25z" transform="translate(1591 2511)" style="fill:#7b7b7b"/>
+</svg>

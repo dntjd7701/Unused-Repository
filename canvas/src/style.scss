@@ -1,0 +1,117 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// .canvas-container {
+//   position: absolute;
+//   // background-color: gray;
+//   background-color: transparent;
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+// }
+
+// canvas {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background-color: transparent;
+
+//   // &:hover {
+//   //   border: 5px solid blue;
+//   // }
+// }
+
+// .canvas {
+//   &.on {
+//     z-index: 1;
+//   }
+// }
+// .canvas_line {
+//   &.on {
+//     z-index: 1;
+//   }
+// }
+
+// .canvas_background {
+//   z-index: -1;
+// }
+
+// --------------------------------------------------------------------
+// 360 image Viewer
+
+.view_box {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #333944, #333944 64%, #a5afb7);
+
+  .img_area {
+    position: absolute;
+    left: 25%;
+    top: 35%;
+    text-align: center;
+    z-index: 13;
+    animation: slidFromRight 1s ease-in-out;
+    .img_wrap {
+      // touch-action: pan-y;
+      // user-select: none;
+      // -webkit-user-drag: none;
+      // position: relative;
+      // display: inline-block;
+      // vertical-align: top;
+      // z-index: 2;
+      // animation-name: slideInRight;
+
+      img {
+        position: absolute;
+        height: 400px;
+        vertical-align: top;
+        -webkit-user-drag: none;
+      }
+    }
+    // .img_wrap {
+    //   width: 100%;
+    //   height: 100%;
+    //   transform-style: preserve-3d;
+    //   transition: transform 0.3s ease; /* 회전 애니메이션 */
+
+    //   img {
+    //     // position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     object-fit: cover;
+    //     display: block !important;
+    //   }
+    // }
+  }
+}
+
+@keyframes slidFromRight {
+  0% {
+    left: 60%;
+  }
+  100% {
+    left: 25%;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Hackney “Back Cab" AGV
+* source:	https://sketchfab.com/3d-models/hackney-back-cab-agv-f9c1d5dd7be741368a4f44c3f90f0741
+* author:	tegnemaskin (https://sketchfab.com/tegnemaskin)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
