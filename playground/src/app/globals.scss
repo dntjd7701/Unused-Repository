@@ -1,0 +1,59 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-y: scroll;
+  padding-left: 200px;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+main {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 20px;
+
+  h3 > sub:before {
+    content: '|';
+    margin: 0 5px 0 10px;
+    color: #999;
+  }
+}
+
+.markdown {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.67;
+
+  ul,
+  ol {
+    margin: 0.5rem 0;
+    padding-left: 20px;
+  }
+  li {
+    margin: 0.2rem 0;
+  }
+  code {
+    background-color: #eee;
+    padding: 3px;
+    border-radius: 3px;
+    white-space: pre;
+  }
+
+  pre {
+    padding: 1rem;
+    margin: 0;
+    background-color: #eee;
+    border-radius: 5px;
+    code {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+    }
+  }
+}
