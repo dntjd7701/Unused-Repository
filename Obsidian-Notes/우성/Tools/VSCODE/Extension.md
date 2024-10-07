@@ -1,0 +1,17 @@
+
+- Auto Rename Tag
+- Auto Time Stamp
+- Color Highlight
+- Error Lens
+- ESLint
+- GitLens
+- indent-rainbow
+- inline Parameters Extended for VSCode
+- Inline Parameters for VSCODE
+- code snippets
+- Power Mode
+- TabOut
+- Thunder Client
+- Wrap Console Log
+- Quokka
+- Polacode

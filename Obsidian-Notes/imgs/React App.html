@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://localhost:3001/#/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3001/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3001/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3001/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script defer="" src="./React App_files/bundle.js"></script><style>@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap);</style><style>* {
+  box-sizing: border-box; }
+
+html {
+  font-family: 'Noto Sans JP', sans-serif; }
+
+body {
+  margin: 0;
+  background-color: #3f3f3f; }
+
+.title {
+  max-width: 100%;
+  margin: 2rem auto;
+  width: 50rem; }
+
+.content-box {
+  padding: 1rem;
+  background-color: #1f1f1f;
+  margin: 0.1rem auto;
+  width: 50rem;
+  max-width: 95%; }
+
+.item-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background-color: #4b4b4b; }
+
+.expense-name {
+  display: flex;
+  flex-direction: column;
+  width: 5.5rem;
+  height: 3rem;
+  border: 1px solid #ececec;
+  background-color: #2a2a2a;
+  color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center; }
+  .expense-name > button {
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff1f1;
+    background-color: transparent;
+    border: transparent; }
+
+.expense-item__description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-flow: column-reverse;
+  justify-content: flex-start;
+  flex: 1 1; }
+
+.expense-item h2 {
+  color: #3a3a3a;
+  font-size: 1rem;
+  flex: 1 1;
+  margin: 0 1rem;
+  color: white; }
+
+.expense-item__price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #40005d;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px; }
+
+@media (min-width: 580px) {
+  .expense-item__description {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1; }
+  .expense-item__description h2 {
+    font-size: 1.25rem; }
+  .expense-item__price {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.5rem; } }
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25); }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0Usc0JBQXNCLEVBQUE7O0FBR3hCO0VBQ0UsdUNBQXVDLEVBQUE7O0FBR3pDO0VBQ0UsU0FBUztFQUNULHlCQUF5QixFQUFBOztBQUczQjtFQUNFLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsWUFBWSxFQUFBOztBQUlkO0VBQ0UsYUFBYTtFQUNiLHlCQUFpQztFQUNqQyxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLGNBQWMsRUFBQTs7QUFJaEI7RUFDRSxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLG1CQUFtQjtFQUNuQixlQUFlO0VBQ2YsY0FBYztFQUNkLHlCQUF5QixFQUFBOztBQUczQjtFQUNFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsYUFBYTtFQUNiLFlBQVk7RUFDWix5QkFBeUI7RUFDekIseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsbUJBQW1CO0VBQ25CLHVCQUF1QixFQUFBO0VBVnpCO0lBWUksaUJBQWlCO0lBQ2pCLGVBQWU7SUFDZixjQUF5QjtJQUN6Qiw2QkFBNkI7SUFDN0IsbUJBQW1CLEVBQUE7O0FBSXZCO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixTQUFTO0VBQ1QscUJBQXFCO0VBQ3JCLHlCQUF5QjtFQUN6QiwyQkFBMkI7RUFDM0IsU0FBTyxFQUFBOztBQUdUO0VBQ0UsY0FBYztFQUNkLGVBQWU7RUFDZixTQUFPO0VBQ1AsY0FBYztFQUNkLFlBQVksRUFBQTs7QUFHZDtFQUNFLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLHlCQUF5QjtFQUN6Qix1QkFBdUI7RUFDdkIsZUFBZTtFQUNmLG1CQUFtQixFQUFBOztBQUdyQjtFQUNFO0lBQ0UsbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQiwyQkFBMkI7SUFDM0IsU0FBTyxFQUFBO0VBR1Q7SUFDRSxrQkFBa0IsRUFBQTtFQUdwQjtJQUNFLGtCQUFrQjtJQUNsQixzQkFBc0IsRUFBQSxFQUN2Qjs7QUFJSDtFQUNFLG1CQUFtQjtFQUNuQix5Q0FBeUMsRUFBQSIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PU5vdG8rU2FucytKUDp3Z2h0QDQwMDs3MDAmZGlzcGxheT1zd2FwJyk7XG5cbioge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xufVxuXG5odG1sIHtcbiAgZm9udC1mYW1pbHk6ICdOb3RvIFNhbnMgSlAnLCBzYW5zLXNlcmlmO1xufVxuXG5ib2R5IHtcbiAgbWFyZ2luOiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2YzZjNmO1xufVxuXG4udGl0bGUge1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIG1hcmdpbjogMnJlbSBhdXRvO1xuICB3aWR0aDogNTByZW07XG59XG5cbi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IEV4cGVuc2VzID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4uY29udGVudC1ib3gge1xuICBwYWRkaW5nOiAxcmVtO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMzEsIDMxLCAzMSk7XG4gIG1hcmdpbjogMC4xcmVtIGF1dG87XG4gIHdpZHRoOiA1MHJlbTtcbiAgbWF4LXdpZHRoOiA5NSU7XG59XG5cbi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IEV4cGVuc2VzIEl0ZW1zID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbi5pdGVtLWJveCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgcGFkZGluZzogMC41cmVtO1xuICBtYXJnaW46IDFyZW0gMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRiNGI0Yjtcbn1cblxuLmV4cGVuc2UtbmFtZSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIHdpZHRoOiA1LjVyZW07XG4gIGhlaWdodDogM3JlbTtcbiAgYm9yZGVyOiAxcHggc29saWQgI2VjZWNlYztcbiAgYmFja2dyb3VuZC1jb2xvcjogIzJhMmEyYTtcbiAgY29sb3I6IHdoaXRlO1xuICBib3JkZXItcmFkaXVzOiAxMnB4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgPiBidXR0b24ge1xuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBjb2xvcjogcmdiKDI1NSwgMjQxLCAyNDEpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50O1xuICAgIGJvcmRlcjogdHJhbnNwYXJlbnQ7XG4gIH1cbn1cblxuLmV4cGVuc2UtaXRlbV9fZGVzY3JpcHRpb24ge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBnYXA6IDFyZW07XG4gIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDtcbiAgZmxleC1mbG93OiBjb2x1bW4tcmV2ZXJzZTtcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0O1xuICBmbGV4OiAxO1xufVxuXG4uZXhwZW5zZS1pdGVtIGgyIHtcbiAgY29sb3I6ICMzYTNhM2E7XG4gIGZvbnQtc2l6ZTogMXJlbTtcbiAgZmxleDogMTtcbiAgbWFyZ2luOiAwIDFyZW07XG4gIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmV4cGVuc2UtaXRlbV9fcHJpY2Uge1xuICBmb250LXNpemU6IDFyZW07XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogd2hpdGU7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0MDAwNWQ7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHdoaXRlO1xuICBwYWRkaW5nOiAwLjVyZW07XG4gIGJvcmRlci1yYWRpdXM6IDEycHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA1ODBweCkge1xuICAuZXhwZW5zZS1pdGVtX19kZXNjcmlwdGlvbiB7XG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbiAgICBmbGV4OiAxO1xuICB9XG5cbiAgLmV4cGVuc2UtaXRlbV9fZGVzY3JpcHRpb24gaDIge1xuICAgIGZvbnQtc2l6ZTogMS4yNXJlbTtcbiAgfVxuXG4gIC5leHBlbnNlLWl0ZW1fX3ByaWNlIHtcbiAgICBmb250LXNpemU6IDEuMjVyZW07XG4gICAgcGFkZGluZzogMC41cmVtIDEuNXJlbTtcbiAgfVxufVxuXG4vLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSBDYXJkID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbi5jYXJkIHtcbiAgYm9yZGVyLXJhZGl1czogMTJweDtcbiAgYm94LXNoYWRvdzogMCAxcHggOHB4IHJnYmEoMCwgMCwgMCwgMC4yNSk7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style></head>
+  <body style="">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div><div class="title"><h2 style="color: white;">입금 계좌 (오늘의 총무 : 강우성 )</h2><h3 style="color: white;">카카오뱅크 : 3333-07-2273158</h3></div><div class="card content-box"><div class="card item-box"><div class="expense-name"><button>강우성</button></div><div class="expense-price"></div><div class="expense-item"><div class="expense-item__price">125000</div></div></div><div class="card item-box"><div class="expense-name"><button>김대운</button></div><div class="expense-price"></div><div class="expense-item"><div class="expense-item__price">2000</div></div></div><div class="card item-box"><div class="expense-name"><button>김원기</button></div><div class="expense-price"></div><div class="expense-item"><div class="expense-item__price">60000</div></div></div><div class="card item-box"><div class="expense-name"><button>김현기</button></div><div class="expense-price"></div><div class="expense-item"><div class="expense-item__price">50000</div></div></div><div class="card item-box"><div class="expense-name"><button>김적영</button></div><div class="expense-price"></div><div class="expense-item"><div class="expense-item__price">20000</div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+</body></html>
