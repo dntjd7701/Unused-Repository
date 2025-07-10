@@ -1,5 +1,60 @@
 # Unused-Repository
 
+✅ 1. 전체 레포를 새 레포로 이동 (커밋 이력 포함)
+1단계. 기존 레포 클론
+bash
+복사
+편집
+git clone --bare https://github.com/username/old-repo.git
+--bare 옵션은 .git 디렉토리만 복사하는 방식으로, 원격 이전에 적합합니다.
+
+2단계. 새 레포에 푸시
+bash
+복사
+편집
+cd old-repo.git
+git push --mirror https://github.com/username/new-repo.git
+--mirror는 브랜치, 태그, 리모트 정보 등 모든 것을 새 레포로 복사합니다.
+
+3단계. 클론해서 사용
+bash
+복사
+편집
+git clone https://github.com/username/new-repo.git
+✅ 2. 기존 레포를 다른 레포 하위 폴더로 병합 (예: 모노레포 구성)
+기존 레포의 커밋 히스토리를 유지한 채로, 다른 레포의 하위 폴더로 가져오고 싶다면:
+
+1단계. 기존 레포를 서브디렉토리로 변환
+bash
+복사
+편집
+git clone https://github.com/username/old-repo.git
+cd old-repo
+git filter-repo --to-subdirectory-filter my-old-repo
+git filter-repo는 filter-branch의 더 빠른 대체 도구이며, 설치 필요:
+brew install git-filter-repo 또는 공식 문서
+
+2단계. 새로운 레포에 병합
+bash
+복사
+편집
+git remote add newrepo https://github.com/username/new-repo.git
+git fetch newrepo
+git merge --allow-unrelated-histories newrepo/main
+3단계. 푸시
+bash
+복사
+편집
+git push origin main
+🔁 정리
+목적	방법
+레포 전체 이동 (이력 포함)	--bare + --mirror
+레포를 다른 레포 하위 폴더로 옮기기 (이력 포함)	git filter-repo + 병합
+
+
+
+
+---
 
 ```linux
 git subtree add --prefix=기존리포지토리명 기존리포지토리주소 기존브랜치명
